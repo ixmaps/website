@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+  <Style id="docBalloonStyle">
+    <BalloonStyle>
+      <!-- a background color for the balloon -->
+      <bgColor>40ffffbb</bgColor>
+      <!-- styling of the balloon text -->
+      <text><![CDATA[
+      <b><font color="#CC0000" size="+3">$[name]</font></b>
+      <br/><br/>
+      <font face="Courier">$[description]</font>
+      <br/><br/>
+      ]]></text>
+    </BalloonStyle>
+  </Style>
+  <name>Traceroute Results</name>
+  <open>1</open>
+  <Document>
+    <name>Instructions</name>
+    <Snippet maxLines="0">Instructions</Snippet>
+    <description><![CDATA[
+<ul><li>Click on icons to see locations of Carrier Hotels</li>
+    <li>Click on location to see Carrier Hotel building</li>
+    <li>Mouse over center of building to see infrastructure</li>
+    </ul>
+  <br/><br/>
+This product includes GeoLite data created by MaxMind, available from
+<a href="http://maxmind.com/">http://maxmind.com/</a>
+
+  ]]></description>
+    <styleUrl>#docBalloonStyle</styleUrl>
+  </Document>
+  <description>Select this folder and click on the &apos;Play&apos; button below, to start the tour.</description>
+
+
+  <Style id="CHO_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/red8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Known Carrier Hotel</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="CHO_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/red8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Known Carrier Hotel</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="CHO">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#CHO_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#CHO_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+
+  <Style id="OTH_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/purple8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p></p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="OTH_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/purple8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p></p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="OTH">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#OTH_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#OTH_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+
+    <Camera id="NorthAmerica">
+      <longitude>-82.4586</longitude>
+      <latitude>27.9496</latitude>
+      <altitude>100000.0</altitude>
+      <heading>0.0</heading>
+      <tilt>0</tilt>
+      <roll>0</roll>
+      <altitudeMode>absolute</altitudeMode>
+    </Camera>
+   <Placemark id="ch_40">
+        <name>655 N. Franklin St., Tampa, FL</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 655 N. Franklin St., Tampa, FL<br/>
+lat: 27.9496, long: -82.4586, id=40<br/>]]></description>
+        <styleUrl>#CHO</styleUrl>
+        <Point>
+          <coordinates>-82.4586,27.9496,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_47">
+        <name>28.1994/-82.7681</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1994/-82.7681<br/>
+hostcount=17540, netcount=61, AScount=11<br/>
+ASnums: 701,1785,3303,3356,4323,6983,10994,12083,16724,19262,22017]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7681,28.1994,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_55">
+        <name>27.9447/-82.7944</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9447/-82.7944<br/>
+hostcount=161128, netcount=128, AScount=21<br/>
+ASnums: 209,701,1239,1785,2634,3303,3356,4267,4323,6983,7018,10994,11456,12083,14654,19262,19710,22498,27283,29965,46446]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7944,27.9447,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_117">
+        <name>28.0087/-82.7454</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0087/-82.7454<br/>
+hostcount=7164, netcount=48, AScount=11<br/>
+ASnums: 209,701,3303,4323,6983,10994,12083,14654,16724,19262,20021]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7454,28.0087,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_68">
+        <name>27.9757/-82.743</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9757/-82.743<br/>
+hostcount=11194, netcount=78, AScount=23<br/>
+ASnums: 209,701,1239,1785,3303,3356,4323,6983,7018,10994,11388,11456,12083,12131,14492,14654,17027,19262,19271,20021,20057,29863,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.743,27.9757,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_45">
+        <name>28.149/-82.469</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.149/-82.469<br/>
+hostcount=27218, netcount=138, AScount=16<br/>
+ASnums: 571,1785,3303,3356,4323,6167,6983,10994,11456,19262,20057,21889,22549,23056,23504,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.469,28.149,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_53">
+        <name>27.7207/-82.7376</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7207/-82.7376<br/>
+hostcount=4500, netcount=42, AScount=12<br/>
+ASnums: 209,701,1785,3303,3356,4323,6983,7018,10994,12131,14654,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7376,27.7207,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_57">
+        <name>27.9986/-82.5157</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9986/-82.5157<br/>
+hostcount=23957, netcount=177, AScount=20<br/>
+ASnums: 209,701,714,1239,1785,3303,3356,3561,4323,6389,6983,7018,10994,11456,12131,14492,19262,19271,22167,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5157,27.9986,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_79">
+        <name>28.258/-82.4797</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.258/-82.4797<br/>
+hostcount=48572, netcount=225, AScount=18<br/>
+ASnums: 701,1239,2828,3303,4323,6389,6983,7018,7453,10994,12083,14654,19262,19271,21889,25847,30536,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4797,28.258,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_77">
+        <name>27.8812/-82.7521</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8812/-82.7521<br/>
+hostcount=8378, netcount=112, AScount=22<br/>
+ASnums: 209,701,1239,1785,2828,3303,3356,3561,4323,6983,7018,10994,11456,12083,12131,13343,14499,19262,19271,26217,26407,32575]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7521,27.8812,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_12">
+        <name>27.9578/-82.4622</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9578/-82.4622<br/>
+hostcount=118469, netcount=351, AScount=41<br/>
+ASnums: -1,174,209,701,1239,1785,2828,3303,3356,3561,4323,6079,6364,6983,7018,8103,10994,11305,11774,12131,12182,13680,14492,15110,16724,17230,19262,19271,21889,22545,22653,25934,29802,29935,30217,31939,32232,32311,32752,33363,35908]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4622,27.9578,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_75">
+        <name>28.0316/-82.8214</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0316/-82.8214<br/>
+hostcount=6116, netcount=32, AScount=11<br/>
+ASnums: 209,701,1785,3356,4323,6983,7018,10507,10994,14654,17139]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.8214,28.0316,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_41">
+        <name>27.7313/-82.362</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7313/-82.362<br/>
+hostcount=18128, netcount=43, AScount=8<br/>
+ASnums: 209,701,1785,3356,4323,10994,14654,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.362,27.7313,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_20">
+        <name>27.9444/-82.419</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9444/-82.419<br/>
+hostcount=15474, netcount=95, AScount=18<br/>
+ASnums: -1,209,701,1239,1785,3303,3356,3561,4323,6364,6983,7018,10994,14492,14654,19262,19271,23043]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.419,27.9444,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_112">
+        <name>27.7897/-82.7283</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7897/-82.7283<br/>
+hostcount=22524, netcount=98, AScount=15<br/>
+ASnums: -1,701,1239,2828,3303,4323,6983,10994,12083,12131,14184,17230,19262,27283,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7283,27.7897,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_72">
+        <name>27.7713/-82.4143</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7713/-82.4143<br/>
+hostcount=7972, netcount=41, AScount=11<br/>
+ASnums: 701,1785,2634,4323,6983,7018,7393,10507,10994,19262,19271]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4143,27.7713,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_123">
+        <name>27.8819/-82.6644</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8819/-82.6644<br/>
+hostcount=66880, netcount=13, AScount=6<br/>
+ASnums: 209,701,3303,10994,17282,25667]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6644,27.8819,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_6">
+        <name>27.9617/-82.7368</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9617/-82.7368<br/>
+hostcount=224927, netcount=475, AScount=40<br/>
+ASnums: -1,174,209,638,701,1239,1785,2634,2828,3303,3356,3491,3561,4323,6167,6389,6983,7018,10507,10896,10994,11456,12083,12131,14501,17359,18566,19262,20057,21595,21787,21889,22498,22549,25650,26322,27064,29992,30145,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7368,27.9617,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_116">
+        <name>28.0182/-82.6119</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0182/-82.6119<br/>
+hostcount=13536, netcount=90, AScount=8<br/>
+ASnums: 701,2828,3303,3356,10949,10994,12131,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6119,28.0182,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_4">
+        <name>28.0907/-82.4515</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0907/-82.4515<br/>
+hostcount=17565, netcount=90, AScount=15<br/>
+ASnums: -1,209,701,1239,1785,3303,3356,4323,6983,10994,12131,14654,19262,22385,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4515,28.0907,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_73">
+        <name>28.1476/-82.7641</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1476/-82.7641<br/>
+hostcount=77152, netcount=52, AScount=13<br/>
+ASnums: 209,4323,6983,7018,10994,11388,11486,12083,12131,13343,16797,17232,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7641,28.1476,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_125">
+        <name>28.32/-82.261</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.32/-82.261<br/>
+hostcount=1568, netcount=5, AScount=3<br/>
+ASnums: 209,10507,10994]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.261,28.32,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_25">
+        <name>27.9832/-82.4618</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9832/-82.4618<br/>
+hostcount=5788, netcount=41, AScount=11<br/>
+ASnums: 701,1785,3356,4323,6983,7018,10994,12131,19262,19271,21889]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4618,27.9832,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_113">
+        <name>27.8428/-82.7955</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8428/-82.7955<br/>
+hostcount=12264, netcount=64, AScount=10<br/>
+ASnums: 701,1239,3303,3356,6983,10994,12083,14654,19262,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7955,27.8428,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_120">
+        <name>27.8867/-82.5117</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8867/-82.5117<br/>
+hostcount=100015, netcount=285, AScount=20<br/>
+ASnums: 174,209,701,1785,3303,4323,6983,7132,10994,12156,14654,19262,19271,21840,22549,23148,29802,29863,30217,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5117,27.8867,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_69">
+        <name>28.0762/-82.5613</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0762/-82.5613<br/>
+hostcount=9008, netcount=57, AScount=11<br/>
+ASnums: 209,701,1785,2828,3303,6983,7018,10994,19262,33287,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5613,28.0762,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_17">
+        <name>27.7723/-82.6341</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7723/-82.6341<br/>
+hostcount=24193, netcount=121, AScount=29<br/>
+ASnums: -1,174,209,701,1239,1785,2828,3303,3356,3561,4323,6389,6983,7018,8103,10994,11305,12083,12131,12180,19262,19271,19742,20021,21889,25847,30217,32463,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6341,27.7723,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_128">
+        <name>27.8451/-82.5034</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8451/-82.5034<br/>
+hostcount=1280, netcount=5, AScount=5<br/>
+ASnums: -1,395,5802,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5034,27.8451,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_86">
+        <name>28.2199/-82.1444</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2199/-82.1444<br/>
+hostcount=2000, netcount=13, AScount=6<br/>
+ASnums: 209,701,4323,7018,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.1444,28.2199,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_60">
+        <name>28.001/-82.4014</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.001/-82.4014<br/>
+hostcount=76559, netcount=150, AScount=23<br/>
+ASnums: -1,209,701,1239,1785,2828,3303,3356,3561,4323,6364,6983,7018,7132,7393,10994,11456,12131,14127,19262,21840,21889,25693]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4014,28.001,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_110">
+        <name>28.0069/-82.1249</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0069/-82.1249<br/>
+hostcount=8032, netcount=63, AScount=10<br/>
+ASnums: 701,1785,3303,4323,6167,10994,11493,13343,19262,20214]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.1249,28.0069,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_46">
+        <name>28.1954/-82.7454</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1954/-82.7454<br/>
+hostcount=6420, netcount=35, AScount=8<br/>
+ASnums: 3303,3356,4323,6167,10994,11456,12083,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7454,28.1954,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_130">
+        <name>27.6757/-82.4791</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.6757/-82.4791<br/>
+hostcount=8, netcount=1, AScount=1<br/>
+ASnums: 4323]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4791,27.6757,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_88">
+        <name>28.0288/-82.7689</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0288/-82.7689<br/>
+hostcount=31560, netcount=180, AScount=23<br/>
+ASnums: 209,701,1239,1785,2828,3303,3549,4323,6364,7018,7296,10994,11456,12083,12131,13343,16724,19262,19271,21844,21889,25981,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7689,28.0288,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_7">
+        <name>28.0771/-82.4871</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0771/-82.4871<br/>
+hostcount=16457, netcount=129, AScount=17<br/>
+ASnums: 209,701,1239,1785,3303,3356,4323,6983,7018,10994,12131,14492,19262,19271,19529,20021,25973]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4871,28.0771,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_74">
+        <name>27.9112/-82.7551</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9112/-82.7551<br/>
+hostcount=12851, netcount=79, AScount=17<br/>
+ASnums: 209,701,1239,1785,3303,3356,4323,6983,7018,10994,11456,12083,12131,14654,19262,21889,22781]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7551,27.9112,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_26">
+        <name>28.0374/-82.3902</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0374/-82.3902<br/>
+hostcount=21180, netcount=123, AScount=15<br/>
+ASnums: 209,701,1785,3303,3356,3549,3561,4323,6983,7018,10994,12131,19262,22385,22549]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.3902,28.0374,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_65">
+        <name>28.0042/-82.2936</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0042/-82.2936<br/>
+hostcount=10520, netcount=54, AScount=10<br/>
+ASnums: 209,2828,4323,6983,7018,10994,11456,19262,20214,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.2936,28.0042,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_91">
+        <name>28.0183/-82.142</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0183/-82.142<br/>
+hostcount=6144, netcount=44, AScount=7<br/>
+ASnums: 209,701,1785,4323,7018,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.142,28.0183,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_49">
+        <name>28.1202/-82.3529</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1202/-82.3529<br/>
+hostcount=48921, netcount=182, AScount=22<br/>
+ASnums: 174,209,701,1239,1785,2828,3303,3356,3561,4323,6983,7018,10994,11486,14323,17231,19262,19271,21840,21889,23339,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.3529,28.1202,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_82">
+        <name>27.7531/-82.7224</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7531/-82.7224<br/>
+hostcount=12912, netcount=59, AScount=12<br/>
+ASnums: 209,701,2828,3303,4277,4323,6983,7018,10994,12083,19262,22017]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7224,27.7531,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_63">
+        <name>27.9949/-82.0804</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9949/-82.0804<br/>
+hostcount=8825, netcount=50, AScount=11<br/>
+ASnums: 209,701,1785,3303,4323,6912,6983,7018,10994,14654,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.0804,27.9949,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_15">
+        <name>27.8385/-82.7166</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8385/-82.7166<br/>
+hostcount=12977, netcount=117, AScount=22<br/>
+ASnums: 209,701,1785,3300,3303,3356,4323,6983,7018,10994,11100,12083,12131,14654,16724,19262,19271,21844,26407,27229,33363,40595]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7166,27.8385,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_31">
+        <name>27.8222/-82.2797</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8222/-82.2797<br/>
+hostcount=461328, netcount=255, AScount=25<br/>
+ASnums: 209,701,1785,2828,3303,3356,3561,3764,4323,6167,6983,7018,8103,10507,10796,10994,12131,13343,14654,19262,20001,23043,29935,33363,40457]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.2797,27.8222,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_33">
+        <name>27.9158/-82.229</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9158/-82.229<br/>
+hostcount=41800, netcount=204, AScount=17<br/>
+ASnums: 209,701,1785,2828,3303,3356,4323,6167,6983,10507,10994,11456,12131,14091,19262,21889,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.229,27.9158,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_39">
+        <name>27.8505/-82.713</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8505/-82.713<br/>
+hostcount=20560, netcount=69, AScount=14<br/>
+ASnums: -1,3303,3356,4323,6167,6983,10994,11456,12131,14992,19262,22385,26217,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.713,27.8505,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_51">
+        <name>27.9053/-82.7136</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9053/-82.7136<br/>
+hostcount=74461, netcount=130, AScount=28<br/>
+ASnums: 209,577,637,701,1785,3356,3549,3561,4323,6364,6983,7018,7867,10994,11456,12083,12131,13343,14492,16724,19262,19271,20021,21889,26407,30145,33363,40585]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7136,27.9053,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_24">
+        <name>27.8715/-82.6542</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8715/-82.6542<br/>
+hostcount=30999, netcount=129, AScount=31<br/>
+ASnums: -1,174,209,701,1239,1785,3303,3356,3549,4323,6912,6983,7018,10994,12083,12131,13343,15168,16724,17227,17359,17406,19262,19271,19613,21889,22330,26460,27283,33363,36637]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6542,27.8715,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_54">
+        <name>28.0444/-82.6795</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0444/-82.6795<br/>
+hostcount=24041, netcount=171, AScount=27<br/>
+ASnums: 174,209,701,1785,2828,3303,3356,3561,4323,6983,7018,10994,11456,12083,12131,14745,19262,19271,19606,21840,21889,27283,30145,33363,36300,40198,40585]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6795,28.0444,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_62">
+        <name>27.9829/-82.7795</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9829/-82.7795<br/>
+hostcount=23325, netcount=79, AScount=19<br/>
+ASnums: 209,701,1239,1785,2828,3303,3356,4323,6983,7018,7393,10994,12083,13576,19019,19262,19271,32854,46339]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7795,27.9829,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_93">
+        <name>28.0901/-82.7251</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0901/-82.7251<br/>
+hostcount=32918, netcount=189, AScount=23<br/>
+ASnums: 209,701,1668,1785,2828,3303,3356,3491,3561,4323,6167,6983,7867,10994,11456,12083,13343,19262,19271,22549,26407,27283,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7251,28.0901,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_104">
+        <name>28.0898/-82.576</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0898/-82.576<br/>
+hostcount=13693, netcount=90, AScount=15<br/>
+ASnums: -1,209,701,1239,1785,3303,3356,3561,4323,6983,10994,12131,14654,19262,19271]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.576,28.0898,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_90">
+        <name>27.7362/-82.6691</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7362/-82.6691<br/>
+hostcount=5785, netcount=46, AScount=9<br/>
+ASnums: 209,701,1785,6983,7018,10994,12083,19262,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6691,27.7362,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_70">
+        <name>28.2443/-82.6933</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2443/-82.6933<br/>
+hostcount=10848, netcount=58, AScount=11<br/>
+ASnums: 1785,2035,3303,3356,4323,6389,7018,10994,14654,19262,29863]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6933,28.2443,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_83">
+        <name>27.5701/-82.3798</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.5701/-82.3798<br/>
+hostcount=9689, netcount=43, AScount=10<br/>
+ASnums: 109,1785,4323,10507,10994,19262,26407,30536,33363,36603]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.3798,27.5701,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_61">
+        <name>28.0986/-82.6861</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0986/-82.6861<br/>
+hostcount=8401, netcount=61, AScount=19<br/>
+ASnums: 209,701,1785,2828,3303,3356,4323,6983,7018,10994,12083,12131,14492,19262,19271,26407,27229,33363,36263]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6861,28.0986,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_48">
+        <name>28.0043/-82.5461</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0043/-82.5461<br/>
+hostcount=32276, netcount=203, AScount=31<br/>
+ASnums: 174,209,701,1239,1785,3303,3356,3561,4323,6364,6983,7018,10316,10994,11456,11882,12131,14005,14103,15054,16860,19262,19271,19529,20183,21889,22549,26147,33363,33724,40129]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5461,28.0043,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_106">
+        <name>27.8489/-82.8282</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8489/-82.8282<br/>
+hostcount=5906, netcount=28, AScount=10<br/>
+ASnums: 1785,6983,10994,12083,14992,19262,26407,27229,33363,40595]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.8282,27.8489,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_52">
+        <name>27.8959/-82.672</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8959/-82.672<br/>
+hostcount=3952, netcount=79, AScount=17<br/>
+ASnums: 209,701,1239,1785,3303,3356,4323,6983,7018,10994,11867,12131,13343,14127,19262,19271,20021]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.672,27.8959,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_40">
+        <name>27.7788/-82.6823</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7788/-82.6823<br/>
+hostcount=189780, netcount=703, AScount=47<br/>
+ASnums: -1,174,209,701,1239,1785,2634,2828,3303,3356,3369,3549,4323,6167,6316,6364,6389,6629,6983,7018,10507,10994,11456,12083,12131,13343,13755,14492,14501,14835,17292,18774,19262,19271,20021,20214,21840,22330,22549,23314,26460,27064,27283,33282,33363,36300,36454]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6823,27.7788,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_71">
+        <name>28.0996/-82.1527</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0996/-82.1527<br/>
+hostcount=2558, netcount=21, AScount=6<br/>
+ASnums: 701,7018,10994,11456,20214,21889]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.1527,28.0996,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_42">
+        <name>28.2334/-82.2391</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2334/-82.2391<br/>
+hostcount=9357, netcount=35, AScount=9<br/>
+ASnums: -1,2379,3356,6167,10507,10994,19262,20057,30536]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.2391,28.2334,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_59">
+        <name>27.9839/-82.7182</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9839/-82.7182<br/>
+hostcount=12606, netcount=81, AScount=16<br/>
+ASnums: 209,701,1239,1785,3303,3356,4323,6983,7018,10994,12083,12131,14654,19262,20021,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7182,27.9839,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_34">
+        <name>27.7146/-82.2323</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7146/-82.2323<br/>
+hostcount=3128, netcount=19, AScount=7<br/>
+ASnums: 209,701,1239,3356,7018,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.2323,27.7146,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_5">
+        <name>27.9984/-82.4781</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9984/-82.4781<br/>
+hostcount=531779, netcount=1619, AScount=71<br/>
+ASnums: -1,174,209,395,571,701,1239,1668,1785,2379,2634,2828,3303,3356,3472,3474,3561,4323,4565,6167,6316,6389,6913,6983,6984,7018,7867,7963,8103,10507,10994,11427,11456,11496,11693,11774,11882,12131,12156,13343,15255,16724,17359,17406,18566,18752,19262,19271,20141,20426,21840,21844,21889,22017,22385,22472,22549,23371,25847,25934,26778,27064,29756,29802,29935,30217,30536,31939,33363,40198,40585]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4781,27.9984,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_38">
+        <name>28.2927/-82.6279</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2927/-82.6279<br/>
+hostcount=10852, netcount=41, AScount=10<br/>
+ASnums: 3303,3356,4323,6983,7018,10994,14654,19262,29863,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6279,28.2927,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_1">
+        <name>28.0499/-82.3625</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0499/-82.3625<br/>
+hostcount=1318900, netcount=195, AScount=24<br/>
+ASnums: -1,209,701,1239,1785,2386,2828,3303,3356,3561,4323,4390,6453,6983,6984,7018,7132,10994,18461,19262,19271,22017,25934,26407]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.3625,28.0499,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_126">
+        <name>28.0631/-82.4128</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0631/-82.4128<br/>
+hostcount=65552, netcount=2, AScount=2<br/>
+ASnums: 5661,19271]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4128,28.0631,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_28">
+        <name>28.2058/-82.3201</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2058/-82.3201<br/>
+hostcount=35267, netcount=176, AScount=21<br/>
+ASnums: 701,1239,1785,2828,3303,3356,4323,6389,6983,7018,7132,10994,12131,14418,15110,17359,19262,21769,21889,30536,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.3201,28.2058,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_10">
+        <name>28.1485/-82.4887</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1485/-82.4887<br/>
+hostcount=3324, netcount=20, AScount=7<br/>
+ASnums: 209,1785,3356,4323,6983,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4887,28.1485,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_127">
+        <name>27.8918/-82.7248</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8918/-82.7248<br/>
+hostcount=128, netcount=1, AScount=1<br/>
+ASnums: 19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7248,27.8918,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_32">
+        <name>28.1764/-82.5954</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1764/-82.5954<br/>
+hostcount=31028, netcount=132, AScount=18<br/>
+ASnums: 209,701,1785,3303,3356,4323,6983,7018,7867,10994,11456,12131,14654,16429,17359,19262,19271,21889]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5954,28.1764,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_100">
+        <name>28.1407/-82.7163</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1407/-82.7163<br/>
+hostcount=7476, netcount=52, AScount=7<br/>
+ASnums: 3303,4323,10507,10994,11456,19262,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7163,28.1407,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_22">
+        <name>27.8846/-82.8277</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8846/-82.8277<br/>
+hostcount=7204, netcount=46, AScount=15<br/>
+ASnums: 701,3303,3356,3561,6983,7018,10994,12083,12131,14654,19262,19271,26407,27229,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.8277,27.8846,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_21">
+        <name>27.9003/-82.3024</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9003/-82.3024<br/>
+hostcount=1400349, netcount=215, AScount=26<br/>
+ASnums: 209,701,1239,1785,2828,3303,3356,4323,6983,7018,7393,10796,10994,11305,11818,12131,13343,14492,14501,14654,19262,19271,21840,21889,29802,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.3024,27.9003,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_108">
+        <name>27.7899/-82.6773</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7899/-82.6773<br/>
+hostcount=20265, netcount=82, AScount=16<br/>
+ASnums: 209,701,1239,3303,3356,3369,4323,6983,10994,12083,13343,14359,16557,19262,21889,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6773,27.7899,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_98">
+        <name>28.1591/-82.4168</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1591/-82.4168<br/>
+hostcount=3692, netcount=31, AScount=7<br/>
+ASnums: 209,4323,6364,6983,10994,19262,21840]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4168,28.1591,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_64">
+        <name>27.8512/-82.7545</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8512/-82.7545<br/>
+hostcount=11921, netcount=77, AScount=19<br/>
+ASnums: 209,701,1785,2828,3303,3356,3644,4181,4323,6983,7018,10994,12083,16482,17227,19262,19271,22545,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7545,27.8512,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_99">
+        <name>28.0666/-82.7777</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0666/-82.7777<br/>
+hostcount=1152, netcount=2, AScount=2<br/>
+ASnums: 4323,10994]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7777,28.0666,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_105">
+        <name>27.7429/-82.648</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7429/-82.648<br/>
+hostcount=9080, netcount=64, AScount=11<br/>
+ASnums: 209,3303,4323,6983,10994,12083,12131,13343,16724,19262,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.648,27.7429,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_23">
+        <name>27.8152/-82.6255</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8152/-82.6255<br/>
+hostcount=10907, netcount=55, AScount=12<br/>
+ASnums: 1785,3303,3356,4323,6983,7018,10994,12083,12131,19262,21844,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6255,27.8152,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_118">
+        <name>27.9392/-82.4723</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9392/-82.4723<br/>
+hostcount=15555, netcount=103, AScount=15<br/>
+ASnums: 209,701,1239,1785,3303,3356,4323,6983,10994,11774,13343,14501,19262,19271,21889]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4723,27.9392,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_103">
+        <name>27.8625/-82.7094</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8625/-82.7094<br/>
+hostcount=9921, netcount=56, AScount=14<br/>
+ASnums: 209,701,1785,3303,4323,6983,10994,12131,13343,14654,19262,22385,33363,36300]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7094,27.8625,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_109">
+        <name>28.1521/-82.523</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1521/-82.523<br/>
+hostcount=15302, netcount=63, AScount=9<br/>
+ASnums: 701,2914,3303,6983,10994,11456,19262,19271,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.523,28.1521,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_43">
+        <name>27.8563/-82.6318</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8563/-82.6318<br/>
+hostcount=160827, netcount=142, AScount=23<br/>
+ASnums: -1,174,209,701,1239,1785,2828,3303,3356,4323,6983,7018,10994,11305,12083,12131,14654,19262,19271,19623,20426,29888,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6318,27.8563,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_66">
+        <name>28.0859/-82.7625</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0859/-82.7625<br/>
+hostcount=19970, netcount=110, AScount=17<br/>
+ASnums: -1,209,701,1785,2828,3303,3356,4323,7018,7867,10994,12083,13343,19262,27395,30145,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7625,28.0859,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_78">
+        <name>27.7866/-82.144</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7866/-82.144<br/>
+hostcount=11136, netcount=52, AScount=14<br/>
+ASnums: 701,1785,3303,3561,4323,6167,6389,7018,10994,11456,14654,19262,21889,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.144,27.7866,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_58">
+        <name>27.929/-82.7416</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.929/-82.7416<br/>
+hostcount=18456, netcount=105, AScount=21<br/>
+ASnums: -1,209,701,1239,1785,3303,3356,3491,4323,6983,7018,7132,10994,12083,14654,19262,19271,19529,20472,23296,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7416,27.929,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_124">
+        <name>27.7966/-82.3797</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7966/-82.3797<br/>
+hostcount=9876, netcount=31, AScount=6<br/>
+ASnums: 209,6167,10507,10994,11456,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.3797,27.7966,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_94">
+        <name>28.3031/-82.7049</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.3031/-82.7049<br/>
+hostcount=23108, netcount=121, AScount=14<br/>
+ASnums: 209,701,1785,3303,3356,4323,10507,10994,12131,14654,16482,19262,20021,20214]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7049,28.3031,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_2">
+        <name>27.973/-82.4938</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.973/-82.4938<br/>
+hostcount=122548, netcount=306, AScount=37<br/>
+ASnums: 174,209,701,1239,1785,2386,2828,3303,3356,3561,3644,4265,4323,6389,6517,6983,7018,7132,10994,11305,12131,16482,16724,17229,17230,17359,18797,19262,19271,20021,21889,26343,26591,27561,27589,32275,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4938,27.973,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_56">
+        <name>27.967/-82.2178</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.967/-82.2178<br/>
+hostcount=3283, netcount=32, AScount=11<br/>
+ASnums: 209,701,1785,3561,4323,6983,7018,10994,11456,19262,20214]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.2178,27.967,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_67">
+        <name>27.864/-82.5303</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.864/-82.5303<br/>
+hostcount=3801, netcount=20, AScount=7<br/>
+ASnums: 1239,3303,6983,7018,10994,19262,31793]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5303,27.864,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_92">
+        <name>27.8178/-82.6773</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8178/-82.6773<br/>
+hostcount=6132, netcount=40, AScount=12<br/>
+ASnums: 174,209,701,1239,1785,4323,6983,10994,12083,19262,19271,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6773,27.8178,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_80">
+        <name>27.8174/-82.7839</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8174/-82.7839<br/>
+hostcount=3512, netcount=28, AScount=8<br/>
+ASnums: 701,1785,4323,6364,6983,7018,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7839,27.8174,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_35">
+        <name>28.2482/-82.6799</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2482/-82.6799<br/>
+hostcount=53096, netcount=190, AScount=16<br/>
+ASnums: 209,701,1239,1785,3303,3356,4323,6167,10507,10994,11456,12131,19262,29992,30536,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6799,28.2482,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_81">
+        <name>28.2337/-82.179</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2337/-82.179<br/>
+hostcount=2800, netcount=22, AScount=8<br/>
+ASnums: 209,701,3561,4323,6983,7018,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.179,28.2337,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_44">
+        <name>27.9295/-82.2987</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9295/-82.2987<br/>
+hostcount=42307, netcount=195, AScount=20<br/>
+ASnums: 209,701,1239,1785,3303,3356,4323,6167,6983,6984,7018,7453,10507,10994,11456,19262,19850,20214,21889,22312]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.2987,27.9295,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_11">
+        <name>28.0146/-82.417</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0146/-82.417<br/>
+hostcount=13945, netcount=72, AScount=12<br/>
+ASnums: 209,701,1239,1785,2828,3303,3356,4323,6983,10994,14654,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.417,28.0146,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_30">
+        <name>27.8831/-82.7995</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8831/-82.7995<br/>
+hostcount=3563, netcount=27, AScount=10<br/>
+ASnums: 209,3303,3356,4323,6939,6983,10994,12083,19262,19271]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7995,27.8831,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_84">
+        <name>27.8476/-82.7927</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8476/-82.7927<br/>
+hostcount=19642, netcount=125, AScount=25<br/>
+ASnums: 209,2634,2828,3561,4181,4323,6167,6983,7018,7393,10507,10994,11456,12083,13706,16724,16810,18566,19262,20141,21889,22549,25667,33363,36300]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7927,27.8476,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_97">
+        <name>27.8954/-82.7875</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8954/-82.7875<br/>
+hostcount=40425, netcount=197, AScount=17<br/>
+ASnums: -1,174,1785,3303,4323,6167,6983,7018,10994,11456,12083,13755,19262,19271,29802,33363,36300]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7875,27.8954,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_102">
+        <name>27.8188/-82.729</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.8188/-82.729<br/>
+hostcount=11477, netcount=60, AScount=12<br/>
+ASnums: 209,701,1239,1785,2828,6983,10994,12083,13343,14654,19262,25847]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.729,27.8188,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_8">
+        <name>27.9149/-82.1245</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9149/-82.1245<br/>
+hostcount=16609, netcount=65, AScount=7<br/>
+ASnums: 701,1239,3356,4323,10994,19262,21762]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.1245,27.9149,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_107">
+        <name>27.7969/-82.607</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7969/-82.607<br/>
+hostcount=10595, netcount=68, AScount=14<br/>
+ASnums: 701,1785,3303,4323,6983,10994,12083,14654,14742,19262,19271,21840,23352,36782]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.607,27.7969,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_96">
+        <name>28.1338/-82.6685</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1338/-82.6685<br/>
+hostcount=3359, netcount=24, AScount=6<br/>
+ASnums: 3303,10994,12083,19262,19271,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6685,28.1338,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_27">
+        <name>27.5931/-82.5051</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.5931/-82.5051<br/>
+hostcount=30649, netcount=82, AScount=18<br/>
+ASnums: 209,701,1239,1785,3356,3561,4323,6167,7018,10994,11456,13343,19262,19271,22017,29863,30415,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5051,27.5931,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_85">
+        <name>28.2354/-82.22</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2354/-82.22<br/>
+hostcount=5024, netcount=28, AScount=7<br/>
+ASnums: 209,701,1785,4323,7018,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.22,28.2354,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_37">
+        <name>28.2158/-82.6596</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2158/-82.6596<br/>
+hostcount=25092, netcount=102, AScount=12<br/>
+ASnums: 209,1785,3303,3356,4323,6167,6389,6983,7018,10994,14654,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6596,28.2158,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_114">
+        <name>27.9165/-82.8032</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9165/-82.8032<br/>
+hostcount=81606, netcount=102, AScount=19<br/>
+ASnums: 209,701,1785,3303,3356,4323,6983,7393,10994,12083,12131,14501,14654,19262,26407,27229,33363,36300,40595]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.8032,27.9165,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_18">
+        <name>28.0291/-82.7241</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0291/-82.7241<br/>
+hostcount=10484, netcount=106, AScount=19<br/>
+ASnums: 209,701,1785,3303,3356,3561,4323,6983,7018,10994,12083,14501,14654,17233,19262,19271,20021,21844,26315]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7241,28.0291,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_13">
+        <name>28.0859/-82.7267</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0859/-82.7267<br/>
+hostcount=15858, netcount=98, AScount=14<br/>
+ASnums: 209,701,3303,3356,4323,7018,10994,11305,11388,12083,14654,19262,33363,40585]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7267,28.0859,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_29">
+        <name>27.6294/-82.7039</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.6294/-82.7039<br/>
+hostcount=2304, netcount=13, AScount=6<br/>
+ASnums: 209,701,3356,6983,10994,20021]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7039,27.6294,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_101">
+        <name>28.0145/-82.6923</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0145/-82.6923<br/>
+hostcount=13989, netcount=69, AScount=12<br/>
+ASnums: 209,701,1785,2828,3303,4323,6983,10994,11456,12083,19029,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6923,28.0145,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_95">
+        <name>27.7101/-82.4314</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7101/-82.4314<br/>
+hostcount=8507, netcount=40, AScount=9<br/>
+ASnums: 209,1785,4323,6167,6983,10994,11456,14654,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4314,27.7101,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_111">
+        <name>28.0063/-82.5905</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0063/-82.5905<br/>
+hostcount=39143, netcount=138, AScount=15<br/>
+ASnums: 209,701,1785,2828,3303,3356,4323,6983,10994,13789,16557,17218,19262,19271,20021]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5905,28.0063,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_16">
+        <name>28.0822/-82.5239</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0822/-82.5239<br/>
+hostcount=28657, netcount=133, AScount=16<br/>
+ASnums: 209,701,1785,3303,3356,3549,4323,6364,6983,7018,10933,10994,12131,19262,19271,29935]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5239,28.0822,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_14">
+        <name>27.7327/-82.6878</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.7327/-82.6878<br/>
+hostcount=16224, netcount=39, AScount=14<br/>
+ASnums: 701,3356,4323,6983,10507,10994,12083,12131,14654,16724,19262,19271,23352,33070]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.6878,27.7327,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_87">
+        <name>28.2722/-82.3322</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2722/-82.3322<br/>
+hostcount=9506, netcount=64, AScount=8<br/>
+ASnums: 209,1785,4323,6983,7018,7393,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.3322,28.2722,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_9">
+        <name>28.0511/-82.4507</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0511/-82.4507<br/>
+hostcount=22001, netcount=138, AScount=18<br/>
+ASnums: 209,701,1239,1785,2386,3303,3356,3561,4323,6983,7018,7132,10994,11523,12131,19262,22017,30217]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4507,28.0511,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_76">
+        <name>28.2397/-82.7388</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2397/-82.7388<br/>
+hostcount=14083, netcount=81, AScount=12<br/>
+ASnums: 209,701,3303,3356,4323,6983,7018,10994,14654,16724,19262,19271]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7388,28.2397,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_121">
+        <name>28.1913/-82.7227</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.1913/-82.7227<br/>
+hostcount=3273, netcount=20, AScount=4<br/>
+ASnums: 3303,4323,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7227,28.1913,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_129">
+        <name>27.9785/-82.2005</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9785/-82.2005<br/>
+hostcount=248, netcount=5, AScount=1<br/>
+ASnums: 4323]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.2005,27.9785,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_36">
+        <name>28.0985/-82.2734</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0985/-82.2734<br/>
+hostcount=10217, netcount=32, AScount=9<br/>
+ASnums: 701,3303,3356,6983,10507,10994,11456,17359,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.2734,28.0985,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_119">
+        <name>28.136/-82.4476</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.136/-82.4476<br/>
+hostcount=7591, netcount=75, AScount=10<br/>
+ASnums: 209,701,1239,1785,4323,6983,10994,12131,14654,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.4476,28.136,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_89">
+        <name>27.9587/-82.295</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9587/-82.295<br/>
+hostcount=8944, netcount=50, AScount=8<br/>
+ASnums: 174,701,2828,3303,7018,10994,11456,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.295,27.9587,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_19">
+        <name>27.922/-82.5</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.922/-82.5<br/>
+hostcount=12523, netcount=84, AScount=14<br/>
+ASnums: 209,701,1785,3303,3356,3561,4323,6541,6983,7018,10994,19262,19271,20021]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.5,27.922,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_115">
+        <name>28.0878/-82.779</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.0878/-82.779<br/>
+hostcount=384, netcount=2, AScount=2<br/>
+ASnums: 10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.779,28.0878,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_122">
+        <name>28.2103/-82.7117</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 28.2103/-82.7117<br/>
+hostcount=812, netcount=20, AScount=4<br/>
+ASnums: 3303,4323,10994,19262]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.7117,28.2103,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_3">
+        <name>27.9178/-82.38</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.9178/-82.38<br/>
+hostcount=27572, netcount=261, AScount=24<br/>
+ASnums: 209,701,1239,1785,2828,3303,3356,3561,4323,6128,6364,6983,7018,7132,10913,10994,11486,12131,13343,19024,19262,21714,33260,33363]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.38,27.9178,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_50">
+        <name>27.943/-82.524</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 27.943/-82.524<br/>
+hostcount=87070, netcount=232, AScount=34<br/>
+ASnums: -1,174,209,701,1239,1785,2828,3300,3303,3356,3561,3602,4323,4355,6389,6983,7018,7132,10994,12131,14492,16482,16724,19262,19271,19855,21840,21889,30496,32244,32592,33314,33363,33642]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-82.524,27.943,0</coordinates>
+        </Point>
+      </Placemark>
+
+</Document>
+</kml>
+

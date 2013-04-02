@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IXmaps</title>
+<link href="../visual_index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="wrap-trgen">
+  <div id="logo-trgen">IXmaps</div>
+  <div id="dl-all"><a href="downloads.html">Download the TrGen program</a></div>
+  <div id="dl-src-tr-sub"><a href="tr-sub-0.8.6.tar.gz">Download source code for the main traceroute submission (tr-sub) program.</a></div>
+  <div id="dl-src-tr-do"><a href="tr-do.tar.gz">Download source code for the wmtrcmd utility program.</a></div>
+  <div id="dbview"><a href="/cgi-bin/tr-detail.cgi?all_submitters=1">Examine submitted traceroutes by submitter</a></div>
+  <div id="trs-view"><a href="../trsets/">See the trace-sets currently available.</a></div>
+  <div id="spacer">&nbsp;</div>
+  <!-- <div id="submit"><a href="trsubmit.html">Submit a Traceroute</a></div> -->
+  <!-- <div id="line"><img src="images/carrier-hotels_08.png" width="765" height="10" /></div> -->
+  <div id="text1-trgen">
+    <p>Versions 0.8.5 and 0.8.6 of IXmaps Traceroute Generator are now available for download.  Windows XP and
+       later are supported, as well as MacOSX and Linux. TERWTESTESTESTSETETSETS
+    <p>
+    <h3>Installation</h3>
+    <p>To install and run IXmaps Traceroute Generator version 0.8.6 for Windows, you must be running as Administrator.  The
+       traceroute algorithm used usually completes within 10 seconds.
+    <p>IXmaps Traceroute Generator version 0.8.6 for MacOSX is available as a tarball.  You need to have root
+       privileges to install the program correctly.  When running the program, the PATH enviroment variable
+       must point to the directory which contains the tr-sub and wmtrcmd binary executables.  To run the program,
+       just invoke tr-sub without any command-line arguments.
+    <p>IXmaps Traceroute Generator version 0.8.6 for Linux is available as a tarball.  You need to have root
+       privileges to install the program correctly.   The program will reside in /usr/local/bin .
+    <p>
+    <p>To install and run IXmaps Traceroute Generator version 0.8.5 for Windows, no Administrator privileges are required.
+       The Windows &quot;tracert&quot; program is used, and my take up to 6 minutes to do a single traceroute
+       if no response is received from the destination host.
+    <p>
+    <p>Other than the traceroute algorithm used, the two versions are identical.  You may minimize the
+       windows while the program is running.
+    <p>For Windows, when asked to do a full or custom install, pick the full install.
+    <p>
+    <h3>Changes from 0.8.3/0.8.4</h3>
+    <ul>
+      <li>The server is accessed as trgen.ixmaps.ca to allow www.ixmaps.ca to be in a separate location.</li>
+      <li>Limited support for MacOS X (Tiger or later) and recent GNU/Linux.</li>
+      <li>Fixed race condition bug that caused the program to occasionally hang when completing a traceroute.</li>
+      <li>Traceroutes that contain routing loops are discarded.</li>
+    </ul>
+    <h3>Changes from 0.8.1/0.8.2</h3>
+    <ul>
+      <li>The Traceroute status page displays a table with a row for each traceroute done.  The columns are:
+        <ul>
+          <li>The hostname or dotted-quad IP address.</li>
+          <li>The number of hosts along the traceroute path that replied/the total number of hops on the path.</li>
+          <li>The elapsed time in seconds to do the entire traceroute to the host.</li>
+          <li>The ID of the traceroute in the IXmaps database, or an error message in red.  A yellow ID means that
+              the traceroute destination host itself did not reply.</li>
+        </ul>
+        The latest host or batch done is in bold.</li> 
+      <li>Data entry fields accept the Enter key.</li>
+      <li>The program version number appears on the title bar.</li>
+      <li>The progress dialog is embedded into the Traceroute Running page instead of being a
+          separate pop-up.</li>
+    </ul>
+    <h3>Notes</h3>
+    <p>If there is temporarily high latency between your computer and the central database, you may get
+    a &quot;The connection to the central database is not working.&quot; pop-up.  The TrGen client
+    program waits 5 seconds after it sends a traceroute result to the server.  If the confirmation
+    is not received within that time, the pop-up will appear.  Often, the data will have made it
+    into the database.
+    <p>
+
+  </div>
+  <script language=JavaScript>
+<!--
+//Disable right click script III- By Renigade (renigade@mediaone.net)
+//For full source code, visit http://www.dynamicdrive.com
+
+var message="";
+///////////////////////////////////
+function clickIE() {if (document.all) {(message);return false;}}
+function clickNS(e) {if 
+(document.layers||(document.getElementById&&!document.all)) {
+if (e.which==2||e.which==3) {(message);return false;}}}
+if (document.layers) 
+{document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+
+document.oncontextmenu=new Function("return false")
+//-->
+</script>
+</div>
+</body>
+</html>

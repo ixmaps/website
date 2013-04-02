@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>IXmaps</title>
+  <link href="visual_index.css" rel="stylesheet" type="text/css" />
+ </head>
+<body>
+  <div id="wrap">
+  <div id="logo">IXmaps</div>
+  <!-- <div id="return"><a href="http://www.vacuumwoman.com/About/Main/about.html">RETURN</a></div> -->
+  <!-- <div id="trgen"><a href="TrGen/index.html">Traceroute Generator</a></div> -->
+  <!-- <div id="database_eg"><a href="database-eg.txt">Database Appearance</a></div> -->
+  <!-- <div id="tour"><a href="tour.html">Tour</a></div> -->
+  <!-- <div id="line"><img src="images/carrier-hotels_08.png" width="765" height="10" /></div> -->
+  <div id="text1">
+    <p>IXmaps
+is an interactive tool under development that will permit Internet
+users to see the route that their Internet data packets take across
+North America. When the user enters a destination URL in their browser
+they see in an adjacent window, a map of North America on which the
+packets’ routes will be displayed. Each ‘exchange point’ or ‘carrier
+hotel’ along that route is displayed in Google Earth as a labelled
+highlighted icon. When the icon is clicked, a balloon appears
+containing an HTML document with information about that interchange
+point and the building where it is physically located. This includes a
+photo of the building, its ownership, ISPs and other facilities within
+it and known links or alliances among the building owners, clients, and
+government or corporate entities. Examples are the building at 151
+Front Street, Toronto or the multi-story tower called One Wilshire in
+Los Angeles. Clickable icons are color-coded and an overlay with a
+legend is shown which contains a brief summary of the route and
+exchange points traversed. In the Google Earth ‘Places panel’, an
+ordered list of traceroute hops with IP addresses and AS numbers is
+displayed. </p>
+
+<p>
+    </p><ul>
+      <li>  See <a href="database-eg.txt">Database Appearance</a>.  </li>
+      <li>View the <a href="tour_1.html">Tour</a> </li>
+    </ul>
+
+
+
+    <br/>
+<p class="buttons">
+
+    </p>
+     <table class="center">
+      <tbody><tr>
+        <td>
+          <form method="get" action="./TrGen/downloads.html">
+          <button type="submit">
+          Download TrGen
+          </button>
+          </form>
+        </td>
+        <td width="40">&nbsp;
+          
+        </td>
+        <td>
+          <form method="get" action="./TrGen/dl-src.html">
+          <button>
+          Download source code
+          </button>
+          </form>
+        </td>
+        <td width="40">&nbsp;
+          
+        </td>
+        <td>
+          <form method="get" action="../cgi-bin/tr-detail.cgi">
+          <button type="submit" name="all_submitters" value="1">
+          Examine Traceroutes
+          </button>
+          </form>
+        </td>
+        <td width="40">&nbsp;
+          
+        </td>
+        <td>
+          <form method="get" action="showcase_routes.html">
+          <button type="submit" value="See Showcase Traceroutes">
+          See Showcase Traceroutes
+          </button>
+          </form>
+        </td>
+      </tr>
+    </tbody></table>
+    
+    <br/>
+    <br/>
+  This product includes GeoLite data created by MaxMind, available from
+ <a href="http://maxmind.com/">http://maxmind.com/</a> 
+    <br/>
+    <center>
+      <img src="images/map-trace.png" width="550" height="500" alt="map trace" />
+    </center>
+    <center>
+    </center>
+    <p>&nbsp;</p>
+    <p>The projects most similar in scope to IXmaps are the 
+      <a href="http://www.netdimes.org/new/" target="1">DIMES</a> project
+      from Tel Aviv University,
+      <a href="http://www.kahunaburger.com/2009/03/28/google-earth-as-a-traceroute-viewer/">kahunaburger traceroute</a>,
+      the <a href="http://www.caida.org/tools/visualization/gtrace" target="1">Gtrace</a> project,
+      the <a href="http://sourceforge.net/projects/geotrace/" target="1">Geographical Traceroute</a> project,
+      and the <a href="http://freshmeat.net/projects/xtraceroute" target="1">xtraceroute</a>
+project. IXmaps is distinct from all of these projects as it employs a
+unique traceroute visualization from the user's system to the
+destination (displayed in Google Earth) and presents unique information
+about Internet exchange points transited along the way. These
+developments are being implemented with funding from the SSHRC ITST
+program. IXmaps is part of the New Transparency Project at the Faculty
+of Information, University of Toronto. The project team consists of Dr.
+David J. Phillips, Associate Professor and Chair of Doctoral Studies,
+Faculty of Information and Dr. Andrew Clement, Professor, Faculty of
+Information and Coordinator, <a href="http://iprp.ischool.utoronto.ca/" target="1">Information Policy Research Program</a>
+as well as Dr. Nancy Paterson, Associate Professor, Ontario College of Art &amp; Design.</p>
+    <p>
+<p>
+The U.S. National Security Agency (NSA), is strongly suspected of having installed ‘splitter rooms’ in 15-20 major internet exchange points.
+View a map of these NSA splitter locations.
+<p>
+select * from chotel where nsa like 'Y%'; <!--FIXME-->
+<p>
+Thanks to former AT&T technical Mark Klein, the best documented NSA eavesdropping site is at 611 Folsom Street, San Francisco, CA.
+<a href="../cgi-bin/tr-detail.cgi?traceroute_id=1859">View a map of a traceroute from a home in Toronto to the San Francisco Art Institute that passes through AT&T’s internet switching facility at 611 Folsom (TR#1859).</a>
+Note that this traceroute also goes through Chicago, another suspected site of NSA eavesdropping.
+<!--
+        <td>
+          <form method="get" action="../cgi-bin/tr-detail.cgi">
+          <button type="submit" name="traceroute_id" value="1859">
+          TR#1859
+          </button>
+          </form>
+        </td>-->
+</p>
+  </p></div>

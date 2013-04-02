@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+  <Style id="docBalloonStyle">
+    <BalloonStyle>
+      <!-- a background color for the balloon -->
+      <bgColor>40ffffbb</bgColor>
+      <!-- styling of the balloon text -->
+      <text><![CDATA[
+      <b><font color="#CC0000" size="+3">$[name]</font></b>
+      <br/><br/>
+      <font face="Courier">$[description]</font>
+      <br/><br/>
+      ]]></text>
+    </BalloonStyle>
+  </Style>
+  <name>Traceroute Results</name>
+  <open>1</open>
+  <Document>
+    <name>Instructions</name>
+    <Snippet maxLines="0">Instructions</Snippet>
+    <description><![CDATA[
+<ul><li>Click on icons to see locations of Carrier Hotels</li>
+    <li>Click on location to see Carrier Hotel building</li>
+    <li>Mouse over center of building to see infrastructure</li>
+    </ul>
+  <br/><br/>
+This product includes GeoLite data created by MaxMind, available from
+<a href="http://maxmind.com/">http://maxmind.com/</a>
+
+  ]]></description>
+    <styleUrl>#docBalloonStyle</styleUrl>
+  </Document>
+  <description>Select this folder and click on the &apos;Play&apos; button below, to start the tour.</description>
+
+
+  <Style id="CHO_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/red8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Known Carrier Hotel</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="CHO_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/red8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Known Carrier Hotel</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="CHO">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#CHO_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#CHO_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+
+  <Style id="OTH_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/purple8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p></p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="OTH_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/purple8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p></p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="OTH">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#OTH_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#OTH_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+
+    <Camera id="NorthAmerica">
+      <longitude>-123.112</longitude>
+      <latitude>49.2845</latitude>
+      <altitude>100000.0</altitude>
+      <heading>0.0</heading>
+      <tilt>0</tilt>
+      <roll>0</roll>
+      <altitudeMode>absolute</altitudeMode>
+    </Camera>
+   <Placemark id="ch_3">
+        <name>555 West Hastings Street, Vancouver, BC - Harbour Center</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 555 West Hastings Street, Vancouver, BC - Harbour Center<br/>
+lat: 49.2845, long: -123.112, id=3<br/>]]></description>
+        <styleUrl>#CHO</styleUrl>
+        <Point>
+          <coordinates>-123.112,49.2845,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_9">
+        <name>49.0333/-122.817</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.0333/-122.817<br/>
+hostcount=18472, netcount=61, AScount=11<br/>
+ASnums: 803,852,3303,3602,6327,6407,15247,15290,19662,25668,30158]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-122.817,49.0333,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_14">
+        <name>49.0167/-123.083</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.0167/-123.083<br/>
+hostcount=2560, netcount=2, AScount=2<br/>
+ASnums: 852,3633]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-123.083,49.0167,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_5">
+        <name>49.1364/-122.821</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.1364/-122.821<br/>
+hostcount=351696, netcount=714, AScount=38<br/>
+ASnums: -1,271,577,701,803,812,852,2647,3303,3602,3633,6295,6327,6407,6539,7271,11175,13768,14007,15031,15247,15290,16941,19171,19662,20161,20453,21724,21931,22799,23260,25668,25847,25976,29863,30158,30295,40029]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-122.821,49.1364,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_13">
+        <name>49.1/-122.733</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.1/-122.733<br/>
+hostcount=320, netcount=2, AScount=2<br/>
+ASnums: 6327,20161]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-122.733,49.1,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_7">
+        <name>49.1667/-122.967</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.1667/-122.967<br/>
+hostcount=262750, netcount=620, AScount=43<br/>
+ASnums: -1,271,577,701,803,812,852,2647,3303,3602,3633,6327,6407,6539,7271,7788,11175,11486,13768,14492,14642,14651,14744,15247,15290,19171,19234,19432,19662,20161,21513,21570,21724,22799,23260,23498,25668,25700,25847,25976,26753,30295,40808]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-122.967,49.1667,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_1">
+        <name>49.25/-122.95</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.25/-122.95<br/>
+hostcount=1456190, netcount=2063, AScount=58<br/>
+ASnums: -1,271,577,701,803,812,852,2669,3300,3303,3356,3561,3602,3633,6295,6327,6407,6453,6539,7271,7861,11175,11486,13768,14007,14190,14240,14501,14642,14663,15247,15290,15296,16598,19171,19662,19875,20161,21513,21570,21724,21844,22799,23260,25668,25847,25976,26672,26753,27327,29131,30158,30295,31925,36483,36485,40029,40934]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-122.95,49.25,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_11">
+        <name>49.2833/-122.85</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.2833/-122.85<br/>
+hostcount=26977, netcount=98, AScount=16<br/>
+ASnums: -1,271,852,3633,6327,6539,14007,15247,15290,19171,22799,23260,25668,30158,30490,30540]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-122.85,49.2833,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_12">
+        <name>48.9867/-123.056</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 48.9867/-123.056<br/>
+hostcount=88, netcount=3, AScount=3<br/>
+ASnums: 6295,6539,13768]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-123.056,48.9867,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_4">
+        <name>49.0192/-123.087</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.0192/-123.087<br/>
+hostcount=53925, netcount=228, AScount=25<br/>
+ASnums: -1,271,577,701,852,3300,3303,3602,3633,6327,6539,7271,12059,13768,14211,15247,19171,19662,20161,22799,25668,25976,26753,30158,30295]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-123.087,49.0192,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_6">
+        <name>49.2667/-122.783</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.2667/-122.783<br/>
+hostcount=228462, netcount=543, AScount=34<br/>
+ASnums: -1,271,577,701,803,852,2685,3303,3602,3633,6327,6539,7271,11175,11305,13768,14007,14492,14651,14663,15247,15290,16941,19171,19662,20161,20453,21724,23260,25668,25976,30158,30295,32956]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-122.783,49.2667,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_2">
+        <name>49.25/-123.133</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.25/-123.133<br/>
+hostcount=2109788, netcount=4789, AScount=99<br/>
+ASnums: -1,109,271,577,701,714,803,812,852,2647,2669,3300,3303,3356,3561,3602,3633,3742,4323,4544,5645,6058,6295,6327,6407,6461,6539,6621,7057,7271,7788,11175,11305,11388,11486,13091,13768,14007,14211,14240,14280,14492,14501,14642,14651,14663,14992,15000,15061,15247,15290,16941,17139,18695,19062,19171,19234,19271,19662,19875,19968,20021,20161,21513,21570,21610,21724,21949,22017,22085,22298,22384,22684,22781,22799,23260,23339,25668,25722,25847,25976,26753,29131,29863,30092,30158,30295,30490,30496,32069,32984,33326,36000,36483,36542,36676,40029,40282,46482]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-123.133,49.25,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_8">
+        <name>49.0833/-123.083</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.0833/-123.083<br/>
+hostcount=288, netcount=5, AScount=4<br/>
+ASnums: 852,6327,15247,22799]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-123.083,49.0833,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_15">
+        <name>49.5167/-123.483</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.5167/-123.483<br/>
+hostcount=1024, netcount=1, AScount=1<br/>
+ASnums: 3303]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-123.483,49.5167,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_3">
+        <name>49.3167/-123.067</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.3167/-123.067<br/>
+hostcount=168954, netcount=566, AScount=30<br/>
+ASnums: -1,271,701,803,852,3303,3602,3633,5769,6327,6539,7271,7788,11175,13768,14007,14492,14651,14825,15247,15290,19171,19662,20161,21513,22298,23260,25668,30158,30295]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-123.067,49.3167,0</coordinates>
+        </Point>
+      </Placemark>
+   <Placemark id="ll_10">
+        <name>49.2167/-122.917</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name: 49.2167/-122.917<br/>
+hostcount=134745, netcount=167, AScount=24<br/>
+ASnums: 271,577,701,852,2685,3303,3602,3633,6327,6407,6539,11625,13768,15247,19171,19662,20161,23260,25668,25976,26753,30158,32209,40907]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-122.917,49.2167,0</coordinates>
+        </Point>
+      </Placemark>
+
+</Document>
+</kml>
+

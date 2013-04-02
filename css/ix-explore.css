@@ -1,0 +1,335 @@
+/*********** Explore page ***********/
+#filter-results{
+/*	display: block;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;*/
+}
+
+#map-info{
+	/*height: 1.5em;*/
+	min-height: 63px;
+}
+
+#map-tr-active{
+	/*height: 1.5em;*/
+	min-height: 20px;
+}
+
+#tr-ids-active {
+	color:red;
+	font-weight:bold;
+}
+
+#tr-list-ids {
+	
+	/*background-color: orange;*/
+	height: 254px;
+	overflow-y: scroll;
+	/*clear: both;*/
+	overflow-y: scroll;
+	/*position: absolute;*/
+	bottom: 0;
+	left: 0px;
+	
+	padding: 0px;
+	/*width: 94%;*/
+	/*width: 1026px;*/
+	
+}
+
+.tr-list-result table{
+	width: 100%;
+	border: 1px solid #ccc;
+}
+.tr-list-result td{
+	border: 1px solid #ccc;
+	padding: 2px;
+	font-size: 14px;
+}
+
+#tr-list-table tr:hover{
+	background-color: yellow;
+}
+
+
+#quick-links-table {
+	border: 1px dashed #CCC;
+	padding: 5px;
+}
+
+#explore-content table button {
+	width: 300px;
+	height: 30px;
+	font-size: 13px;	
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+}
+
+#quick-links-table td {
+	text-align: center;
+}
+
+.delete-button {
+	/*margin-left: 55px;*/
+}
+
+
+.filter-item {
+	margin-bottom: 5px;
+	border: 1px dashed #CCC;
+	padding: 5px;
+}
+
+.blank-field-error {
+	border-style: solid;
+	border-width: 2px;
+	border-color: red;
+}
+
+.hide {
+	display: none;
+}
+
+#loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.loader-image{
+	position: fixed;
+	left: 45%;
+	text-align: center;
+	z-index: 1000;
+	top: 40%;
+}
+
+#loader-mask{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 150%;
+	background-color: #000; 
+	opacity:0.4;
+}
+
+.loader-image img{
+	border: none;
+	-webkit-box-shadow: 0px 0px 0px #777;
+}
+
+#map-info-total{
+
+}
+
+#map-status-info{
+	/*background-color: rgb(238, 235, 235);*/
+	font-size: 18px;
+	padding: 5px;
+}
+
+#map-canvas-container {
+	/*background: yellow;*/
+	/*padding: 30px;*/
+	/*position: absolute;*/
+	bottom: 260px;
+	left: 0;
+}
+
+#map_canvas {
+
+	/*clear: both;*/
+	margin: 0;
+
+	/*stable*/
+	
+/*	width: 1100px;
+	height: 750px;*/
+
+/*	width: 700px;
+	height: 530px;
+*/
+	height: 450px;
+ 	width: 550px;
+	/*	used to render*/
+
+/*	width: 1420px;
+	height: 900px;
+*/
+
+
+
+}
+
+.info-win-text{
+	color: #000;
+}
+
+#tr-details{
+	position: fixed;
+	left: 5%;
+	z-index: 1000;
+	top: 5%;
+	background: #fff;
+	height: 600px;
+	width: 900px;
+	border: 1px solid black;
+	border-radius: 20px;
+}
+
+#tr-details-close{
+	margin: 10px;
+	float: right;
+}
+
+#tr-details-close img {
+	width: 25px
+}
+
+#tr-details-data {
+/*	overflow: auto;
+	clear: both;
+	height: 428px;
+	margin: 0 15px;*/
+}
+
+#tr-details-iframe{
+	width: 894px;
+	height: 533px;
+}
+
+.tab-right{
+	margin-right: 20px; 
+}
+
+#map-leyend{
+	/*float: left;*/
+	max-height: 505px;
+	overflow: auto;
+/*	border: 10px solid #ccc;
+	border-radius: 10px;*/
+	/*width: 35%;*/
+	/*padding: 5px;*/
+	float: left;
+	width: 520px;
+	margin-right: 5px;
+}
+
+.map-tool-on{
+	background-color: yellow;
+	border-radius: 10px;
+}
+.map-tool-off{
+	background-color: #fff;
+	border-radius: 10px;
+	/*font-size: 16px;*/
+}
+#map-actions{
+	clear: both;
+	/*width: 700px;*/
+}
+
+.asn-num-hops{
+	background-color: #FFFFFF;
+	padding: 4px;
+	text-align: center;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.asn-color-text{
+	text-align: center;
+}
+
+.map-info-containers{
+/*	border: 3px solid #000;
+	border-radius: 6px;
+*/	
+/*	*/
+	/*width: 426px;*/
+/*	min-height: 80px;*/
+	padding: 5px;
+	/*width: 340px;*/
+	/*background-color: #fff;*/
+	/*width: 100%;*/
+/*	float: left;*/
+
+}
+
+#map-stats-container{
+	/*background-color: #C7D2F2;*/
+	padding: 0px;
+	/*position: absolute;*/
+/*	bottom: -280px;
+	right: 60px;
+*/	margin-left: 20px;
+	margin-right: 20px;
+	/*min-width: 500px;*/
+	float: left;
+	/*min-height: 800px;*/
+}
+#map-actions-container h4{
+	text-align: center;
+	padding: 10px;
+}
+
+#map-actions-container{
+	/*background-color: rgb(255, 0, 0);*/
+	/*position: absolute;*/
+	width: 100%;
+	padding: 0px;
+	float: left;
+}
+
+#tabs a:hover, #map-actions a:hover{
+	color: #FFFFFF;
+}
+.map-actions-controls, .ui-accordion .ui-accordion-content {
+	padding: 0em 0em;
+}
+#map-hide-control{
+	position: absolute;
+	background-color: orange;
+	padding-left: 25px;
+	font-size: 13px;
+	top: 0;
+	left: 0;
+	border: 1px solid;
+	width: 118px;
+	height: 37px;
+}
+
+#map-info-global{
+	/*height: 300px;*/
+
+/*	position: absolute;
+	top: 0;
+	left: 0;
+*/
+	padding: 1em;
+	font-size: 14px;
+	background-color: rgb(14, 14, 14);
+	opacity: 0.9;
+	color: #ffffff;
+	width: 200px;
+}
+#map-core-controls{
+	/*text-align: center;*/
+	margin: 0;
+}
+
+#map-core-controls input{
+	/*text-align: center;*/
+	font-size: 1.2em;
+}
+.warning{
+	background-color: #FFAC1C;
+}
