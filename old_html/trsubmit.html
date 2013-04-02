@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Submit a traceroute to IXmaps</title>
+<link href="visual_index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="wrap">
+  <div id="logo">IXmaps</div>
+  <!-- <div id="return"><a href="http://www.vacuumwoman.com/About/Main/about.html">RETURN</a></div> -->
+  <div id="line"><img src="images/carrier-hotels_08.png" width="765" height="10" /></div>
+  <div id="text1">
+   <p>If you have a traceroute in a file, use this form to upload it.</p>
+    <FORM METHOD="POST" ACTION="/cgi-dev-bin/upl-ixmaps.cgi" ENCTYPE="multipart/form-data">
+    <INPUT TYPE="HIDDEN" NAME="ac" VALUE="upload">
+    <TABLE ALIGN="center" BGCOLOR="navy" BORDER="0" CELLSPACING="0" CELLPADDING="1" WIDTH="50%"><TR><TD>
+    <TABLE BGCOLOR="#dcdcdc" BORDER="0" CELLSPACING="0" CELLPADDING="3" WIDTH="100%"><TR><TD>
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="3" WIDTH="100%">
+    <TR><TD COLSPAN="3">&nbsp;</TD></TR>
+    <TR><TD align="right"> Name :     </TD><TD><INPUT TYPE="text" NAME="login"  SIZE=10></TD><TD><INPUT TYPE="submit" VALUE="Upload"></TD></TR>
+    <TR><TD align="right"> Password :  </TD><TD COLSPAN="2"><INPUT TYPE="password" NAME="pass" SIZE=10></TD></TR>
+    <TR><TD align="right"> Upload file:</TD><TD COLSPAN="2"><INPUT TYPE="file" NAME="file"  SIZE=30 MAXLENGTH=80><BR> (25 kBytes Max)</TD></TR>
+    <TR><TD COLSPAN="3">&nbsp;</TD></TR>
+    </TABLE>
+    </TD></TR></TABLE>
+    </TD></TR></TABLE>
+    </FORM>
+
+   <br />
+
+  </div>
+</div>
+</body>
+</html>

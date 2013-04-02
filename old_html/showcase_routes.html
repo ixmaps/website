@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style>
+h3{
+    padding: 0px;
+    margin-bottom: 10px;
+}
+</style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IXmaps</title>
+<!--<link href="visual_index.css" rel="stylesheet" type="text/css" />-->
+</head>
+
+<body>
+
+<p><font size="5"><b>Showcase routes</b></font></p>
+<p>To view this data graphically, you must have <a href="http://earth.google.com/download-earth.html">Google Earth</a> downloaded and installed :</p>
+     <ol>
+     <li>click on any id number (eg 1859).</li>
+     <li>on the Traceroute Detail page - on the top line Google Earth is hyperlinked - select it and Google Earth will automatically launch the visualization</li></ol>
+<p>The following routes have been selected to demonstrate some of the more interesting aspects of internet traffic routing as highlighted by IXmaps.
+These features include:</p>
+<ol>
+<a href="#NSA">NSA listening posts</a><br>
+<a href="#Sovereignty">Canadian network sovereignty ("boomerang routes")</a><br>
+<a href="#Ownership">Connections through IXPs with controversial ownership</a><br>
+<a href="#GoogleDC">Proximity to Google datacenters</a><br>
+<a href="#SitesOfInterest">Other sites of interest</a><br>
+</ol><br>
+
+<h3 id="NSA">NSA listening posts</h3>
+<p>Description: The U.S. National Security Agency (NSA) warrantless surveillance controversy
+was brought to light by former AT&T technician Mark Klein. Klein claims that several
+internet service providers (ISPs) in the States have allowed the NSA to install devices
+which mirror all traffic passing through selected routers. This copied data is then
+inspected by Narus computers and routed back to NSA headquarters. Klein has described in
+detail a 'secret spy room" at 611 Folsom St. in San Francisco - Room 641A - and knows of
+other such rooms in Los Angeles, San Diego, Seattle, San Jose and Atlanta (see his book:
+Wiring Up The Big Brother Machine... And Fighting It, p.98). The NSA is strongly
+suspected of having installed a total of 15-20 similar spy rooms at major internet
+exchange points across the country (e.g. Chicago, New York). View a map of these
+suspected NSA splitter locations.<p>
+select * from chotel where nsa like 'Y%';
+<p>
+Thanks to former AT&T technical Mark Klein, the best documented NSA eavesdropping site is
+at 611 Folsom Street, San Francisco, CA.
+<a href="http://dev.ixmaps.ischool.utoronto.ca/cgi-bin/tr-detail.cgi?traceroute_id=1859">
+View a map of a traceroute from a home in
+Toronto to the San Francisco Art Institute that passes through AT&T's internet switching
+facility at  611 Folsom (TR#1859).</a> Note that this traceroute also goes through Chicago,
+another suspected site of NSA eavesdropping.
+</p>
+
+
+<table><tr><th width="40px">id</th><th width="110px">origin</th><th>destination</th><th>description</th></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=1859" target="_blank">1859</a></td><td>Toronto, ON</td><td>San Francisco Art Institute (sfai.edu)</td>
+<td>This route passes through a known NSA listening post at 611 Folsom st. in San Francisco</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=1751" target="_blank">1751</a></td><td>Austin, TX</td><td>San Francisco Law Library (sflawlib.ci.sf.ca.us)</td>
+<td>This route passes through a suspected NSA listening post location in Los Angeles (as well as San Francisco)</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=1842" target="_blank">1842</a></td><td>Cambridge, ON</td><td>University of Washington (washington.edu)</td>
+<td>This route passes through a suspected NSA listening post in Seattle. It also passes through a location in Chicago that is suspected of having an NSA listening post</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=3445" target="_blank">3445</a></td><td>New York, NY</td><td>CNet (cnet.com)</td>
+<td>This route passes through a suspected NSA listening post in Atlanta</td></tr>
+
+
+</table><br>
+
+<h3 id="Sovereignty">Canadian network sovereignty ("boomerang routes")</h3>
+<p>Description: due to current technical, economic and policy choices made principally by private corporations, Canadian internet traffic is often routed through the US.
+Thus, packets originating in Ottawa and terminating in Winnipeg may pass through routers in New York and Chicago before reaching their destination.
+This is sometimes referred to as a "boomerang route," and freqently occurs despite the fact that the total distance of the route is longer through the US than through Canada.
+These boomerang routes have prompted concerns regarding Canadian network sovereignty, where Canadian packets passing through routers in the US may be
+subject to unknown types of inspection or filtering.</p>
+
+<table><tr><th width="40px">id</th><th width="110px">origin</th><th>destination</th><th>description</th></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=4168" target="_blank">4168</a></td><td>Toronto, ON</td><td>Hockey Hall of Fame (hhof.ca)</td>
+<td>This route's origin and destination are both in Toronto, yet it passes through the US</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=1827" target="_blank">1827</a></td><td>Cambridge, ON</td><td>University of Toronto (utoronto.ca)</td>
+<td>This route boomerangs from Kitchener to Chicago to Toronto</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=1486" target="_blank">1486</a></td><td>Abbotsford, BC</td><td>Dalhousie University (dal.ca)</td>
+<td>This route begins on the West coast of Canada and ends on the East coast, yet the majority of the routing is through the US</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=1474" target="_blank">1474</a></td><td>Abbotsford, BC</td><td>Lakehead University (lakehead.ca)</td>
+<td>This route begins in British Columbia and ends in northern Canada, yet is routed through San Jose, San Francisco, Kansas City and Chicago</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=6896" target="_blank">6896</a></td><td>Toronto, ON</td><td>Ontario Student Assistance Program (osap.gov.on.ca)</td>
+<td>While the origin and destination of this route are in Toronto, it also traverses New York and Chicago</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=6163" target="_blank">6163</a></td><td>Toronto, ON</td><td>Ontario Government (ontario.ca)</td>
+<td>Traffic to this important Canadian site can be routed through New York and Chicago, depending on the particularities of peering agreements</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=6904" target="_blank">6904</a></td><td>Toronto, ON</td><td>Health Canada (www.hc-sc.gc.ca)</td>
+<td>This route boomerangs from Toronto to New York and then to Montreal before heading towards Ottawa</td></tr>
+</table>
+<br>
+
+<h3 id="Ownership">Connections through IXPs with controversial ownership</h3>
+Ipsom Loren
+
+<br>
+
+<h3 id="GoogleDC">Proximity to Google datacenters</h3>
+Ipsom Loren
+
+<br>
+
+<h3 id="SitesOfInterest">Other sites of interests</h3>
+<table><tr><th width="40px">id</th><th width="110px">origin</th><th>destination</th><th>description</th></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=6915" target="_blank">6915</a></td><td>Toronto, ON</td><td>CIBC (cibconline.cibc.com)</td>
+<td>Canadian bank</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=6921" target="_blank">6921</a></td><td>Toronto, ON</td><td>UFile (ufile.ca)</td>
+<td>Online income tax filing software. The route passes through Atlanta, which has a suspected NSA listening post</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=6904" target="_blank">6904</a></td><td>Toronto, ON</td><td>Health Canada (www.hc-sc.gc.ca)</td>
+<td>Canadian health information site</td></tr>
+<tr><td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=3041" target="_blank">3041</a></td><td>Toronto, ON</td><td>The Nature Museum (naturemuseum.org)</td>
+<td>This is interesting because it looks pretty? And it's clean?</td></tr>
+</table>
+<br>
+</body>

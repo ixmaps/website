@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+  <Style id="docBalloonStyle">
+    <BalloonStyle>
+      <!-- a background color for the balloon -->
+      <bgColor>40ffffbb</bgColor>
+      <!-- styling of the balloon text -->
+      <text><![CDATA[
+      <b><font color="#CC0000" size="+3">$[name]</font></b>
+      <br/><br/>
+      <font face="Courier">$[description]</font>
+      <br/><br/>
+      ]]></text>
+    </BalloonStyle>
+  </Style>
+  <name>Traceroute Results</name>
+  <open>1</open>
+  <Document>
+    <name>Instructions</name>
+    <Snippet maxLines="0">Instructions</Snippet>
+    <description><![CDATA[
+<ul><li>Click on icons to see locations of Carrier Hotels</li>
+    <li>Click on location to see Carrier Hotel building</li>
+    <li>Mouse over center of building to see infrastructure</li>
+    </ul>
+  ]]></description>
+    <styleUrl>#docBalloonStyle</styleUrl>
+  </Document>
+  <description>Select this folder and click on the &apos;Play&apos; button below, to start the tour.</description>
+
+  <Style id="CAN_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/blue8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <bgColor>1f1fffff</bgColor>
+      <textColor>1f0000ff</textColor>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmapsx.png" alt="" width="270" height="60"></a></p><p>In Canada</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="CAN_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/blue8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <bgColor>1f1f1f1f</bgColor>
+      <textColor>1fff0000</textColor>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmapsx.png" alt="" width="270" height="60"></a></p><p>In Canada</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="CAN">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#CAN_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#CAN_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+  <Style id="NSA_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/red8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Suspected NSA listening post</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="NSA_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/red8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Suspected NSA listening post</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="NSA">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#NSA_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#NSA_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+  <Style id="CRG_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/yellow8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Owned by the Cargyle Group</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="CRG_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/yellow8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Owned by the Cargyle Group</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="CRG">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#CRG_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#CRG_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+  <Style id="OTH_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/purple8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p></p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="OTH_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/purple8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p></p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="OTH">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#OTH_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#OTH_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+
+  <Style id="AGF_nonsel">
+    <IconStyle>
+      <scale>0.5</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/green8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.0</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Apple or Google facility</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <Style id="AGF_sel">
+    <IconStyle>
+      <scale>0.7</scale>
+      <Icon>
+        <href>http://www.ixmaps.ca/ge/green8x8.png</href>
+      </Icon>
+    </IconStyle>
+    <LabelStyle>
+      <scale>1.2</scale>
+    </LabelStyle>
+    <BalloonStyle>
+      <text><![CDATA[<table border="0" width="305" cellspacing="0" cellpadding="0"><tr align="left" valign="top"><td width="100%" align="left" valign="top"> <p><a href="http://www.ixmaps.ca/"; title="IXmaps"><img src="http://www.ixmaps.ca/ge/ixmaps.png" alt="" width="270" height="60"></a></p><p>Apple or Google facility</p> <p><strong>$[name]</strong></p>$[description]</td></tr></table>]]></text>
+    </BalloonStyle>
+  </Style>
+  <StyleMap id="AGF">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#AGF_nonsel</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#AGF_sel</styleUrl>
+    </Pair>
+  </StyleMap>
+
+    <Camera id="NorthAmerica">
+      <longitude>-96.0</longitude>
+      <latitude>45.0</latitude>
+      <altitude>4500000.0</altitude>
+      <heading>0.0</heading>
+      <tilt>0</tilt>
+      <roll>0</roll>
+      <altitudeMode>clampToGround</altitudeMode>
+    </Camera>
+  <Placemark id="route1">
+    <name>5 hops</name>
+      <LineString>
+        <tessellate>1</tessellate>
+          <coordinates>
+-117.164,32.71883,0 -122.419,37.775,0 -95.952,41.279,0 -87.7168,41.9034,0 -84.040015,38.847,0 -79.3914,43.6606,0</coordinates>
+     </LineString>
+   </Placemark>
+      <Placemark id="src">
+        <name>ucsd.edu</name>
+        <Snippet maxLines="0"></Snippet>
+<description><![CDATA[name/ip/ms: ucsd.edu / 132.239.180.101 AS7377 / 1.577 ms<br/>
+country: US<br/>
+region: CA<br/>
+city: San Diego<br/>]]></description>
+        <styleUrl>#NSA</styleUrl>
+        <Point>
+          <coordinates>-117.164,32.71883,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="hop1">
+        <name>ATT 611 Folsom</name>
+        <Snippet maxLines="0"></Snippet>
+        <description><![CDATA[name/ip/ms: sf.att.net / 111.111.111.111 AS9999 / 4.577 ms<br/>
+<img src="http://www.ixmaps.ca/ge/building.png" />
+country: US<br/>
+region: CA<br/>
+city: San Francisco<br/>]]></description>
+        <styleUrl>#NSA</styleUrl>
+        <Point>
+          <coordinates>-122.419,37.775,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="hop2">
+        <name>Omaha, NB</name>
+        <Snippet maxLines="0"></Snippet>
+        <description><![CDATA[name/ip/ms: nebraska-tel.net / 122.111.111.111 AS9999 / 4.577 ms<br/>
+country: US<br/>
+region: NB<br/>
+city: Omaha<br/>]]></description>
+        <styleUrl>#OTH</styleUrl>
+        <Point>
+          <coordinates>-95.952,41.279,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="hop3">
+        <name>427 South LaSalle, Chicago</name>
+        <Snippet maxLines="0"></Snippet>
+        <description><![CDATA[name/ip/ms: chi.xxx.net / 133.111.111.111 AS9999 / 4.577 ms<br/>
+country: US<br/>
+region: IL<br/>
+city: Chicago<br/>]]></description>
+        <styleUrl>#CRG</styleUrl>
+        <Point>
+          <coordinates>-87.7168,41.9034,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="hop4">
+        <name>Cincinnati</name>
+        <Snippet maxLines="0"></Snippet>
+        <description><![CDATA[name/ip/ms: cin.att.net / 144.111.111.111 AS9999 / 4.577 ms<br/>
+country: US<br/>
+region: OH<br/>
+city: Cincinnati<br/>]]></description>
+        <styleUrl>#CRG</styleUrl>
+        <Point>
+          <coordinates>-84.040015,38.847,0</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="dest">
+        <name>utoronto.ca</name>
+        <Snippet maxLines="0"></Snippet>
+        <description><![CDATA[name/ip/ms: utoronto.ca / 55.111.111.111 AS9999 / 4.577 ms<br/>
+country: CA<br/>
+region: ON<br/>
+city: Toronto<br/>]]></description>
+        <styleUrl>#CAN</styleUrl>
+        <Point>
+          <coordinates>-79.3914,43.6606,0</coordinates>
+        </Point>
+      </Placemark>
+</Document>
+</kml>

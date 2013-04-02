@@ -1,0 +1,26 @@
+# traceroute destinations sorted by frequency of use
+select dest, count(dest) as c from traceroute group by dest order by c desc;
+
+# traceroute destinations by name
+select dest, count(dest) as c from traceroute group by dest order by dest;
+
+# create temporary ip_use table that has unique routerIP, destination host IP addresses
+select ip_addr,dest into temp table ip_use from traceroute as t join tr_item as i on t.id=i.traceroute_id group by ip_addr, dest;
+
+# get the most popular IP addresses from the above
+select ip_addr,count(ip_addr) from ip_use group by ip_addr order by count desc;
+
+# don't forget this before creating the temp table
+drop table ip_use;
+
+# the previous temp table omitting the 1st and final hops
+select ip_addr,dest into temp table ip_use from traceroute as t join tr_item as i on t.id=i.traceroute_id where hop > 1 and ip_addr <> dest_ip group by ip_addr, dest;
+
+# get all IP addresses geolocated within a latitude/longitude range
+select ip_addr,lat,long from ip_addr_info where abs(lat-39.0) < 1.0 and abs(long - -77.0) < 1.0;
+
+# also get the tracerouteID and grid (not true) distance 
+select distinct ip_addr,lat,long,traceroute_id,sqrt((lat-39.0)*(lat-39.0)+(long - -77.0)*(long - -77.0)) from ip_addr_info natural join tr_item where abs(lat-39.0) < 1.0 and abs(long - -77.0) < 1.0;
+
+# get traceroute IDs, destination hosts, grid distance sorted by distance and destination host
+select distinct traceroute_id,dest,sqrt((lat-39.0)*(lat-39.0)+(long - -77.0)*(long - -77.0)) from ip_addr_info natural join tr_item join traceroute on tr_item.traceroute_id=traceroute.id where abs(lat-39.0) < 1.0 and abs(long - -77.0) < 1.0 order by sqrt,dest;

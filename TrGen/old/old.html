@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IXmaps</title>
+<link href="../visual_index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="wrap">
+  <div id="logo">IXmaps</div>
+  <div id="dl-usr"><a href="trgen-0.8.1.msi">Download IXmaps Traceroute Generator 0.8.1 (slower, no administrator privileges needed.)</a></div>
+  <div id="dl-adm"><a href="trgen-0.8.2.msi">Download IXmaps Traceroute Generator 0.8.2 (faster, requires administrator privs.)</a></div>
+  <div id="dbview"><a href="/cgi-bin/tr-detail.cgi?all_submitters=1">Examine submitted traceroutes by submitter</a> (Visuals best viewed on Windows).</div>
+  <div id="trs-view"><a href="../trsets/">See the trace-sets currently available.</a></div>
+  <!-- <div id="submit"><a href="trsubmit.html">Submit a Traceroute</a></div> -->
+  <!-- <div id="line"><img src="images/carrier-hotels_08.png" width="765" height="10" /></div> -->
+  <div id="text1">
+    <p>Versions 0.8.1 and 0.8.2 of IXmaps Traceroute Generator are now available for download.  Currently, only Windows XP and later are supported.
+    <p>
+    <p>To install and run IXmaps Traceroute Generator version 0.8.2, you must be running as Administrator.  The
+       traceroute algorithm used usually completes within 10 seconds.
+    <p>
+    <p>To install and run IXmaps Traceroute Generator version 0.8.1, no Administrator privileges are required.
+       The Windows &quot;tracert&quot; program is used, and my take up to 6 minutes to do a single traceroute
+       if no response is received from the destination host.
+    <p>
+    <p>Other than the traceroute algorithm used, the two versions are identical.  You may minimize the
+       windows while the program is running.
+    <p>When asked to do a full or custom install, pick the full install.
+    <p>
+    <p>If there is temporarily high latency between your computer and the central database, you may get
+    a &quot;The connection to the central database is not working.&quot; pop-up.  The TrGen client
+    program waits 5 seconds after it sends a traceroute result to the server.  If the confirmation
+    is not received within that time, the pop-up will appear.  Often, the data will have made it
+    into the database.
+    <p>
+
+  </div>
+  <script language=JavaScript>
+<!--
+//Disable right click script III- By Renigade (renigade@mediaone.net)
+//For full source code, visit http://www.dynamicdrive.com
+
+var message="";
+///////////////////////////////////
+function clickIE() {if (document.all) {(message);return false;}}
+function clickNS(e) {if 
+(document.layers||(document.getElementById&&!document.all)) {
+if (e.which==2||e.which==3) {(message);return false;}}}
+if (document.layers) 
+{document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+
+document.oncontextmenu=new Function("return false")
+//-->
+</script>
+</div>
+</body>
+</html>
