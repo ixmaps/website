@@ -1311,6 +1311,7 @@ class Traceroute
 		if($myCity==""){
 			$myCity="--";
 		}
+		$myCity=utf8_encode($myCity);
 		// last
 		$sql = "INSERT INTO s_log (timestamp, log, ip, city) VALUES (NOW(), '".$data_json."', '".$myIp."', '".$myCity."');";
 		//echo '<hr/>'.$sql;
