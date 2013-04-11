@@ -1,4 +1,4 @@
-/*********** Explore page ***********/
+`/*********** Explore page ***********/
 #filter-results{
 /*	display: block;
 	position: absolute;
@@ -25,10 +25,9 @@
 #tr-list-ids {
 	
 	/*background-color: orange;*/
-	height: 254px;
-	overflow-y: scroll;
+	max-height: 254px;
 	/*clear: both;*/
-	overflow-y: scroll;
+	overflow-y: auto;
 	/*position: absolute;*/
 	bottom: 0;
 	left: 0px;
@@ -80,8 +79,10 @@
 
 .filter-item {
 	margin-bottom: 5px;
-	border: 1px dashed #CCC;
+	/*border: 1px dashed #CCC;*/
 	padding: 5px;
+	/*border-radius: 10px;*/
+	/*width: 65%;*/
 }
 
 .blank-field-error {
@@ -144,7 +145,7 @@
 	left: 0;
 }
 
-#map_canvas {
+.map-canvas {
 
 	/*clear: both;*/
 	margin: 0;
@@ -164,8 +165,6 @@
 /*	width: 1420px;
 	height: 900px;
 */
-
-
 
 }
 
@@ -210,28 +209,40 @@
 	margin-right: 20px; 
 }
 
-#map-leyend{
+#map-legend{
 	/*float: left;*/
-	max-height: 505px;
+	max-height: 462px;
 	overflow: auto;
 /*	border: 10px solid #ccc;
 	border-radius: 10px;*/
 	/*width: 35%;*/
 	/*padding: 5px;*/
 	float: left;
-	width: 520px;
-	margin-right: 5px;
+	width: 438px;
+	margin: 20px 0px 0 10px;
+}
+
+/* redifyning jQuery ui-widget */
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button{
+	font-size: 0.9em;
+}
+
+.map-tool-on, .map-tool-off{
+	font-size: 0.8em;
+	border-radius: 5px;
 }
 
 .map-tool-on{
-	background-color: yellow;
-	border-radius: 10px;
+	color: #000000;
+	background-color: #8dbdd8;
 }
+
 .map-tool-off{
-	background-color: #fff;
-	border-radius: 10px;
-	/*font-size: 16px;*/
+	color: #000000;
+	background-color: #FFFFFF;
 }
+
 #map-actions{
 	clear: both;
 	/*width: 700px;*/
@@ -243,10 +254,12 @@
 	text-align: center;
 	font-size: 14px;
 	border-radius: 10px;
+	margin: 5px;
 }
 
 .asn-color-text{
 	text-align: center;
+	/*vertical-align: middle;*/
 }
 
 .map-info-containers{
@@ -320,6 +333,10 @@
 	opacity: 0.9;
 	color: #ffffff;
 	width: 200px;
+/*
+	position: absolute;
+	top: 260px;
+	right: 16px;*/
 }
 #map-core-controls{
 	/*text-align: center;*/
@@ -332,4 +349,17 @@
 }
 .warning{
 	background-color: #FFAC1C;
+}
+
+#filter-results-log{
+/*	font-size: 18px;*/
+	border: 1px solid #ccc;
+	padding: 3px 5px;
+	border-radius: 10px;
+	min-height: 25px;
+}
+
+.text-new{
+	color: red;
+	font-weight: bold;
 }

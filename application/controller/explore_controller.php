@@ -7,11 +7,25 @@ include('../geoip/geoip.inc');
 include('../geoip/geoipcity.inc');
 include('../geoip/geoipregionvars.php');
 
+
+$dbQueryHtml = '';
+
+// vars for calculating excecution time 
+$mtime = microtime(); 
+$mtime = explode(" ",$mtime); 
+$mtime = $mtime[1] + $mtime[0]; 
+$starttime = $mtime; 
+
+// using MaxMind to find the city of client IP address
+$myIp = $_SERVER['REMOTE_ADDR'];
+
 $gi1 = geoip_open("../geoip/dat/GeoLiteCityv6.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
 $myCity = ''.$record1->city;
 geoip_close($gi1);
 
+//
+//$a = Traceroute::testSqlUnique($sql);
 
 if(!isset($_POST) || count($_POST)==0)
 {
@@ -55,18 +69,43 @@ if(!isset($_POST) || count($_POST)==0)
 	$data = json_encode($dataArray);
 	Traceroute::saveSearch($data);
 	
+	// get IXmaps geographic data and prepare the response into a json format
 	//print_r($data);
 	if(count($b)!=0)
 	{
-		
-		
 		$ixMapsData = Traceroute::getIxMapsData($b);
 		//print_r($ixMapsData);
 		
 		$ixMapsDataT = Traceroute::dataTransform($ixMapsData);
 		//print_r($ixMapsDataT);
-		Traceroute::generateGoogleMapsJs($ixMapsDataT);
-		Traceroute::renderTrSets($ixMapsDataT);
+
+		$ixMapsDataStats = Traceroute::generateDataForGoogleMaps($ixMapsDataT);
+		
+		$trHtmlTable = Traceroute::renderTrSets($ixMapsDataT);
+
+		// end calculation of excecution time
+		$mtime = microtime(); 
+		$mtime = explode(" ",$mtime); 
+		$mtime = $mtime[1] + $mtime[0]; 
+		$endtime = $mtime; 
+		$totaltime = ($endtime - $starttime); 
+		$totaltime = number_format($totaltime,2);
+		//echo "<hr/>This page was created in <b>".$totaltime."</b> seconds";
+
+		// add db query results/errors
+		$ixMapsDataStats['queryLogs']=$dbQueryHtml;
+
+		// add excec time
+		$ixMapsDataStats['execTime']=$totaltime;
+
+		// add server side renerated table; 
+		$ixMapsDataStats['trsTable']=$trHtmlTable;
+
+		//print_r($ixMapsDataStats);
+
+		// pack results in a json file
+		echo json_encode($ixMapsDataStats);
+
 	}
 
 }

@@ -4,7 +4,7 @@
 
 // var url_base="http://192.168.0.101/mywebapps/ixmaps.ca/dev.ixmaps.anto";
 
-url_base="http://dev.ixmaps.ischool.utoronto.ca";
+var url_base="http://dev.ixmaps.ischool.utoronto.ca";
 
 var activeInfo = 0;
 
@@ -216,6 +216,11 @@ var addFilterConstraint = function () {
 
   // on change approach
   jQuery('.constraint-dropdown').change(function(ev) {
+    // FIXME: we need to capture here the actual rowId, so we don't run bindAutocompletes for all the constraint-dropdown(s).
+    //////
+    console.log('ev.target', ev.target);
+    console.log('rowId', rowId);
+    
     console.log(jQuery(ev.target).val());
     bindAutocompletes(jQuery(ev.target).val(), rowId);
   });
@@ -287,13 +292,17 @@ var processFilters = function() {
 
   // clear the error fields
   jQuery('.constraint').removeClass('blank-field-error');
-
+  /*var tt= jQuery('.filter-item');
+  console.log(tt);*/
   _.each(jQuery('.filter-item'), function(item) {
     i = 0;
     constraint = {};
 
     _.each(jQuery(item).children('.constraint'), function(c) {
       i++;
+      /*var c_val = jQuery(c).val();
+      console.log(c_val);*/
+
       if (jQuery(c).val()) {
         constraint['constraint'+i] = jQuery(c).val();
       } else {
@@ -317,11 +326,11 @@ var processFilters = function() {
 
 var submitQuery = function(obj) {
   console.log('submitting...');
-  
+  submittedObj = obj;
   jQuery('#map-canvas-container').hide();
   jQuery('#map-container').hide();
   jQuery('#filter-results').hide();
-  jQuery('#map-core-controls').hide();
+  /*jQuery('#map-core-controls').hide();*/
   
   
   showLoader();
@@ -331,14 +340,22 @@ var submitQuery = function(obj) {
     data: obj,
     success: function (e) {
       console.log("Query submitted");
+      var data = jQuery.parseJSON(e);
+      
+      console.log(" Total TRs: "+data.totTrs);
+      console.log(" Total Hops: "+data.totHops);
+      console.log(" File Name: "+data.ixdata);
+      console.log(" File Size: "+data.ixsize+' KB');
+      console.log(" Execution Time: "+data.execTime+' Sec.');
+      writeIxMapsJs(data.ixdata);
       jQuery('#map-canvas-container').show();
       jQuery('#map-container').show();
       jQuery('#filter-results').show();
-      jQuery('#map-core-controls').show();
-
-      jQuery('#filter-results').html(e);
+      /*jQuery('#map-core-controls').show();*/
+      jQuery('#filter-results').html(data.trsTable);
+      jQuery('#filter-results-log').html(data.queryLogs);
       hideLoader();
-      initializeMap();
+
     },
     error: function (e) {
       console.log("Error! Submission unsuccessful", e);
@@ -347,7 +364,12 @@ var submitQuery = function(obj) {
   }); 
 };
 
-
+var writeIxMapsJs = function(ixMapsJsFile){
+  var script = '<script type="text/javascript" src="' + url_base +
+  '/gm-temp/'+ixMapsJsFile+'"></script>';
+  jQuery('#filter-results-ixmaps-data').html('');
+  jQuery('#filter-results-ixmaps-data').html(script);
+}
 
 /************** HELPER FUNCTIONS *****************/
 

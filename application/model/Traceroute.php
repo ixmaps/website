@@ -3,7 +3,7 @@
 class Traceroute
 {
 	/**
-
+	A function to calculate distance between a pair of coordinates
 	*/
 	public static function distance($lat1, $lng1, $lat2, $lng2, $miles = true)
 	{
@@ -24,7 +24,7 @@ class Traceroute
 	}
 
 	/**
-	
+		A handy function to clean up html code
 	*/
 	public static function strip_only($str, $tags, $stripContent = false) 
 	{
@@ -41,56 +41,8 @@ class Traceroute
 	    return $str;
 	} // end function
 
-	
 	/**
-	
-	*/
-	public static function getHop($trId, $hopeType) 
-	{
-
-		global $dbconn;
-
-		if($hopeType=='first') {
-			
-			$sql = "select * from tr_item where traceroute_id = ".$trId." ORDER BY hop LIMIT 1 OFFSET 0;";
-		} else if($hopeType=='last') {
-			// use destination as last hop
-			$sql = "select * from tr_item where traceroute_id = ".$trId." ORDER BY hop DESC LIMIT 1 OFFSET 0;";
-
-		}
-
-		echo '<hr/>'.$sql;
-
-		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
-
-		$data = array();
-
-		// Printing results in HTML
-		$htmlResult = "<table border='1'>";
-		while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-		    $data[]=$line;
-		    $htmlResult.= "\t<tr>\n";
-		    foreach ($line as $col_value) {
-		        $htmlResult.= "\t\t<td>$col_value</td>\n";
-		    }
-		    $htmlResult.= "\t</tr>\n";
-		}
-		$htmlResult.= "</table>\n";
-
-		echo $htmlResult;
-
-		print_r($data);
-
-		// Free resultset
-		pg_free_result($result);
-
-		// Closing connection
-		pg_close($dbconn);
-	
-	} // end fnc
-
-	/**
-	
+		Key function !! creates a where SQL based on explore submitted constraints
 	*/
 	public static function buildWhere($c,$doesNotChk=false) 
 	{
@@ -103,9 +55,6 @@ class Traceroute
 		$constraint_value = trim($c['constraint4']);
 		// apply some default formating to constraint's value
 
-/*		$selector_s='LIKE';
-		$selector_i='=';
-*/
 		if($c['constraint1']=='does' || $doesNotChk==true)
 		{
 			$selector_s='LIKE';
@@ -214,34 +163,14 @@ class Traceroute
 		return $w;
 
 	}
-	/**
-	
-	*/
-	public static function getLastHop($trId)
-	{
-		global $dbconn;
-		$result = array();
-		$sql = "select hop from tr_item where traceroute_id = ".$trId." ORDER BY hop DESC LIMIT 1 OFFSET 0;";
-
-		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
-
-		while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-			//print_r($line);
-			return $line['hop'];
-		}
-
-	}
 
 	/**
-		Get TR data for a given sql query
+		Key function !! Get TR data for a given sql query
 	*/
 	public static function getTrSet($sql)
 	{
-		//$sql = "SELECT as_users.num, tr_item.traceroute_id, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM as_users, tr_item, traceroute, ip_addr_info WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum) AND tr_item.attempt = 1";
-		
-		//echo '<hr/>EX<br/>'.$sql;
-
-		global $dbconn;
+		global $dbconn, $dbQueryHtml;
+		//echo $sql;
 		$trSet = array();
 		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
 		$data = array();
@@ -258,41 +187,14 @@ class Traceroute
 		    if($id!=$id_last){
 		    	$data[]=$id;
 			}
-/*
-			echo '<br>'.$city;
-
-			// check if current city is in chotel set
-			$chotel_data = array();
-
-			$chotel_data = Traceroute::checkNSA($city);
-
-			//print_r($chotel_data);
-
-
-			if(in_array($city,$chotel_data,true)) 
-			{
-		    	echo "<br/>City:"." : <b>".$city." </b> found in chotel set.";
-		    }*/ 
-
-			//$data1[]=$id;
 		    $id_last=$id;
 		}
-		// just in case 
 		$data1 = array_unique($data);
-		//print_r($data);
-
-		//echo "<br/>Records (unique): <b>".count($data1).'</b>';
-		echo " | Traceroutes: <b>".count($data1).'</b>';
-		//echo " | Hops: ".$c;
-		// Free resultset
+		$dbQueryHtml .= " | Traceroutes: <b>".count($data1).'</b>';
 		pg_free_result($result);
-		// Closing connection
+		// Closing connection ??
 		//pg_close($dbconn);
-
-		//echo '<hr/>getTrSet: '.memory_get_usage();
 		unset($data);
-		//echo '<hr/>getTrSet: '.memory_get_usage();
-
 		return $data1;
 	}
 
@@ -382,11 +284,27 @@ class Traceroute
 	}
 
 	/**
+	Get TR details data for a current TR: this is quite expensive computationally and memory
+	Only used to perform advanced analysis that need to look at all the attemps and all the hops in a TR
+	*/
+	public static function getTraceRouteAll($trId)
+	{
+		global $dbconn;
+		$result = array();
+		$sql = 'SELECT traceroute.id, tr_item.* FROM traceroute, tr_item WHERE (tr_item.traceroute_id=traceroute.id) AND traceroute.id = '.$trId.' ORDER BY tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
+		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
+		//$tot = pg_num_rows($result);
+		// get all data in a single array
+		$trArr = pg_fetch_all($result);
+		return $trArr;
+	}
 
+	/**
+	Get TR data for set of constraints
 	*/
 	public static function getTraceRoute($data)
 	{
-		global $dbconn;
+		global $dbconn, $dbQueryHtml;
 		$result = array();
 		$trSets = array();
 		$conn = 0;
@@ -399,19 +317,16 @@ class Traceroute
 		foreach($data as $constraint)
 		{
 		//if($ixmaps_debug_mode) {
-			echo '<br><b>'.$constraint['constraint1'].' : '.$constraint['constraint2'].' : '.$constraint['constraint3'].' : '.$constraint['constraint4'].' : '.$constraint['constraint5'].'</b>';
+			$dbQueryHtml .= '<br><b>'.$constraint['constraint1'].' : '.$constraint['constraint2'].' : '.$constraint['constraint3'].' : '.$constraint['constraint4'].' : '.$constraint['constraint5'].'</b>';
 		//}
 
 			$w = '';
 			$sql = '';
 
-				$sql = "SELECT as_users.num, tr_item.traceroute_id, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM as_users, tr_item, traceroute, ip_addr_info WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum)";
+			$sql = "SELECT as_users.num, tr_item.traceroute_id, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM as_users, tr_item, traceroute, ip_addr_info WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum)";
 
-				$sqlOrder = ' order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
+			$sqlOrder = ' order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
 
-			/*
-				
-			*/
 			$aa = 0;
 			// adding exception for doesnot cases
 			if($constraint['constraint1']=='doesNot' && $constraint['constraint2']!='originate' && $constraint['constraint2']!='terminate') 
@@ -424,10 +339,6 @@ class Traceroute
 				$sqlTemp = $sql;
 				$sqlTemp.=$w.$sqlOrder;
 				$positiveSet = Traceroute::getTrSet($sqlTemp);
-				
-				/*echo '<br/><i>'.$sqlTemp.'</i>';
-				echo '<br/>positiveSet: '.count($positiveSet);*/
-
 				$doesNotChk = true;
 
 
@@ -457,33 +368,11 @@ class Traceroute
 				//echo '<br/><i>'.$sql.'</i>';
 			}
 
-			//echo " | Traceroutes: <b>".count($trSets[$conn]).'</b>';
-
-			//echo '<hr>';
-			//print_r($constraint);
-			
-			//$sql .=$w.' and traceroute.id between '.$limit1.' AND '.$limit2.' order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
-
-			
-			//LIMIT '.$limit.' OFFSET '.$offset.''
-
-			
-
-			//$newTrSet = array(Traceroute::getTrSet($constraint), $operand);
-			
-
-			//print_r($trSets[$conn]);
-			//$trSets[$conn]=$newTrSet;
-
-			//$sql.= " ".Traceroute::buildWhere($constraint);
-
 			$conn++;
 
 		} // end for each
 
 		$trSetResult = array();
-
-		//echo '<hr/>';
 
 		for($i=0;$i<$conn;$i++)
 		{
@@ -498,12 +387,6 @@ class Traceroute
 			} else if ($i>0){
 				if($data[$i-1]['constraint5']=='OR')
 				{
-				
-/*					echo '<br/>OR case. Merging';
-					echo '<br/>ToT trSetResult: '.count($trSetResult);
-					echo '<br/>ToT trSets['.$i.']: '.count($trSets[$i]);
-*/				
-
 					$trSetResultTemp = array_merge($trSetResult,$trSets[$i]);
 					//$trSetResultTemp = array_merge($trSets[$i-1],$trSets[$i]);
 					$trSetResultTemp = array_unique($trSetResultTemp);
@@ -512,31 +395,20 @@ class Traceroute
 					$trSetResult =  array_merge($trSetResult, $trSetResultTemp);
 
 				} else {
-					
-					/*echo '<br/>AND case. Intersecting';
-					echo '<br/>ToT trSetResult: '.count($trSetResult);
-					echo '<br/>ToT trSets['.$i.']: '.count($trSets[$i]);*/
-
-					//$trSetResultTemp = array_intersect($trSetResult,$trSets[$i]);
 					$trSetResultTemp = array_intersect($trSetResult,$trSets[$i]);
-
-					//echo '<br/>ToT trSetResultTemp: '.count($trSetResultTemp);					
 				}
 
 				$trSetResult =  array();
 				$empty = array();
 				$trSetResult = array_merge($empty, $trSetResultTemp);
-				//$trSetResult =  array_merge($trSetResult, $trSetResultTemp);
 			}
-
-			//echo '<br/>--- ToT trSetResult: ['.$i.'] '.count($trSetResult);
 
 		} // end for
 			$trSetResultLast =  array_unique($trSetResult);
 
-		//$trSetResult = array_intersect($trSets[0],$trSets[1],$trSets[2]);
-
-		echo '<br/>Total traceroutes : <b>'.count($trSetResultLast)."</b>";
+		// FIXME: move this to the client. make this count based on the # of TR resulting in the set
+		// It's alread done. need to fix UI loading of data
+		$dbQueryHtml .= '<br/>Total traceroutes : <b>'.count($trSetResultLast)."</b>";
 
 		//echo '<hr/>getTraceRoute: '.memory_get_usage();
 		unset($trSetResult);
@@ -545,7 +417,6 @@ class Traceroute
 		//echo '<hr/>getTraceRoute: '.memory_get_usage();
 
 		return $trSetResultLast;
-
 	} 
 
 	/**
@@ -554,45 +425,22 @@ class Traceroute
 	// process the quicklinks with canned SQL
 	public static function processQuickLink($qlArray)
 	{
+		global $dbQueryHtml;
 		// base sql 
 		$sql = "SELECT as_users.num, tr_item.traceroute_id, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM as_users, tr_item, traceroute, ip_addr_info WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum)";
 
 		if ($qlArray[0]['constraint2']=="lastSubmission") {
-			echo "Processing last submission request";
+			$dbQueryHtml .= "Processing last submission request";
 			//will get you the id of the last traceroute submitted
 			$sql = "select id from traceroute order by sub_time desc limit 1"; 
 			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
 			return Traceroute::getTrSet($sql);
 		} else if ($qlArray[0]['constraint2']=="recentRoutes") {
-			echo "Processing last 50 submitted traceroutes";
+			$dbQueryHtml .= "Processing last 50 submitted traceroutes";
   			$sql = 'select id from traceroute order by id desc limit 50';
   			
   			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
   			return Traceroute::getTrSet($sql);
-		} else if ($qlArray[0]['constraint2']=="myCity") {
-			echo "Processing my city request";
-
-			// using MaxMind to find the city of client IP address
-			$myIp = $_SERVER['REMOTE_ADDR'];
-
-			$gi1 = geoip_open("../geoip/dat/GeoLiteCity.dat",GEOIP_STANDARD);
-			$record1 = geoip_record_by_addr($gi1,$myIp);
-			$myCity = ''.$record1->city;
-			geoip_close($gi1);
-
-			echo '<br/>My IP: '.$myIp;
-			echo '<br/>My City: '.$myCity;
-			echo "<br/><i>Using MaxMind's GeoLiteCity Database</i><br/>";
-			
-			$sql .= " AND ip_addr_info.mm_city LIKE '%".$myCity."%'";
-			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
-			if($myCity!='')
-			{
-				return Traceroute::getTrSet($sql);
-			} else {
-				return array();
-			}
-			
 		} else {
 			return array();
 		}
@@ -600,12 +448,12 @@ class Traceroute
 	}
 
 	/**
-		Get long and lat for a tr set 
+		Get geographic data for a tr set
 	*/
 
 	public static function getIxMapsData($data)
 	{
-		global $dbconn, $trNumLimit;
+		global $dbconn, $trNumLimit, $dbQueryHtml;
 		$result = array();
 		$totTrs = count($data);
 		//echo '<br/>Tot: '.$totTrs;
@@ -646,16 +494,9 @@ class Traceroute
 		}
 
 		if($totTrs>$trNumLimit){
-			echo '<p style="color:red;">
+			$dbQueryHtml .= '<p style="color:red;">
 			Showing a sample of <b>'.$c.' traceroutes</b>.</p>';
 		}
-/*
-		echo '<hr/>Showing the followng TRids:';
-		foreach ($trCollected as $value) {
-		 	echo ', '.$value;
-		 } */
-
-
 		// free some memory
 		unset($data);
 
@@ -681,14 +522,10 @@ class Traceroute
 		$trArr = pg_fetch_all($result);
 
 		return $trArr;
-		
-		//return $trCollected;
-
-
 	}
 
 	/**
-	
+		handy function to test current colours addes to ASN array
 	*/
 	public static function getAsNames()
 	{
@@ -767,7 +604,9 @@ class Traceroute
 
 		";
 		//$fh = fopen($file, 'w') or die("can't open file");
-		fwrite($fh, $mapJs);
+		//fwrite($fh, $mapJs);
+		fwrite($fh, "");
+		
 		//fclose($fh);
 	}
 
@@ -777,19 +616,6 @@ class Traceroute
 	public static function writeGmEnd ($file,$fh,$jsonData) {
 
 		$mapJs="
-
-		document.location.href='#tot-trs';
-
-		google.maps.event.addListener(map, 'click', function(event){
-			//if(!mouse_in_polyline) {
-				m_lat = event.latLng.lat();
-				m_lng = event.latLng.lng()
-		   		console.log('Lat: ' + m_lat + ' Lng: ' + m_lng);
-		   		addCollectedCoord(m_lat,m_lng);
-		   	//}
-		});
-
-      } // end initializeMap()
 
       var ixMapsData = '".$jsonData."';
       var ixMapsDataJson;
@@ -807,15 +633,15 @@ class Traceroute
 	}
 
 	/**
-	
+	Must of this has been now moved to JS, a cleaning up here is needed
 	*/
-	public static function generateGoogleMapsJs (
+	public static function generateDataForGoogleMaps (
 		$data, 
 		$addPolylines=false, 
 		$addMarkers=false, $showHopNums=false, 
 		$addInfoWin=false)
 	{
-		global $coordExclude, $webUrl, $savePath, $webUrl, $as_num_color;
+		global $coordExclude, $webUrl, $savePath, $as_num_color;
 		
 		$trDataToJson = array();
 
@@ -833,6 +659,9 @@ class Traceroute
 		$icon_01 = "";
 		$trIdsCounter = 0;
 
+		$totHopsAll = 0;
+		$totTrs = count($data);
+
 		// loop TRids
 		foreach($data as $trId => $hops)
 		{
@@ -845,6 +674,7 @@ class Traceroute
 			// loop hops in a TRid
 			for($r=0;$r<count($hops);$r++)
 			{
+				$totHopsAll++;
 				$c++;
 /*				echo '<hr/>';
 				print_r($hop);
@@ -875,7 +705,7 @@ class Traceroute
 					$gl_override="0";
 				}
 */
-				// full data to export to json
+				// data set to be exported to json
 				$trDataToJson[$id][$hopN]=array(
 					'asNum'=>$asNum,
 					'asName'=>$asName,
@@ -894,64 +724,7 @@ class Traceroute
 					'longOrigin'=>$hops[$r][19],
 				);
 
-/*
-				$ip, 0
-				$hop, 1
-				$lat, 2
-				$long, 3
-				$trId, 4
-				$num, 5
-				$name, 6
-				$trArr[$i]['dest'], 7
-				$trArr[$i]['dest_ip'], 8
-				$trArr[$i]['submitter'], 9
-				$trArr[$i]['mm_city'], 10
-				$trArr[$i]['mm_country'], 11
-				$trArr[$i]['sub_time'], 12
-				$trArr[$i]['rtt_ms'], 13
-				$trArr[$i]['gl_override'] 14
-				$dist_from_origin, 15
-				$imp_dist, 16
-				$time_light_will_do, 17
-*/
-
-// determne geo-precision 
-				/*
-       if ip_dict[ip]['override']:
-
-            #this is a little different than tr-detail, maybe FIX?
-            lat_digits = len(str(d['lat'])) - str(d['lat']).find('.') - 1
-            long_digits = len(str(d['long'])) - str(d['long']).find('.') - 1
-            if lat_digits >= 5 or long_digits >= 5:
-                ip_dict[ip]['geo_precision'] = 'building level'
-            elif lat_digits <= 2 or long_digits <= 2:
-                ip_dict[ip]['geo_precision'] = 'city level'
-            else:
-                ip_dict[ip]['geo_precision'] = 'Maxmind'
-
-				*/
-				// this is experimental: not really accurate
-				//if($lat!=0 && $long!=0 && (!in_array($cEx, $coordExclude))) 
-				//if($lat!=0 && $long!=0) 
-				
-				// collecting all
-				if($lat) 
-				{
-/*					$trDataToJson[$id][$hopN]=array(
-						'asNum'=>$asNum,
-						'asName'=>$asName,
-						'ip'=>$ip,
-						'lat'=>$lat,
-						'long'=>$long,
-						'rtt_ms'=>
-					);*/
-
-				}
-
-				// ANTO's way: show all, even if it is inaccurate
-				//if($lat!=0 && $long!=0)
 				if($ip)
-				//if($cEx) 
 				{
 					// match ISP name for colouring
 
@@ -970,14 +743,6 @@ class Traceroute
 						$cEx1 = "$lat1,$long1";
 						$cEx2 = "$lat2,$long2";
 
-						
-						// testing excluding methods, still a long way to go ;)
-
-						//if($lat1!=0 && $long1!=0 && $lat2!=0 && $long2!=0 && (!in_array($cEx1, $coordExclude)) && (!in_array($cEx2, $coordExclude)) ) {
-
-						// (NEW!) exclude the construction of a polyline object when the two poins are the same coordinates. This saves a lot of innecesary/invisible segments
-
-						//if($lat1!=0 && $long1!=0 && $lat2!=0 && $long2!=0 && ($lat1!=$lat2 && $long1!=$long2) && (!in_array($cEx1, $coordExclude)) && (!in_array($cEx2, $coordExclude))) 
 						if($lat1!=0 && $long1!=0 && $lat2!=0 && $long2!=0 && ($lat1!=$lat2 && $long1!=$long2) && (!in_array($cEx1, $coordExclude)) && (!in_array($cEx2, $coordExclude))) 
 						{
 
@@ -1113,7 +878,7 @@ class Traceroute
 
 
 			/*old approach, not used for now 
-			we now build a polyline for each pair*/
+			we now build a polyline for each hop pair*/
 
 			// build polyline obj
 			$trCoordinatesObj = "
@@ -1174,11 +939,26 @@ class Traceroute
 
 		//Traceroute::renderMap($gMapJs);
 
-		echo '<script src="'.$webUrl.'/gm-temp/'.$gmFile.'"></script>
-		
-		<div style="clear: both;">
+		$fileSize = filesize($myFile)/1024;
+		$fileSize = number_format($fileSize, 2);
 
-		';
+		
+		/*echo '<hr/>IXmaps data';
+		echo '<br/>TRs: '.$totTrs;
+		echo '<br/>Hops: '.$totHopsAll;
+		echo '<br/>Name: '.$gmFile;
+		echo '<br/>Size: '.$fileSize.' KB';*/
+
+		// create results array
+		$statsResult = array(
+			'totTrs'=>$totTrs,
+			'totHops'=>$totHopsAll,
+			'ixdata'=>$gmFile,
+			'ixsize'=>$fileSize
+		);
+		
+		return $statsResult;
+		//echo '<script src="'.$webUrl.'/gm-temp/'.$gmFile.'"></script><div style="clear: both;">';
 	}
 
 
@@ -1201,14 +981,17 @@ class Traceroute
 	}
 
 	/**
-	
+		Transform basic tr results array and gather new data for advanced analysis. 
+			i.e SoL calculations
 	*/
 	public static function dataTransform($trArr)
 	{
 		global $savePath, $webUrl;
+		
 /*		echo '<textarea>';
 		print_r($trArr);
-		echo '</textarea>';*/
+		echo '</textarea>';
+*/
 		$date = md5(date('d-m-o_G-i-s'));
 		$myLogFile = $savePath."/"."_log_".$date.".csv";
 		$myLogFileWeb = $webUrl.'/gm-temp/_log_'.$date.".csv";
@@ -1225,22 +1008,105 @@ class Traceroute
 
 		$time_light_will_do = 0;
 
-
 		$trData = array();
 
 		// distance speed of light in KM per 1 milsec
 		$SL = 200;
 		//$SL = 86;
 		
+		// get tr data for all attempts only once
+		$activeTrId = $trArr[0]['id'];
+		$trDetailsAllData = Traceroute::getTraceRouteAll($activeTrId);
+/*		echo '<textarea>';
+		print_r($trArr);
+		echo '</textarea>';
+*/
+		// analyze min latency for origin
+		// calculate if the min latency of the following hop is less than the min latency of the origin,
+		// if so assign that min latency to orign and this also applies to following hop; where current hop != from origin and != from last hop.
 
+		// origin data
+
+		// last hop data 
+
+		// analyze here all the hops in between first and last
+
+		// assess geocorrection. Based on this analysis we could indicate which IP should be used to replace wrong coordinates of any hop, based on the following logic:
+/*
+		a) N-1 and N+1 for currentHop, when currentHop != first and != last hop
+		b) N+1 for currentHop, when currentHop = first hop
+		c) N-1 for currentHop, when currentHop  = last hop
+			
+*/
+		$totHopsData = count($trDetailsAllData);
+		$lastHop = $trDetailsAllData[$totHopsData]['hop'];
+		$firstHop = $trDetailsAllData[0]['hop'];
+		$latenciesArray = array();
+
+		foreach ($trDetailsAllData as $trDetail => $TrDetailData) {
+			$currentHop = $TrDetailData['hop'];
+			
+			// collect latencies and exclude values = -1 and = 0
+			if($TrDetailData['rtt_ms']!=-1 && $TrDetailData['rtt_ms']!=0){
+				
+				// this approach actually works better. Capture all here, then analyze the array.
+				$latenciesArray[$TrDetailData['hop']][]=$TrDetailData['rtt_ms'];
+				//$latenciesArray[$TrDetailData['hop']][$TrDetailData['rtt_ms']]=0;
+			}
+		} // end for collecting latencies
+
+		//$ar2 = array(1, 3, 2, 4);
+		//array_multisort($latenciesArray,$ar2);
+/*
+	This capproach to calculate sepeed impossible distance is put 
+	on standby for now.. will come back to it laters ;)
+	It's way to unstable still.
+*/
+//////////////////////////
+/*		$minOriginLatency = sort($latenciesArray[1]);
+		$minOriginLatency = $latenciesArray[1][0];
+		$latenciesArrayCalculated = array();
+
+		// sort the latencies in the array and get min latencies 
+		foreach ($latenciesArray as $key => $value) {
+			echo 'sorting latencies for TRid: '.$activeTrId.' Hop: '.$key;
+			//ksort($latenciesArray[$key], SORT_DESC);	
+			//rsort($latenciesArray[$key]);	
+			sort($latenciesArray[$key]);
+			// just remove all the other latencies, and keep the min latency
+			$latenciesArray[$key]=$latenciesArray[$key][0];
+			$minL=$latenciesArray[$key];
+			if($minOriginLatency>$minL && $key>1){
+				$minOriginLatency=$minL;
+			}
+		}*/
+
+		/* 
+			loop again and re-asign the min possible latency based on min value in subsequent hops 
+			As it works on current Traceroute detail page
+		*/
+	/*		foreach ($latenciesArray as $key => $value) {
+				//echo '<br/>... Checking hop '.$key;
+				$minLofAllNext = Traceroute::checkMinLatency($key, $latenciesArray);
+				$latenciesArrayCalculated[$key]=$minLofAllNext;
+			}
+*/
+		// log: comparison between actual min and calculated latencies 
+			/*echo '<textarea>$minOriginLatency: '. $minOriginLatency.'';
+			print_r($latenciesArray);
+			echo '</textarea>';*/
+		
+/*			echo '<textarea>--- Calculated Latencies for each hop trId: ['.$activeTrId.']:';
+			print_r($latenciesArrayCalculated);
+			echo '</textarea>';
+*/
+
+//////////////////////////
+		// start loop over tr data array, where $i is an index of joined traceroute and tr_item tables
 		for($i=0;$i<count($trArr);$i++)
 		{
-			$dist_from_origin=0;
-			//$latOrigin = 0;
-			//$longOrigin = 0;
-			$imp_dist = 0;
-			$imp_dist_txt = '';
-			$time_light_will_do = 0;
+
+			// key data for google display
 
 			$trId = $trArr[$i]['id'];
 			$hop = $trArr[$i]['hop'];
@@ -1254,9 +1120,21 @@ class Traceroute
 			$num = $trArr[$i]['num'];
 			$name = $trArr[$i]['name'];
 
+			// data needed for impossible distance calculation
+			$dist_from_origin=0;
+			$imp_dist = 0;
+			$imp_dist_txt = '';
+			$time_light_will_do = 0;
+
+			
+			// old approach: use only the first attempt data 
 			$rtt_ms = $trArr[$i]['rtt_ms'];
 
-			// calclulate first hop for first hop available: note this is not 100% acurate
+			// new approach: use min latency out of the 4 attemps and correct it relative to the min latency of subsequent hops. This seems to be working quite well ;) There seems to be 
+			// Stil under development, causing a too much processing for Anto standards ;)
+			//$rtt_ms = $latenciesArrayCalculated[$hop];
+
+			// calclulate origin assuming it does have a hop number = 1; Note this is not 100% acurate as there might be traceroutes that have missed it and start on a number > 1
 			//if($i==0){
 			if($hop==1){
 				$latOrigin = $lat;
@@ -1269,6 +1147,9 @@ class Traceroute
 				$time_light_will_do *= 2;
 		
 				// is it an imposible time? distance?
+				//if($rtt_ms<$time_light_will_do){
+
+				// use $minOriginLatency instead
 				if($rtt_ms<$time_light_will_do){
 					$imp_dist = 1;
 					//$imp_dist_txt = '<b>YES!</b>';
@@ -1295,10 +1176,11 @@ class Traceroute
 				$imp_dist,
 				$time_light_will_do,
 				$latOrigin,
-				$longOrigin
+				$longOrigin,
+				$lastHopIp
 			);
 
-			// write impossible distances to a file: this method seems to be more secure that jQuery
+			// write impossible distances to a CSV file: this method seems to be more secure and faster than doing in jQuery: NOTE: this is only for development version. It seems an overhead for production
 			if($imp_dist==1){
 				$impDistanceLog = ''.$trId.';'.$hop.';"'.$trArr[$i]['mm_country'].'";"'.$trArr[$i]['mm_city'].'";'.$num.';"'.$ip.'";'.$trArr[$i]['rtt_ms'].';'.$time_light_will_do.';"'.$dist_from_origin.'";'.$trArr[$i]['gl_override'].';"'.$latOrigin.'";"'.$longOrigin.'";"'.$originAsn.'"
 ';
@@ -1321,6 +1203,40 @@ class Traceroute
 		echo '</textarea>';
 */
 	}
+	/**
+	Check if there is a lower latency in subsequent hops and return that value
+	*/
+	public static function checkMinLatency($currentHop, $hops){
+		
+		$totHops = count($hops);
+		$currentHopLatency = $hops[$currentHop];
+
+		//echo '<hr>Analyzig hop:'.$currentHop;
+		//echo '<br/>currentHopLatency: '.$currentHopLatency.'<br/>';
+		//print_r($hops);
+		
+		$minValReturn = 0;
+		$nextHop = $currentHop+1;
+		
+		// this does not work because there are missing hops
+		//for($i=$nextHop;$i<$totHops;$i++){
+		foreach ($hops as $key => $value) {
+
+			// skip all previous hops
+			if($key>$currentHop){
+				$nextHopLatency = $hops[$key];
+				//echo '<br/>.... at hop: '.$key;
+				//echo '<br/>nextHopLatency: '.$nextHopLatency;
+				if($nextHopLatency<$currentHopLatency){
+					$currentHopLatency=$nextHopLatency;
+					//echo '<br/>[HERE] nextHopLatency: '.$nextHopLatency;
+				}
+			}
+		}
+		//echo '<br/>Hop: '.$currentHop.', Calculated min Latency: '.$currentHopLatency;
+		return $currentHopLatency;
+	}
+
 
 	/**
 
@@ -1332,7 +1248,8 @@ class Traceroute
 		<table id="tr-list-table" class="tablesorter">
 		<thead> 
 		<tr>
-			<th>ID</th>
+			<th>#</th>
+			<th>TR Id</th>
 			<th>Submitter</th>
 			<th>Date</th>
 			<th>Country</th>
@@ -1344,8 +1261,10 @@ class Traceroute
 		</thead> 
 		<tbody>
 		';
+		$c=0;
 		foreach($data as $trId => $trIdData)
 		{
+			$c++;
 			//print_r($trIdData);
 			//$onMouseOver = " onmouseover='showThisTr(".$trId.")'";
 			$onMouseOver = " onmouseout='removeTr()' onmouseover='renderTr2(".$trId.")' onfocus='showThisTr(".$trId.")'";
@@ -1360,8 +1279,8 @@ class Traceroute
 			$lastHopIdx = count($trIdData);
 			$html .='
 			<tr>
-
-				<td><a id="tr-a-'.$trId.'" class="tr-list-ids-item '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</td></a>
+				<td>'.$c.'</td>
+				<td><a id="tr-a-'.$trId.'" class="tr-list-ids-item '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</a></td>
 				<td>'.$trIdData[0][9].'</td>
 				<td>'.$trIdData[0][12].'</td>
 				<td>'.$trIdData[0][11].'</td>
@@ -1378,8 +1297,8 @@ class Traceroute
 		</div>';
 		unset($data);
 
-		echo $html;
-		unset($html);
+		return $html;
+		//unset($html);
 
 	}
 	/**
@@ -1398,7 +1317,7 @@ class Traceroute
 		pg_query($dbconn, $sql) or die('Error! Insert Log failed: ' . pg_last_error());
 		//pg_close($dbconn);
 	}
-	
+
 	/**
 
 	*/
@@ -1544,8 +1463,6 @@ class Traceroute
 		echo 'Tot queries: '.$c.'<hr/>';
 		echo $html;
 	}
-
-
 
 	public static function getColor()
 	{
