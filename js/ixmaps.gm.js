@@ -744,17 +744,17 @@ var renderTr2 = function (trId) {
   //strokeColor: '#18BEC7',
   
   // transparent green 
-  strokeOpacity: 0.4,
+  //strokeOpacity: 0.4,
   //strokeColor: '#107C82',
 
   // solid black
-  //strokeOpacity: 0,
-  strokeColor: '#000000',  
+  strokeOpacity: 0,
+  //strokeColor: '#000000',  
   strokeWeight: 13.0,
-  /*icons: [{
+  icons: [{
     icon: lineSymbol,
     offset: '100%',
-    repeat: '10px'}],*/
+    repeat: '10px'}],
   zIndex: maxZidx 
   });
   google.maps.event.addListener(activeTrObj, 'click', function() {
