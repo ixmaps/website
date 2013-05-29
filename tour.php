@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
 	<script type="text/javascript" src="/js/lightbox.js"></script>
 	<script src="/flowplayer/example/flowplayer-3.1.4.min.js"></script>
+	<script src="/js/index.js"></script>
 	<script language="JavaScript" type="text/javascript">
 	//--------------- LOCALIZEABLE GLOBALS ---------------
 	var d=new Date();
@@ -33,13 +34,19 @@
 	  })();
 
 	</script>
-
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+	    $.noConflict();
+	    // jquery and prototype fight for the $
+	</script>	
+	
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/overwrites.css" type="text/css" media="screen" />
 </head>
 
-<body>
+<body onload="initialize()">
 <div id="wrapper"><!-- #wrapper -->	
 <header><!-- header -->
   <img src="images/headerimage.jpg" width="1000" height="138">      
@@ -52,74 +59,50 @@
 	
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
+	<article id="tour-container">
 
-		<article>
-<h2>Showcase Routes</h2>
-
-<p>To view this data graphically, you must have 
-<a href="http://earth.google.com/download-earth.html" target="_blank">Google Earth</a> downloaded and installed. Further instructions
-	can be <a href="../instructions.php" target="_blank">found here</a>.</p>
-<li>Click on any id number (eg 1859).</li>
-<li>From the <a href="../cgi-bin/tr-detail.cgi?traceroute_id=1859" target="_blank"> traceroute detail page</a>, click on the
-	 <span style="color: blue;">Open in Google Earth</span> link <i>at the top right</i> of the page and the visualization will automatically launch in Google Earth.</li>
-<li>If you click on a node, a popup with further information will emerge over top of selected hops.</li>
-			    
-        <p>The following <a href="../faq.php#Traceroute" target="_blank">traceroutes</a> have been selected to demonstrate some of   the  more interesting aspects of internet traffic routing (as highlighted   by  IXmaps). These features include:</p>
-
-		<ul class="nobullet">
-			<li><a href="#NSA">NSA Internet Surveillance</a></li>
-			<li><a href="#Sovereignty">Canadian Network Sovereignty (&quot;Boomerang Routes&quot;)</a></li>
-			<li><a href="#Ownership">Connections through IXPs with Interesting Ownership</a></li>
-		</ul>
-		</article>
-        
-        <article>				
-        <h5 id="NSA">NSA Internet Surveillance</h5>
-		<p>The U.S. National Security Agency (NSA) warrantless surveillance practices occurring under the Bush Administration were brought to light by retired AT&T technician Mark Klein. Klein worked at the AT&T internet switching centre at 611 Folsom Street, San Francisco, where a <a href="../faq.php#Splitter Cabinet (7th Floor)" target="_blank">splitter cabinet</a> was installed to divert a copy of all gateway traffic to NSA computers for inspection. The NSA is strongly suspected of having installed 15-20 similar spy rooms at other locations across the country (e.g. Los Angeles, New York).</p>
-<p><a href="../cgi-bin/tr-detail.cgi?traceroute_id=1859" target="_blank">View a map of a traceroute from a home in Toronto to the San Francisco Art Institute that passes through AT&amp;T's internet switching facility at    611 Folsom (TR#1859).</a> Note that this traceroute also goes through Chicago, another suspected site of NSA eavesdropping.</p>
-<p>For more on NSA surveillance, <a href="nsa.php">click here</a>.</p>
-		</article>
-
-		<article>
-        <h5 id="Sovereignty">Canadian Network Sovereignty (&quot;Boomerang Routes&quot;)</h5>
-<p>As a result of a variety of technical, economic and policy choices made principally by private corporations, Canadian internet traffic is often routed through the US, even when both origin and destination are within Canada. These "boomerang routes" prompt concerns regarding Canadian network sovereignty, since Canadians' packets passing through routers in the US are subject to US interests, such as surveillance under provisions of the USA Patriot Act or the NSA's warrantless surveillance program described elsewhere.</p>
-<p>One example of a boomerang route is traceroute <a href="../cgi-bin/tr-detail.cgi?traceroute_id=4168" target="_blank">4168</a>, which originates in Toronto, and is destined for the Hockey Hall of Fame website, also in Toronto, but goes to Chicago and back.</p>
-<p>For more on Canadian network sovereignty, <a href="sovereignty.php">click here</a>.</p>
-		</article>
-
-		<article>
-        <h5 id="Ownership">Connections Through IXPs with Interesting Ownership</h5>
-<p>Internet traffic changes hands from one network to another at internet exchange points (IXPs) or <a href="../faq.php#Carrier Hotel" target="_blank">carrier hotels</a>, usually located in large office buildings. Typically, these buildings are owned by major public and private equity real-estate holding companies, several of which have controversial connections. One prominent carrier hotel owner is the Carlyle Group, among the world's largest private equity firms, with close ties to former senior politicians and the defense industry. For example, traceroute <a href="../cgi-bin/tr-detail.cgi?traceroute_id=1250" target="_blank">1250</a>, originating in Nanaimo, BC and destined for UC San Diego passes through 1 Wilshire Blvd, a carrier hotel in LA that was owned by The Carlyle Group before being sold in 2007 to Hines REIT.</p>
-<p>For more on IXPs with interesting ownership, <a href="ownership.php">click here</a>.</p>
-</article>
+		<h2>A brief overview of what we're currently interested in...</h2>
+		<div class="tour-container">
+			<div class="tour-img-container">
+				<h5>Mapping How Data Travels</h5>		
+				<img class="tour-img" src="images/ShowcasePage_Mapping_How_Data_Travels.jpg"/>
+			</div>
+			<div class="tour-text-container">
+				<p>As your data moves, it leaves behind information about where it has been. You can learn where your data travels using a tool called <a href="/faq.php#Traceroute">Traceroute</a>. IXmaps collects traceroute data generated by volunteers and then <a href="/technical">geolocates that information</a> in order to map how internet traffic actually travels the globe. The IXmaps database has <a href="/explore">thousands of routes that you can explore</a>.</p>
+				<p>There are lots of ways for you to <a href="/explore">explore</a> the IXmaps database. You can see traceroutes <a class="explore-my-country-routes">from your country</a>, see traceroutes from <a class="explore-my-city-routes">from your city</a>, see <a class="explore-boomerang-routes">'boomerang' routes</a>, or learn <a href="/index">how to perform a custom search</a>.</p>
+				<p>Interested in where your data packets travel? <a href="/contribute">Download and run our TRgen application</a>, then explore the <a href="/explore">IXmaps database</a> to see your results.</p>
+			</div>
+		</div>
+		<div class="tour-container">
+			<div class="tour-img-container">
+				<h5>Tracking Internet Surveillance</h5>		
+				<img class="tour-img" src="images/ShowcasePage_Tracking_Internet_Surveillance.jpg"/>
+			</div>
+			<div class="tour-text-container">
+				<p><a class="explore-route-1859">This is traceroute #1859</a>. TR1859 shows data packets travelling from a home computer in Toronto to the San Francisco Art Institute's website. Along this route, we see that the data passes through a known NSA surveillance site, AT&T's internet switching facility in San Francisco, located at 611 Folsom Street.At this site, a <a href="/faq.php#Splitter Cabinet (7th Floor)">splitter cabinet</a> has been installed to divert a copy of all gateway traffic to NSA computers for inspection.</p>
+				<p>The NSA is strongly suspected of having installed 15-20 similar spy rooms at other locations across the United States, including Los Angeles, New York and Chicago. The IXmaps database contains hundreds of routes that pass through both known and suspected NSA suveillance sites. <a href="/explore">See more routes that travel through NSA surveillance sites</a></p>
+				<p><a href="https://docs.google.com/spreadsheet/ccc?key=0Aiub6gMLPmfYdGp3VzBRWU1kSnNhbWNqaHRFVlNCcWc&authkey=CMeo8ZkG&hl=en_US&authkey=CMeo8ZkG#gid=0">See a summary of the evidence supporting our claims regarding the NSA</a></p>
+			</div>
+		</div>
+		<div class="tour-container">
+			<div class="tour-img-container">
+				<h5>Canadian Network Sovereignty</h5>		
+				<img class="tour-img" src="images/ShowcasePage_Cdn_Network_Sovereignty.jpg"/>
+			</div>
+			<div class="tour-text-container">
+				<p><a href="explore-route-3381">This is traceroute #3381</a>. TR3381 shows data packets travelling from a home computer in Toronto to a local news and entertainment website. Along this route, we see that <a href="/faq.php#Packet">packets</a> that begin and end in Toronto, pass through Chicago, a suspected NSA surveillance site.</p>
+				<p>As a result of many technical, economic and policy choices made principally by private corporations, Canadian internet traffic is often routed through the US, even when both origin and destination are within Canada. These "<a href="explore-boomerang-routes">boomerang routes</a>" prompt concerns regarding <a href="/sovereignty">Canadian network sovereignty</a>, since Canadians' <a href="/faq.php#Packet">packets</a> passing through routers in the US are subject to US interests, such as surveillance under provisions of the USA Patriot Act or the NSA's warrentless surveillance program described elsewhere. The IXmaps database contains hundreds of examples of Canadian boomerang routes. <a href="explore-boomerang-routes">See examples here.</a></p>
+			</div>
+		</div>
 	
+	</article>
     </section><!-- end of #content -->
-
 </section><!-- end of #container -->
-
-<?php include("includes/sidebar.php"); ?>
 
 </section><!-- end of #main content and sidebar-->
 
 <footer>
-	<section id="footer-area">
-		<section id="footer-outer-block">
-			<aside id="first" class="footer-segment">
-					<p>The IXmaps website is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License.
-                    
-					<script language="JavaScript">
-					<!-- Hide JavaScript...
-						var LastUpdated = document.lastModified;
-						document.writeln ("This page was last updated " + LastUpdated);
-					// End Hiding -->
-					</script></p>
-					
-					<p>Please <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website" class="smallinks">contact the site admin</a> 
-						with any questions or concerns.</p>	
-                    <p>To view our privacy policy, please <a href="../privacy.php" target="_blank">click here</a>.</p> 
-			</aside><!-- end of #third footer segment -->
-		</section><!-- end of footer-outer-block -->
-	</section><!-- end of footer-area -->
+	<?php include("includes/footer.php"); ?>
 </footer>
 </div><!-- #wrapper -->
 </body>
