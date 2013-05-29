@@ -1,16 +1,9 @@
-
-<!-- NEEDS A RENAME AT SOME POINT - NOT JUST ABOUT RESEARCH ANY MORE - MAYBE 'EVENTS' -->
-
-
-
 <!doctype html>
 <html lang="en">
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
-	<title>See where  packets go | IXmaps</title>
-	
-	<!-- your data packets go | IXmaps</title>
+	<title>See where your data packets go | IXmaps</title>
 	
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
@@ -44,6 +37,7 @@
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="/css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />
 </head>
 
 <body>
@@ -61,6 +55,23 @@
 
         		  <article>
         		  	<h2>News</h2>
+        		  		<p>The Canadian Internet Traffic Exchange (CIRA) has just <a href=" http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange2.pdf" target="_blank">
+        		  		released a new report</a> which discusses what we term 'boomerang routing'</p>
+
+						<p>Lee Rickwood discusses IXmaps and the upcoming Ontario Science Centre event in 
+						<a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">
+						this article</a> on October 11, 2012.</p>
+
+						<p>The IXmaps project and its members were mentioned in 
+						<a href="http://www.mediacastermagazine.com/news/lack-of-internet-capacity-threatens-canadian-data-transmissions/1001653656/" target="_blank">this article</a>
+						about CIRA's concerns with Canadian IXPs and boomerang traffic on August 29, 2012.</p>
+
+						<p>The IXmaps team is greatly saddened by the unexpected passing of our dear friend 
+						and colleague, Erik "Possum" Stewart. Erik was a talented and fiercely intelligent member of our team,
+						who possessed a considerable breadth of knowledge and experience. He will be greatly missed. 
+						More information can be <a href="../erik.php" target="_blank"> 
+						found here</a>.</p>
+				
 						<p>IXmaps was the subject of an 
 						<a href="http://www.calgaryherald.com/technology/Mapping+privacy+concerns+Your+data+crosses+borders+without+your+knowledge/7018373/story.html#ixzz22Eek5tey"
 						target="_blank">article in the Calgary Herald</a> by Lee Rickwood on July 31, 2012</p>
@@ -74,6 +85,16 @@
 						interview with Jacob Appelbaum, April 26, 2012</a></p>
 					
 					<h2>Presentations</h2>
+						<p>IXmaps is in the Hot Zone at the 
+						<a href="http://ontariosciencecentre.ca/Calendar/108/" target="_blank">
+						Ontario Science Centre</a>.<br />
+						<b>Event date:</b> Oct 13, 2012</p>
+		
+						<p>IXmaps research was presented in the Surveillant Geographies session at
+						<a href="http://www.rgs.org/WhatsOn/ConferencesAndSeminars/Annual+International+Conference/Programme/" target="_blank">
+						the Royal Geographical Society's annual conference in Edinburgh </a><br />
+						<b>Event dates:</b> July 3 - July 5, 2012</p>
+				
 						<p>IXmaps hosted an Alternative Event Session at the
                         <a href="http://www.ischools.org/iConference12/2012index/" target="_blank">
                         2012 iConference, hosted by the Faculty of Information at the University of Toronto</a>. A copy of the presentation can be 
@@ -154,29 +175,10 @@
 	</section><!-- end of #content -->
 </section><!-- end of #container -->
 
-<?php include("includes/sidebar.php"); ?>
-
 </section><!-- end of #main content and sidebar-->
 
 <footer>
-	<section id="footer-area">
-		<section id="footer-outer-block">
-			<aside id="first" class="footer-segment">
-					<p>The IXmaps website is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License.
-                    
-					<script language="JavaScript">
-					<!-- Hide JavaScript...
-						var LastUpdated = document.lastModified;
-						document.writeln ("This page was last updated " + LastUpdated);
-					// End Hiding -->
-					</script></p>
-					
-					<p>Please <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website" class="smallinks">contact the site admin</a> 
-						with any questions or concerns.</p>	
-                    <p>To view our privacy policy, please <a href="../privacy.php" target="_blank">click here</a>.</p> 
-			</aside><!-- end of #third footer segment -->
-		</section><!-- end of footer-outer-block -->
-	</section><!-- end of footer-area -->
+	<?php include("includes/footer.php"); ?>
 </footer>
 </div><!-- #wrapper -->
 </body>

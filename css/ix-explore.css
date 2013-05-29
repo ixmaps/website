@@ -10,11 +10,15 @@
 #map-info{
 	/*height: 1.5em;*/
 	min-height: 63px;
+	width: 432px;
+	float: right;
 }
 
 #map-tr-active{
 	/*height: 1.5em;*/
 	min-height: 20px;
+	width: 432px;
+	float: right;
 }
 
 #tr-ids-active {
@@ -45,7 +49,7 @@
 .tr-list-result td{
 	border: 1px solid #ccc;
 	padding: 2px;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 #tr-list-table tr:hover{
@@ -172,7 +176,46 @@
 	color: #000;
 }
 
-#tr-details{
+#ip-flags{
+	padding: 15px;
+}
+
+#ip-flags-Title{
+	float: left;
+	margin-bottom: 15px;
+}
+
+#ip-flag-info{
+	float: left;
+	margin-right: 100px;
+	font-size: 13px;
+	padding: 5px;
+}
+
+#ip-flag-info table{
+	
+	width: 350px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+
+}
+
+#ip-flag-log{
+	color: red;
+	float: right;
+
+}
+#ip-flags-new{
+	float: right;
+	margin: 12px 50px 0 0;
+}
+
+#ip-flags-data-list{
+	overflow: auto;
+	height: 406px;
+}
+
+#tr-details, #ip-flags, #privacy-details{
 	position: fixed;
 	left: 5%;
 	z-index: 1000;
@@ -184,13 +227,34 @@
 	border-radius: 20px;
 }
 
-#tr-details-close{
+#tr-details-close, #ip-flags-close, #privacy-details-close{
 	margin: 10px;
 	float: right;
 }
 
-#tr-details-close img {
+#tr-details-close img, #ip-flags-close img, #privacy-details-close img {
 	width: 25px
+}
+.privacy-score-col{
+background-color: #ccc;
+text-align: center;
+vertical-align: middle;
+}
+#privacy-details-data table td{
+	padding: 3px;
+	font-size: 13px;
+}
+
+.privacy-score-tot{
+	text-align: right;
+}
+
+#privacy-details{
+	padding: 15px;
+	overflow: auto;
+}
+#carrier-title{
+	float: left;	
 }
 
 #tr-details-data {
@@ -211,15 +275,16 @@
 
 #map-legend{
 	/*float: left;*/
-	max-height: 462px;
+	max-height: 300px;
 	overflow: auto;
 /*	border: 10px solid #ccc;
 	border-radius: 10px;*/
 	/*width: 35%;*/
 	/*padding: 5px;*/
-	float: left;
-	width: 438px;
-	margin: 20px 0px 0 10px;
+	/*float: left;
+	width: 438px;*/
+	margin: 0px 0px 0 10px;
+	padding-left: 10px;
 }
 
 /* redifyning jQuery ui-widget */
@@ -250,9 +315,9 @@
 
 .asn-num-hops{
 	background-color: #FFFFFF;
-	padding: 4px;
+	padding: 1px;
 	text-align: center;
-	font-size: 14px;
+	font-size: 11px;
 	border-radius: 10px;
 	margin: 5px;
 }
@@ -308,6 +373,11 @@
 .map-actions-controls, .ui-accordion .ui-accordion-content {
 	padding: 0em 0em;
 }
+
+.map-actions-controls {
+	margin-bottom: 10px;
+}
+
 #map-hide-control{
 	position: absolute;
 	background-color: orange;
@@ -362,4 +432,20 @@
 .text-new{
 	color: red;
 	font-weight: bold;
+}
+
+.score-header{
+	width: 100px;
+}
+.star-col{
+	vertical-align: top;
+}
+.score-hide{
+	display: none;
+}
+.nat-header{
+	width: 38px;
+}
+.routers-header{
+	width: 60px;
 }

@@ -6,10 +6,11 @@ include('application/geoip/geoipregionvars.php');
 
 // using MaxMind to find the city of client IP address
 $myIp = $_SERVER['REMOTE_ADDR'];
-
+//$myIp = '174.119.164.221';
 $gi1 = geoip_open("application/geoip/dat/GeoLiteCityv6.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
 $myCity = ''.$record1->city;
+$myCountry = ''.$record1->country_code;
 geoip_close($gi1);
 ?>
 <!doctype html>
@@ -54,10 +55,29 @@ geoip_close($gi1);
 	<script>
 	var myIp = '<?php echo $myIp; ?>';
 	var myCity = '<?php echo $myCity; ?>';
+	var myCountry = '<?php echo $myCountry; ?>';
+	
     jQuery(function() {
 	  jQuery("#tabs").tabs();
 	  jQuery("#map-actions").tabs();
     });
+
+    jQuery(document).ready(function() {
+  		getChotel();
+  		getPrivacyReport();
+		<?php 
+		if($_GET && isset($_GET['data'])){
+			//echo '<hr/>';
+			//print_r($_GET);
+		?>
+		var postedData = '<?php echo $_GET['data'];?>';
+		processpostedData(postedData);
+		//processpostedData(boomerangJSON);
+		
+		<?php
+		}
+		?>
+	});
     </script>
 
     <script type="text/javascript">
@@ -100,23 +120,8 @@ geoip_close($gi1);
 	<header><!-- header -->
 	      <img src="images/headerimage.jpg" width="1000" height="138">      <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 	</header><!-- end of header -->
-		
-	<nav><!-- top nav -->
-		<div class="menu">
-			<ul>
-				<li><a href="../index.php">Home</a></li>
-				<li><a href="../tour.php">Showcase Routes</a></li>
-				<li><a href="../explore.php">Explore</a></li>
-				<li><a href="../research.php">Resources</a></li>
-				<li><a href="../contribute.php">Contribute</a></li>
-				<li><a href="../technical.php">Technical</a></li>
-				<li><a href="../faq.php">FAQ</a></li>
-				<li><a href="../about.php">About</a></li>
-				<li><a href="../contact.php">Contact</a></li>
-			</ul>
-		</div>
-	</nav><!-- end of top nav -->
 
+	<?php include("includes/navigation.php"); ?>
 
 	<div style="clear: both;"></div>
 	 <div id="explore-content">
@@ -125,7 +130,7 @@ geoip_close($gi1);
 		    <ul>
 		        <li><a href="#tabs-0">Quick Links</a></li>
 		        <li><a href="#tabs-1">Custom Filters</a></li>
-		        <li><a href="#tabs-2">Selected Traceroutes</a></li>
+		        <li><a href="#tabs-2">Selected Routes</a></li>
 		        <li><a href="#tabs-3">Map Options</a></li>
 		        <li><a href="#tabs-4">Help</a></li>
 		    </ul>
@@ -138,14 +143,14 @@ geoip_close($gi1);
 					  		<td>
 						  		<form>
 						  			<button type="button" class="ql-button" id="last-submission-button">
-						  				Examine last submitted traceroute
+						  				 Last submitted route
 						  			</button>
 						  		</form>
 						  	</td>
 						  	<td>
 						  		<form>
 						  			<button type="button" class="ql-button" id="recent-routes-button">
-						  				Examine last 50 submitted traceroutes
+						  				 Last 50 submitted routes
 						  			</button>
 						  		</form>
 						  	</td>
@@ -165,14 +170,14 @@ geoip_close($gi1);
 					  		<td>
 						  		<form method="get" action="../../cgi-bin/tr-query.cgi">
 						  			<button type="submit" class="ql-button" name="query_type" value="all_submitters">
-						  				Examine traceroutes by submitter
+						  				Routes by submitter
 						  			</button>
 						  		</form>
 						  	</td>
 						  	<td>
 						  		<form method="get" action="../../cgi-bin/tr-query.cgi">
 						  			<button type="submit" class="ql-button" name="query_type" value="all_zip_codes">
-						  				Examine routes by postal codes/zip codes
+						  				Routes by postal codes/zip codes
 						  			</button>
 						  		</form>
 						  	</td>
@@ -190,14 +195,14 @@ geoip_close($gi1);
 					  		<td>
 						  		<form>
 						  			<button type="button" class="ql-button" id="all-boomerangs-button">
-						  				Examine boomerang traceroutes
+						  				Boomerang routes
 						  			</button>
 						  		</form>
 						  	</td>
 						  	<td>
 						  		<form>
 						  			<button type="button" class="ql-button" id="non-CA-button">
-						  				Examine routes that do not go via Canada
+						  				Routes that do not go via Canada
 						  			</button>
 						  		</form>
 						  	</td>
@@ -207,14 +212,14 @@ geoip_close($gi1);
 					  		<td>
 						  		<form>
 						  			<button type="button" class="ql-button" id="contain-NSA-button">
-						  				Examine routes that contain NSA cities
+						  				Routes that contain NSA cities
 						  			</button>
 						  		</form>
 						  	</td>
 						  	<td>
 						  		<form>
 						  			<button type="button" class="ql-button" id="non-US-button">
-						  				Examine routes that do not go via the US
+						  				Routes that do not go via the US
 						  			</button>
 						  		</form>
 						  	</td>
@@ -222,7 +227,14 @@ geoip_close($gi1);
 				  			<td>
 						  		<form>
 						  			<button type="button" class="ql-button" id="my-city-button">
-						  				Examine traceroutes from my city
+						  				Routes from my city
+						  			</button>
+		  						</form>
+				  			</td>
+				  			<td>
+						  		<form>
+						  			<button type="button" class="ql-button" id="my-country-button">
+						  				Routes from my Country
 						  			</button>
 		  						</form>
 				  			</td>
@@ -251,38 +263,48 @@ geoip_close($gi1);
 
 		    <!-- /tabs-2 -->
 		    <div id="tabs-2">
-		    	<h3>Selected Traceroutes</h3>
-				<p class="warning">... add here direct links to showcase TRs, so that they can be rendered in GM using only one click.</p>
-				<p class="warning">Also, we can add images and descriptions of each selected TR.</p>
+		    	<h3>Selected Routes</h3>
+				<br/>
+				<a href="javascript:submitCustomQuery(1859);">Toronto to San Francisco (#1859)</a><br/>
+				<a href="javascript:submitCustomQuery(1486);">Vancouver to Halifax (#1486)</a><br/>
+				<a href="javascript:submitCustomQuery(1474);">Vancouver to Thunder Bay (#1474)</a><br/>
+				<a href="javascript:submitCustomQuery(3445);">New York to San Francisco (#3445)</a><br/>
+				<a href="javascript:submitCustomQuery(1751);">Austin to San Francisco (#1751)</a><br/>
+				<a href="javascript:submitCustomQuery(1577);">Honolulu to Prince Edward Island (#1577)</a>
+				<br/>
+				<br/>
+				<a href="javascript:showTestedCarriers();">Show Carriers TR Sample</a>
 		    </div>
 		    <!-- /tabs-2 -->
 
 		    <!-- tabs-3 -->
 		    <div id="tabs-3">
-				<h3>Enable</h3>
 				<div id="map-op-0" class="map-actions-controls">								
+					<h3>Enable</h3>
 					<input id="map-allow-multiple" class="map-tool-off" type="button" onMouseDown="setAllowMultipleTrs()" value="Multiple TRs"/> 
 					<input id="map-allow-recenter" class="map-tool-on" type="button" onMouseDown="setAllowRecenter()" value="Re-center"/> 
 				</div>
-
-				<br/>
-				<h3>Display</h3>
 				<div id="map-op-1" class="map-actions-controls">
+					<h3>Display</h3>
 					<input id="map-show-hops" class="map-tool-on" type="button" onMouseDown="setShowHops()" value="Hops"/> 
 					<input id="map-show-routers" class="map-tool-on" type="button" onMouseDown="setShowRouters()" value="Routers"/> 
 					<input id="map-show-marker-origin" class="map-tool-off" type="button" onMouseDown="setAddMarkerInOrigin()" value="Marker in Origin"/> 
 					<input id="map-show-info-global" class="map-tool-off" type="button" onMouseDown="setShowInfoGlobal()" value="Advanced Log"/> 
 				</div>
-
-				<br/>
-				<h3>Exclude Routers</h3>
 				<div id="map-op-2" class="map-actions-controls">
+					<h3>Exclude Routers</h3>
 					<input id="map-exclude-a" class="map-tool-on" type="button" onMouseDown="excludeA()" value="Lat/Long = 0"/>
 					<input id="map-exclude-b" class="map-tool-on" type="button" onMouseDown="excludeB()" value="Generic Locations"/>
 					<input id="map-exclude-d" class="map-tool-on" type="button" onMouseDown="excludeD()" value="Reserved AS"/>
-					<input id="map-exclude-c" class="map-tool-on" type="button" onMouseDown="excludeC()" value="Impossible Distances"/>
-					<input id="map-exclude-e" class="map-tool-off" type="button" onMouseDown="excludeE()" value="User-flagged"/>
-					
+					<!-- <input id="map-exclude-c" class="map-tool-on" type="button" onMouseDown="excludeC()" value="Impossible Distances"/> -->
+					<input id="map-exclude-e" class="map-tool-on" type="button" onMouseDown="excludeE()" value="User-flagged"/>
+				</div>
+				<div id="map-op-3" class="map-actions-controls">
+					<h3>IXmaps Layers</h3>
+					<input id="map-show-nsa" class="map-tool-off" type="button" onMouseDown="setShowNsa()" value="NSA"/>
+					<input id="map-show-hotel" class="map-tool-off" type="button" onMouseDown="setShowHotel()" value="Hotel"/>
+					<input id="map-show-google" class="map-tool-off" type="button" onMouseDown="setShowGoogle()" value="Google"/>
+					<input id="map-show-uc" class="map-tool-off" type="button" onMouseDown="setShowUc()" value="Undersea Cable Landing Site"/>
 				</div>
 			</div>
 		    <!-- /tabs-3 -->
@@ -292,15 +314,15 @@ geoip_close($gi1);
 		    	<h3>Help</h3>
 				<p>
 					If you're a <i>new user</i>, it may be easiest to begin with some of our canned queries in the Quick Links section.
-					For example, if you've just generated a traceroute, you'll be able to find it be clicking on 'Examine last submitted traceroute'
+					For example, if you've just generated a route, you'll be able to find it be clicking on 'Examine last submitted route'
 					or by clicking on 'Examine routes by submitter' and locating your submitter name.
 				</p>
 
 				<div>
 					For users more comfortable with querying databases, the Custom Filters section allows dynamic, extensible queries based
-					on many of the data fields collected by the traceroute generator program <a id="custom-filters-more-button">[more]</a>
+					on many of the data fields collected by the route generator program 
 				</div>
-				<div class="expandable hide">
+				<div class="expandable- hide-">
 					<div>For example, to view routes that neither start nor end in Canada, a user could query:</div>
 					<div><b>| Does not | Originate in | Country | CA | AND | +</b></div>
 					<div><b>| Does not | Terminate in | Country | CA |</b></div>
@@ -360,12 +382,12 @@ geoip_close($gi1);
 				<!-- map-canvas-container -->
 				<div id="map-canvas-container" class="hide">
 					<div style="float:left;">
-						<div id="map-tr-active" class="map-info-containers">map-tr-active</div>
 						<div id="map_canvas" class="map-canvas"></div>
-						<div id="map-info" class="map-info-containers">map-mouse-actions</div>
 					</div>
 					<div style="">
 						<div id="map-legend" class="map-info-containers--">map-legend</div>
+						<div id="map-tr-active" class="map-info-containers">map-tr-active</div>
+						<div id="map-info" class="map-info-containers">map-mouse-actions</div>
 					</div>
 				</div>
 				<!-- /map-canvas-container -->
@@ -402,5 +424,76 @@ geoip_close($gi1);
 			<iframe id="tr-details-iframe" src=""></iframe>
 		</div>
 	</div>
+
+	<div id="privacy-details" class="hide">
+		<div id="privacy-details-close">
+			<a href="javascript:closePrivacy();">
+				<img src="images/icon-close.png">
+			</a>
+		</div>
+		<div id="carrier-title"></div>
+		<div style="clear: both;"></div>
+		<div id="privacy-details-data">privacy-details-data</div>
+	</div>
+
+	<div id="ip-flags" class="hide">
+		<div id="ip-flags-close">
+			<a href="javascript:closeIpFlags();">
+				<img src="images/icon-close.png">
+			</a>
+		</div>
+		<div id="ip-flags-new">
+			<a href="javascript:newIpFlag();">Create a new Report</a>
+		</div>
+		<div id="ip-flags-Title">
+			<h2>User generated flags</h2>
+			<br/>
+			<div id="ip-flag-info"></div>
+			<div id="ip-flag-log"></div>
+		</div>
+		<div style="clear: both;"></div>
+		<div id="ip-flag-insert" class="hide">
+			<h3>Submit a new report</h3>
+			<table>
+				<tr>
+					<td>Username</td>
+					<td><input id="user_nick" type="text"/>(Optional)</td>
+				</tr>
+<!-- 				<tr>
+					<td>Reasons for the error: </td>
+					<td>
+						Type 1: <input id="ip-t-1" type="checkbox" value="1"/> 
+						| Type 2: <input id="ip-t-2" type="checkbox" value="2"/> 
+						| Type 3: <input id="ip-t-3" type="checkbox" value="3"/>
+						| Type 4: <input id="ip-t-4" type="checkbox" value="4"/>
+						| Type 5: <input id="ip-t-5" type="checkbox" value="5"/>
+						| Type 6: <input id="ip-t-6" type="checkbox" value="6"/>
+
+					</td>
+				</tr> -->
+				<tr>
+					<td>Comment:</td>
+					<td><textarea id="user_msg"></textarea></td>
+				</tr>
+				<tr>
+					<td>Suggested Location:</td>
+					<td><textarea id="ip_new_loc"></textarea></td>
+				</tr>
+			</table>
+			<br/>
+			<input type="button" id="submit-ip-flag" value="Submit" onclick="saveIpFlag()"/>
+			<input type="button" id="cancel-ip-flag" value="Cancel" onclick="cancelIpFlag()"/>
+		</div>
+		<div id="ip-flags-data">
+<!-- 			<div id="ip-flags-data-title">
+				<h3>List of user flags</h3>
+				<br/>
+			</div> -->
+			<div id="ip-flags-data-list"></div>
+		</div>
+	</div>	
+<!-- 	<form action="/explore.php" method="post" id="send-to-explore">
+		<input id="data" name="data" type="hidden" value=""/> 
+	</form> -->
 </body>
 </html>

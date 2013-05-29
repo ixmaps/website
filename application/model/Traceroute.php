@@ -130,7 +130,12 @@ class Traceroute
 
 				//$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
 
-				$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
+				// old approach
+				//$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
+
+				// new approach: last hop as destination
+				// this alredy set , not needed here. so do nothing ...
+				//$w.=" AND (traceroute.id=tr_last_hops.traceroute_id_lh) ";
 
 			} else if($c['constraint2']=='goVia') {
 				
@@ -174,6 +179,7 @@ class Traceroute
 		$trSet = array();
 		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
 		$data = array();
+		//$dbQueryHtml.='<hr/>'.$sql;
 		//$data1 = array();
 		$id_last = 0;
 
@@ -300,6 +306,7 @@ class Traceroute
 	}
 
 	/**
+	Key Function!
 	Get TR data for set of constraints
 	*/
 	public static function getTraceRoute($data)
@@ -359,6 +366,19 @@ class Traceroute
  				unset($positiveSet);
  				//unset($diff);
 
+ 			// adding an exception for "terminate": This option is now querying tr_last_hops reference table 
+ 			} else if($constraint['constraint2']=='terminate') {
+ 				$sql = "SELECT as_users.num, tr_last_hops.traceroute_id_lh, tr_last_hops.reached, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM tr_last_hops, as_users, traceroute, ip_addr_info WHERE (as_users.num=ip_addr_info.asnum) AND (traceroute.id=tr_last_hops.traceroute_id_lh) AND (ip_addr_info.ip_addr=tr_last_hops.ip_addr_lh) ";
+
+ 				$sqlOrder = ' order by traceroute.id';
+
+ 				$w.=''.Traceroute::buildWhere($constraint);
+				$sql .=$w.$sqlOrder;
+				//echo "<hr/>".$sql;
+				$trSets[$conn] = Traceroute::getTrSet($sql);
+				$operands[$conn]=$constraint['constraint5'];
+
+
 			} else {
 
 				$w.=''.Traceroute::buildWhere($constraint);
@@ -403,6 +423,7 @@ class Traceroute
 				$trSetResult = array_merge($empty, $trSetResultTemp);
 			}
 
+			//$dbQueryHtml .='<hr/>'.$sql;
 		} // end for
 			$trSetResultLast =  array_unique($trSetResult);
 
@@ -507,7 +528,9 @@ class Traceroute
 
 		ip_addr_info.ip_addr, ip_addr_info.lat, ip_addr_info.long, ip_addr_info.mm_country, ip_addr_info.mm_city, ip_addr_info.gl_override, 
 		
-		as_users.num, as_users.name 
+		as_users.num, as_users.name,
+
+		ip_addr_info.flagged
 
 		FROM tr_item, traceroute, ip_addr_info, as_users WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum) AND tr_item.attempt = 1 AND (".$wTrs.") order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt";
 
@@ -639,7 +662,8 @@ class Traceroute
 		$data, 
 		$addPolylines=false, 
 		$addMarkers=false, $showHopNums=false, 
-		$addInfoWin=false)
+		$addInfoWin=false,
+		$saveKml=false)
 	{
 		global $coordExclude, $webUrl, $savePath, $as_num_color;
 		
@@ -649,6 +673,14 @@ class Traceroute
 		$gmFile = $date.".js";
 		$myFile = $savePath."/".$gmFile;
 		$fh = fopen($myFile, 'w') or die("can't open file");
+
+		// KML TR coords export 
+		if($saveKml){
+			$kml='';
+			$kmlFile = $date.".kml";
+			$myKmlFile = $savePath."/".$kmlFile;
+			$fhKml = fopen($myKmlFile, 'w') or die("can't open file KML");
+		}
 
 		Traceroute::writeGmStart($myFile,$fh);
 
@@ -661,16 +693,76 @@ class Traceroute
 
 		$totHopsAll = 0;
 		$totTrs = count($data);
+		$kml='';
+		$kmlA='';
 
+
+/*		echo "<hr/>".$a. " == " . date('Y-m-d\TG:i:s\Z', $a);
+		echo "<hr/>".$b. " == " . date('Y-m-d\TG:i:s\Z', $b);
+*/
+		$tConn1 = 0;
+		$tConn2 = 10;
+
+		$b = strtotime("+12470 seconds"); 
+		//$b = strtotime("+37410 seconds"); 
+		
+
+		//$a = strtotime("now"); 
+		//$b = $a + (12470*50); 
 		// loop TRids
 		foreach($data as $trId => $hops)
 		{
+			// set start time
+			$a = strtotime("+".$tConn1." seconds"); 
+			$a2 = strtotime("+".$tConn2." seconds"); 
+			//$a+=50;
+			//$b = strtotime("+".$tConn2." seconds"); 
+			//$tConn1++;
+			$tConn1++;
+			$tConn2++;
+
 			$trIdsCounter++;
 			$totHops = count($hops);
 			$c = 0;
 			
 			$trCoordinates = '';
+
+			// save KML 
+			if($saveKml){
+				// calculate time for animated population of TR
+				/*$tBegin='2013-01-01T01:05:20Z';
+				$tEnd='2013-01-01T21:05:43Z';*/
+
+				$tBegin=date('Y-m-d\TG:i:s\Z', $a);
+				$tEnd=date('Y-m-d\TG:i:s\Z', $b);
+				$tEndA=date('Y-m-d\TG:i:s\Z', $a2);
+
+				$kml.='
+		<Placemark>
+			<name>TR-'.$trId.' - '.$tConn1.'</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+	        <TimeSpan>
+	          <begin>'.$tBegin.'</begin>
+	          <end>'.$tEnd.'</end>
+	        </TimeSpan>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>';
+
+				$kmlA.='
+		<Placemark>
+			<name>TR-'.$trId.' - '.$tConn1.'A</name>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+	        <TimeSpan>
+	          <begin>'.$tBegin.'</begin>
+	          <end>'.$tEndA.'</end>
+	        </TimeSpan>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>';
+			}
 			
+
 			// loop hops in a TRid
 			for($r=0;$r<count($hops);$r++)
 			{
@@ -698,6 +790,7 @@ class Traceroute
 
 				$gl_override = $hops[$r][14];
 
+
 				//$gl_override = 'hola';
 				
 				// FIXME: need to exclude the 
@@ -722,8 +815,19 @@ class Traceroute
 					'time_light'=>$hops[$r][17],
 					'latOrigin'=>$hops[$r][18],
 					'longOrigin'=>$hops[$r][19],
+					'flagged'=>$hops[$r][21]
 				);
 
+
+				// kml export, exclude bad coordinates and exclude non CA US
+				//if($saveKml && $lat!=0 && $long!=0 && (!in_array($cEx, $coordExclude)) && ($hops[$r][11]=='CA' || $hops[$r][11]=='US')) {
+
+				if($saveKml && $lat!=0 && $long!=0 && (!in_array($cEx, $coordExclude))) {
+				//if($saveKml){
+					$kml.='
+					'.$long.','.$lat.'';
+				}
+				
 				if($ip)
 				{
 					// match ISP name for colouring
@@ -875,6 +979,20 @@ class Traceroute
 				} // end geoprecision exclude
 
 			} // end loop 2
+			//
+			if($saveKml){
+				$kml.='
+				</coordinates>
+			</LineString>
+		</Placemark>
+				';
+				$kmlA.='
+				</coordinates>
+				<color>ff00ffff</color>
+			</LineString>
+		</Placemark>
+				';
+			}
 
 
 			/*old approach, not used for now 
@@ -903,10 +1021,10 @@ class Traceroute
 	        //fwrite($fh, $trCoordinatesObj);
 	        
 	        if($addMarkers) {
-	        	fwrite($fh, $markers);
+	        	//fwrite($fh, $markers);
 	        }
 	        if($addInfoWin) {
-	        	fwrite($fh, $infoWin);
+	        	//fwrite($fh, $infoWin);
 	    	}
 
 	        // reset variables
@@ -957,6 +1075,59 @@ class Traceroute
 			'ixsize'=>$fileSize
 		);
 		
+		// save kml
+		if($saveKml){
+			$kmlAll='<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>polyline-test.kml</name>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff0000ff</color>
+			<width>3</width>
+		</LineStyle>
+	</Style>
+	<Folder>
+		<name>IXmaps Trs</name>
+		<open>1</open>
+'.$kml.'
+	</Folder>
+</Document>
+</kml>';
+			fwrite($fhKml, $kmlAll);
+			fclose($fhKml);
+		}
+
 		return $statsResult;
 		//echo '<script src="'.$webUrl.'/gm-temp/'.$gmFile.'"></script><div style="clear: both;">';
 	}
@@ -1118,7 +1289,31 @@ class Traceroute
 			$long = $trArr[$i]['long'];
 
 			$num = $trArr[$i]['num'];
-			$name = $trArr[$i]['name'];
+			$nameLen = strlen($trArr[$i]['name']);
+			$pattern1 = '/ - /';
+			
+			preg_match_all($pattern1, $trArr[$i]['name'], $matches, PREG_SET_ORDER);
+
+			if($nameLen<23){
+				$name = $trArr[$i]['name'].'';
+			} else if (count($matches)==1) {
+				$nameArr = explode(' - ', $trArr[$i]['name']);
+				
+				$nameLen1 = strlen($nameArr[1]);
+				if($nameLen1>23){
+					$name = substr($nameArr[1], 0, 22).'...';					
+				} else {
+					$name = $nameArr[1].'';
+				}
+				
+				unset($nameArr);
+			} else {
+				//$nameArr = explode(' ', $trArr[$i]['name']);
+				//$name = $nameArr[0].' : 3';
+				$name = substr($trArr[$i]['name'], 0, 22).'...';
+			}
+			unset($matches);
+			
 
 			// data needed for impossible distance calculation
 			$dist_from_origin=0;
@@ -1177,7 +1372,8 @@ class Traceroute
 				$time_light_will_do,
 				$latOrigin,
 				$longOrigin,
-				$lastHopIp
+				$lastHopIp,
+				$trArr[$i]['flagged'],
 			);
 
 			// write impossible distances to a CSV file: this method seems to be more secure and faster than doing in jQuery: NOTE: this is only for development version. It seems an overhead for production
@@ -1277,6 +1473,9 @@ class Traceroute
 				$active = " tr-item-active";
 			}*/
 			$lastHopIdx = count($trIdData);
+			// get short date
+			$sDate = explode(" ", $trIdData[0][12]);
+			$trIdData[0][12]=$sDate[0];
 			$html .='
 			<tr>
 				<td>'.$c.'</td>

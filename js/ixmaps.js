@@ -48,6 +48,10 @@ var initialize = function() {
     submitMyCityObject();
   });
 
+  jQuery('#my-country-button').click(function() {
+    submitMyCountryObject();
+  });
+
   jQuery('#all-boomerangs-button').click(function() {
     submitBoomerangObject();
   });  
@@ -331,34 +335,35 @@ var submitQuery = function(obj) {
   jQuery('#map-container').hide();
   jQuery('#filter-results').hide();
   /*jQuery('#map-core-controls').hide();*/
-  
-  
   showLoader();
-
   jQuery.ajax(url_base + '/application/controller/explore_controller.php', {
     type: 'post',
     data: obj,
     success: function (e) {
       console.log("Query submitted");
-      var data = jQuery.parseJSON(e);
-      
-      console.log(" Total TRs: "+data.totTrs);
-      console.log(" Total Hops: "+data.totHops);
-      console.log(" File Name: "+data.ixdata);
-      console.log(" File Size: "+data.ixsize+' KB');
-      console.log(" Execution Time: "+data.execTime+' Sec.');
-      writeIxMapsJs(data.ixdata);
-      jQuery('#map-canvas-container').show();
-      jQuery('#map-container').show();
-      jQuery('#filter-results').show();
-      /*jQuery('#map-core-controls').show();*/
-      jQuery('#filter-results').html(data.trsTable);
-      jQuery('#filter-results-log').html(data.queryLogs);
+      if(e!=0){
+        var data = jQuery.parseJSON(e);
+        console.log(" Total TRs: "+data.totTrs);
+        console.log(" Total Hops: "+data.totHops);
+        console.log(" File Name: "+data.ixdata);
+        console.log(" File Size: "+data.ixsize+' KB');
+        console.log(" Execution Time: "+data.execTime+' Sec.');
+        writeIxMapsJs(data.ixdata);
+        jQuery('#map-canvas-container').show();
+        jQuery('#map-container').show();
+        jQuery('#filter-results').show();
+        /*jQuery('#map-core-controls').show();*/
+        jQuery('#filter-results').html(data.trsTable);
+        jQuery('#filter-results-log').html(data.queryLogs);
+      } else {
+        jQuery('#filter-results').show();
+        jQuery('#filter-results').html("<p>There are no traceroutes matching the query.<br/><br/>");
+      }
       hideLoader();
 
     },
     error: function (e) {
-      console.log("Error! Submission unsuccessful", e);
+      console.log("Error! Submission unsuccessful");
       hideLoader();
     }
   }); 
@@ -570,15 +575,25 @@ var submitRecentRoutesObject = function() {
   // select id from traceroute order by sub_time desc limit 25;
 };
 
-
-
-var submitMyCityObject = function() {
-  alert('Based on your IP:'+myIp+', your location seems to be: "'+myCity+'"');
+var submitMyCountryObject = function(){
+  //alert('Based on your IP:'+myIp+', your country seems to be: "'+myCountry+'"');
   resetFilterConstraints();
   var a;
   a = jQuery('#filter-constraint-1 .constraint');
   jQuery(a[0]).val('does');
-  jQuery(a[1]).val('contain');
+  jQuery(a[1]).val('originate');
+  jQuery(a[2]).val('country');
+  jQuery(a[3]).val(myCountry);
+  jQuery(a[4]).val('AND');
+};
+
+var submitMyCityObject = function() {
+  // alert('Based on your IP:'+myIp+', your location seems to be: "'+myCity+'"');
+  resetFilterConstraints();
+  var a;
+  a = jQuery('#filter-constraint-1 .constraint');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('originate');
   jQuery(a[2]).val('city');
   jQuery(a[3]).val(myCity);
   jQuery(a[4]).val('AND');
@@ -726,4 +741,170 @@ var getAsnColour = function(asNum){
     c = asnColoursJson[asNum];
   }
   return c;
+}
+
+var showTestedCarriers = function(){
+  var carrierSampleJson = { 
+     "parameters":
+     {
+             "submitOnLoad":true,
+             "submissionType":"customFilter",
+             "otherFunction":""
+     },
+     "constraints":
+     {
+             "filter-constraint-1":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "4",
+                     constraint5: "OR"
+             },
+             "filter-constraint-2":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "43522",
+                     constraint5: "OR"
+             },
+             "filter-constraint-3":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "43650",
+                     constraint5: "OR"
+             },
+             "filter-constraint-4":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "232",
+                     constraint5: "OR"
+             },
+             "filter-constraint-4":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "29386",
+                     constraint5: "OR"
+             }
+     }
+  };
+
+  var jsonToString = JSON.stringify(carrierSampleJson);
+  processpostedData(jsonToString);
+}
+
+var boomerangJSON = { 
+   "parameters":
+   {
+           "submitOnLoad":true,
+           "submissionType":"customFilter",
+           "otherFunction":"boomerangs"
+   },
+   "constraints":
+   {
+           "filter-constraint-1":
+           {
+                   constraint1: "does",
+                   constraint2: "originate",
+                   constraint3: "country",
+                   constraint4: "CA",
+                   constraint5: "AND"
+           },
+           "filter-constraint-2":
+           {
+                   constraint1: "does",
+                   constraint2: "terminate",
+                   constraint3: "country",
+                   constraint4: "CA",
+                   constraint5: "AND"
+           },
+           "filter-constraint-3":
+           {
+                   constraint1: "does",
+                   constraint2: "goVia",
+                   constraint3: "country",
+                   constraint4: "US",
+                   constraint5: "AND"
+           }
+   }
+
+  };
+
+var submitCustomQuery = function(trId, multipleTRs){
+  var singleTrJSON = { 
+   "parameters":
+   {
+           "submitOnLoad":true,
+           "submissionType":"customFilter",
+           "otherFunction":""
+   },
+   "constraints":
+   {
+           "filter-constraint-1":
+           {
+                   constraint1: "does",
+                   constraint2: "contain",
+                   constraint3: "trId",
+                   constraint4: trId,
+                   constraint5: "AND"
+           }
+   }
+  };
+  var jsonToString = JSON.stringify(singleTrJSON);
+  processpostedData(jsonToString);
+}
+
+var processpostedData = function(d){
+  //console.log(JSON.stringify(d));
+  jQuery('#tabs').tabs({ active: 1 });
+  var data = jQuery.parseJSON(d);
+  //console.log(data);
+
+ 
+  setTimeout(function(){ 
+    console.log('Timer ok for load page');
+    if(data.parameters.otherFunction=='myCity'){
+      submitMyCityObject();
+      console.log('submitMyCityObject...');
+    } else if (data.parameters.otherFunction=='myCountry'){
+      submitMyCountryObject();
+      console.log('submitMyCountryObject...');
+    } else if (data.parameters.otherFunction=='boomerangs'){
+      submitBoomerangObject();
+      console.log('submitBoomerangObject...');
+    } else if(data.parameters.submissionType=="customFilter"){
+      //console.log('constraints', data.constraints);
+      resetFilterConstraints();
+      var a;
+      var fixedFilterC;
+      var conn = 0;
+      jQuery.each(data.constraints, function(key,value) {
+        //a = jQuery('#filter-constraint-1 .constraint');
+      if(conn>0){
+        addFilterConstraint();
+      }
+      fixedFilterC = filterCounter-1;
+      a = jQuery('#filter-constraint-'+fixedFilterC+' .constraint');
+        jQuery(a[0]).val(value.constraint1);
+        jQuery(a[1]).val(value.constraint2);
+        jQuery(a[2]).val(value.constraint3);
+        jQuery(a[3]).val(value.constraint4);
+        jQuery(a[4]).val(value.constraint5);
+        conn++;
+      });
+
+    }
+
+    if(data.parameters.submitOnLoad){
+      processFilters();
+      //console.log('submitting...');
+    }
+  }, 800);
 }

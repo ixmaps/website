@@ -37,6 +37,7 @@
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />	
 </head>
 
 <body>
@@ -123,24 +124,7 @@ Carlyle renamed its carrier hotel operations firm 'Coresite' and transformed fro
 </section><!-- end of #main content and sidebar-->
 
 <footer>
-	<section id="footer-area">
-		<section id="footer-outer-block">
-			<aside id="first" class="footer-segment">
-					<p>The IXmaps website is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License.
-                    
-					<script language="JavaScript">
-					<!-- Hide JavaScript...
-						var LastUpdated = document.lastModified;
-						document.writeln ("This page was last updated " + LastUpdated);
-					// End Hiding -->
-					</script></p>
-					
-					<p>Please <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website" class="smallinks">contact the site admin</a> 
-						with any questions or concerns.</p>	
-                    <p>To view our privacy policy, please <a href="../privacy.php" target="_blank">click here</a>.</p> 
-			</aside><!-- end of #third footer segment -->
-		</section><!-- end of footer-outer-block -->
-	</section><!-- end of footer-area -->
+	<?php include("includes/footer.php"); ?>
 </footer>
 </div><!-- #wrapper -->
 </body>

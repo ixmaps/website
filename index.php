@@ -46,12 +46,12 @@
 		jQuery(document).ready(function() {
 			jQuery('.slideshow').cycle({
 				fx: 'fade',
-				pauseOnPagerHover: 0,
-				timeout: 10000,
+				// pause: 1,
+				timeout: 7000
 			});
 		});
 	</script>
-
+	<script src="http://www.youtube.com/iframe_api"></script>
 
 
 	<!-- STYLESHEETS -->
@@ -74,81 +74,82 @@
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 		<article>
-
-			<div class="slideshow">
-				<div>
-					<a id="slideshow-img-container" href="about.php">
-						<img class="slideshow-img" src="images/thumbnails/folsom_route.jpg"/>
+		
+			<img id="play-icon" src="images/play_icon.png"/>		
+			<div class="slideshow">			
+				<div class="index-container">
+					<a class="slideshow-img-container" href="https://vimeo.com/67102223" target="_blank">
+						<img class="slideshow-img" src="images/MainPage_What_Is_IXmaps.jpg"/>
 					</a>
-					<span id="slideshow-text">
+					<span class="slideshow-text">
 						<h5>What is IXmaps?</h5>
 						<p>IXmaps is an internet mapping tool that allows you to see how your personal data travels across the internet.
-						Every time you go online, your computer sends bits of information across the web to the sites that you visit.
-						These bits of information are called "<a href="">data packets</a>", and they contain information that can used to identify you, your location and your browsing habits.
-						We thing that it's important to know where your personal data goes, and who be looking at it along the way.
-						<a href="">Learn more about IXmaps...</a></p>
+						Every time you go online, your computer exchanges "<a href="/faq.php#Packet">packets</a>" of information with the
+						destination website, email server, etc. Along the way, your data is routed through switching centres,
+						where it is potentially subject to surveillance by carriers or security agencies. Our research attempts to make
+						this routing as well its privacy risks more visible and comprehensible. <a href="https://vimeo.com/67102223" target="_blank">Learn more about IXmaps...</a></p>
 					</span>
 				</div>
-				<div>
-					<a id="slideshow-img-container" href="about.php">
-						<img class="slideshow-img" src="temp_img_1.png"/>
+				<div class="index-container">
+					<a class="slideshow-img-container video-img">
+						<img class="slideshow-img" src="images/MainPage_Whos_Looking_At_Your_Data.jpg"/>
+						<iframe id="player_kkLbfi9bR64" class="slideshow-video" src="http://www.youtube.com/embed/kkLbfi9bR64?autoplay=1" frameborder="0" allowfullscreen></iframe>
 					</a>
-					<span id="slideshow-text">
-						<h5>Lorumy title</h5>
-						<p>Lorum Ipsom</p>
+					<span class="slideshow-text">
+						<h5>Who's looking at your data?</h5>
+						<p>The U.S. <a href="/nsa.php">National Security Agency (NSA)</a> engages in warrantless internet surveillance.
+						Mark Klein, a former AT&T technician turned whistleblower has revealed that the NSA has
+						installed <a href="/faq.php#Spy Room (6th Floor)">surveillance equipment</a> at AT&T’s main switching centre in San Francisco capable
+						of intercepting all the data passing through it. The NSA is strongly suspected of operating 
+						similar spying facilities in 15-20 other U.S. cities. For example, <a class="explore-route-1859">one of our routes</a> shows that data packets from Toronto to
+						the San Francisco Art Institute pass through several such suspected sites. <a class="text-video-link">Learn more about who's looking at your data...</a></p>
 					</span>
 				</div>
-				<div>
-					<a id="slideshow-img-container" href="about.php">
-						<img class="slideshow-img" src="images/thumbnails/folsom_route.jpg"/>
+				<div class="index-container">
+					<a class="slideshow-img-container video-img">
+						<img class="slideshow-img" src="images/MainPage_What_Are_Boomerang_Routes.jpg"/>
+						<iframe id="player_F_v0VMvjcI8" class="slideshow-video" src="http://www.youtube.com/embed/F_v0VMvjcI8?autoplay=1" frameborder="0" allowfullscreen></iframe>
 					</a>
-					<span id="slideshow-text">
-						<h5>Lorumy title v2</h5>
-						<p>Lorum Ipsom v2</p>
+					<span class="slideshow-text">
+						<h5>What are 'boomerang' routes?</h5>
+						<p>A boomerang route is a data packet path that starts and ends in Canada, but travels through the USA for part of the journey.
+						We’ve found that a lot of Canadian internet traffic is routed this way, even when starting and ending in the same city.
+						What’s more, much of this boomerang traffic passes though suspected U.S. National Security Agency (NSA)
+						surveillance sites. Canadians who value their privacy may be concerned about boomerang routing
+						because it means our personal data to the USA PATRIOT Act. <a class="text-video-link">Learn more about boomerang routes...</a></p>
 					</span>
 				</div>
-				<div>
-					<a id="slideshow-img-container" href="about.php">
-						<img class="slideshow-img" src="temp_img_1.png"/>
+				<div class="index-container">
+					<a class="slideshow-img-container video-img">
+						<img class="slideshow-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/>
+						<iframe id="player_g8-NmMNGpyk" class="slideshow-video" src="http://www.youtube.com/embed/g8-NmMNGpyk?autoplay=1" frameborder="0" allowfullscreen></iframe>
 					</a>
-					<span id="slideshow-text">
-						<h5>Lorumy title v3</h5>
-						<p>Lorum Ipsom v3</p>
+					<span class="slideshow-text">
+						<h5>The IXmaps database</h5>
+						<p>We have collected over 20000 <a href="/faq.php#Traceroute">traceroutes</a> in our IXmaps database, all generated by users like you.
+						These traceroutes are then <a href="/technical.php">geolocated</a>, and the visualizations are available to browse in our <a href="/explore.php">Explore page</a>
+						Given how many options are available on the page, it may be helpful to <a class="text-video-link">watch this introductory video...</a></p>
 					</span>
 				</div>
+
 			</div>
 			
 		</article>
 
+<!-- 
 		<button id="left-big-btn" class="big-btn">
 			Learn more at the IXmaps Workshop on May 29, 2013 from 9am to 12am.
 		</button>
 		<button id="right-big-btn" class="big-btn">
 			Interested in what your ISP does with your data? Read our ISP Privacy Report.
-		</button>		
+		</button>
+ -->		
 	</section><!-- end of #content -->
 </section><!-- end of #container -->
 			
 
 <footer>
-	<section id="footer-area">
-		<section id="footer-outer-block">
-			<aside id="first" class="footer-segment">
-					<p>The IXmaps website is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License.
-                    
-					<script language="JavaScript">
-					<!-- Hide JavaScript...
-						var LastUpdated = document.lastModified;
-						document.writeln ("This page was last updated " + LastUpdated);
-					// End Hiding -->
-					</script></p>
-					
-					<p>Please <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website" class="smallinks">contact the site admin</a> 
-						with any questions or concerns.</p>	
-                    <p>To view our privacy policy, please <a href="../privacy.php" target="_blank">click here</a>.</p> 
-			</aside><!-- end of #third footer segment -->
-		</section><!-- end of footer-outer-block -->
-	</section><!-- end of footer-area -->
+	<?php include("includes/footer.php"); ?>
 </footer>
 </div><!-- #wrapper -->
 </body>
