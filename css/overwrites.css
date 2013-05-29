@@ -77,6 +77,18 @@ footer {
 	z-index: 99;
 }
 
+/* 
+#player-container {
+	position: absolute;
+	top: 280px;
+	left: 229px;
+	width: 590px;
+	height: 360px;
+	background-color: grey;
+	z-index: 999;
+}
+ */
+
 .big-btn {
 	height: 90px;
 	width: 483px;

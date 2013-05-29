@@ -340,7 +340,7 @@ var submitQuery = function(obj) {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Query submitted");
+      console.log("Query submitted", e);
       if(e!=0){
         var data = jQuery.parseJSON(e);
         console.log(" Total TRs: "+data.totTrs);
@@ -785,16 +785,81 @@ var showTestedCarriers = function(){
                      constraint4: "232",
                      constraint5: "OR"
              },
-             "filter-constraint-4":
+             "filter-constraint-5":
              {
                      constraint1: "does",
                      constraint2: "contain",
                      constraint3: "trId",
                      constraint4: "29386",
                      constraint5: "OR"
+             },
+             "filter-constraint-6":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "39044",
+                     constraint5: "OR"
+             },
+             "filter-constraint-8":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "39032",
+                     constraint5: "OR"
+             },
+             "filter-constraint-9":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "39038",
+                     constraint5: "OR"
+             },
+             "filter-constraint-10":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "39014",
+                     constraint5: "OR"
+             },
+             "filter-constraint-11":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "39038",
+                     constraint5: "OR"
+             },
+             "filter-constraint-12":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "39054",
+                     constraint5: "OR"
+             },
+             "filter-constraint-13":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "38672",
+                     constraint5: "OR"
+             },
+             "filter-constraint-14":
+             {
+                     constraint1: "does",
+                     constraint2: "contain",
+                     constraint3: "trId",
+                     constraint4: "38410",
+                     constraint5: "OR"
              }
      }
   };
+
 
   var jsonToString = JSON.stringify(carrierSampleJson);
   processpostedData(jsonToString);

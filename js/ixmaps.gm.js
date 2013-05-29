@@ -995,7 +995,7 @@ var getIpFlags = function() {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Ok! getIpFlag");
+      console.log("Ok! getIpFlag", e);
       if(e==0){
         jQuery('#ip-flag-log').show();
         //jQuery('#ip-flags-data').fadeIn('fast');
@@ -1196,7 +1196,7 @@ var closePrivacy = function () {
 var viewTrDetails = function (trId) {
   renderTr2(trId);
   jQuery('#tr-details').fadeIn('slow');
-  var url = 'http://ixmaps.ischool.utoronto.ca/cgi-bin/tr-query-anto.cgi?query_type=traceroute_id&arg='+trId;
+  var url = 'http://dev.ixmaps.ischool.utoronto.ca/cgi-bin/tr-query-anto.cgi?query_type=traceroute_id&arg='+trId;
   jQuery('#tr-details-iframe').attr('src', url);
 };
 
