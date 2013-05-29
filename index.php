@@ -74,7 +74,7 @@
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 		<article>
-		
+			<div id="player-container"></div>				<!-- start here -->
 			<img id="play-icon" src="images/play_icon.png"/>		
 			<div class="slideshow">			
 				<div class="index-container">
@@ -93,7 +93,7 @@
 				<div class="index-container">
 					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_Whos_Looking_At_Your_Data.jpg"/>
-						<iframe id="player_kkLbfi9bR64" class="slideshow-video" src="http://www.youtube.com/embed/kkLbfi9bR64?autoplay=1" frameborder="0" allowfullscreen></iframe>
+						<iframe id="player_pvdIB5vr4cw" class="slideshow-video" src="http://www.youtube.com/embed/pvdIB5vr4cw" frameborder="0" allowfullscreen></iframe>
 					</a>
 					<span class="slideshow-text">
 						<h5>Who's looking at your data?</h5>
@@ -108,7 +108,7 @@
 				<div class="index-container">
 					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_What_Are_Boomerang_Routes.jpg"/>
-						<iframe id="player_F_v0VMvjcI8" class="slideshow-video" src="http://www.youtube.com/embed/F_v0VMvjcI8?autoplay=1" frameborder="0" allowfullscreen></iframe>
+						<iframe id="player_F_v0VMvjcI8" class="slideshow-video" src="http://www.youtube.com/embed/F_v0VMvjcI8" frameborder="0" allowfullscreen></iframe>
 					</a>
 					<span class="slideshow-text">
 						<h5>What are 'boomerang' routes?</h5>
@@ -122,7 +122,7 @@
 				<div class="index-container">
 					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/>
-						<iframe id="player_g8-NmMNGpyk" class="slideshow-video" src="http://www.youtube.com/embed/g8-NmMNGpyk?autoplay=1" frameborder="0" allowfullscreen></iframe>
+						<iframe id="player_g8-NmMNGpyk" class="slideshow-video" src="http://www.youtube.com/embed/g8-NmMNGpyk" frameborder="0" allowfullscreen></iframe>
 					</a>
 					<span class="slideshow-text">
 						<h5>The IXmaps database</h5>
