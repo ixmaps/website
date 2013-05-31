@@ -47,7 +47,7 @@
 			jQuery('.slideshow').cycle({
 				fx: 'fade',
 				// pause: 1,
-				timeout: 3000
+				timeout: 7000
 			});
 		});
 	</script>
