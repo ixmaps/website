@@ -77,17 +77,21 @@ footer {
 	z-index: 99;
 }
 
-/* 
 #player-container {
 	position: absolute;
 	top: 280px;
 	left: 229px;
 	width: 590px;
 	height: 360px;
-	background-color: grey;
 	z-index: 999;
+	display: none;
 }
- */
+
+.vid-iframe {
+	width: 589px;
+	height: 359px;
+	z-index: 999;
+}	
 
 .big-btn {
 	height: 90px;
@@ -99,12 +103,6 @@ footer {
 	background-color: rgba(0,143,203,0.4);			/* #008FCB */
 	color: rgba(16,87,139,1);
 	border-radius: 8px;
-}
-
-.slideshow-video {
-	width: 590px;
-	height: 360px;
-	display: none;
 }
 
 
