@@ -47,7 +47,7 @@
 			jQuery('.slideshow').cycle({
 				fx: 'fade',
 				// pause: 1,
-				timeout: 7000
+				timeout: 3000
 			});
 		});
 	</script>
@@ -74,7 +74,7 @@
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 		<article>
-			<div id="player-container"></div>				<!-- start here -->
+			<div id="player-container"></div>
 			<img id="play-icon" src="images/play_icon.png"/>		
 			<div class="slideshow">			
 				<div class="index-container">
@@ -90,11 +90,10 @@
 						this routing as well its privacy risks more visible and comprehensible. <a href="https://vimeo.com/67102223" target="_blank">Learn more about IXmaps...</a></p>
 					</span>
 				</div>
-				<div class="index-container">
-					<a class="slideshow-img-container video-img">
+				<div class="index-container" id="pvdIB5vr4cw">
+					<div class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_Whos_Looking_At_Your_Data.jpg"/>
-						<iframe id="player_pvdIB5vr4cw" class="slideshow-video" src="http://www.youtube.com/embed/pvdIB5vr4cw" frameborder="0" allowfullscreen></iframe>
-					</a>
+					</div>
 					<span class="slideshow-text">
 						<h5>Who's looking at your data?</h5>
 						<p>The U.S. <a href="/nsa.php">National Security Agency (NSA)</a> engages in warrantless internet surveillance.
@@ -105,10 +104,9 @@
 						the San Francisco Art Institute pass through several such suspected sites. <a class="text-video-link">Learn more about who's looking at your data...</a></p>
 					</span>
 				</div>
-				<div class="index-container">
+				<div class="index-container" id="F_v0VMvjcI8">
 					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_What_Are_Boomerang_Routes.jpg"/>
-						<iframe id="player_F_v0VMvjcI8" class="slideshow-video" src="http://www.youtube.com/embed/F_v0VMvjcI8" frameborder="0" allowfullscreen></iframe>
 					</a>
 					<span class="slideshow-text">
 						<h5>What are 'boomerang' routes?</h5>
@@ -119,10 +117,9 @@
 						because it means our personal data to the USA PATRIOT Act. <a class="text-video-link">Learn more about boomerang routes...</a></p>
 					</span>
 				</div>
-				<div class="index-container">
+				<div class="index-container" id="g8-NmMNGpyk">
 					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/>
-						<iframe id="player_g8-NmMNGpyk" class="slideshow-video" src="http://www.youtube.com/embed/g8-NmMNGpyk" frameborder="0" allowfullscreen></iframe>
 					</a>
 					<span class="slideshow-text">
 						<h5>The IXmaps database</h5>
