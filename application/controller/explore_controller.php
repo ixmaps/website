@@ -67,7 +67,7 @@ if(!isset($_POST) || count($_POST)==0)
 	}
 
 	$data = json_encode($dataArray);
-	//$saveLog = Traceroute::saveSearch($data);
+	$saveLog = Traceroute::saveSearch($data);
 	//Traceroute::saveSearch($data);
 	
 	// get IXmaps geographic data and prepare the response into a json format
