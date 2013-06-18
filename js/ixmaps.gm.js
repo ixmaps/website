@@ -995,13 +995,14 @@ var getIpFlags = function() {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Ok! getIpFlag", e);
+      console.log("Ok! getIpFlag");
       if(e==0){
         jQuery('#ip-flag-log').show();
         //jQuery('#ip-flags-data').fadeIn('fast');
-        jQuery('#ip-flag-log').html('<p>There are no flags for this IP.</p>');
+        jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <b>Create a new report</b></p>');
         
       } else {
+        jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/  ><b>Create a new report</b> if you have anything to add.</p>');
         jQuery('#ip-flags-data').fadeIn('fast');
         var data = jQuery.parseJSON(e);
         renderIpFlagData(data);
@@ -1104,7 +1105,7 @@ var trHopMouseover = function (trId,hopN,type) {
     //console.log('ixMapsDataJson: ',ixMapsDataJson[trId][hopN]);
     //ipTxt += ' | Total Routers with this IP: <b>'+ ipCollection[ixMapsDataJson[trId][hopN].ip]+'</b> <span class="text-new">[New feature]</span>';
     //ipTxt += ' | <span><a class="text-new" href="javascript:showFlags(\''+ixMapsDataJson[trId][hopN].ip+'\');">';
-    ipTxt += ' | <span><a class="text-new" href="javascript:showFlags(\''+ixMapsDataJson[trId][hopN].ip+'\');">';
+    ipTxt += ' | <span><a title="Flag this router if inaccurately located" class="text-new" href="javascript:showFlags(\''+ixMapsDataJson[trId][hopN].ip+'\');">';
     
     // testing: make this dynamic
     var ipF = true;
@@ -1168,7 +1169,7 @@ var viewPrivacy = function (asNum) {
   var privacyHtml = '';
   var criteriaDes = '';
   var totScore = 0;
-  jQuery('#carrier-title').html('<h2>Privacy Report: '+privacyData.scores[asNum][0].carrier_name+'</h2>ASN: '+privacyData.scores[asNum][0].asn);
+  jQuery('#carrier-title').html('<h2>Transparency and Privacy Report:<span class="h2-bigger"> '+privacyData.scores[asNum][0].carrier_name+'</span></h2>ASN: '+privacyData.scores[asNum][0].asn);
   
   //privacyHtml += 'ASN: '+privacyData.scores[asNum][0].asn+'<br/>';
   privacyHtml += '<table>';
@@ -1176,16 +1177,36 @@ var viewPrivacy = function (asNum) {
   jQuery('#privacy-details').fadeIn('slow');
   jQuery.each(privacyData.scores[asNum], function(key,value) {
     //console.log(key, value);
-    criteriaDes =  '<b>'+privacyData.stars[value.star_id].star_short_name+'</b> ';
-    criteriaDes +=  ''+privacyData.stars[value.star_id].star_long_des+'';
-    privacyHtml += '<tr><td>'+value.star_id+'</td><td>'+criteriaDes+'</td><td class="privacy-score-col">'+value.score+'</td></tr>';
     var score = parseFloat(value.score);
     totScore+=score;
+    var scoreHtml = ''+value.score;
+    if(score>0){
+      scoreHtml = '<span class="privacy-score-col-non-zero">'+value.score+'</span>';
+    } 
+
+    criteriaDes =  '<b>'+privacyData.stars[value.star_id].star_short_name+'</b> ';
+    criteriaDes +=  ''+privacyData.stars[value.star_id].star_long_des+'';
+    privacyHtml += '<tr><td>'+value.star_id+'</td><td>'+criteriaDes+'</td><td class="privacy-score-col">'+scoreHtml+'</td></tr>';
+
   });
 
-  privacyHtml += '<tr><td></td><td></td><td></td></tr>';
-  privacyHtml += '<tr><td></td><td class="privacy-score-tot"><b>Total Score: </b></td><td class="privacy-score-col"><b>'+totScore+'</b></td></tr>';
+//  privacyHtml += '<tr><td></td><td class="privacy-score-tot"><b>Total Score: </b></td><td class="privacy-score-col"><span class="privacy-score-col-total">'+totScore+'</span></td></tr>';
+
+  privacyHtml += '<tr><td></td>';
+  privacyHtml += '<td>';
+  privacyHtml += '<div id="privacy-feedback-info">To view the full interim report, including a comparison of all carriers rated, <a target="_new" href="https://www.dropbox.com/s/j8wyf9939fo54a6/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20published.pdf">click here</a>.';
+  privacyHtml += '<br/>';
+  privacyHtml += 'To comment on this carrier rating, <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps transparency feedback ['+privacyData.scores[asNum][0].carrier_name+']">click here</a>.</div>';
+  privacyHtml += '<div id="privacy-total-label"><b>Total Score </b></div>';
+  
+  privacyHtml += '</td>';
+
+  privacyHtml += '<td class="privacy-score-col"><span class="privacy-score-col-total">'+totScore+'</span></td>';  
+
+  privacyHtml += '</tr>';
+
   privacyHtml += '</table>';
+  //privacyHtml += '<p></p>';
   jQuery('#privacy-details-data').html(privacyHtml);
 };
 
