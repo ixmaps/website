@@ -77,6 +77,9 @@ geoip_close($gi1);
 		<?php
 		}
 		?>
+		jQuery('#news-btn').click(function() {
+		window.open("https://www.dropbox.com/s/j8wyf9939fo54a6/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20published.pdf","_newtab");
+		});
 	});
     </script>
 
@@ -108,6 +111,7 @@ geoip_close($gi1);
 	<!-- <link rel="stylesheet" href="css/ix.redefined.css" type="text/css" /> -->
 	<link rel="stylesheet" href="css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="css/ix-explore.css" type="text/css" />
+	<link rel="stylesheet" href="css/overwrites.css" type="text/css" />
 
 	<!-- this realy old stuff: NOT TO BE USED -->
 	<!-- 
@@ -120,8 +124,23 @@ geoip_close($gi1);
 	<header><!-- header -->
 	      <img src="images/headerimage.jpg" width="1000" height="138">      <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 	</header><!-- end of header -->
+		
+	<nav><!-- top nav -->
+		<div class="menu">
+			<ul>
+				<li><a href="../index.php">Home</a></li>
+				<li><a href="../tour.php">Showcase Routes</a></li>
+				<li><a href="../explore.php">Explore</a></li>
+				<li><a href="../research.php">Resources</a></li>
+				<li><a href="../contribute.php">Contribute</a></li>
+				<li><a href="../technical.php">Technical</a></li>
+				<li><a href="../faq.php">FAQ</a></li>
+				<li><a href="../about.php">About</a></li>
+				<li><a href="../contact.php">Contact</a></li>
+			</ul>
+		</div>
+	</nav><!-- end of top nav -->
 
-	<?php include("includes/navigation.php"); ?>
 
 	<div style="clear: both;"></div>
 	 <div id="explore-content">
@@ -409,7 +428,12 @@ geoip_close($gi1);
 			  	</div>
 
 	</div><!-- #content -->
-	
+	<button id="news-btn">
+			Read our ISP Transparency and Privacy Report
+	</button>
+	<footer>
+		<?php include("includes/footer.php"); ?>
+	</footer>
 </div><!-- #wrapper -->
 <br/>
 	<?php //include("includes/sidebar.php"); ?>
@@ -449,9 +473,16 @@ geoip_close($gi1);
 			<h2>User generated flags</h2>
 			<br/>
 			<div id="ip-flag-info"></div>
-			<div id="ip-flag-log"></div>
 		</div>
 		<div style="clear: both;"></div>
+		<div id="ip-flag-first-msg"><p>Please flag routers you believe are shown in the wrong place. Flagged routers alert other users to possible inaccuracies and can be eliminated from traceroute mapping so what you see is more reliable (See Explore>Map options>Exclude routers>User-flagged). Flagging routers will also help us to re-locate them more accurately, especially if you can provide us with good clues as to their correct position. We periodically review the database and review flagged routes for correction.</p>
+		<p>We appreciate helpful details, but all fields are optional.</p>
+		<div id="ip-flag-log"></div>
+		<p>Thanks.</p>
+
+
+
+		</div>
 		<div id="ip-flag-insert" class="hide">
 			<h3>Submit a new report</h3>
 			<table>
@@ -495,5 +526,7 @@ geoip_close($gi1);
 <!-- 	<form action="/explore.php" method="post" id="send-to-explore">
 		<input id="data" name="data" type="hidden" value=""/> 
 	</form> -->
+
+
 </body>
 </html>

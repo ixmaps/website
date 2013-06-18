@@ -1,4 +1,10 @@
-`/*********** Explore page ***********/
+/*********** Explore page ***********/
+
+.h2-bigger{
+	color: #10578b;
+	font-size: 26px;
+}
+
 #filter-results{
 /*	display: block;
 	position: absolute;
@@ -195,8 +201,8 @@
 #ip-flag-info table{
 	
 	width: 350px;
-	border: 1px solid #ccc;
-	border-radius: 8px;
+	border: 1px solid #000;
+	border-radius: 10px;
 
 }
 
@@ -205,6 +211,15 @@
 	float: right;
 
 }
+
+#ip-flag-first-msg{
+	
+	border: 1px solid #000;
+	border-radius: 10px;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
 #ip-flags-new{
 	float: right;
 	margin: 12px 50px 0 0;
@@ -235,13 +250,37 @@
 #tr-details-close img, #ip-flags-close img, #privacy-details-close img {
 	width: 25px
 }
+.privacy-score-col-non-zero{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#privacy-total-label{
+	float: right;
+	margin-top: 16px;
+	margin-right: 10px;
+	font-size: 18px;
+}
+
+#privacy-feedback-info{
+	float: left;
+	border: 1px solid #000;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.privacy-score-col-total{
+	font-size: 18px;
+	font-weight: bold;
+}
+
 .privacy-score-col{
-background-color: #ccc;
-text-align: center;
-vertical-align: middle;
+	background-color: #ccc;
+	text-align: center;
+	vertical-align: middle;
 }
 #privacy-details-data table td{
-	padding: 3px;
+	padding: 2px;
 	font-size: 13px;
 }
 
