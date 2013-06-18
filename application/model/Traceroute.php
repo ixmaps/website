@@ -1350,7 +1350,7 @@ class Traceroute
 					//$imp_dist_txt = '<b>YES!</b>';
 				}
 			}
-
+			$lastHopIp=0;
 			$trData[$trId][]=array(
 				$ip,
 				$hop,
@@ -1472,6 +1472,7 @@ class Traceroute
 			if(in_array($trId, $collected)){
 				$active = " tr-item-active";
 			}*/
+			$active='';
 			$lastHopIdx = count($trIdData);
 			// get short date
 			$sDate = explode(" ", $trIdData[0][12]);

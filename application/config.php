@@ -22,7 +22,7 @@ $webUrl = "http://dev.ixmaps.ischool.utoronto.ca";
 //$savePath = '/Applications/XAMPP/htdocs/mywebapps/ixmaps.ca/dev.ixmaps.ca/gm-temp';
 $savePath = '/var/www/dev.ixmaps.ca/gm-temp';
 
-$trNumLimit=2000; // 1000 is a safe num with the new approach
+$trNumLimit=1500; // 1000 is a safe num with the new approach
 
 $ixmaps_debug_mode = true;
 
