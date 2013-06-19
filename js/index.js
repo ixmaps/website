@@ -124,6 +124,11 @@ var initialize = function() {
 		var JSONstr = JSON.stringify(str);
 		window.location = baseURL + 'explore.php?data=' + JSONstr;
 	});
+	
+	
+	jQuery('#news-btn').click(function() {
+		window.open("https://www.dropbox.com/s/j8wyf9939fo54a6/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20published.pdf","_newtab");
+	});
 }
 
 
@@ -131,6 +136,7 @@ function setupVideoPlayer(vidId) {
 	jQuery('.slideshow').cycle('pause');
 	jQuery('.slideshow-img').hide();
 	jQuery('#play-icon').hide();
+	jQuery('#pager').hide();
 	jQuery('#player-container').show();
 	jQuery('#player-container').css('z-index',999);
 	
@@ -169,6 +175,7 @@ function onPlayerStateChange(event) {
 function returnToState() {
 	jQuery('#player-container').hide();	
 	jQuery('#play-icon').show();
+	jQuery('#pager').show();
 	jQuery('.slideshow-img').show();
 	jQuery('.slideshow').cycle('resume');
 }

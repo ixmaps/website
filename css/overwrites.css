@@ -43,7 +43,7 @@ footer {
 
 .slideshow {
 	width: 1000px;
-	height: 400px;
+	height: 366px;
 	position: relative;
 }
 
@@ -66,6 +66,28 @@ footer {
 	float: right;
 }
 
+#pager {
+	margin-left: 480px;
+}
+
+#pager a {
+	border: none;
+	/* border: 1px solid #ccc; */
+	color: black;
+	/* background: #E0E0E0; */
+	text-decoration: none;
+	margin: 0 1px;
+	padding: 3px 9px;
+}
+
+#pager a.activeSlide {
+	background: #E0E0E0;
+}
+
+#pager a:focus {
+	outline: none;
+}
+
 #play-icon {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -75,6 +97,7 @@ footer {
 	height: 70px;
 	width: 70px;
 	z-index: 99;
+	pointer-events: none;
 }
 
 #player-container {
@@ -104,6 +127,32 @@ footer {
 	color: rgba(16,87,139,1);
 	border-radius: 8px;
 }
+
+.btn-container {
+	text-align: center;
+}
+
+#news-btn {
+	width: 60%;
+	height: 60px;
+	margin-top: 45px;
+	background-color: rgba(0,143,203,0.4);			/* #008FCB */
+	color: rgba(16,87,139,1);
+	padding-left: 8px;
+	border: 1px solid rgba(16,87,139,1);
+	font-size: 14px;
+	border-radius: 8px;
+	/* text-align: left; */
+	/* put a star or something in the image? */
+}
+
+/* 
+#news-btn-img {
+	width: 50px;
+	height: 50px;
+	float: right;
+}
+ */
 
 
 /* TOUR */

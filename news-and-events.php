@@ -83,6 +83,13 @@
 
 						<p>IXmaps mentioned in <a href="http://www.democracynow.org/2012/4/26/targeted_hacker_jacob_appelbaum_on_cispa" target="_blank">Democracy Now! 
 						interview with Jacob Appelbaum, April 26, 2012</a></p>
+
+					<h2>Research Papers</h2>
+						<p>Clement, A. “IXmaps – Tracking your personal data through the NSA’s warrantless wiretapping sites” IEEE - ISTAS conference, Toronto, 
+						June 26-27, 2013: <a href="https://www.dropbox.com/s/9y4xtavova2qtj4/ISTAS13%20paper%2026%20IXmaps%20%E2%80%93%20Tracking%20May%2022.pdf">available here</a></p>
+
+						<p>Paterson, N. “Veillances: protocols & network surveillance”, IEEE - ISTAS conference, Toronto, June 26-27, 2013:
+						<a href="https://www.dropbox.com/s/elejw106elrckse/Nancy%20final-for-conf-MSW_A4_format-14.doc"> available here</a></p>							
 					
 					<h2>Presentations</h2>
 						<p>IXmaps is in the Hot Zone at the 

@@ -44,10 +44,13 @@
 
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
-			jQuery('.slideshow').cycle({
+			jQuery('.slideshow')
+			.after('<div id="pager">')
+			.cycle({
 				fx: 'fade',
 				// pause: 1,
-				timeout: 7000
+				timeout: 7000,
+				pager: '#pager'
 			});
 		});
 	</script>
@@ -140,7 +143,15 @@
 		<button id="right-big-btn" class="big-btn">
 			Interested in what your ISP does with your data? Read our ISP Privacy Report.
 		</button>
- -->		
+ -->
+		<div class="btn-container">
+			<button id="news-btn">
+				New: Canadian Carriers Transparency and Privacy Report (Interim)
+				<!-- <img id="news-btn-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/> do we want to add a small starred img here? -->
+			</button>
+		</div>
+
+				
 	</section><!-- end of #content -->
 </section><!-- end of #container -->
 			

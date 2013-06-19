@@ -56,11 +56,15 @@
 
 	  <article>
 		<h2>About the IXmaps Project</h2>
-	    <p>IXmaps is an interactive tool that enables internet users and researchers to study the route(s) that data packets 
-	    take across North America, with 'interesting' sites highlighted along the way. It has been under development since 2008 with
-	    research funding from 
+	    <p>IXmaps is an interactive tool that enables internet users and researchers to study the route(s) that data packets take across the internet,
+	    with surveillance and other 'interesting' sites highlighted along the way. It also provides transparency and privacy ratings of Canadian carriers.
+	    It has been under development since 2008 with research funding from 
 	    <a href="http://www.sshrc-crsh.gc.ca/funding-financement/programs-programmes/itst/research_grants-subventions_recherche-eng.aspx" target="_blank">
-	    Social Sciences and Humanities Research Council of Canada's Image, Text, Sound and Technology  program</a>.</p>
+	    Social Sciences and Humanities Research Council of Canada</a>.
+	    and the
+	    <a href="http://www.priv.gc.ca/index_e.asp" target="_blank">
+	    Office of the Privacy Commissioner of Canada</a>.
+	    </p>
 	   	<p>IXmaps is affiliated with the <a href="http://www.sscqueens.org/projects/the-new-transparency/about" 
 	   	target="_blank">New Transparency Project</a> and the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">
 	   	Information Policy Research Program</a> at the <a href="http://www.ischool.utoronto.ca/" target="_blank">
