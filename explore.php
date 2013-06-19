@@ -484,7 +484,7 @@ geoip_close($gi1);
 
 		</div>
 		<div id="ip-flag-insert" class="hide">
-			<h3>Submit a new report</h3>
+			<h3>Create a new report</h3>
 			<table>
 				<tr>
 					<td>Username</td>

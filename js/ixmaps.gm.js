@@ -964,9 +964,10 @@ var saveIpFlag = function() {
     success: function (e) {
       console.log("Ok! saveIpFlag", e);
       if(e==1){
-        jQuery('#ip-flag-log').html('<p>Your report has been saved. <br/>Thank you for your contribution.</p>');
         jQuery('#ip-flag-insert').hide();
         getIpFlags();
+        jQuery('#ip-flag-log').fadeIn('fast');
+        jQuery('#ip-flag-log').html('<p>Your report has been saved. <br/>Thank you for your contribution.</p>');
       }
     },
     error: function (e) {
@@ -984,6 +985,7 @@ var getIpFlags = function() {
   console.log("getting ip flags from db parent function");
   jQuery('#ip-flag-info').html('');
   jQuery('#ip-flags-data-list').html('');
+  jQuery('#ip-flag-insert').hide();
 
   var obj = {
     action: 'getIpFlag',
@@ -999,10 +1001,10 @@ var getIpFlags = function() {
       if(e==0){
         jQuery('#ip-flag-log').show();
         //jQuery('#ip-flags-data').fadeIn('fast');
-        jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <b>Create a new report</b></p>');
+        jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <b><a href="javascript:newIpFlag();">Create a new report</a></b></p>');
         
       } else {
-        jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/  ><b>Create a new report</b> if you have anything to add.</p>');
+        jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b> if you have anything to add.</p>');
         jQuery('#ip-flags-data').fadeIn('fast');
         var data = jQuery.parseJSON(e);
         renderIpFlagData(data);
