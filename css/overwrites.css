@@ -108,13 +108,28 @@ footer {
 	pointer-events: none;
 }
 
+/* 
 #player-container {
 	position: absolute;
 	top: 280px;
 	left: 230px;
 	width: 590px;
 	height: 360px;
-	/* float: left; */
+	
+	z-index: 999;
+	display: none;
+}
+*/
+ 
+.player-container {
+/* 
+	position: absolute;
+	top: 280px;
+	left: 230px;
+	width: 590px;
+	height: 360px;
+ */
+	float: left;
 	z-index: 999;
 	display: none;
 }
