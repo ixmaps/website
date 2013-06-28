@@ -103,9 +103,10 @@ footer {
 #player-container {
 	position: absolute;
 	top: 280px;
-	left: 229px;
+	left: 230px;
 	width: 590px;
 	height: 360px;
+	/* float: left; */
 	z-index: 999;
 	display: none;
 }
@@ -133,14 +134,14 @@ footer {
 }
 
 #news-btn {
-	width: 60%;
+	width: 80%;
 	height: 60px;
 	margin-top: 45px;
 	background-color: rgba(0,143,203,0.4);			/* #008FCB */
 	color: rgba(16,87,139,1);
 	padding-left: 8px;
 	border: 1px solid rgba(16,87,139,1);
-	font-size: 14px;
+	font-size: 20px;
 	border-radius: 8px;
 	/* text-align: left; */
 	/* put a star or something in the image? */

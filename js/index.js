@@ -127,18 +127,20 @@ var initialize = function() {
 	
 	
 	jQuery('#news-btn').click(function() {
-		window.open("https://www.dropbox.com/s/j8wyf9939fo54a6/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20published.pdf","_newtab");
+		//window.open("https://dl.dropboxusercontent.com/u/8140293/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20interim%20June%202013.pdf","_newtab");
+		window.open("/documents/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20interim%20June%202013.pdf");
 	});
 }
 
 
 function setupVideoPlayer(vidId) {
 	jQuery('.slideshow').cycle('pause');
-	jQuery('.slideshow-img').hide();
+	//jQuery('.slideshow-img').hide();
+	jQuery('.slideshow-img-container').hide();
 	jQuery('#play-icon').hide();
 	jQuery('#pager').hide();
 	jQuery('#player-container').show();
-	jQuery('#player-container').css('z-index',999);
+	//jQuery('#player-container').css('z-index',999);
 	
 	jQuery('#player-container').html('<iframe id="player_'+vidId+'" class="vid-iframe" src="http://www.youtube.com/embed/'+vidId+'?enablejsapi=1&autoplay=1" frameborder="0" allowfullscreen></iframe>');
 	new YT.Player('player_'+vidId, {
@@ -146,6 +148,21 @@ function setupVideoPlayer(vidId) {
 			'onStateChange': onPlayerStateChange
 		}
 	});
+// jQuery('iframe').each(function() {
+//   var url = jQuery(this).attr("src");
+//   if (jQuery(this).attr("src").indexOf("?") > 0) {
+//     jQuery(this).attr({
+//       "src" : url + "&wmode=transparent",
+//       "wmode" : "Opaque"
+//     });
+//   }
+//   else {
+//     jQuery(this).attr({
+//       "src" : url + "?wmode=transparent",
+//       "wmode" : "Opaque"
+//     });
+//   }
+// });	
 }
 	
 function onPlayerStateChange(event) {
@@ -173,10 +190,11 @@ function onPlayerStateChange(event) {
 }
 
 function returnToState() {
-	jQuery('#player-container').hide();	
+	jQuery('#player-container').hide();
 	jQuery('#play-icon').show();
 	jQuery('#pager').show();
-	jQuery('.slideshow-img').show();
+	//jQuery('.slideshow-img').show();
+	jQuery('.slideshow-img-container').show();
 	jQuery('.slideshow').cycle('resume');
 }
 

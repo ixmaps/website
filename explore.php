@@ -428,9 +428,12 @@ geoip_close($gi1);
 			  	</div>
 
 	</div><!-- #content -->
-	<button id="news-btn">
-			Read our ISP Transparency and Privacy Report
-	</button>
+		<div class="btn-container">
+			<button id="news-btn">
+				New: Canadian Carriers Transparency and Privacy Report (Interim)
+				<!-- <img id="news-btn-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/> do we want to add a small starred img here? -->
+			</button>
+		</div>
 	<footer>
 		<?php include("includes/footer.php"); ?>
 	</footer>
