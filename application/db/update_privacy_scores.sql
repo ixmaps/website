@@ -1,0 +1,1 @@
+update privacy_scores set score = 0.5 where id = 149;
