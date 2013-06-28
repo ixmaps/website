@@ -37,6 +37,14 @@ footer {
 
 /* INDEX */
 
+#beta-message {
+	height: 25px;
+	background-color: yellow;
+	float: right;
+	margin-top: -40px;
+	padding: 5px 10px 0px 10px;
+}
+
 .index-container {
 	width: 980px;
 }
