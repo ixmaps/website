@@ -144,7 +144,7 @@ function setupVideoPlayer(vidId) {
 	jQuery('#'+vidId+' .player-container').html('<iframe id="player_'+vidId+'" class="vid-iframe" src="http://www.youtube.com/embed/'+vidId+'?enablejsapi=1&autoplay=1" frameborder="0" allowfullscreen></iframe>');
 	new YT.Player('player_'+vidId, {
         events: {
-            'onReady': onReady
+            'onStateChange': onPlayerStateChange
         }
 	});
 }
