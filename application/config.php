@@ -16,13 +16,19 @@ $dbport		= '5432';
 $dbconn = pg_connect("host=localhost dbname=$dbname user=$dbuser password=$dbpassword")
     or die('Could not connect to DB: ' . pg_last_error());
 
+// ANTO local
 //$webUrl = "http://localhost/mywebapps/ixmaps.ca/dev.ixmaps.ca";
-$webUrl = "http://dev.ixmaps.ischool.utoronto.ca";
-
 //$savePath = '/Applications/XAMPP/htdocs/mywebapps/ixmaps.ca/dev.ixmaps.ca/gm-temp';
-$savePath = '/var/www/dev.ixmaps.ca/gm-temp';
 
-$trNumLimit=1500; // 1000 is a safe num with the new approach
+// development
+//$webUrl = "http://dev.ixmaps.ischool.utoronto.ca";
+//$savePath = '/var/www/dev.ixmaps.ca/gm-temp';
+
+// production
+$savePath = '/var/www/www.ixmaps.ca/gm-temp';
+$webUrl = "http://ixmaps.ca";
+
+$trNumLimit=1200; // 1000 is a safe num with the new approach
 
 $ixmaps_debug_mode = true;
 

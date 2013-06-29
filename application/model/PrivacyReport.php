@@ -5,7 +5,7 @@ class PrivacyReport
 		global $dbconn, $ixmaps_debug_mode;
 
 		$sql1="SELECT privacy_stars.* FROM privacy_stars";
-		$sql2="SELECT privacy_scores.* FROM privacy_scores";
+		$sql2="SELECT privacy_scores.* FROM privacy_scores order by asn, star_id";
 
 		//echo $sql;
 		$result1 = pg_query($dbconn, $sql1) or die('Query privacy_stars failed: ' . pg_last_error());

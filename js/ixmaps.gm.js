@@ -2,6 +2,8 @@
 /*
 	IXmaps google maps global vars and init scripts
 */
+var privacyRepUrl = 'http://www.ixmaps.ca/documents/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20interim%20June%202013.pdf';
+
 var allowMultipleTrs = false; // !!
 var allowRecenter = true;
 
@@ -967,7 +969,7 @@ var saveIpFlag = function() {
         jQuery('#ip-flag-insert').hide();
         getIpFlags();
         jQuery('#ip-flag-log').fadeIn('fast');
-        jQuery('#ip-flag-log').html('<p>Your report has been saved. <br/>Thank you for your contribution.</p>');
+        jQuery('#').html('<p>Your report has been saved. <br/>Thank you for your contribution.</p>');
       }
     },
     error: function (e) {
@@ -1196,7 +1198,7 @@ var viewPrivacy = function (asNum) {
 
   privacyHtml += '<tr><td></td>';
   privacyHtml += '<td>';
-  privacyHtml += '<div id="privacy-feedback-info">To view the full interim report, including a comparison of all carriers rated, <a target="_new" href="https://www.dropbox.com/s/j8wyf9939fo54a6/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20published.pdf">click here</a>.';
+  privacyHtml += '<div id="privacy-feedback-info">To view the full interim report, including a comparison of all carriers rated, <a target="_new" href="'+privacyRepUrl+'">click here</a>.';
   privacyHtml += '<br/>';
   privacyHtml += 'To comment on this carrier rating, <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps transparency feedback ['+privacyData.scores[asNum][0].carrier_name+']">click here</a>.</div>';
   privacyHtml += '<div id="privacy-total-label"><b>Total Score </b></div>';
