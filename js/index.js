@@ -1,4 +1,4 @@
-var baseURL = 'http://dev.ixmaps.ischool.utoronto.ca/'
+var baseURL = 'http://www.ixmaps.ca'
 
 var initialize = function() {
 
@@ -127,7 +127,6 @@ var initialize = function() {
 	
 	
 	jQuery('#news-btn').click(function() {
-		//window.open("https://dl.dropboxusercontent.com/u/8140293/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20interim%20June%202013.pdf","_newtab");
 		window.open("/documents/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20interim%20June%202013.pdf");
 	});
 }

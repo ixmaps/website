@@ -1,4 +1,10 @@
 <?php
+$ixHost = $_SERVER["SERVER_NAME"];
+if ($ixHost!='www.ixmaps.ca'){
+    header('Location: http://www.ixmaps.ca/explore.php');
+	exit;
+}
+
 // MaxMind Include Files needed to grab user's city 
 include('application/geoip/geoip.inc');
 include('application/geoip/geoipcity.inc');
@@ -78,7 +84,7 @@ geoip_close($gi1);
 		}
 		?>
 		jQuery('#news-btn').click(function() {
-		window.open("https://www.dropbox.com/s/j8wyf9939fo54a6/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20published.pdf","_newtab");
+		window.open(privacyRepUrl,"_newtab");
 		});
 	});
     </script>
@@ -128,7 +134,7 @@ geoip_close($gi1);
 	<!-- <span id="beta-message"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps explore Page">feedback</a></i></span> -->
 
 <?php include("includes/navigation.php"); ?>
-
+<div id="beta-message-ok"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i></div>
 	<div style="clear: both;"></div>
 	 <div id="explore-content">
 		 <!-- tabs --> 
@@ -418,7 +424,6 @@ geoip_close($gi1);
 		<div class="btn-container">
 			<button id="news-btn">
 				New: Canadian Carriers Transparency and Privacy Report (Interim)
-				<!-- <img id="news-btn-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/> do we want to add a small starred img here? -->
 			</button>
 		</div>
 	<footer>

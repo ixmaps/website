@@ -61,6 +61,7 @@ footer {
 	width: 590px;
 	height: 360px;
 	border-bottom: none;
+	cursor: pointer;
 }
 
 .slideshow-img {

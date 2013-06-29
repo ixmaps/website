@@ -1,3 +1,11 @@
+<?php
+$ixHost = $_SERVER["SERVER_NAME"];
+
+if ($ixHost!='www.ixmaps.ca'){
+    header('Location: http://www.ixmaps.ca/index.php');
+	exit;
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -96,9 +104,9 @@
 					</span>
 				</div>
 				<div class="index-container" id="pvdIB5vr4cw">
-					<div class="slideshow-img-container video-img">
+					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_Whos_Looking_At_Your_Data.jpg"/>
-					</div>
+					</a>
 					<div class="player-container"></div>
 					<span class="slideshow-text">
 						<h5>Who's looking at your data?</h5>
