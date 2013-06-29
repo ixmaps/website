@@ -1221,7 +1221,7 @@ var closePrivacy = function () {
 var viewTrDetails = function (trId) {
   renderTr2(trId);
   jQuery('#tr-details').fadeIn('slow');
-  var url = 'http://dev.ixmaps.ischool.utoronto.ca/cgi-bin/tr-query-anto.cgi?query_type=traceroute_id&arg='+trId;
+  var url = url_base+'/cgi-bin/tr-query-anto.cgi?query_type=traceroute_id&arg='+trId;
   jQuery('#tr-details-iframe').attr('src', url);
 };
 

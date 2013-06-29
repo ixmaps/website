@@ -90,7 +90,7 @@
 				<img class="tour-img" src="images/ShowcasePage_Cdn_Network_Sovereignty.jpg"/>
 			</div>
 			<div class="tour-text-container">
-				<p><a href="explore-route-3381">This is traceroute #3381</a>. TR3381 shows data packets travelling from a home computer in Toronto to a local news and entertainment website. Along this route, we see that <a href="/faq.php#Packet">packets</a> that begin and end in Toronto, pass through Chicago, a suspected NSA surveillance site.</p>
+				<p><a class="explore-route-3381">This is traceroute #3381</a>. TR3381 shows data packets travelling from a home computer in Toronto to a local news and entertainment website. Along this route, we see that <a href="/faq.php#Packet">packets</a> that begin and end in Toronto, pass through Chicago, a suspected NSA surveillance site.</p>
 				<p>As a result of many technical, economic and policy choices made principally by private corporations, Canadian internet traffic is often routed through the US, even when both origin and destination are within Canada. These "<a href="explore-boomerang-routes">boomerang routes</a>" prompt concerns regarding <a href="/sovereignty">Canadian network sovereignty</a>, since Canadians' <a href="/faq.php#Packet">packets</a> passing through routers in the US are subject to US interests, such as surveillance under provisions of the USA Patriot Act or the NSA's warrentless surveillance program described elsewhere. The IXmaps database contains hundreds of examples of Canadian boomerang routes. <a href="explore-boomerang-routes">See examples here.</a></p>
 			</div>
 		</div>

@@ -195,7 +195,7 @@
 	float: left;
 	margin-right: 100px;
 	font-size: 13px;
-	padding: 5px;
+	/*padding: 5px;*/
 }
 
 #ip-flag-info table{
@@ -203,6 +203,7 @@
 	width: 350px;
 	border: 1px solid #000;
 	border-radius: 10px;
+	padding: 10px;
 
 }
 
@@ -487,4 +488,12 @@
 }
 .routers-header{
 	width: 60px;
+}
+
+#beta-message-ok {
+	height: 25px;
+	background-color: yellow;
+	float: right;
+	margin-top: 0px;
+	padding: 5px 10px 0px 10px;
 }
