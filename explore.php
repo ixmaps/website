@@ -125,22 +125,9 @@ geoip_close($gi1);
 	      <img src="images/headerimage.jpg" width="1000" height="138">      <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 	</header><!-- end of header -->
 		
-	<nav><!-- top nav -->
-		<div class="menu">
-			<ul>
-				<li><a href="../index.php">Home</a></li>
-				<li><a href="../tour.php">Showcase Routes</a></li>
-				<li><a href="../explore.php">Explore</a></li>
-				<li><a href="../research.php">Resources</a></li>
-				<li><a href="../contribute.php">Contribute</a></li>
-				<li><a href="../technical.php">Technical</a></li>
-				<li><a href="../faq.php">FAQ</a></li>
-				<li><a href="../about.php">About</a></li>
-				<li><a href="../contact.php">Contact</a></li>
-			</ul>
-		</div>
-	</nav><!-- end of top nav -->
+	<!-- <span id="beta-message"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps explore Page">feedback</a></i></span> -->
 
+<?php include("includes/navigation.php"); ?>
 
 	<div style="clear: both;"></div>
 	 <div id="explore-content">

@@ -4,7 +4,8 @@
 
 // var url_base="http://192.168.0.101/mywebapps/ixmaps.ca/dev.ixmaps.anto";
 
-var url_base="http://dev.ixmaps.ischool.utoronto.ca";
+//var url_base="http://dev.ixmaps.ischool.utoronto.ca";
+var url_base="http://www.ixmaps.ca";
 
 var activeInfo = 0;
 
@@ -340,7 +341,7 @@ var submitQuery = function(obj) {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Query submitted");
+      console.log("Query submitted",e);
       if(e!=0){
         var data = jQuery.parseJSON(e);
         console.log(" Total TRs: "+data.totTrs);
