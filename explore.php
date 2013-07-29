@@ -264,10 +264,10 @@ geoip_close($gi1);
 				</div>
 				<div>
 					<div style="float: left;">
-					  	<button id="reset-filters-button">Reset Values</button>
+					  	<button id="reset-filters-button" class="action-button">Reset Values</button>
 				  	</div>
-				  	<div style="margin-left: 20px;">
-				  		<button id="process-filters-button"><b>Submit</b></button>
+				  	<div>
+				  		<button id="process-filters-button" class="action-button"><b>Submit</b></button>
 				  	</div>
 				</div>
 		    </div>

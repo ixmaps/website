@@ -56,27 +56,37 @@
 
 		<article>
 			<h2>Contribute</h2>
-		
-	    	<h3>Contributing Knowledge</h3>
-		
-			<p>A fundamental component of the IXmaps project is the involvement of contributors, especially those who work in the 
-			datacentre industry, network management, or internet security. If you have specific information relevant to any of the 
-			subjects and themes outlined on this website and are interested in contributing, we encourage you to 
-			 <a href="mailto: ixmaps@utoronto.ca?subject=[IXmaps Contribute]"> please get in touch</a>.</p>
 			
 			<h3>Contributing to the IXmaps database</h3>
 			
-			<p>IXmaps relies on voluntary contributions to its database. 
-		   	Mainly this involves installing TrGen, a traceroute generating software application built 
-		   	by the IXmaps development team, and initiating traceroute requests targeted either at batches of 
-		   	selected sites across North America, or at individual those of a user's choosing. 
-		   	The more distinct the originating points, in terms of both geographic locale and ISP, the better able we are to map 
-		   	the locations of backbone routers. We also welcome corrections to our geo-location of IP addresses, and appreciate any 
-		   	information (including photos) about the various facilities we refer to.</p>
-			<p>At the moment, TrGen is only available for Linux and Windows operating systems. A Mac version of the software 
-			is in the works.<br>
-			To install the Windows version, follow the instructions <a href = "/windows.php">listed here.</a><br>
-			To install the Linux version, follow the instructions <a href = "/linux.php">listed here.</a></p>
+			<p>IXmaps relies on voluntary contributions to its database. Mainly this involves installing <b>TrGen</b>,
+			a traceroute generating software application built by the IXmaps development team, and initiating
+			traceroute requests targeted either at batches of selected sites across North America, or at individual
+			URLs of a user's choosing. The more distinct the originating points, in terms of both geographic locale
+			and ISP, the better able we are to map the locations of backbone routers. We also welcome corrections to
+			our geo-location of IP addresses (i.e. via Flag this IP on the Explore page), and appreciate any information
+			(including photos) about the various facilities we refer to.</p>
+			
+			At the moment, TrGen works on <b>Linux</b>, <b>Windows</b> and <b>Mac OSX</b> operating systems.<br />
+
+			To install the Windows version, follow the instructions <a href = "/windows.php">listed here.</a><br />
+			To install the Linux version, follow the instructions <a href = "/linux.php">listed here.</a><br />
+			To install the Mac OSX version, follow the instructions <a href = "/macos.php">listed here.</a><br />
+			
+			<p>Please note that, due to how Mac handles OS updates, the listed TrGen may not be compatible with
+			all OSX versions. If you would like to help with updating the Mac version 
+			<a href="mailto: ixmaps@utoronto.ca?subject=[IXmaps Contribute]">please get in touch</a></p>
+			
+			<p>The source code for each of these versions of TrGen can be found <a href = "/technical.php">here</a></p>
+			
+			
+			<h3>Contributing Knowledge</h3>
+			
+			<p>A fundamental component of the IXmaps project is the involvement of contributors, especially those who
+			work in the datacentre industry, network management, or internet security. If you have specific information
+			relevant to any of the subjects and themes outlined on this website and are interested in contributing, we
+			encourage you to <a href="mailto: ixmaps@utoronto.ca?subject=[IXmaps Contribute]">please get in touch</a>.</p>
+			
         </article>
         
 	</section><!-- end of #content -->

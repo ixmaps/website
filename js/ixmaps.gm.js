@@ -693,6 +693,13 @@ var renderTr = function (trId) {
     }); // end loop routers
     //console.log('--- activeCarriers',activeCarriers);
 
+    // get coordinates for tr with one-hop only
+    if(p.length==1){
+      console.log("TR with one hop Id:", p[0][0]);
+      var oneHop_LatLng = new google.maps.LatLng(p[0][2],p[0][3]);
+      coordinates.push(oneHop_LatLng);
+    }
+
     // build each hop as a polyline
     jQuery.each(p, function(index, value) {
       //console.log(index +':'+ value);
@@ -820,13 +827,22 @@ var renderTr = function (trId) {
 
     if(allowRecenter)
     {
-  	  var bounds = new google.maps.LatLngBounds();
-  	  for (var i = 0; i < coordinates.length; i++) {
-  	      bounds.extend(coordinates[i]);
-  	  }
-  	  coordinates.length = 0;
-      map.fitBounds(bounds);
-    }
+      if(coordinates.length!=0) 
+      {
+        if (coordinates.length==1){
+          map.setCenter(coordinates[0]);
+          map.setZoom(4);
+        } else {
+            var bounds = new google.maps.LatLngBounds();
+            for (var i = 0; i < coordinates.length; i++) {
+                bounds.extend(coordinates[i]);
+            }
+            //console.log(coordinates);
+            coordinates.length = 0;
+            map.fitBounds(bounds);
+        }
+      } // end if coordinates not 0
+    } 
 } // end if tr in map
 
   //jQuery('#map-info').html('TRid: <strong>'+trId+'</strong>');

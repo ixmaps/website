@@ -82,10 +82,11 @@
 	text-align: center;
 }
 
-.delete-button {
-	/*margin-left: 55px;*/
+.action-button {
+	width: 130px;
+	height: 30px;
+	margin-top: 20px;
 }
-
 
 .filter-item {
 	margin-bottom: 5px;
@@ -93,6 +94,10 @@
 	padding: 5px;
 	/*border-radius: 10px;*/
 	/*width: 65%;*/
+}
+
+.constraint {
+	margin: 4px;
 }
 
 .blank-field-error {
