@@ -62,11 +62,29 @@ footer {
 	height: 360px;
 	border-bottom: none;
 	cursor: pointer;
+	position: relative;
 }
 
 .slideshow-img {
 	width: 590px;
 	height: 360px;
+	position: absolute;
+}
+
+.play-icon {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	position: absolute;
+	height: 70px;
+	width: 70px;
+	margin-left: -moz-calc(50% - 35px);
+	margin-left: -webkit-calc(50% - 35px);
+	margin-left: calc(50% - 35px);
+	margin-top: -moz-calc(25% - 5px);						/* no idea why this only wants 25% and 5px */
+	margin-top: -webkit-calc(25% - 5px);
+	margin-top: calc(25% - 5px);
+	z-index: 99;
+	pointer-events: none;
 }
 
 .slideshow-text {
@@ -97,7 +115,7 @@ footer {
 	outline: none;
 }
 
-#play-icon {
+/*#play-icon {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	position: absolute;
@@ -107,7 +125,7 @@ footer {
 	width: 70px;
 	z-index: 99;
 	pointer-events: none;
-}
+}*/
 
 /* 
 #player-container {

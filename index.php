@@ -87,13 +87,15 @@ if ($ixHost!='www.ixmaps.ca'){
 	<section id="content"><!-- #content -->
 		<article>
 			<!-- <div id="player-container"></div> -->
-			<img id="play-icon" src="images/play_icon.png"/>		
+			<!-- <img id="play-icon" src="images/play_icon.png"/> -->
 			<div class="slideshow">			
 				<div class="index-container">
 					<a class="slideshow-img-container" href="https://vimeo.com/67102223" target="_blank">
 						<img class="slideshow-img" src="images/MainPage_What_Is_IXmaps.jpg"/>
+						<img class="play-icon" src="images/play_icon.png"/>
 					</a>
 					<div class="player-container"></div>
+					
 					<span class="slideshow-text">
 						<h5>What is IXmaps?</h5>
 						<p>IXmaps is an internet mapping tool that allows you to see how your personal data travels across the internet.
@@ -106,6 +108,7 @@ if ($ixHost!='www.ixmaps.ca'){
 				<div class="index-container" id="pvdIB5vr4cw">
 					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_Whos_Looking_At_Your_Data.jpg"/>
+						<img class="play-icon" src="images/play_icon.png"/>
 					</a>
 					<div class="player-container"></div>
 					<span class="slideshow-text">
@@ -121,6 +124,7 @@ if ($ixHost!='www.ixmaps.ca'){
 				<div class="index-container" id="F_v0VMvjcI8">
 					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_What_Are_Boomerang_Routes.jpg"/>
+						<img class="play-icon" src="images/play_icon.png"/>
 					</a>
 					<div class="player-container"></div>
 					<span class="slideshow-text">
@@ -135,6 +139,7 @@ if ($ixHost!='www.ixmaps.ca'){
 				<div class="index-container" id="g8-NmMNGpyk">
 					<a class="slideshow-img-container video-img">
 						<img class="slideshow-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/>
+						<img class="play-icon" src="images/play_icon.png"/>
 					</a>
 					<div class="player-container"></div>
 					<span class="slideshow-text">

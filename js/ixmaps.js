@@ -15,6 +15,8 @@ var filterCounter = 1;
 // keeps track of when first load housekeeping functions
 var firstLoad = true;
 
+var ajaxObj; // define ajax object for query submit
+
 // autocomplete arrays (to be filled with ajax call to backend)
 var countryTags = [];
 var regionTags = [];
@@ -108,7 +110,13 @@ var initialize = function() {
   loadAutoCompleteData('ISP', ' ');
   loadAutoCompleteData('submitter', ' ');
 
+  // 
+  jQuery('#cancel-query').click(function() {
+    cancelQuery();
+  });
+  
 }
+
 
 
 var submitNSAObject = function() {
@@ -157,7 +165,7 @@ var addFilterConstraint = function () {
   filterLine += "<select class='constraint'>";
   filterLine += "<option value='originate'>Originate in</option>";
   filterLine += "<option value='terminate'>Terminate in</option>";
-  filterLine += "<option value='goVia'>Go Via</option>";
+  // filterLine += "<option value='goVia'>Go Via</option>";
   filterLine += "<option value='contain'>Contain</option>";
   filterLine += "</select>";
 
@@ -329,7 +337,7 @@ var processFilters = function() {
   }
 };
 
-var submitQuery = function(obj) {
+var submitQuery = function(obj) {  
   console.log('submitting...');
   submittedObj = obj;
   jQuery('#map-canvas-container').hide();
@@ -337,7 +345,7 @@ var submitQuery = function(obj) {
   jQuery('#filter-results').hide();
   /*jQuery('#map-core-controls').hide();*/
   showLoader();
-  jQuery.ajax(url_base + '/application/controller/explore_controller.php', {
+  ajaxObj = jQuery.ajax(url_base + '/application/controller/explore_controller.php', {
     type: 'post',
     data: obj,
     success: function (e) {
@@ -551,6 +559,13 @@ var hideLoader = function() {
   jQuery('#loader').hide();
 };
 
+var cancelQuery = function() {
+  //jQuery('#loader').hide();
+  if(ajaxObj && ajaxObj.readystate != 4){
+      ajaxObj.abort();
+      console.log("Query submission has been cancelled.");
+  }
+};
 
 var submitLastSubmissionObject = function() {
   var obj = {

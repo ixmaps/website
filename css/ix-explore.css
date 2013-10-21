@@ -134,7 +134,8 @@
 	width: 100%;
 	height: 150%;
 	background-color: #000; 
-	opacity:0.4;
+	opacity:0.6;
+	z-index: 50;
 }
 
 .loader-image img{
@@ -501,4 +502,14 @@
 	float: right;
 	margin-top: 0px;
 	padding: 5px 10px 0px 10px;
+}
+
+#cancel-query-div {
+	z-index: 100;
+}
+
+#cancel-query{
+	font-size: 1.2em;
+	border: 2px solid #ccc;
+	border-radius: 10px;
 }

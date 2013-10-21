@@ -417,6 +417,11 @@ geoip_close($gi1);
 			  		<div id="loader-mask"></div>
 			  		<div class="loader-image">
 			  			<img width="100px" src="images/loading2.gif"/>
+			  			<br/><br/>
+				  		<div id="cancel-query-div">
+				  			<button id="cancel-query">Cancel</button>
+				  		</div>
+
 			  		</div>
 			  	</div>
 
