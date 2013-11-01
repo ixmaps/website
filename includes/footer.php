@@ -1,15 +1,14 @@
+<?php
+// FIXed by Anto ;)
+include('application/config.php');
+?>
 <section id="footer-area">
 	<section id="footer-outer-block">
 		<div class="database-status-container">
 			<b>DATABASE STATUS:</b>
 			<span>
 					<?php
-					$conn = pg_connect("host=localhost port=5432 dbname=ixmaps");
-					if (!$conn) {
-					  echo "An error occured.\n";
-					  exit;
-					}
-					$result = pg_query($conn, "SELECT COUNT (DISTINCT traceroute.id) FROM public.traceroute");
+					$result = pg_query($dbconn, "SELECT COUNT (DISTINCT traceroute.id) FROM public.traceroute");
 					if (!$result) {
 					  echo "An error occured.\n";
 					  exit;
@@ -23,12 +22,7 @@
 			|
 			<span>
 					<?php
-					$conn = pg_connect("host=localhost port=5432 dbname=ixmaps");
-					if (!$conn) {
-					  echo "An error occured.\n";
-					  exit;
-					}
-					$result = pg_query($conn, "SELECT COUNT (DISTINCT traceroute.submitter) FROM public.traceroute");
+					$result = pg_query($dbconn, "SELECT COUNT (DISTINCT traceroute.submitter) FROM public.traceroute");
 					if (!$result) {
 					  echo "An error occured.\n";
 					  exit;
@@ -42,12 +36,7 @@
 			|
 			<span>
 					<?php
-					$conn = pg_connect("host=localhost port=5432 dbname=ixmaps");
-					if (!$conn) {
-					  echo "An error occured.\n";
-					  exit;
-					}
-					$result = pg_query($conn, "SELECT COUNT (DISTINCT traceroute.zip_code) FROM public.traceroute");
+					$result = pg_query($dbconn, "SELECT COUNT (DISTINCT traceroute.zip_code) FROM public.traceroute");
 					if (!$result) {
 					  echo "An error occured.\n";
 					  exit;
@@ -61,12 +50,7 @@
 			|
 			<span>
 					<?php
-					$conn = pg_connect("host=localhost port=5432 dbname=ixmaps");
-					if (!$conn) {
-					  echo "An error occured.\n";
-					  exit;
-					}
-					$result = pg_query($conn, "SELECT COUNT (DISTINCT traceroute.dest) FROM public.traceroute");
+					$result = pg_query($dbconn, "SELECT COUNT (DISTINCT traceroute.dest) FROM public.traceroute");
 					if (!$result) {
 					  echo "An error occured.\n";
 					  exit;
@@ -80,13 +64,7 @@
 			|
 			<span>
 					<?php
-					$conn = pg_connect("host=localhost port=5432 dbname=ixmaps");
-					if (!$conn) {
-					  echo "An error occured.\n";
-					  exit;
-					}
-		
-					$result = pg_query($conn, "SELECT COUNT (DISTINCT ip_addr_info.ip_addr) FROM public.ip_addr_info");
+					$result = pg_query($dbconn, "SELECT COUNT (DISTINCT ip_addr_info.ip_addr) FROM public.ip_addr_info");
 					if (!$result) {
 					  echo "An error occured.\n";
 					  exit;
@@ -114,8 +92,11 @@
  -->
  
 <?php
-	$getLastModDir = mostRecentModifiedFileTime("/var/www/www.ixmaps.ca/.",$doRecursive);
-	echo "Last modified " . date("l, dS F, Y @ h:ia", $getLastModDir) . '<br />';
+	//  fixed by ANTO
+	$getLastModDir = mostRecentModifiedFileTime($appRootPath."/.",$doRecursive);
+	
+	date_default_timezone_set('America/Toronto');
+	echo "<br/>Last modified " . date("l, dS F, Y @ h:ia", $getLastModDir) . '<br/>';
 
 	function mostRecentModifiedFileTime($dirName,$doRecursive) {
 		$d = dir($dirName);
