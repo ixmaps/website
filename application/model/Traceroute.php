@@ -134,7 +134,7 @@ class Traceroute
 				//$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
 
 				// new approach: last hop as destination
-				// this alredy set , not needed here. so do nothing ...
+				// this alredy set on parent function, not needed here. so do nothing ...
 				//$w.=" AND (traceroute.id=tr_last_hops.traceroute_id_lh) ";
 
 			} else if($c['constraint2']=='goVia') {
@@ -368,13 +368,35 @@ class Traceroute
 
  			// adding an exception for "terminate": This option is now querying tr_last_hops reference table 
  			} else if($constraint['constraint2']=='terminate') {
- 				$sql = "SELECT as_users.num, tr_last_hops.traceroute_id_lh, tr_last_hops.reached, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM tr_last_hops, as_users, traceroute, ip_addr_info WHERE (as_users.num=ip_addr_info.asnum) AND (traceroute.id=tr_last_hops.traceroute_id_lh) AND (ip_addr_info.ip_addr=tr_last_hops.ip_addr_lh) ";
+ 				$tApproach = 1;
 
- 				$sqlOrder = ' order by traceroute.id';
+ 				if($tApproach==0){
+ 				// old approach: using dest_ip
+ 				
+					$sql = "SELECT as_users.num, tr_item.traceroute_id, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM as_users, tr_item, traceroute, ip_addr_info WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum)";
 
- 				$w.=''.Traceroute::buildWhere($constraint);
+					$sqlOrder = ' order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
+
+ 					$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
+ 					$w.=''.Traceroute::buildWhere($constraint);
+
+ 					$dbQueryHtml.='<BR/>CASE B:';
+
+ 				} else if($tApproach==1){
+
+	 				// new approach: using tr_last_hops
+	 				$sql = "SELECT as_users.num, tr_last_hops.traceroute_id_lh, tr_last_hops.reached, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM tr_last_hops, as_users, traceroute, ip_addr_info WHERE (as_users.num=ip_addr_info.asnum) AND (traceroute.id=tr_last_hops.traceroute_id_lh) AND (ip_addr_info.ip_addr=tr_last_hops.ip_addr_lh) ";
+
+	 				$sqlOrder = ' order by traceroute.id';
+
+	 				// this is doing nothing I believe, as all the sql is not created here
+	 				$w.=''.Traceroute::buildWhere($constraint);
+	 				$dbQueryHtml.='<BR/>CASE A:';
+	 			}
+ 				
 				$sql .=$w.$sqlOrder;
 				//echo "<hr/>".$sql;
+				
 				$trSets[$conn] = Traceroute::getTrSet($sql);
 				$operands[$conn]=$constraint['constraint5'];
 
@@ -387,6 +409,9 @@ class Traceroute
 				$operands[$conn]=$constraint['constraint5'];
 				//echo '<br/><i>'.$sql.'</i>';
 			}
+
+			// add SQL to log file
+			//$dbQueryHtml.='<br/>'.$sql;
 
 			$conn++;
 
@@ -532,10 +557,12 @@ class Traceroute
 
 		ip_addr_info.flagged
 
-		FROM tr_item, traceroute, ip_addr_info, as_users WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum) AND tr_item.attempt = 1 AND (".$wTrs.") order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt";
+		FROM tr_item, traceroute, ip_addr_info, as_users WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum) AND tr_item.attempt = 1";
+		$sql.=" AND (".$wTrs.")";
+		$sql.=" order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt";
 
 		//echo '<textarea>'.$sql.'</textarea>';
-
+		//echo '<hr/>'.$sql;
 		// free some memory
 		$wTrs='';
 
