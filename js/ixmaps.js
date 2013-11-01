@@ -1,12 +1,4 @@
 
-// TODO need to set this dynamically 
-//var url_base="http://localhost/mywebapps/ixmaps.ca/dev.ixmaps.anto";
-
-// var url_base="http://192.168.0.101/mywebapps/ixmaps.ca/dev.ixmaps.anto";
-
-//var url_base="http://dev.ixmaps.ischool.utoronto.ca";
-var url_base="http://www.ixmaps.ca";
-
 var activeInfo = 0;
 
 // keeps track of what filter line we're on (rows will not always be sequential numbers, since deletions can occur)
@@ -113,11 +105,10 @@ var initialize = function() {
   // 
   jQuery('#cancel-query').click(function() {
     cancelQuery();
+    hideLoader();
   });
   
 }
-
-
 
 var submitNSAObject = function() {
   resetFilterConstraints();
@@ -165,7 +156,7 @@ var addFilterConstraint = function () {
   filterLine += "<select class='constraint'>";
   filterLine += "<option value='originate'>Originate in</option>";
   filterLine += "<option value='terminate'>Terminate in</option>";
-  // filterLine += "<option value='goVia'>Go Via</option>";
+  filterLine += "<option value='goVia'>Go Via</option>";
   filterLine += "<option value='contain'>Contain</option>";
   filterLine += "</select>";
 
@@ -343,6 +334,7 @@ var submitQuery = function(obj) {
   jQuery('#map-canvas-container').hide();
   jQuery('#map-container').hide();
   jQuery('#filter-results').hide();
+  jQuery('#filter-results-log').html('');
   /*jQuery('#map-core-controls').hide();*/
   showLoader();
   ajaxObj = jQuery.ajax(url_base + '/application/controller/explore_controller.php', {
@@ -350,8 +342,9 @@ var submitQuery = function(obj) {
     data: obj,
     success: function (e) {
       console.log("Query submitted");
-      if(e!=0){
-        var data = jQuery.parseJSON(e);
+      //if(e!=0){
+      var data = jQuery.parseJSON(e);
+      if(data.totTrs!=undefined){
         console.log(" Total TRs: "+data.totTrs);
         console.log(" Total Hops: "+data.totHops);
         console.log(" File Name: "+data.ixdata);
@@ -361,13 +354,17 @@ var submitQuery = function(obj) {
         jQuery('#map-canvas-container').show();
         jQuery('#map-container').show();
         jQuery('#filter-results').show();
+        jQuery('#filter-results-log').show();
         /*jQuery('#map-core-controls').show();*/
         jQuery('#filter-results').html(data.trsTable);
         jQuery('#filter-results-log').html(data.queryLogs);
       } else {
-        jQuery('#filter-results').show();
-        jQuery('#filter-results').html("<p>There are no traceroutes matching the query.<br/><br/>");
+
+        jQuery('#filter-results-log').show();
+        jQuery('#filter-results-log').html(data.queryLogs);
+        //jQuery('#filter-results').html("<p>There are no traceroutes matching the query.<br/><br/>");
       }
+
       hideLoader();
 
     },
