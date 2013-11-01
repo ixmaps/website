@@ -1,4 +1,5 @@
 <?php
+ini_set( "display_errors", 0);
 include('../config.php');
 include('../model/Traceroute.php');
 
@@ -18,7 +19,7 @@ $starttime = $mtime;
 
 // using MaxMind to find the city of client IP address
 $myIp = $_SERVER['REMOTE_ADDR'];
-
+$myCity = '';
 $gi1 = geoip_open("../geoip/dat/GeoLiteCityv6.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
 $myCity = ''.$record1->city;
@@ -72,8 +73,7 @@ if(!isset($_POST) || count($_POST)==0)
 	
 	// get IXmaps geographic data and prepare the response into a json format
 	//print_r($data);
-	if(count($b)!=0)
-	{
+	if(count($b)!=0) {
 		$ixMapsData = Traceroute::getIxMapsData($b);
 		//print_r($ixMapsData);
 		
@@ -83,6 +83,7 @@ if(!isset($_POST) || count($_POST)==0)
 		$ixMapsDataStats = Traceroute::generateDataForGoogleMaps($ixMapsDataT);
 		
 		$trHtmlTable = Traceroute::renderTrSets($ixMapsDataT);
+	}
 
 		// end calculation of excecution time
 		$mtime = microtime(); 
@@ -107,13 +108,15 @@ if(!isset($_POST) || count($_POST)==0)
 
 		//print_r($ixMapsDataStats);
 
-		if(count($ixMapsDataT)==0){
+/*		if(count($ixMapsDataT)==0){
 			echo 0;
 		} else {
 			// pack results in a json file
 			echo json_encode($ixMapsDataStats);
-		}
+		}*/
 
-	}
+		echo json_encode($ixMapsDataStats);
+
+//	}
 
 }

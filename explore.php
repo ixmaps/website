@@ -1,8 +1,8 @@
 <?php
 $ixHost = $_SERVER["SERVER_NAME"];
 if ($ixHost!='www.ixmaps.ca'){
-    header('Location: http://www.ixmaps.ca/explore.php');
-	exit;
+/*    header('Location: http://www.ixmaps.ca/explore.php');
+	exit;*/
 }
 
 // MaxMind Include Files needed to grab user's city 
@@ -55,6 +55,7 @@ geoip_close($gi1);
 	<script type="text/javaScript" src="js/underscore-min.js"></script>
 
   	<!-- IXmaps config files -->
+	<script type="text/javascript" src="js/config.js"></script>
 	<script type="text/javascript" src="js/ixmaps.js"></script>
 	<script type="text/javascript" src="js/ixmaps.gm.js"></script>
 	
@@ -356,7 +357,8 @@ geoip_close($gi1);
 			  	<!-- <div id="quick-links-table"></div>		   -->
 
 				<div style="clear: both"></div>
-
+				<br/>
+				<div id="filter-results-log" class="hide"></div>
 			  	<!-- Map  options -->
 			  	<!-- FIXME add all this calls to javascript functions in jquery -->
 			  	<a name="tot-trs" id="tot-trs"></a>
@@ -372,15 +374,13 @@ geoip_close($gi1);
 							<!-- <input id="map-render-stop-play" class="map-tool-off" type="button" onMouseDown="stopRender()" value="Stop (Experimental)"/>  -->
 						</div>
 					</div>
-				
-					<div id="filter-results-log"></div>
 
 					<div id="map-stats-container">				
 						<!-- Check the css for this, some not used now  -->
 						<div id="map-info-global" class="map-info-containers hide">
-							<span id="map-info-total">map-info-total</span>
+							<span id="map-info-total"></span>
 							<br/>
-							<span id="map-router-exclusion">map-router-exclusion</span>
+							<span id="map-router-exclusion"></span>
 							<br/>
 							<span id="map-impossible-distance-log"></span>
 						</div>	
