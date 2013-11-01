@@ -1,10 +1,10 @@
 <?php
 $ixHost = $_SERVER["SERVER_NAME"];
 
-if ($ixHost!='www.ixmaps.ca'){
+/*if ($ixHost!='www.ixmaps.ca'){
     header('Location: http://www.ixmaps.ca/index.php');
 	exit;
-}
+}*/
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,10 +14,10 @@ if ($ixHost!='www.ixmaps.ca'){
 	<title>See where your data packets go | IXmaps</title>
 	
 	<!-- JAVASCRIPT -->
-	<script type="text/javascript" src="/js/prototype.js"></script>
-	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
-	<script type="text/javascript" src="/js/lightbox.js"></script>
-	<script src="/flowplayer/example/flowplayer-3.1.4.min.js"></script>
+	<script type="text/javascript" src="js/prototype.js"></script>
+	<script type="text/javascript" src="js/scriptaculous.js?load=effects,builder"></script>
+	<script type="text/javascript" src="js/lightbox.js"></script>
+	<script src="flowplayer/example/flowplayer-3.1.4.min.js"></script>
 
 	<script language="JavaScript" type="text/javascript">
 	//--------------- LOCALIZEABLE GLOBALS ---------------
@@ -66,9 +66,9 @@ if ($ixHost!='www.ixmaps.ca'){
 
 
 	<!-- STYLESHEETS -->
-	<link rel="stylesheet" href="/css/ix.css" type="text/css" />
-	<link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />
+	<link rel="stylesheet" href="css/ix.css" type="text/css" />
+	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/overwrites.css" type="text/css" />
 </head>
 
 <body onload="initialize()">
