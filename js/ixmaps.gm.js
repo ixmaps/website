@@ -1015,7 +1015,7 @@ var getIpFlags = function() {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Ok! getIpFlag");
+      console.log("Ok! getIpFlag", e);
       if(e==0){
         jQuery('#ip-flag-log').show();
         //jQuery('#ip-flags-data').fadeIn('fast');
@@ -1239,6 +1239,7 @@ var viewTrDetails = function (trId) {
   jQuery('#tr-details').fadeIn('slow');
   var url = url_base+'/cgi-bin/tr-query-anto.cgi?query_type=traceroute_id&arg='+trId;
   jQuery('#tr-details-iframe').attr('src', url);
+  console.log(url_base);
 };
 
 var closeTrDetails = function () {
