@@ -62,7 +62,7 @@ footer {
 	cursor: pointer;
 }
 
-.index-container a:hover {
+.slideshow-img-container:hover {
 	text-decoration: none;
 	background: none;
 }
