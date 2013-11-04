@@ -173,7 +173,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 			
 
 <footer>
-	<?//php include("includes/footer.php"); ?>
+	<?php include("includes/footer.php"); ?>
 </footer>
 </div><!-- #wrapper -->
 </body>
