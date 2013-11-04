@@ -45,46 +45,32 @@ footer {
 	padding: 5px 10px 0px 10px;
 }
 
+.slideshow {
+	width: 1000px;
+	height: 366px;
+}
+
 .index-container {
 	width: 980px;
 }
 
-.slideshow {
-	width: 1000px;
-	height: 366px;
-	position: relative;
-}
-
 .slideshow-img-container {
-	margin-right: 20px;
-	float: left;
+	position: relative;
 	width: 590px;
 	height: 360px;
 	border-bottom: none;
 	cursor: pointer;
-	position: relative;
+}
+
+.index-container a:hover {
+	text-decoration: none;
+	background: none;
 }
 
 .slideshow-img {
+	position: absolute;
 	width: 590px;
 	height: 360px;
-	position: absolute;
-}
-
-.play-icon {
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	position: absolute;
-	height: 70px;
-	width: 70px;
-	margin-left: -moz-calc(50% - 35px);
-	margin-left: -webkit-calc(50% - 35px);
-	margin-left: calc(50% - 35px);
-	margin-top: -moz-calc(25% - 5px);						/* no idea why this only wants 25% and 5px */
-	margin-top: -webkit-calc(25% - 5px);
-	margin-top: calc(25% - 5px);
-	z-index: 99;
-	pointer-events: none;
 }
 
 .slideshow-text {
@@ -114,6 +100,31 @@ footer {
 #pager a:focus {
 	outline: none;
 }
+
+.play-icon {
+	position: absolute;
+	height: 70px;
+	width: 70px;
+	margin-left: 260px;
+	margin-top: 145px;
+	pointer-events: none;
+}
+
+/*.play-icon {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	position: absolute;
+	height: 70px;
+	width: 70px;
+	margin-left: -moz-calc(50% - 35px);
+	margin-left: -webkit-calc(50% - 35px);
+	margin-left: calc(50% - 35px);
+	margin-top: -moz-calc(25% - 5px);
+	margin-top: -webkit-calc(25% - 5px);
+	margin-top: calc(25% - 5px);
+	z-index: 99;
+	pointer-events: none;
+}*/
 
 /*#play-icon {
 	-webkit-box-shadow: none;
