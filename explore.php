@@ -1,8 +1,8 @@
 <?php
 $ixHost = $_SERVER["SERVER_NAME"];
 if ($ixHost!='www.ixmaps.ca'){
-/*    header('Location: http://www.ixmaps.ca/explore.php');
-	exit;*/
+    header('Location: http://www.ixmaps.ca/explore.php');
+	exit;
 }
 
 // MaxMind Include Files needed to grab user's city 
@@ -469,26 +469,34 @@ geoip_close($gi1);
 		<div id="ip-flags-new">
 			<a href="javascript:newIpFlag();">Create a new Report</a>
 		</div>
+		
 		<div id="ip-flags-Title">
 			<h2>User generated flags</h2>
-			<br/>
-			<div id="ip-flag-info"></div>
 		</div>
+
+		<div id="ip-flag-active"></div>
 		<div style="clear: both;"></div>
-		<div id="ip-flag-first-msg"><p>Please flag routers you believe are shown in the wrong place. Flagged routers alert other users to possible inaccuracies and can be eliminated from traceroute mapping so what you see is more reliable (See Explore>Map options>Exclude routers>User-flagged). Flagging routers will also help us to re-locate them more accurately, especially if you can provide us with good clues as to their correct position. We periodically review the database and review flagged routes for correction.</p>
-		<p>We appreciate helpful details, but all fields are optional.</p>
-		<div id="ip-flag-log"></div>
-		<p>Thanks.</p>
 
-
-
+		<div>
+			<div id="ip-flag-info"></div>
+			
+			<div id="ip-flag-first-msg">
+				<p>Please flag routers you believe are shown in the wrong place. Flagged routers alert other users to possible inaccuracies and can be eliminated from traceroute mapping so what you see is more reliable (See Explore>Map options>Exclude routers>User-flagged). Flagging routers will also help us to re-locate them more accurately, especially if you can provide us with good clues as to their correct position. We periodically review the database and review flagged routes for correction.</p>
+				<p>We appreciate helpful details, but all fields are optional.</p>
+				<p>Thanks.</p>
+				<div id="ip-flag-log"></div>
+			</div>
 		</div>
+		
+		<div style="clear: both;"></div>
+
+		
 		<div id="ip-flag-insert" class="hide">
 			<h3>Create a new report</h3>
 			<table>
 				<tr>
 					<td>Username</td>
-					<td><input id="user_nick" type="text"/>(Optional)</td>
+					<td><input id="user_nick" type="text"/></td>
 				</tr>
 <!-- 				<tr>
 					<td>Reasons for the error: </td>

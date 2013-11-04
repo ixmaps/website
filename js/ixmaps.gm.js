@@ -760,10 +760,12 @@ var renderTr = function (trId) {
           google.maps.event.addListener(routerMark, 'click', function() {
               //trHopClick(p[index][0],p[index][1],0);
 
-              showFlags(p[index][6]);
+              showFlags(p[index], true); // passing router obj, true=open flagging window
+              //console.log("Tr clicked: ", p[index]);
           });
           google.maps.event.addListener(routerMark, 'mouseover', function() {
               trHopMouseover(p[index][0],p[index][1],0);
+              showFlags(p[index], false); // passing router obj, false= do not open flagging window
           });
 
         // var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip);
@@ -950,7 +952,7 @@ var newIpFlag = function() {
 var cancelIpFlag = function() {
   jQuery('#ip-flag-insert').hide();
   jQuery('#ip-flags-data').show();
-  getIpFlags();
+  getIpFlags(activeRouterObj,true);
 }
 
 var saveIpFlag = function() {
@@ -980,10 +982,10 @@ var saveIpFlag = function() {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Ok! saveIpFlag", e);
+      console.log("Ok! saveIpFlag");
       if(e==1){
         jQuery('#ip-flag-insert').hide();
-        getIpFlags();
+        getIpFlags(activeRouterObj,true);
         jQuery('#ip-flag-log').fadeIn('fast');
         jQuery('#').html('<p>Your report has been saved. <br/>Thank you for your contribution.</p>');
       }
@@ -999,11 +1001,8 @@ var getPar = function(par){
   return parVal;
 }
 
-var getIpFlags = function() {
-  console.log("getting ip flags from db parent function");
-  jQuery('#ip-flag-info').html('');
-  jQuery('#ip-flags-data-list').html('');
-  jQuery('#ip-flag-insert').hide();
+var getIpFlags = function(routerObj, openFlagWin) {
+  console.log("getting ip flags data");
 
   var obj = {
     action: 'getIpFlag',
@@ -1016,17 +1015,39 @@ var getIpFlags = function() {
     data: obj,
     success: function (e) {
       console.log("Ok! getIpFlag");
-      if(e==0){
-        jQuery('#ip-flag-log').show();
-        //jQuery('#ip-flags-data').fadeIn('fast');
-        jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <b><a href="javascript:newIpFlag();">Create a new report</a></b></p>');
+      var data = jQuery.parseJSON(e);
+
+        if(openFlagWin){          
+          jQuery('#ip-flag-log').html('');
+          jQuery('#ip-flags').show();
+          jQuery('#ip-flag-insert').hide();
+          
+          // only for debug
+          //jQuery('#ip-flag-active').html("IP: "+routerObj[6]+", TrId: "+routerObj[0]+", Router: "+routerObj[1]);
         
-      } else {
-        jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b> if you have anything to add.</p>');
-        jQuery('#ip-flags-data').fadeIn('fast');
-        var data = jQuery.parseJSON(e);
-        renderIpFlagData(data);
-      }
+          if(!data['ip_flags']){
+            jQuery('#ip-flag-info').html('');
+            jQuery('#ip-flags-data-list').html('');
+            jQuery('#ip-flag-insert').hide();
+            jQuery('#ip-flag-log').show();
+            //jQuery('#ip-flags-data').fadeIn('fast');
+            jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <b><a href="javascript:newIpFlag();">Create a new report</a></b></p>');
+            
+          } else {
+            jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b> if you have anything to add.</p>');
+            jQuery('#ip-flags-data').fadeIn('fast');
+            
+            //console.log(data);
+            
+          }
+          // testing this render router data all the times
+          //console.log(data);
+          renderIpFlagData(data);
+
+        } else {
+          renderIpFlagDataMouseOver(data);
+        }
+
     },
     error: function (e) {
       console.log("Error! getIpFlag", e);
@@ -1034,58 +1055,93 @@ var getIpFlags = function() {
   });  
 }
 
+var renderIpFlagDataMouseOver = function(data){
+  console.log("renderIpFlagDataMouseOver");
+  //console.log(e);
+
+  if(!data['ip_flags']){
+    jQuery('#flagging-info-m').html('No Flags found.');
+    flagTxt = '[Flag this]';
+  } else {
+    var totFlags = data['ip_flags'].length;
+    var geoCorrectStatus = 0;
+    var flagTxt = '';
+
+    flagTxt = '[Flagged]';
+    jQuery('#flagging-info-m').html(totFlags+' Flags found');    
+  }
+
+  var flagLinkHtml = '<a title="Flag this router if inaccurately located" class="text-new" href="javascript:flagActiveRouter();">'+flagTxt+'</a>';
+  jQuery('#flag-this-link').html(flagLinkHtml);
+}
+
+var flagActiveRouter = function(){
+  showFlags(activeRouterObj,true);
+}
+
 var renderIpFlagData = function(data){
-  //console.log(data);
+  console.log('OK! renderIpFlagData');
   var ipInfo = '<table>';
   ipInfo += '';
+
+  ipInfo += '<tr><td>IP:</td><td>'+data['ip_addr_info'][0].ip_addr+'</td></tr>';
   
-  ipInfo += '<tr><td>IP:</td><td>'+data[0].ip_addr_f+'</td></tr>';
-  ipInfo += '<tr><td>Carrier:</td><td>'+data[0].name+'</td></tr>';
-  ipInfo += '<tr><td>ASN:</td><td>'+data[0].num+'</td></tr>';
-  ipInfo += '<tr><td>Country:</td><td>'+data[0].mm_country+'</td></tr>';
-  ipInfo += '<tr><td>City:</td><td>'+data[0].mm_city+'</td></tr>';
+  ipInfo += '<tr><td>TrId:</td><td>'+activeRouterObj[0]+'</td></tr>';
+  ipInfo += '<tr><td>Router #:</td><td>'+activeRouterObj[1]+'</td></tr>';
+
+  ipInfo += '<tr><td>Hostname:</td><td>'+data['ip_addr_info'][0].hostname+'</td></tr>';
+  ipInfo += '<tr><td>Carrier:</td><td>'+data['ip_addr_info'][0].name+'</td></tr>';
+  ipInfo += '<tr><td>ASN:</td><td>'+data['ip_addr_info'][0].asnum+'</td></tr>';
+  ipInfo += '<tr><td>Country:</td><td>'+data['ip_addr_info'][0].mm_country+'</td></tr>';
+  ipInfo += '<tr><td>Region:</td><td>'+data['ip_addr_info'][0].mm_region+'</td></tr>';
+  ipInfo += '<tr><td>City:</td><td>'+data['ip_addr_info'][0].mm_city+'</td></tr>';
+  
+  ipInfo += '<tr><td>Geo-location Status:</td><td>';
+
+  ipInfo += 'gl_override:'+data['ip_addr_info'][0].gl_override+''; 
+  ipInfo += '<br/>';
+  //ipInfo += 'Reason: '+data['ip_addr_info'][0].reason+'';
+  //ipInfo += '<br/>';
+  ipInfo += 'flagged: '+data['ip_addr_info'][0].flagged+'';
+  ipInfo += '</td></tr>';
+
   ipInfo += '</table>';
   jQuery('#ip-flag-info').html(ipInfo);
 
   //var flagsT = '<table id="ip-flags-table" style="width: 100%;" class="tablesorter tr-list-result"><thead><tr><th>Username</th><th>Date</th><th>Reasons</th><th>Comment</th><th>Suggested Location</th></thead><tbody>';
-  var flagsT = '<table id="ip-flags-table" style="width: 100%;" class="tablesorter tr-list-result"><thead><tr><th>Username</th><th>Date</th><th>Comment</th><th>Suggested Location</th></thead><tbody>';
 
-  jQuery.each(data, function(key, value) {
-    
-    //flagsT+='<tr><td>'+value.user_nick+'</td><td>'+value.date_f+'</td><td>'+value.user_reasons_types+'</td><td>'+value.user_msg+'</td><td>'+value.ip_new_loc+'</td></tr>';  
-    flagsT+='<tr><td>'+value.user_nick+'</td><td>'+value.date_f+'</td><td>'+value.user_msg+'</td><td>'+value.ip_new_loc+'</td></tr>';  
+  var flagsT = '';
 
-  });
-  flagsT+='</tbody></table>';
+  if(data['ip_flags']){
+    flagsT += '<table id="ip-flags-table" style="width: 100%;" class="tablesorter tr-list-result"><thead><tr><th>Username</th><th>Date</th><th>Comment</th><th>Suggested Location</th></thead><tbody>';
+
+    jQuery.each(data['ip_flags'], function(key, value) {
+      
+      //flagsT+='<tr><td>'+value.user_nick+'</td><td>'+value.date_f+'</td><td>'+value.user_reasons_types+'</td><td>'+value.user_msg+'</td><td>'+value.ip_new_loc+'</td></tr>';  
+      flagsT += '<tr><td>'+value.user_nick+'</td><td>'+value.date_f+'</td><td>'+value.user_msg+'</td><td>'+value.ip_new_loc+'</td></tr>';  
+    });
+    flagsT += '</tbody></table>';
+  }
   jQuery('#ip-flags-data-list').html(flagsT);
   jQuery("#ip-flags-table").tablesorter();
 }
 
 var activeIpFlag = '';
-
+var activeRouterObj = {};
+var flagCounter = 0;
 
 // new approach get data for this ip on demand, do not rely on tr hop number
-var showFlags = function(ip) {
-
-  // get data for this ip
-  
-  // build an ajax call for this
-
+var showFlags = function(routerObj, openFlagWin) {
+  activeRouterObj = routerObj; // Set Active router object
+  activeIpFlag = routerObj[6]; // Set Active Ip
   //console.log(ixMapsDataJson[trId][hopN]);
-
-
-  // get this value directly
-  activeIpFlag = ip;
-  
-  //activeIpFlag = ixMapsDataJson[trId][hopN].ip;
-  //console.log('Displaying Flag info for ip: '+ixMapsDataJson[trId][hopN].ip);
-  console.log('Displaying Flag info for ip: '+ip);
-  
-  jQuery('#ip-flag-log').html('');
-  jQuery('#ip-flags').show();
-  jQuery('#ip-flag-active').html(ip);
-
-  getIpFlags();
+  //flagCounter++;
+  console.log('Displaying Flag info for ip: '+activeIpFlag);
+  //console.log('flagCounter:', flagCounter);
+  if(!openFlagWin) {
+    jQuery('#flagging-info-m').html('Getting Flags...');
+  }
+  getIpFlags(routerObj, openFlagWin); 
 }
 
 var showFlagsOld = function(trId,hopN) {
@@ -1107,7 +1163,7 @@ var showFlagsOld = function(trId,hopN) {
   ipInfo += '<tr><td>City:</td><td>'+ixMapsDataJson[trId][hopN].mm_city+'</td></tr>';
   ipInfo += '</table>';
   jQuery('#ip-flag-info').html(ipInfo);
-  getIpFlags();
+  getIpFlags(activeRouterObj,true);
 }
 
 var closeIpFlags = function(){
@@ -1122,22 +1178,7 @@ var trHopMouseover = function (trId,hopN,type) {
   if(type==0){
     elTxt="Router"
     ipTxt = '<br/>IP: <strong>'+ixMapsDataJson[trId][hopN].ip+'</strong>';
-    //console.log('ixMapsDataJson: ',ixMapsDataJson[trId][hopN]);
-    //ipTxt += ' | Total Routers with this IP: <b>'+ ipCollection[ixMapsDataJson[trId][hopN].ip]+'</b> <span class="text-new">[New feature]</span>';
-    //ipTxt += ' | <span><a class="text-new" href="javascript:showFlags(\''+ixMapsDataJson[trId][hopN].ip+'\');">';
-    ipTxt += ' | <span><a title="Flag this router if inaccurately located" class="text-new" href="javascript:showFlags(\''+ixMapsDataJson[trId][hopN].ip+'\');">';
-    
-    // testing: make this dynamic
-    var ipF = true;
-    
-    if(ipF){
-      //ipTxt += '[Flagged]';
-    } else {
-      //ipTxt += '[Flag]';
-    }
-
-    ipTxt += '[Flag this]';
-    ipTxt += '</a></span>';
+    ipTxt += ' | <span id="flag-this-link"></span>';
   } else {
     elTxt = "Hop";
     var hopNext = parseInt(hopN);
@@ -1146,6 +1187,10 @@ var trHopMouseover = function (trId,hopN,type) {
   }
   
   var h=''+''+elTxt+': <strong>'+hopN+nextTxt+'</strong><br/>Carrier: <strong>'+ixMapsDataJson[trId][hopN].asName+'</strong>, ASN: <strong>'+ixMapsDataJson[trId][hopN].asNum+'</strong>'+ipTxt;
+
+  // add container for flag info on mouseover
+  //h += '<div id="flagging-info-'+ixMapsDataJson[trId][hopN].ip+'">Getting flags for this IP...</div>';
+  h += '<div id="flagging-info-m"></div>';
   //console.log(ixMapsDataJson[trId][hopN].asNum);
   jQuery('#map-info').html(h);
   //renderTr2(trId);

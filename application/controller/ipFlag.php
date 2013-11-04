@@ -11,13 +11,13 @@ if(!isset($_POST['action']) && !isset($_GET['action'])) {
 	if($_POST['action']=='saveIpFlag'){
 		echo IpFlag::saveFlags($_POST);
 	} else if($_POST['action']=='getIpFlag'){
-		$f = IpFlag::getFlags($_POST);
-		if(!$f){
-			echo 0;
-		} else {
-			echo json_encode($f);	
-		}
-
+		$r = array(
+			'ip_addr_info'=>IpFlag::getIpAddrInfo($_POST['ip_addr_f']),
+			'ip_flags'=>IpFlag::getFlags($_POST)
+		);
+		//print_r($r);
+		echo json_encode($r);	
+	
 	} else if($_GET['action']=='getFlagsLogs'){
 		$fLog = IpFlag::getFlagsLogs();
 		IpFlag::renderFlagLogs($fLog);

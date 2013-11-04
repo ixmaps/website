@@ -41,20 +41,28 @@ class IpFlag
 		pg_close($dbconn);
 		return $fArr;
 	}
+	public static function getIpAddrInfo($ip){
+		global $dbconn;
 
-	public static function getFlags($data){
-		global $dbconn, $ixmaps_debug_mode;
-		//$sql="SELECT * FROM ip_flagged_items WHERE ip_addr_f = '".$data['ip_addr_f']."' ORDER BY id_f";
+		//$sql="SELECT as_users.num, as_users.name, ip_addr_info.ip_addr, ip_addr_info.asnum, ip_addr_info.hostname, ip_addr_info.mm_country, ip_addr_info.mm_region, ip_addr_info.mm_city, ip_addr_info.mm_postal, ip_addr_info.gl_override, ip_addr_info.flagged, glo_reason.reason, glo_reason.evidence FROM as_users, ip_addr_info, glo_reason WHERE (ip_addr_info.gl_override=glo_reason.id) AND (as_users.num=ip_addr_info.asnum) AND ip_addr_info.ip_addr = '".$ip."'";
 
-		//$sql="SELECT ip_flagged_items.*, ip_addr_info.asnum, ip_addr_info.mm_country, ip_addr_info.mm_city, ip_addr_info.mm_postal FROM ip_flagged_items, ip_addr_info WHERE (ip_addr_info.ip_addr=ip_flagged_items.ip_addr_f) AND ip_flagged_items.ip_addr_f = '".$data['ip_addr_f']."' ORDER BY ip_flagged_items.id_f";
-
-		$sql="SELECT as_users.num, as_users.name, ip_flagged_items.*, ip_addr_info.asnum, ip_addr_info.mm_country, ip_addr_info.mm_city, ip_addr_info.mm_postal, ip_addr_info.flagged FROM ip_flagged_items, ip_addr_info, as_users WHERE (as_users.num=ip_addr_info.asnum) AND (ip_addr_info.ip_addr=ip_flagged_items.ip_addr_f) AND ip_flagged_items.ip_addr_f = '".$data['ip_addr_f']."' ORDER BY ip_flagged_items.id_f";
+		$sql="SELECT as_users.num, as_users.name, ip_addr_info.ip_addr, ip_addr_info.asnum, ip_addr_info.hostname, ip_addr_info.mm_country, ip_addr_info.mm_region, ip_addr_info.mm_city, ip_addr_info.mm_postal, ip_addr_info.gl_override, ip_addr_info.flagged FROM as_users, ip_addr_info, glo_reason WHERE (as_users.num=ip_addr_info.asnum) AND ip_addr_info.ip_addr = '".$ip."'";
 
 		//echo $sql;
 		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
 		$fArr = pg_fetch_all($result);
-		//echo '------';
-		//print_r($fArr);
+		pg_free_result($result);
+		return $fArr;
+	}
+
+	public static function getFlags($data){
+		global $dbconn;
+
+		$sql="SELECT ip_flagged_items.*, ip_addr_info.asnum, ip_addr_info.mm_country, ip_addr_info.mm_city, ip_addr_info.mm_postal, ip_addr_info.flagged FROM ip_flagged_items, ip_addr_info WHERE (ip_addr_info.ip_addr=ip_flagged_items.ip_addr_f) AND ip_flagged_items.ip_addr_f = '".$data['ip_addr_f']."' ORDER BY ip_flagged_items.id_f DESC";
+
+		//echo $sql;
+		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
+		$fArr = pg_fetch_all($result);
 		pg_free_result($result);
 		pg_close($dbconn);
 		return $fArr;
