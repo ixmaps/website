@@ -21,6 +21,7 @@ var totR = jQuery('table:eq(1) tr').length;
   var trId = jQuery('table:eq(0) tr:eq(0) td:eq(1)').html();
   trId = trId.replace('<b>', '');
   trId = trId.replace('</b>', '');
+  trId = trId.replace(' ', '');
 
   // get ip value for each row and add flag link on last column
   for (var i=0;i<totR;i++)
