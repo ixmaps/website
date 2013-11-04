@@ -4,12 +4,12 @@
 
 /*$dbname 	= 'ixmaps';
 $dbuser		= 'postgres';
-$dbpassword	= 'anto123';
+$dbpassword	= '';
 $dbport		= '5432';
 */
 $dbname 	= 'ixmaps';
 $dbuser		= 'ixmaps';
-/*$dbpassword	= 'Utor1939';*/
+/*$dbpassword	= '';*/
 $dbport		= '5432';
 
 // Connecting, selecting database
@@ -25,10 +25,11 @@ $dbconn = pg_connect("host=localhost dbname=$dbname user=$dbuser password=$dbpas
 //$savePath = '/var/www/dev.ixmaps.ca/gm-temp';
 
 // production
-$savePath = '/var/www/www.ixmaps.ca/gm-temp';
 $webUrl = "http://ixmaps.ca";
+$appRootPath = '/var/www/www.ixmaps.ca'; // !!
+$savePath = $appRootPath.'/gm-temp';
 
-$trNumLimit=1200; // 1000 is a safe num with the new approach
+$trNumLimit=800; // 500 is very safe num with the new approach
 
 $ixmaps_debug_mode = true;
 
