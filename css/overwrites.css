@@ -46,12 +46,12 @@ footer {
 }
 
 .slideshow {
-	width: 1000px;
-	height: 366px;
+	width: 1000px !important;
+	height: 366px !important;
 }
 
 .index-container {
-	width: 980px;
+	width: 980px !important;
 }
 
 .slideshow-img-container {
