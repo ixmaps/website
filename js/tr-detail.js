@@ -19,6 +19,8 @@ var totR = jQuery('table:eq(1) tr').length;
   
   // get trId from table
   var trId = jQuery('table:eq(0) tr:eq(0) td:eq(1)').html();
+  trId = trId.replace('<b>', '');
+  trId = trId.replace('</b>', '');
 
   // get ip value for each row and add flag link on last column
   for (var i=0;i<totR;i++)
@@ -30,7 +32,7 @@ var totR = jQuery('table:eq(1) tr').length;
       
       console.log(ip, trId, hopN);
       //jQuery("table:eq(1) tr:gt(0)").append("<td>Flag This</td>");
-      jQuery("table:eq(1) tr:eq("+i+")").append('<td><a class="text-new" href="javascript:showFlagsParent(\''+ip+'\')">Flag This IP</a></td>');
+      jQuery("table:eq(1) tr:eq("+i+")").append('<td><a class="text-new" href="javascript:showFlagsParent('+trId+','+hopN+','+'\''+ip+'\''+',true'+')">Flag This IP</a></td>');
     }      
     
   }
