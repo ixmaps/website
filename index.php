@@ -82,6 +82,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 	
 <section id="main"><!-- #main content and sidebar area -->
 	<span id="beta-message"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website Home Page">feedback</a></i></span>
+
 	
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
