@@ -36,6 +36,12 @@ $ixmaps_hands_off_config = array(
 		
 );
 
+// ADD ONCE POSTGRES IS SET UP
+// $webUrl = "http://ixmaps.ca";
+// $appRootPath = '/var/www/www.ixmaps.ca'; // !!
+// $savePath = $appRootPath.'/gm-temp';
+
+
 $ixmaps_filter_data = array(
 	array(
 		'constraint1'=>'does',

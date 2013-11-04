@@ -1,10 +1,10 @@
 <?php
 $ixHost = $_SERVER["SERVER_NAME"];
 
-/*if ($ixHost!='www.ixmaps.ca'){
+if ($ixHost!='www.ixmaps.ca'){
     header('Location: http://www.ixmaps.ca/index.php');
 	exit;
-}*/
+}
 ?>
 <!doctype html>
 <html lang="en">
