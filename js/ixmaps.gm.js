@@ -1033,7 +1033,7 @@ var getIpFlags = function(openFlagWin) {
             jQuery('#ip-flag-insert').hide();
             jQuery('#ip-flag-log').show();
             //jQuery('#ip-flags-data').fadeIn('fast');
-            jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <b><a href="javascript:newIpFlag();">Create a new report</a></b></p>');
+            jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b></p>');
             
           } else {
             jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b> if you have anything to add.</p>');
