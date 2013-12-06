@@ -297,6 +297,7 @@ class Traceroute
 	{
 		global $dbconn;
 		$result = array();
+		$trArr = array();
 		// adding exception to prevent error with tr id wiht no tr_items
 		if($trId!=''){
 			$sql = 'SELECT traceroute.id, tr_item.* FROM traceroute, tr_item WHERE (tr_item.traceroute_id=traceroute.id) AND traceroute.id = '.$trId.' ORDER BY tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
