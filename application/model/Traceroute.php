@@ -298,7 +298,7 @@ class Traceroute
 		global $dbconn;
 		$result = array();
 		$sql = 'SELECT traceroute.id, tr_item.* FROM traceroute, tr_item WHERE (tr_item.traceroute_id=traceroute.id) AND traceroute.id = '.$trId.' ORDER BY tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
-		$result = pg_query($dbconn, $sql) or die('Query failed on getTraceRouteAll: ' . pg_last_error() . 'SQL: '. $sql);
+		$result = pg_query($dbconn, $sql) or die('Query failed on getTraceRouteAll: ' . pg_last_error() . 'SQL: '. $sql . " TRid: ".var_dump($trId));
 		//$tot = pg_num_rows($result);
 		// get all data in a single array
 		$trArr = pg_fetch_all($result);
