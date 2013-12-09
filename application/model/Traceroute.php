@@ -1189,7 +1189,6 @@ class Traceroute
 	public static function dataTransform($trArr)
 	{
 		global $savePath, $webUrl;
-		print_r($trArr);
 /*		echo '<textarea>';
 		print_r($trArr);
 		echo '</textarea>';
