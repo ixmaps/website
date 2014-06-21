@@ -50,12 +50,8 @@
 <?php include("includes/navigation.php"); ?>
 	
 <section id="main"><!-- #main content and sidebar area -->
-	 <div class="server-down-msg">
-	    Contributions from our <b>TrGen</b> application have been suspended temporarily while a security issue is dealt with. We hope it will be restored in the next day or two.  
-	    <br/><br/>
-	    In the meantime, contact <a href="mailto:andrew.clement@utoronto.ca">Andrew Clement</a> with any questions or comments.
-	 </div>
-
+	<span class="error-banner">Unfortunately, TRgen is currently not operating properly, and therefore we cannot accept contributions to the database. 
+		We're working to correct the problem, and will update this space when the issues are resolved. Thank you for your patience.</span>
 
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->

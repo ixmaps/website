@@ -409,3 +409,63 @@ overflow: hidden;
 	font-style: italic;
 }
 
+
+#homepage-news{
+	background:#fef8eb; 
+	padding:2em; 
+	margin: 0 0 3em 0;
+	border: 4px solid #f3d14f;
+		box-sizing: border-box;    
+	  box-shadow:        inset 0 0 0 4px #ceb14b;
+	  text-align: center
+
+
+}
+
+#homepage-news p{
+font-family: 'PT Serif', Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif !important;
+font-size: 24px;
+line-height: 34px;
+padding:0;
+margin: 0 0 1em 0;
+	}
+
+
+#homepage-news p b{
+font-family: 'PT Serif', Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif !important;
+font-size: 24px;
+line-height: 34px;
+font-weight: bold;
+	}
+
+#homepage-news p a{
+	font-family: 'PT Serif', Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif !important;
+
+	border-bottom:none;
+	border: 2px solid #b59831;
+	padding:.25em 1em .35em 1em;
+	margin:0;
+	color: #b59831;
+
+}
+
+
+#homepage-news p a:hover{
+	border-bottom:none;
+	border: 2px solid #b59831;
+	padding:.25em 1em .35em 1em;
+	color: #fafafa;
+	background:#b59831;
+}
+
+
+	#homepage-news p.justreleased{
+font-weight: bold;
+text-transform: uppercase;
+color: #b59831;
+letter-spacing: 1px;
+font-size: 18px;
+padding:0 0 1em 0;
+margin: 0;
+}
+

@@ -63,7 +63,7 @@
 	    Social Sciences and Humanities Research Council of Canada</a>.
 	    and the
 	    <a href="http://www.priv.gc.ca/index_e.asp" target="_blank">
-	    Office of the Privacy Commissioner of Canada</a>.
+	    Office of the Privacy Commissioner of Canada</a>. The views expressed herein are those of the author(s) and do not necessarily reflect those of the funders
 	    </p>
 	   	<p>IXmaps is affiliated with the <a href="http://www.sscqueens.org/projects/the-new-transparency/about" 
 	   	target="_blank">New Transparency Project</a> and the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">
@@ -77,16 +77,12 @@
 		   	Nancy Paterson, PhD</a>, Associate Professor, OCAD University</li>
 		    <li><a href="http://www.linkedin.com/pub/colin-mccann/27/867/820" target="_blank">
 		    Colin McCann, MI</a>, Faculty of Information, University of Toronto</li>
-		    <li><a href="http://www.ischool.utoronto.ca/students/gabby-resch" target="_blank">
-		    Gabby Resch, PhD Student</a>, Faculty of Information, University of Toronto</li>
 		    <li><a href="http://www.ischool.utoronto.ca/students/antonio-gamba-bari" target="_blank">
 		    Antonio Gamba, PhD Student</a>, Faculty of Information, University of Toronto</li>
 		    <li><a href="http://tc.msu.edu/users/jonathan-obar" target="_blank">
 		    Jonathan Obar, Post Doc</a>, Faculty of Information, University of Toronto</li>
 		    <li><a href="http://www.linkedin.com/in/johnharrisstevenson" target="_blank">
 		    John Stevenson, PhD</a>, University of Toronto</li>
-		    <li><a href="ca.linkedin.com/pub/lauren-dimonte/27/15/169" target="_blank">
-		    Lauren Di Monte, Graduate student</a>, Faculty of Information, University of Toronto</li>
 		</ul>
         <h5>Former Members</h5>
 		<ul>
@@ -95,6 +91,10 @@
 		    Erik Stewart</a>, Programmer, Toronto</li>
 		    <li>Steve Harvey, Software Developer, Toronto</li>
 		    <li>Yannet Lathrop, MI, Faculty of Information, University of Toronto</li>
+		    <li><a href="http://www.ischool.utoronto.ca/phd/gabby-resch" target="_blank">
+		    Gabby Resch, PhD Student</a>, Faculty of Information, University of Toronto</li>
+		    <li><a href="ca.linkedin.com/pub/lauren-dimonte/27/15/169" target="_blank">
+		    Lauren Di Monte, Graduate student</a>, Faculty of Information, University of Toronto</li>
 		    <br><br>
             <img src="images/logos.jpg" width="650" height="175"></p>
 	        </li>

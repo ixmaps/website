@@ -118,7 +118,7 @@ var initialize = function() {
 	
 	
 	jQuery('#news-btn').click(function() {
-		window.open("/documents/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20interim%20June%202013.pdf");
+		window.open("/documents/Keeping_Internet_Users_Summ_review_App_final_Jan_27.pdf");
 	});
 
 

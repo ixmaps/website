@@ -55,7 +55,9 @@
 
         		  <article>
         		  	<h2>News</h2>
-        		  		<p>The Canadian Internet Traffic Exchange (CIRA) has just <a href=" http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange2.pdf" target="_blank">
+        		  		<p>IXmaps endorses the February 11, 2014 protest <a href="https://thedaywefightback.org/">The Day We Fight Back: Mass Surveillance Must Stop.</a>
+
+        		  		<p>The Canadian Internet Traffic Exchange (CIRA) has just <a href="http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange2.pdf" target="_blank">
         		  		released a new report</a> which discusses what we term 'boomerang routing'</p>
 
 						<p>Lee Rickwood discusses IXmaps and the upcoming Ontario Science Centre event in 
@@ -85,6 +87,17 @@
 						interview with Jacob Appelbaum, April 26, 2012</a></p>
 
 					<h2>Research Papers</h2>
+						<p>Clement, A. "NSA Surveillance: Exploring the Geographies of Internet Interception", Proceedings of the iConference 2014, Berlin, Mar 4-7, 2014:
+						<a href="https://dl.dropboxusercontent.com/u/8140293/Publications/Clement%2C%20A.%20%282014%29%20NSA%20Surveillance-%20Exploring%20the%20geographies%20of%20internet%20interception%20iConf2014%20Jan2.pdf">
+						available here</a></p>
+						<p>Obar, J.A. & Clement, A. "Internet surveillance and boomerang routing: A call for Canadian network sovereignty".
+						Proceedings of the Technology and Emerging Media Division, Canadian Communication Association Conference, 2013, available at:
+						<a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2311792"> available here</a>
+						*Included on the Harvard Nieman Lab's 'What's new in digital scholarship' list:
+						<a href="http://www.niemanlab.org/2013/08/whats-new-in-digital-scholarship-reporters-ignoring-technology-the-continuing-power-of-print-and-booze-on-facebook/"> available here</a></p>
+
+						<p>Obar, J.A. "Phantom data sovereigns: Walter Lippmann, big data and the fallacy of personal data sovereignty", under review.</p>
+
 						<p>Clement, A. “IXmaps – Tracking your personal data through the NSA’s warrantless wiretapping sites” IEEE - ISTAS conference, Toronto, 
 						June 26-27, 2013: <a href="https://www.dropbox.com/s/9y4xtavova2qtj4/ISTAS13%20paper%2026%20IXmaps%20%E2%80%93%20Tracking%20May%2022.pdf">available here</a></p>
 
@@ -92,6 +105,23 @@
 						<a href="https://www.dropbox.com/s/elejw106elrckse/Nancy%20final-for-conf-MSW_A4_format-14.doc"> available here</a></p>							
 					
 					<h2>Presentations</h2>
+						<p>Clement, A. "Privacy, NSA surveillance and Canadian internet 'boomerang' traffic: Policy implications for Canadian businesses and public institutions",
+						presented at International Privacy Day, Toronto, January 28, 2014. A video of the presentation is available
+						<a href="http://www.realprivacy.ca/index.php/ambassador/andrew-clement/">here</a>
+						and slides are available <a href="https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2014%20IPD%20Privacy%2C%20NSA%20surveillance%20%26%20%27boomerang%27%20traffic%20Jan28.pdf">here</a></p>
+
+						<p>Obar, J.A., Shade, L.R. & Clement, A. "The strength of a broad-based coalition: How Canadian media reformists defeated Bill C-30".
+						Presented at the Strategies for Media Reform: International Perspectives pre-conference, International Communication Association Conference, London, UK, 2013.</p>
+
+						<p>Obar, J.A. & Clement, A. "The IXmaps project: Confronting the mounting threats to Canadian network sovereignty". Presented at the Canadian Communication Association
+						Conference, Victoria, BC, 2013.</p>
+
+						<p>Obar, J.A. “Big data and the fallacy of personal data sovereignty”, the Canadian Civil Liberties Association’s RightsWatch Conference, Ryerson University, 2013.</p>
+
+						<p>Obar, J.A. “Strategies for media reform: A call to action”, the Strategies for Media Reform: International Perspectives pre-conference, International Communication Association Conference, London, UK, 2013.</p>
+
+						<p>Obar, J.A. “Big data and the fallacy of personal data sovereignty”, the Technology and Intellectual Property Group Annual Conference, University of Toronto Law School, 2013.</p>
+
 						<p>IXmaps is in the Hot Zone at the 
 						<a href="http://ontariosciencecentre.ca/Calendar/108/" target="_blank">
 						Ontario Science Centre</a>.<br />

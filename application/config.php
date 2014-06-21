@@ -29,7 +29,8 @@ $webUrl = "http://ixmaps.ca";
 $appRootPath = '/var/www/www.ixmaps.ca'; // !!
 $savePath = $appRootPath.'/gm-temp';
 
-$trNumLimit=800; // 500 is very safe num with the new approach
+//$trNumLimit=800; // 500 is very safe num with the new approach
+$trNumLimit=100;
 
 $ixmaps_debug_mode = true;
 

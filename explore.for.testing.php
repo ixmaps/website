@@ -12,13 +12,12 @@ include('application/geoip/geoipregionvars.php');
 
 // using MaxMind to find the city of client IP address
 $myIp = $_SERVER['REMOTE_ADDR'];
-$myCity = '';
-$myCountry = '';
-/*$gi1 = geoip_open("application/geoip/dat/GeoLiteCityv6.dat",GEOIP_STANDARD);
+//$myIp = '174.119.164.221';
+$gi1 = geoip_open("application/geoip/dat/GeoLiteCityv6.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
 $myCity = ''.$record1->city;
 $myCountry = ''.$record1->country_code;
-geoip_close($gi1);*/
+geoip_close($gi1);
 ?>
 <!doctype html>
 <html lang="en">
@@ -57,11 +56,8 @@ geoip_close($gi1);*/
 
   	<!-- IXmaps config files -->
 	<script type="text/javascript" src="js/config.js"></script>
-	
-	<!--
 	<script type="text/javascript" src="js/ixmaps.js"></script>
 	<script type="text/javascript" src="js/ixmaps.gm.js"></script>
-	-->
 
 	<script>
 	var myIp = '<?php echo $myIp; ?>';
@@ -73,7 +69,7 @@ geoip_close($gi1);*/
 	  jQuery("#map-actions").tabs();
     });
 
-    /*jQuery(document).ready(function() {
+    jQuery(document).ready(function() {
   		getChotel();
   		getPrivacyReport();
 		<?php
@@ -91,7 +87,7 @@ geoip_close($gi1);*/
 		jQuery('#news-btn').click(function() {
 		window.open("/documents/Keeping_Internet_Users_Summ_review_App_final_Jan_27.pdf","_newtab");
 		});
-	});*/
+	});
     </script>
 
     <script type="text/javascript">
@@ -144,8 +140,7 @@ geoip_close($gi1);*/
 	-->
 
 </head>
-<!-- <body onload="initialize()"> -->
-<body>
+<body onload="initialize()">
 <div id="wrapper"><!-- #wrapper -->
 	<header><!-- header -->
 	      <img src="images/headerimage.jpg" width="1000" height="138">      <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
@@ -154,20 +149,11 @@ geoip_close($gi1);*/
 	<!-- <span id="beta-message"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps explore Page">feedback</a></i></span> -->
 
 <?php include("includes/navigation.php"); ?>
-<!-- <div id="beta-message-ok">
-	<i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i>
-</div> -->
+<div id="beta-message-ok"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i></div>
 	<div style="clear: both;"></div>
-	 <br/><br/>
 	 <div id="explore-content">
-		 <div class="server-down-msg">
-		    IXmaps <b>Explore page</b> has been taken off-line temporarily while a security issue is dealt with. 
-		    We hope it will be restored in the next day or two.  
-		    <br/><br/>
-		    In the meantime, contact <a href="mailto:andrew.clement@utoronto.ca">Andrew Clement</a> with any questions or comments.
-		 </div>
 		 <!-- tabs -->
-		 <div id="tabs" class="hide">
+		 <div id="tabs">
 		    <ul>
 		        <li><a href="#tabs-0">Quick Links</a></li>
 		        <li><a href="#tabs-1">Custom Filters</a></li>
@@ -200,7 +186,7 @@ geoip_close($gi1);*/
 					  		<td>
 						  	</td>
 						  	<td>
-								<!-- <form>
+<!-- 			  					<form>
 						  			<button type="button" class="ql-button" id="ix-geocorrect-button">
 						  				Examine traceroutes containing geo-corrections
 						  			</button>

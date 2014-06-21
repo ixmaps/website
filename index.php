@@ -81,14 +81,25 @@ $ixHost = $_SERVER["SERVER_NAME"];
 <?php include("includes/navigation.php"); ?>
 	
 <section id="main"><!-- #main content and sidebar area -->
-	<span id="beta-message"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website Home Page">feedback</a></i></span>
 
+<!-- BETA VERSION MESSAGE -->
+<!-- 	<span id="beta-message"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website Home Page">feedback</a></i></span>
+ -->
 	
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
+
+		<article id="homepage-news">
+			<p class="justreleased">Recently Released</p> <p><b>Keeping Internet Users in the Know or in the Dark:</b><br>A Report on Data Privacy Transparency of Canadian Internet Service Providers.</p><p><a href="http://ixmaps.ca/transparency.php">Read the report</a></p>
+		</article>
 		<article>
 			<!-- <div id="player-container"></div> -->
 			<!-- <img id="play-icon" src="images/play_icon.png"/> -->
+<!-- 			<div id="banner-container">
+				<a class="no-link-decoration" href="http://thedaywefightback.ca/" target="_blank">
+					<img id="banner-img" src="images/banner-2-eng.jpg" />
+				</a>
+			</div> -->
 			<div class="slideshow">			
 				<div class="index-container">
 					<a class="slideshow-img-container" href="https://vimeo.com/67102223" target="_blank">
@@ -148,12 +159,46 @@ $ixHost = $_SERVER["SERVER_NAME"];
 
 			</div>
 
-			<div class="btn-container">
+			<!-- <div class="btn-container">
 				<button id="news-btn">
-					New: Canadian Carriers Transparency and Privacy Report (Interim)
-					<!-- <img id="news-btn-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/> do we want to add a small starred img here? -->
+					<span>
+						<div><i> Keeping Internet Users in the Know or in the Dark 2013</i></div>
+						<div>A Report on the Data Privacy Transparency of Canadian Internet Service Providers</div>
+						<div>(Jan 28, 2014, preview version)</div>
+					</span>
 				</button>
-			</div>			
+			</div> -->
+			
+			<!-- <div class="btn-container">
+				<button id="news-btn">
+					<span>
+						<div><i> Keeping Internet Users in the Know or in the Dark 2013</i></div>
+						<div>A Report on the Data Privacy Transparency of Canadian Internet Service Providers</div>
+						<div>(Jan 28, 2014, preview version)</div>
+					</span>
+				</button>
+			</div> -->
+
+			<!-- <div class="box btn-container">
+			    <div class="box-content">
+			    	<p><i> Keeping Internet Users in the Know or in the Dark 2013</i></p>
+			    	<p>A Report on the Data Privacy Transparency of the Canadian Internet Service Providers</p>
+			    </div>
+			    <img class='ribbon' src="http://quickribbon.com/ribbon/2014/01/4635089bf318b59a00ed2901b2559dc4.gif" />
+			</div> -->
+
+			<!-- <div id="report-container">
+				<div><i> Keeping Internet Users in the Know or in the Dark 2013</i></div>
+				<div>A Report on the Data Privacy Transparency of the Canadian Internet Service Providers</div>
+				<button id="news-btn">
+					Read more...
+				</button>
+			</div> -->
+
+
+			<!-- <div id="star-table-container">
+				<img src="images/star_table_26012014.png">
+			</div> -->
 			
 		</article>
 
