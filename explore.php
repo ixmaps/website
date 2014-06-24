@@ -193,7 +193,7 @@ geoip_close($gi1);
 						  		</form> -->
 						  	</td>
 					  	</tr>
-					  	<tr>
+<!-- 					  	<tr>
 					  		<td>
 						  		<form method="get" action="../../cgi-bin/tr-query.cgi">
 						  			<button type="submit" class="ql-button" name="query_type" value="all_submitters">
@@ -209,7 +209,7 @@ geoip_close($gi1);
 						  		</form>
 						  	</td>
 					  	</tr>
-					</table>
+ -->					</table>
 
 		    </div>
 		    <!-- /tabs-0 -->
