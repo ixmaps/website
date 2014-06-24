@@ -121,41 +121,40 @@ class Traceroute
 
 		}
 		
+		if($c['constraint2']=='originate')
+		{
+			$w.=" AND tr_item.hop = 1 AND tr_item.attempt = 1";
 
-			if($c['constraint2']=='originate')
-			{
-				$w.=" AND tr_item.hop = 1 AND tr_item.attempt = 1";
+		} else if($c['constraint2']=='terminate') {
 
-			} else if($c['constraint2']=='terminate') {
+			//$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
 
-				//$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
+			// old approach
+			//$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
 
-				// old approach
-				//$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
+			// new approach: last hop as destination
+			// this alredy set on parent function, not needed here. so do nothing ...
+			//$w.=" AND (traceroute.id=tr_last_hops.traceroute_id_lh) ";
 
-				// new approach: last hop as destination
-				// this alredy set on parent function, not needed here. so do nothing ...
-				//$w.=" AND (traceroute.id=tr_last_hops.traceroute_id_lh) ";
+		} else if($c['constraint2']=='goVia') {
+			
+			// this is a wrong assumption. 
+			//The destination ip is not always the last hop
+			//$w.=" AND tr_item.attempt = 1 AND tr_item.hop > 1 AND (traceroute.dest_ip<>ip_addr_info.ip_addr)";
 
-			} else if($c['constraint2']=='goVia') {
-				
-				// this is a wrong assumption. 
-				//The destination ip is not always the last hop
-				//$w.=" AND tr_item.attempt = 1 AND tr_item.hop > 1 AND (traceroute.dest_ip<>ip_addr_info.ip_addr)";
+			$w.=" AND tr_item.attempt = 1 AND tr_item.hop > 1 ";
 
-				$w.=" AND tr_item.attempt = 1 AND tr_item.hop > 1 ";
-
-				// FIX ME. need to exclude last ip.
+			// FIX ME. need to exclude last ip.
 
 
-			} else if($c['constraint2']=='contain') {
+		} else if($c['constraint2']=='contain') {
 
-				$w.=" AND tr_item.attempt = 1 ";
+			$w.=" AND tr_item.attempt = 1 ";
 
-			}
+		}
 
 			/* string of int ? */
-			if (($field=='asnum') || ($field=='id'))
+			/*if (($field=='asnum') || ($field=='id'))
 			{
 				$w.=" AND $table.$field $selector_i $constraint_value";
 				//$w.="  $selector $table.$field $operand_i $constraint_value";
@@ -164,20 +163,41 @@ class Traceroute
 			} else {
 				$w.=" AND $table.$field $selector_s '%".$constraint_value."%'";
 			}
+			
+			return $w;
+			*/
 
-		return $w;
+			// Using pg_query_params
+			if (($field=='asnum') || ($field=='id') || ($field=='ip_addr'))
+			{
+				$w.=" AND $table.$field $selector_i $1";
+				//$w.="  $selector $table.$field $operand_i $constraint_value";
+			} else {
+				$w.=" AND $table.$field $selector_s $1";
+				$constraint_value = "%".$constraint_value."%";
+			}
+			$rParams = array($w, $constraint_value);
+			return $rParams;
 
 	}
 
 	/**
 		Key function !! Get TR data for a given sql query
 	*/
-	public static function getTrSet($sql)
+	public static function getTrSet($sql, $wParam)
 	{
 		global $dbconn, $dbQueryHtml;
 		//echo $sql;
 		$trSet = array();
-		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
+
+		// old approach
+		//$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
+		
+		//$result = pg_query_params($dbconn, $sql, array($wParam)) or die('Query failed: pg_query_params: ' . pg_last_error());
+
+		$result = pg_query_params($dbconn, $sql, array($wParam)) or die('Query failed: incorrect parameters');
+
+
 		$data = array();
 		//$dbQueryHtml.='<hr/>'.$sql;
 		//$data1 = array();
@@ -301,7 +321,9 @@ class Traceroute
 		// adding exception to prevent error with tr id wiht no tr_items
 		if($trId!=''){
 			$sql = 'SELECT traceroute.id, tr_item.* FROM traceroute, tr_item WHERE (tr_item.traceroute_id=traceroute.id) AND traceroute.id = '.$trId.' ORDER BY tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
+
 			$result = pg_query($dbconn, $sql) or die('Query failed on getTraceRouteAll: ' . pg_last_error() . 'SQL: '. $sql . " TRid: ".var_dump($trId));
+			
 			//$tot = pg_num_rows($result);
 			// get all data in a single array
 			$trArr = pg_fetch_all($result);
@@ -332,8 +354,8 @@ class Traceroute
 		//}
 
 			$w = '';
-			$sql = '';
-
+			$wParams = array();
+		
 			$sql = "SELECT as_users.num, tr_item.traceroute_id, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM as_users, tr_item, traceroute, ip_addr_info WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum)";
 
 			$sqlOrder = ' order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
@@ -342,22 +364,36 @@ class Traceroute
 			// adding exception for doesnot cases
 			if($constraint['constraint1']=='doesNot' && $constraint['constraint2']!='originate' && $constraint['constraint2']!='terminate') 
 			{
+				//echo "IF: doesNot && !=originate && terminate";
 
  				$oppositeSet = array();
  				$positiveSet = array();
 
-				$w.=''.Traceroute::buildWhere($constraint);
+				//$w.=''.Traceroute::buildWhere($constraint);
+				$wParams = Traceroute::buildWhere($constraint);
+				
 				$sqlTemp = $sql;
-				$sqlTemp.=$w.$sqlOrder;
-				$positiveSet = Traceroute::getTrSet($sqlTemp);
+				
+				//$sqlTemp.=$w.$sqlOrder;
+				$sqlTemp.=$wParams[0].$sqlOrder;
+				$positiveSet = Traceroute::getTrSet($sqlTemp, $wParams[1]);
+				
+				// getting oposite set for diff comparison
+					/*$sqlOposite = $sql;
+					$sqlOposite .= Traceroute::buildWhere($constraint,$doesNotChk);
+					$sqlOposite .= $sqlOrder;
+					$oppositeSet = Traceroute::getTrSet($sqlOposite);*/
+
 				$doesNotChk = true;
 
-
-				// getting oposite set for diff comparison
 				$sqlOposite = $sql;
-				$sqlOposite .= Traceroute::buildWhere($constraint,$doesNotChk);
-				$sqlOposite .= $sqlOrder;
-				$oppositeSet = Traceroute::getTrSet($sqlOposite);
+
+				$wParams = Traceroute::buildWhere($constraint, $doesNotChk);
+				//$sqlOposite .= Traceroute::buildWhere($constraint,$doesNotChk);
+				$sqlOposite .= $wParams[0].$sqlOrder;
+				
+				//$oppositeSet = Traceroute::getTrSet($sqlOposite);
+				$oppositeSet = Traceroute::getTrSet($sqlOposite, $wParams[1]);
 				
 				//echo '<br/><i>'.$sqlOposite.'</i>';
 				//echo '<br/>Opposite Set: '.count($oppositeSet);
@@ -372,6 +408,9 @@ class Traceroute
 
  			// adding an exception for "terminate": This option is now querying tr_last_hops reference table 
  			} else if($constraint['constraint2']=='terminate') {
+ 				
+ 				//echo "IF: terminate";
+
  				$tApproach = 1;
 
  				if($tApproach==0){
@@ -382,7 +421,10 @@ class Traceroute
 					$sqlOrder = ' order by tr_item.traceroute_id, tr_item.hop, tr_item.attempt';
 
  					$w.=" AND (traceroute.dest_ip=ip_addr_info.ip_addr) AND tr_item.attempt = 1 AND tr_item.hop > 1";
- 					$w.=''.Traceroute::buildWhere($constraint);
+
+ 					//$w.=''.Traceroute::buildWhere($constraint);
+ 					$wParams = Traceroute::buildWhere($constraint);
+ 					$w.=''.$wParams[0];
 
  					$dbQueryHtml.='<BR/>CASE B:';
 
@@ -394,25 +436,39 @@ class Traceroute
 	 				$sqlOrder = ' order by traceroute.id';
 
 	 				// this is doing nothing I believe, as all the sql is not created here
-	 				$w.=''.Traceroute::buildWhere($constraint);
+	 				//$w.=''.Traceroute::buildWhere($constraint);
+	 				$wParams = Traceroute::buildWhere($constraint);
+ 					$w.=''.$wParams[0];
+
 	 				$dbQueryHtml.='<BR/>CASE A:';
 	 			}
  				
 				$sql .=$w.$sqlOrder;
-				//echo "<hr/>".$sql;
-				
-				$trSets[$conn] = Traceroute::getTrSet($sql);
+				//	echo "<hr/>".$sql;
+
+				$trSets[$conn] = Traceroute::getTrSet($sql, $wParams[1]);
 				$operands[$conn]=$constraint['constraint5'];
 
 
 			} else {
 
-				$w.=''.Traceroute::buildWhere($constraint);
+				//echo "IF: all the other cases";
+				
+				//$w.=''.Traceroute::buildWhere($constraint);
+				
+				$wParams = Traceroute::buildWhere($constraint);
+ 				$w.=''.$wParams[0];
+
 				$sql .=$w.$sqlOrder;
-				$trSets[$conn] = Traceroute::getTrSet($sql);
-				$operands[$conn]=$constraint['constraint5'];
+
 				//echo '<br/><i>'.$sql.'</i>';
+				$trSets[$conn] = Traceroute::getTrSet($sql, $wParams[1]);
+
+				$operands[$conn]=$constraint['constraint5'];
+				
 			}
+
+			//echo '<br/><i>'.$sql.'</i>';
 
 			// add SQL to log file
 			//$dbQueryHtml.='<br/>'.$sql;
@@ -1763,7 +1819,9 @@ class Traceroute
 
 			$result = array();
 			$autoC = array();
+			
 			$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
+
 			while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 		    	if($sField=="ISP") {
 		    		$autoC[$line['num']]=$line['name'];
