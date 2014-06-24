@@ -190,13 +190,15 @@ class Traceroute
 		//echo $sql;
 		$trSet = array();
 
-		// old approach
-		//$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
+		// old approach: used only for quick links
+		if($wParam==""){
+			$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
+		} else {
+			//$result = pg_query_params($dbconn, $sql, array($wParam)) or die('Query failed: pg_query_params: ' . pg_last_error());
+
+			$result = pg_query_params($dbconn, $sql, array($wParam)) or die('Query failed: incorrect parameters');
+		}
 		
-		//$result = pg_query_params($dbconn, $sql, array($wParam)) or die('Query failed: pg_query_params: ' . pg_last_error());
-
-		$result = pg_query_params($dbconn, $sql, array($wParam)) or die('Query failed: incorrect parameters');
-
 
 		$data = array();
 		//$dbQueryHtml.='<hr/>'.$sql;
