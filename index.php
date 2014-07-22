@@ -12,7 +12,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVASCRIPT -->
 	<script type="text/javascript" src="js/prototype.js"></script>
 	<script type="text/javascript" src="js/scriptaculous.js?load=effects,builder"></script>
@@ -28,7 +28,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-24555700-1']);
 		_gaq.push(['_setDomainName', 'none']);
@@ -46,7 +46,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 	<script type="text/javascript">
 	    $.noConflict();
 	    // jquery and prototype fight for the $
-	</script>	
+	</script>
 	<script type="text/javascript" src="js/jquery.cycle.all.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 
@@ -72,20 +72,21 @@ $ixHost = $_SERVER["SERVER_NAME"];
 </head>
 
 <body onload="initialize()">
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
+  <span style="float:right; background-color:yellow; padding: 3px 10px 3px 10px">Announcing upcoming RFP for software development. <a href="documents/IXmaps-RequestforProposals20140721.pdf" class="smallinks">Click here.</a></span>
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
-	
+
 <section id="main"><!-- #main content and sidebar area -->
 
 <!-- BETA VERSION MESSAGE -->
 <!-- 	<span id="beta-message"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website Home Page">feedback</a></i></span>
  -->
-	
+
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 
@@ -100,7 +101,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 					<img id="banner-img" src="images/banner-2-eng.jpg" />
 				</a>
 			</div> -->
-			<div class="slideshow">			
+			<div class="slideshow">
 				<div class="index-container">
 					<a class="slideshow-img-container" href="https://vimeo.com/67102223" target="_blank">
 						<img class="slideshow-img" src="images/MainPage_What_Is_IXmaps.jpg"/>
@@ -118,14 +119,14 @@ $ixHost = $_SERVER["SERVER_NAME"];
 				<div class="index-container">
 					<a class="slideshow-img-container" href="http://www.youtube.com/embed/pvdIB5vr4cw?enablejsapi=1&autoplay=1" target="_blank">
 						<img class="slideshow-img" src="images/MainPage_Whos_Looking_At_Your_Data.jpg"/>
-						<img class="play-icon" src="images/play_icon.png"/> 
+						<img class="play-icon" src="images/play_icon.png"/>
 					</a>
 					<span class="slideshow-text">
 						<h5>Who's looking at your data?</h5>
 						<p>The U.S. <a href="/nsa.php">National Security Agency (NSA)</a> engages in warrantless internet surveillance.
 						Mark Klein, a former AT&T technician turned whistleblower has revealed that the NSA has
 						installed <a href="/faq.php#Spy Room (6th Floor)">surveillance equipment</a> at AT&T’s main switching centre in San Francisco capable
-						of intercepting all the data passing through it. The NSA is strongly suspected of operating 
+						of intercepting all the data passing through it. The NSA is strongly suspected of operating
 						similar spying facilities in 15-20 other U.S. cities. For example, <a class="explore-route-1859">one of our routes</a> shows that data packets from Toronto to
 						the San Francisco Art Institute pass through several such suspected sites. <a class="text-video-link">Learn more about who's looking at your data...</a></p>
 					</span>
@@ -133,7 +134,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 				<div class="index-container">
 					<a class="slideshow-img-container" href="http://www.youtube.com/embed/F_v0VMvjcI8?enablejsapi=1&autoplay=1" target="_blank">
 						<img class="slideshow-img" src="images/MainPage_What_Are_Boomerang_Routes.jpg"/>
-						<img class="play-icon" src="images/play_icon.png"/> 
+						<img class="play-icon" src="images/play_icon.png"/>
 					</a>
 					<span class="slideshow-text">
 						<h5>What are 'boomerang' routes?</h5>
@@ -147,7 +148,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 				<div class="index-container">
 					<a class="slideshow-img-container" href="http://www.youtube.com/embed/g8-NmMNGpyk?enablejsapi=1&autoplay=1" target="_blank">
 						<img class="slideshow-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/>
-						<img class="play-icon" src="images/play_icon.png"/> 
+						<img class="play-icon" src="images/play_icon.png"/>
 					</a>
 					<span class="slideshow-text">
 						<h5>The IXmaps database</h5>
@@ -168,7 +169,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 					</span>
 				</button>
 			</div> -->
-			
+
 			<!-- <div class="btn-container">
 				<button id="news-btn">
 					<span>
@@ -199,10 +200,10 @@ $ixHost = $_SERVER["SERVER_NAME"];
 			<!-- <div id="star-table-container">
 				<img src="images/star_table_26012014.png">
 			</div> -->
-			
+
 		</article>
 
-<!-- 
+<!--
 		<button id="left-big-btn" class="big-btn">
 			Learn more at the IXmaps Workshop on May 29, 2013 from 9am to 12am.
 		</button>
@@ -212,10 +213,10 @@ $ixHost = $_SERVER["SERVER_NAME"];
  -->
 
 
-				
+
 	</section><!-- end of #content -->
 </section><!-- end of #container -->
-			
+
 
 <footer>
 	<?php include("includes/footer.php"); ?>
