@@ -204,10 +204,10 @@ class SLog
 		$d4 = pg_fetch_all($r4);
 
 		$queryStats = array(
-			"totalQueries"=>$d1[0]['count'],
-			"totalIp"=>$d2[0]['count'],
-			"recentRoutes"=>$d3[0]['count'],
-			"lastSubmission"=>$d4[0]['count']
+			"Total Queries"=>$d1[0]['count'],
+			"Total Unique IP addresses"=>$d2[0]['count'],
+			"Recent Routes"=>$d3[0]['count'],
+			"Last Submission"=>$d4[0]['count']
 			);
 
 		pg_free_result($r1);
