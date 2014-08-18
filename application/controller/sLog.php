@@ -16,6 +16,8 @@ $slogToD3 = json_encode($data['slogDataD3']);
 //$slogData = json_encode($data['slogData']);
 
 //SLog::updateGeoData();
+$exploreStats = json_encode(Slog::collectExploreStats());
+
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +71,7 @@ $slogToD3 = json_encode($data['slogDataD3']);
 			jQuery( "#date2" ).val(date2);
 
 			renderSlogDetails();
+			renderexploreStats();
 		}
 
 	</script>
@@ -92,7 +95,8 @@ $slogToD3 = json_encode($data['slogDataD3']);
 </head>
 
 <body>
-
+<div id="slog-stats-details"></div>
+<hr/>
 <p>Explore Page Log: <b><?php echo $data['date1']."</b> - <b>".$data['date2']."</b>"; ?> - 
 
 	Date From: <input type="text" id="date1" size="30" value="<?php echo $data['date1']?>"/> - 
@@ -104,6 +108,23 @@ $slogToD3 = json_encode($data['slogDataD3']);
 	<!-- <svg class="chart"></svg> -->
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script>
+
+	var renderexploreStats = function (){
+		var exploreStatsData = <?php echo $exploreStats?>;
+		//console.log(exploreStatsData);
+		var sLogStats = jQuery('<table border=1 class="" id="slog-stats-table"></table>');
+		jQuery.each(exploreStatsData, function(sKey, sVal) {
+			//console.log(slogToD3Item,value);  
+			//console.log(value);  
+
+			var sLogStatsTR = jQuery('<tr class=""><td>'+sKey+'</td><td>'+sVal+'</td></tr>');
+		    jQuery(sLogStats).append(sLogStatsTR);
+		    jQuery('#slog-stats-details').append(sLogStats);
+
+		});
+
+	}
+
 
 	var data = <?php echo $slogToD3?>;
 

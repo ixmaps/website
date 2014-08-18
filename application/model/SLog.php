@@ -182,6 +182,46 @@ class SLog
 		pg_close($dbconn);
 	}
 
+
+	public static function collectExploreStats() {
+		global $dbconn;
+
+		$s1 = "SELECT COUNT(id) FROM s_log";
+		$s2 = "SELECT COUNT(DISTINCT ip) FROM s_log";
+		$s3 = "SELECT COUNT(id) FROM s_log WHERE log like '%recentRoutes%'";
+		$s4 = "SELECT COUNT(id) FROM s_log WHERE log like '%lastSubmission%'";
+		
+		$r1 = pg_query($dbconn, $s1);
+		$d1 = pg_fetch_all($r1);
+		
+		$r2 = pg_query($dbconn, $s2);
+		$d2 = pg_fetch_all($r2);
+		
+		$r3 = pg_query($dbconn, $s3);
+		$d3 = pg_fetch_all($r3);
+		
+		$r4 = pg_query($dbconn, $s4);
+		$d4 = pg_fetch_all($r4);
+
+		$queryStats = array(
+			"totalQueries"=>$d1[0]['count'],
+			"totalIp"=>$d2[0]['count'],
+			"recentRoutes"=>$d3[0]['count'],
+			"lastSubmission"=>$d4[0]['count']
+			);
+
+		pg_free_result($r1);
+		pg_free_result($r2);
+		pg_free_result($r3);
+		pg_free_result($r4);
+
+		//print_r($queryStats);
+		pg_close($dbconn);
+		return $queryStats;
+		
+	}
+
+
 	public static function renderSearchLogD3($data, $filter=false) {
 		global $dbconn;
 
@@ -194,6 +234,9 @@ class SLog
 			$date2 = '2014-07-31';
 			$date1 = '2014-07-01';		
 		}
+
+
+		// collect some stats
 
 		//$sql = "select * from s_log order by id DESC";
 		$sql = "SELECT * from s_log Where timestamp >= $1 and timestamp < $2 order by id";
@@ -232,6 +275,7 @@ class SLog
 		return array(
 			"slogData"=>$data,
 			"slogDataD3"=>$data_to_d3,
+			"queryStats"=>$queryStats,
 			"date1"=>$date1,
 			"date2"=>$date2
 			);
