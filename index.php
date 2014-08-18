@@ -75,7 +75,8 @@ $ixHost = $_SERVER["SERVER_NAME"];
 <div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
   <img src="images/headerimage.jpg" width="1000" height="138">
-  <span style="float:right; background-color:yellow; padding: 3px 10px 3px 10px">Announcing upcoming RFP for software development. <a href="documents/IXmaps-RequestforProposals20140721.pdf" class="smallinks">Click here.</a></span>
+  <span style="float:right; background-color:yellow; padding: 3px 10px 3px 10px">Announcing upcoming RFP for software development. <a href="documents/IXmaps-RequestforProposals20140801.pdf" 
+class="smallinks">Click here.</a></span>
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
 
