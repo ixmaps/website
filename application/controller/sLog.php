@@ -113,7 +113,7 @@ $slogToD3 = json_encode($data['slogDataD3']);
 
 		jQuery.each(data, function(slogToD3Item, value) {
 			//console.log(slogToD3Item,value);  
-			console.log(value);  
+			//console.log(value);  
 
 			var sLogTableTR = jQuery('<tr class=""><td>'+value['date']+'</td><td>'+value['total']+'</td></tr>');
 		    jQuery(sLogTable).append(sLogTableTR);
