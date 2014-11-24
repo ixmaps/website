@@ -92,7 +92,7 @@ class="smallinks">Click here.</a></span>
 	<section id="content"><!-- #content -->
 
 		<article id="homepage-news">
-			<p class="justreleased">Recently Released</p> <p><b>Keeping Internet Users in the Know or in the Dark:</b><br>A Report on Data Privacy Transparency of Canadian Internet Service Providers.</p><p><a href="http://ixmaps.ca/transparency.php">Read the report</a></p>
+			<p class="justreleased">Forthcoming</p> <p><b>Keeping Internet Users in the Know or in the Dark:</b><br>2014 Report on Data Privacy Transparency of Canadian Internet Service Providers.</p><p><a href="http://ixmaps.ca/transparency.php">Read the 2013 report</a></p>
 		</article>
 		<article>
 			<!-- <div id="player-container"></div> -->
