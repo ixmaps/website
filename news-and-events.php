@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
@@ -19,7 +19,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -41,12 +41,12 @@
 </head>
 
 <body>
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
 
 		<section id="main"><!-- #main content and sidebar area -->
@@ -55,26 +55,27 @@
 
         		  <article>
         		  	<h2>News</h2>
+                        <p>The IXmaps project receives funding through the <a href="http://www.cira.ca/about-cira/community-investment-program/" target="_blank">Community Investment Program</a> of the Canadian Internet Registration Authority (CIRA) to further develop its on-line platform for visualizing the physical and organizational aspects of Canadian internet routing</p>
+
         		  		<p>IXmaps endorses the February 11, 2014 protest <a href="https://thedaywefightback.org/">The Day We Fight Back: Mass Surveillance Must Stop.</a>
 
-        		  		<p>The Canadian Internet Traffic Exchange (CIRA) has just <a href="http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange2.pdf" target="_blank">
-        		  		released a new report</a> which discusses what we term 'boomerang routing'</p>
+                        <p>The Canadian Internet Registration Authority (CIRA) has published <a href="http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange.pdf" target="_blank">Towards Efficiencies in Canadian Internet Traffic Exchange</a> (2012) which discusses what we term 'boomerang routing'
 
-						<p>Lee Rickwood discusses IXmaps and the upcoming Ontario Science Centre event in 
+						<p>Lee Rickwood discusses IXmaps and the upcoming Ontario Science Centre event in
 						<a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">
 						this article</a> on October 11, 2012.</p>
 
-						<p>The IXmaps project and its members were mentioned in 
+						<p>The IXmaps project and its members were mentioned in
 						<a href="http://www.mediacastermagazine.com/news/lack-of-internet-capacity-threatens-canadian-data-transmissions/1001653656/" target="_blank">this article</a>
 						about CIRA's concerns with Canadian IXPs and boomerang traffic on August 29, 2012.</p>
 
-						<p>The IXmaps team is greatly saddened by the unexpected passing of our dear friend 
+						<p>The IXmaps team is greatly saddened by the unexpected passing of our dear friend
 						and colleague, Erik "Possum" Stewart. Erik was a talented and fiercely intelligent member of our team,
-						who possessed a considerable breadth of knowledge and experience. He will be greatly missed. 
-						More information can be <a href="../erik.php" target="_blank"> 
+						who possessed a considerable breadth of knowledge and experience. He will be greatly missed.
+						More information can be <a href="../erik.php" target="_blank">
 						found here</a>.</p>
-				
-						<p>IXmaps was the subject of an 
+
+						<p>IXmaps was the subject of an
 						<a href="http://www.calgaryherald.com/technology/Mapping+privacy+concerns+Your+data+crosses+borders+without+your+knowledge/7018373/story.html#ixzz22Eek5tey"
 						target="_blank">article in the Calgary Herald</a> by Lee Rickwood on July 31, 2012</p>
 
@@ -83,7 +84,7 @@
 						target="_blank">How Are Canadians Affected By The USA Patriot Act And Cloud Computing?</a> emphasizes many of the
 						issues that the IXmaps project has hoped to expose
 
-						<p>IXmaps mentioned in <a href="http://www.democracynow.org/2012/4/26/targeted_hacker_jacob_appelbaum_on_cispa" target="_blank">Democracy Now! 
+						<p>IXmaps mentioned in <a href="http://www.democracynow.org/2012/4/26/targeted_hacker_jacob_appelbaum_on_cispa" target="_blank">Democracy Now!
 						interview with Jacob Appelbaum, April 26, 2012</a></p>
 
 					<h2>Research Papers</h2>
@@ -98,12 +99,12 @@
 
 						<p>Obar, J.A. "Phantom data sovereigns: Walter Lippmann, big data and the fallacy of personal data sovereignty", under review.</p>
 
-						<p>Clement, A. “IXmaps – Tracking your personal data through the NSA’s warrantless wiretapping sites” IEEE - ISTAS conference, Toronto, 
+						<p>Clement, A. “IXmaps – Tracking your personal data through the NSA’s warrantless wiretapping sites” IEEE - ISTAS conference, Toronto,
 						June 26-27, 2013: <a href="https://www.dropbox.com/s/9y4xtavova2qtj4/ISTAS13%20paper%2026%20IXmaps%20%E2%80%93%20Tracking%20May%2022.pdf">available here</a></p>
 
 						<p>Paterson, N. “Veillances: protocols & network surveillance”, IEEE - ISTAS conference, Toronto, June 26-27, 2013:
-						<a href="https://www.dropbox.com/s/elejw106elrckse/Nancy%20final-for-conf-MSW_A4_format-14.doc"> available here</a></p>							
-					
+						<a href="https://www.dropbox.com/s/elejw106elrckse/Nancy%20final-for-conf-MSW_A4_format-14.doc"> available here</a></p>
+
 					<h2>Presentations</h2>
 						<p>Clement, A. "Privacy, NSA surveillance and Canadian internet 'boomerang' traffic: Policy implications for Canadian businesses and public institutions",
 						presented at International Privacy Day, Toronto, January 28, 2014. A video of the presentation is available
@@ -122,44 +123,44 @@
 
 						<p>Obar, J.A. “Big data and the fallacy of personal data sovereignty”, the Technology and Intellectual Property Group Annual Conference, University of Toronto Law School, 2013.</p>
 
-						<p>IXmaps is in the Hot Zone at the 
+						<p>IXmaps is in the Hot Zone at the
 						<a href="http://ontariosciencecentre.ca/Calendar/108/" target="_blank">
 						Ontario Science Centre</a>.<br />
 						<b>Event date:</b> Oct 13, 2012</p>
-		
+
 						<p>IXmaps research was presented in the Surveillant Geographies session at
 						<a href="http://www.rgs.org/WhatsOn/ConferencesAndSeminars/Annual+International+Conference/Programme/" target="_blank">
 						the Royal Geographical Society's annual conference in Edinburgh </a><br />
 						<b>Event dates:</b> July 3 - July 5, 2012</p>
-				
+
 						<p>IXmaps hosted an Alternative Event Session at the
                         <a href="http://www.ischools.org/iConference12/2012index/" target="_blank">
-                        2012 iConference, hosted by the Faculty of Information at the University of Toronto</a>. A copy of the presentation can be 
+                        2012 iConference, hosted by the Faculty of Information at the University of Toronto</a>. A copy of the presentation can be
                         <a href="documents/iConference2012_Presentation_Feb9.pdf" target="_blank">found here</a><br />
                         </p>
 
-						<p>A copy of a presentation given at the Centre for Innovation Law and Policy's 
-						<em>Cloud Computing Conference: Law and Policy Issues in the Cloud</em>, from October, 2011, can be  
+						<p>A copy of a presentation given at the Centre for Innovation Law and Policy's
+						<em>Cloud Computing Conference: Law and Policy Issues in the Cloud</em>, from October, 2011, can be
 						<a href="documents/ixmaps_presentation_cloudlaw_Oct14.pdf" target="_blank">found here</a>.</p>
 
 						<p>IXmaps was presented at <a href="http://www.digitallymediatedsurveillance.ca/?page_id=212" target="_blank">
-						Cyber Surveillance in Everyday Life: An International Workshop</a>, held May 12 - 15, 2011, 
+						Cyber Surveillance in Everyday Life: An International Workshop</a>, held May 12 - 15, 2011,
 						at the University of Toronto</p>
 
-						<p>To view a presentation on the IXmaps project (in .pdf format) at the <em>Global Surveillance Society</em> 
-						conference, City University, London, UK, April, 2010, please 
+						<p>To view a presentation on the IXmaps project (in .pdf format) at the <em>Global Surveillance Society</em>
+						conference, City University, London, UK, April, 2010, please
 						<a href="documents/ixmaps_presentation_april14.pdf" target="_blank">click here</a>.</p>
-						<p>For a revised version of the paper presented at that conference, titled <em>IXmaps: 
+						<p>For a revised version of the paper presented at that conference, titled <em>IXmaps:
 						Interactively mapping NSA surveillance points in the internet &ldquo;cloud&rdquo;, </em>
 						please <a href="documents/interactively_mapping_paper.pdf" target="_blank">  click here</a></p>
 
 				    	<p>IXmaps debuted at <a href="http://www.munkschool.utoronto.ca/news/view/25" target="_blank">
-				    	Securing the Cyber Commons: A Global Dialogue</a>, a cyber security forum held on Monday, 
+				    	Securing the Cyber Commons: A Global Dialogue</a>, a cyber security forum held on Monday,
 				    	March 28, 2011, at the Munk School of Global Affairs, University of Toronto.</p>
 
 				    	<p>To download an IXmaps poster, <a href="http://ixmaps.ischool.utoronto.ca/documents/ixmaps_nsa_poster.pdf">click here</a></p>
-                		
-					
+
+
 					<h2>Supporting Links</h2>
                         <p>Projects that are similar in scope to IXmaps include the <a href="http://www.netdimes.org/new/" target="_blank">DIMES project</a> from Tel Aviv University, the
                         <a href="http://www.caida.org/tools/visualization/gtrace/" target="_blank">CAIDA Gtrace</a> project, the <a href="http://sourceforge.net/projects/geotrace/" target="_blank">
