@@ -29,7 +29,7 @@ body #container{
 	margin: 2em;
 	padding: 2em;
 	width: 20px;
-	border: 1px solid red
+	border: 1px solid red;
 }
 
 #download p{
@@ -53,17 +53,17 @@ h1,h2,h3,h4,h5,h6 {
 	color: #10578b;
 }
 
-#container #download  { 
+#container #download  {
 	background-color: #fef8eb;
 	border: 4px solid #be9f23;
 	text-align: center;
-	padding: 2em 0;
-	margin-bottom: 2em
+	padding: 2.5em 1em 1em 1em;
+	margin-bottom: 2em;
 }
 
 #download h3{
 	margin:0 !important;
-	padding: 0
+	padding: 0;
 }
 
 #contents sup a{
@@ -88,7 +88,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #toc ul li:before {
     content: "•  ";
-    color: #be9f23; 
+    color: #be9f23;
 }
 
 #toc ul ul{ margin: 0 1em; list-style-type: none;}
@@ -96,7 +96,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #download p{
 	margin: 1em 0 0 0;
-	padding-: 0
+	padding-: 0;
 }
 #download p.readbelow{
 	font-size: 1.33em;
@@ -106,7 +106,7 @@ h1,h2,h3,h4,h5,h6 {
 	color: #be9f23;
 	text-transform: lowercase;
 	font-variant: small-caps;
-	letter-spacing: 1px
+	letter-spacing: 1px;
 }
 
 #download p.readbelow a{
@@ -124,12 +124,12 @@ h1,h2,h3,h4,h5,h6 {
 #contents a.cc-image {
 	background-image: none;
 	padding: 1em 0
-	
+
 }
 
 #contents a.cc-image:hover {
 	background: none;
-	
+
 }
 
 .cc{
@@ -171,7 +171,7 @@ h1,h2,h3,h4,h5,h6 {
 	background-image: none;
 	padding-bottom: -4px;
 	text-shadow: none;
-	}	
+	}
 
 #contents ol{
 	margin: 0 0 1em 2em
@@ -191,8 +191,8 @@ img.startable {
 	margin: 4em 0 2em 0;
 
 }
-#download h2, 
-#toc h2, 
+#download h2,
+#toc h2,
 #contents h2{
 	font-size: 2.25em;
 	line-height: 1em;
@@ -200,7 +200,7 @@ img.startable {
 	margin: .25em 0 .5em;
 }
 
-#download h3,  
+#download h3,
 #contents h3{
 	font-size: 2em;
 	line-height: 2em;
@@ -239,7 +239,7 @@ img.startable {
 }
 #contents ul li:before {
     content: "•  ";
-    color: #be9f23; 
+    color: #be9f23;
 }
 
 

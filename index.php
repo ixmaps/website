@@ -75,7 +75,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 <div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
   <img src="images/headerimage.jpg" width="1000" height="138">
-  <span style="float:right; background-color:yellow; padding: 3px 10px 3px 10px">IXmaps is looking for software developers. <a href="documents/IXmaps-RequestforProposals20140815.pdf"
+  <span style="float:right; background-color:yellow; padding: 3px 10px 3px 10px">IXmaps is looking for software developers with IP geo-location experience.<a href="documents/IXmaps-RequestforProposals20140815.pdf"
 class="smallinks">Click here.</a></span>
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
@@ -92,7 +92,7 @@ class="smallinks">Click here.</a></span>
 	<section id="content"><!-- #content -->
 
 		<article id="homepage-news">
-			<p class="justreleased">Forthcoming</p> <p><b>Keeping Internet Users in the Know or in the Dark:</b><br>2014 Report on Data Privacy Transparency of Canadian Internet Service Providers.</p><p><a href="http://ixmaps.ca/transparency.php">Read the 2013 report</a></p>
+			<p class="justreleased">Forthcoming</p> <p><b>Keeping Internet Users in the Know or in the Dark:</b><br>2014 Report on Data Privacy Transparency of Canadian Internet Service Providers.</p><p><a href="http://ixmaps.ca/transparency.php"> Comment on the draft 2014 criteria. Read the 2013 report</a></p>
 		</article>
 		<article>
 			<!-- <div id="player-container"></div> -->
