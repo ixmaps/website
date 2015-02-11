@@ -35,17 +35,19 @@
 
 	<section id="hero">
 		<img src="transparency/img/hero-banner.png" alt="Keeping Internet Users in the Know or in the Dark: Data Privacy Transparncy of Canadian Internet Service Providers">
-		<br />
-		<p>We welcome <a href="mailto: ixmaps@utoronto.ca?subject=Transparency feedback" class="smallinks">your feedback</a> on the draft criteria for the 2014 report found <a href="documents/2014_Carrier_Evaluation_Critieria_Dec_11.docx" target="_blank">here (.docx)</a> and <a href="documents/2014_Carrier_Evaluation_Critieria_Dec_11.pdf" target="_blank">here (.pdf)</a>. Criteria will be finalized December 20. The 2014 report will be launched the week of March 9, 2015.</p>
+
+		<!-- yeah, this is gross. This is what comes from not hand-knitting all your html/css -->
+		<section id="download" style="padding-top:1em">
+			<p class="readbelow"><em>The evaluation criteria for the 2014 report can be found <a href="documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf" target="_blank">here (.pdf)</a>. The 2014 report will be launched the week of March 9, 2015.</em></p>
+			<p class="readbelow"><em>Continue reading below for the 2013 report.</em><br><a href="#toc">&#9759</a></p>
+		</section>
 
 		<img class="startable" src="transparency/img/star-table.png">
 	</section><!-- end of #hero -->
 
 	<section id="download">
-		<h3><a class="btn" href="transparency/img/DataPrivacyTransparencyofCanadianISPs.pdf" target="_blank">Download the Full Report</a></h3>
+		<h3><a class="btn" href="transparency/img/DataPrivacyTransparencyofCanadianISPs.pdf" target="_blank">Download the Full 2013 Report</a></h3>
 		<p>Download the complete <em>“Keeping Internet Users in the Know or in the Dark”</em> report (PDF)</p>
-
-		<p class="readbelow"><em>Continue reading below for the 2013 report.</em><br><a href="#toc">&#9759</a></p>
 	</section>
 
 	<section id="toc">
