@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
@@ -19,7 +19,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -37,35 +37,38 @@
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="/css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />	
+	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />
 </head>
 
 <body>
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
 
 <section id="main"><!-- #main content and sidebar area -->
-	
+
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 
 	  <article>
 		<h2>About the IXmaps Project</h2>
-	    <p>IXmaps is an interactive tool that enables internet users and researchers to study the route(s) that data packets take across the internet,
-	    with surveillance and other 'interesting' sites highlighted along the way. It also provides transparency and privacy ratings of Canadian carriers.
-	    It has been under development since 2008 with research funding from 
+	    <p>The IXmaps research project was created to develop an interactive mapping tool that enables internet users and researchers to study the routes that data packets take across the internet, with surveillance and other 'interesting' features highlighted along the way. It also annually reports on the privacy transparency ratings of internet carriers that route Canadian traffic.
+	    Beginning in 2008, the project has received funding from
 	    <a href="http://www.sshrc-crsh.gc.ca/funding-financement/programs-programmes/itst/research_grants-subventions_recherche-eng.aspx" target="_blank">
-	    Social Sciences and Humanities Research Council of Canada</a>.
-	    and the
+	    Social Sciences and Humanities Research Council of Canada (SSHRC)</a>
+	    ,
 	    <a href="http://www.priv.gc.ca/index_e.asp" target="_blank">
-	    Office of the Privacy Commissioner of Canada</a>. The views expressed herein are those of the author(s) and do not necessarily reflect those of the funders
+	    Office of the Privacy Commissioner of Canada (OPC)</a>
+		and
+		<a href="http://www.cira.ca/" target="_blank">
+		Canadian Internet Registration Authority (CIRA)</a>
+		. The views expressed herein are those of the author(s) and do not necessarily reflect those of the funders
 	    </p>
-	   	<p>IXmaps is affiliated with the <a href="http://www.sscqueens.org/projects/the-new-transparency/about" 
+	   	<p>IXmaps is affiliated with the <a href="http://www.sscqueens.org/projects/the-new-transparency/about"
 	   	target="_blank">New Transparency Project</a> and the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">
 	   	Information Policy Research Program</a> at the <a href="http://www.ischool.utoronto.ca/" target="_blank">
 	   	Faculty of Information</a>, <a href="http://www.utoronto.ca/" target="_blank">University of Toronto</a>.</p>
@@ -73,20 +76,21 @@
 		<ul>
 		    <li><a href="http://www.ischool.utoronto.ca/users/andrewclement" target="_blank">
 		    Andrew Clement, PhD</a>, Professor, Faculty of Information, University of Toronto</li>
-		   	<li><a href="http://www.vacuumwoman.com/" target="_blank">
-		   	Nancy Paterson, PhD</a>, Associate Professor, OCAD University</li>
 		    <li><a href="http://www.linkedin.com/pub/colin-mccann/27/867/820" target="_blank">
 		    Colin McCann, MI</a>, Faculty of Information, University of Toronto</li>
 		    <li><a href="http://www.ischool.utoronto.ca/students/antonio-gamba-bari" target="_blank">
 		    Antonio Gamba, PhD Student</a>, Faculty of Information, University of Toronto</li>
 		    <li><a href="http://tc.msu.edu/users/jonathan-obar" target="_blank">
-		    Jonathan Obar, Post Doc</a>, Faculty of Information, University of Toronto</li>
-		    <li><a href="http://www.linkedin.com/in/johnharrisstevenson" target="_blank">
-		    John Stevenson, PhD</a>, University of Toronto</li>
+		    Jonathan Obar, PhD</a>, Faculty of Social Science and Humanities, University of Ontario Institute of Technology</li>
+		    <li>David Mason, Software Developer</a>, Montreal</li>
+		    <li>Alex Goel, MI Student</a>, Faculty of Information, University of Toronto</li>
 		</ul>
         <h5>Former Members</h5>
 		<ul>
-		    <li><a href="http://www.ischool.utoronto.ca/users/davidjphillips" target="_blank">David J. Phillips, PhD</a>, Associate Professor, Faculty of Information, University of Toronto</li>
+			<li><a href="http://www.vacuumwoman.com/" target="_blank">
+			Nancy Paterson, PhD</a>, Associate Professor, OCAD University</li>
+		    <li><a href="http://www.ischool.utoronto.ca/users/davidjphillips" target="_blank">
+		    David J. Phillips, PhD</a>, Associate Professor, Faculty of Information, University of Toronto</li>
 		    <li><a href="/erik.php" target="_blank">
 		    Erik Stewart</a>, Programmer, Toronto</li>
 		    <li>Steve Harvey, Software Developer, Toronto</li>
@@ -95,6 +99,8 @@
 		    Gabby Resch, PhD Student</a>, Faculty of Information, University of Toronto</li>
 		    <li><a href="ca.linkedin.com/pub/lauren-dimonte/27/15/169" target="_blank">
 		    Lauren Di Monte, Graduate student</a>, Faculty of Information, University of Toronto</li>
+		    <li><a href="http://www.linkedin.com/in/johnharrisstevenson" target="_blank">
+		    John Stevenson, PhD student</a>, University of Toronto</li>
 		    <br><br>
             <img src="images/logos.jpg" width="650" height="175"></p>
 	        </li>
