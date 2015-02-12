@@ -55,11 +55,17 @@
 
         		  <article>
         		  	<h2>News</h2>
-                        <p>The IXmaps project receives funding through the <a href="http://www.cira.ca/about-cira/community-investment-program/" target="_blank">Community Investment Program</a> of the Canadian Internet Registration Authority (CIRA) to further develop its on-line platform for visualizing the physical and organizational aspects of Canadian internet routing</p>
+                        <p>IXmaps was profiled in
+                        <a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">
+                        a Toronto Star article</a> on February 04, 2015 as part of the newspaper's segment on privacy.</p>
+
+                        <p>The IXmaps project is proud to announce the upcoming release of the its annual report on the Data Privacy Transparency of Canadian Internet Service Providers titled <a href="../transparency.php" target="_blank">Keeping Internet Users in the Know of in the Dark</a> for 2014.</p>
+
+                        <p>The IXmaps project receives funding through the <a href="http://www.cira.ca/about-cira/community-investment-program/" target="_blank">Community Investment Program</a> of the Canadian Internet Registration Authority (CIRA) to further develop its on-line platform for visualizing the physical and organizational aspects of Canadian internet routing.</p>
 
         		  		<p>IXmaps endorses the February 11, 2014 protest <a href="https://thedaywefightback.org/">The Day We Fight Back: Mass Surveillance Must Stop.</a>
 
-                        <p>The Canadian Internet Registration Authority (CIRA) has published <a href="http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange.pdf" target="_blank">Towards Efficiencies in Canadian Internet Traffic Exchange</a> (2012) which discusses what we term 'boomerang routing'
+                        <p>The Canadian Internet Registration Authority (CIRA) has published <a href="http://www.cira.ca/assets/Uploads/Toward-Efficiencies-in-Canadian-Internet-Traffic-Exchange.pdf" target="_blank">Towards Efficiencies in Canadian Internet Traffic Exchange</a> (2012) which discusses what we term 'boomerang routing'.
 
 						<p>Lee Rickwood discusses IXmaps and the upcoming Ontario Science Centre event in
 						<a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">
@@ -77,15 +83,15 @@
 
 						<p>IXmaps was the subject of an
 						<a href="http://www.calgaryherald.com/technology/Mapping+privacy+concerns+Your+data+crosses+borders+without+your+knowledge/7018373/story.html#ixzz22Eek5tey"
-						target="_blank">article in the Calgary Herald</a> by Lee Rickwood on July 31, 2012</p>
+						target="_blank">article in the Calgary Herald</a> by Lee Rickwood on July 31, 2012.</p>
 
 						<p>Florence de Borja's thoughtful discussion of
 						<a href="http://www.cloudtweaks.com/2012/07/how-are-canadians-affected-by-the-usa-patriot-act-and-cloud-computing/"
 						target="_blank">How Are Canadians Affected By The USA Patriot Act And Cloud Computing?</a> emphasizes many of the
-						issues that the IXmaps project has hoped to expose
+						issues that the IXmaps project has hoped to expose.
 
 						<p>IXmaps mentioned in <a href="http://www.democracynow.org/2012/4/26/targeted_hacker_jacob_appelbaum_on_cispa" target="_blank">Democracy Now!
-						interview with Jacob Appelbaum, April 26, 2012</a></p>
+						interview with Jacob Appelbaum, April 26, 2012</a>.</p>
 
 					<h2>Research Papers</h2>
 						<p>Clement, A. "NSA Surveillance: Exploring the Geographies of Internet Interception", Proceedings of the iConference 2014, Berlin, Mar 4-7, 2014:
