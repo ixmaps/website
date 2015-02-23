@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
@@ -19,7 +19,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -37,20 +37,20 @@
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />	
+	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />
 </head>
 
 <body>
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
 
 <section id="main"><!-- #main content and sidebar area -->
-	
+
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 
@@ -60,21 +60,21 @@
 	    <h5>Geolocation</h5>
         <p><a href="documents/geolocation.pdf" target="_blank">This  document</a></a> provides greater technical detail on the geolocation process we have employed. It outlines our attempt to geolocate IP addresses (and their corresponding routers) for the IXmaps database, details the logic and methods we have employed, and provides current information about parsing specific ISP hostnames. While the geolocation process provides more accurate longitude and latitude than is often provided by Maxmind, it generally remains reliable only at a city level; many corrections place routers at a generic city location instead of in a particular building.</p>
         <h5>System</h5>
-	    <p>IXmaps is hosted on servers at the University of Toronto and OCAD University. 
-		    All of our data is stored in a <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> 
+	    <p>IXmaps is hosted on servers at the University of Toronto.
+		    All of our data is stored in a <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>
 	      database built by the IXmaps research team. </p>
-			
-		  <p>TRgen, the software used to write to the database, is a cross-platform, free and open source 	
+
+		  <p>TRgen, the software used to write to the database, is a cross-platform, free and open source
 traceroute generator built in C. </p>
 				  <ul class="nobullet">
-					  <li><a href="TrGen/tr-sub-0.8.6.tar.gz" target="_blank">Download source code</a> 
+					  <li><a href="TrGen/tr-sub-0.8.6.tar.gz" target="_blank">Download source code</a>
 						  for the main traceroute submission (tr-sub) program.</li>
 
-					  <li><a href="TrGen/tr-do.tar.gz" target="_blank">Download source code</a> for the 
+					  <li><a href="TrGen/tr-do.tar.gz" target="_blank">Download source code</a> for the
 						  wmtrcmd utility program. </li>
-							
-					  <li><a href="TrGen/doxygen/index.html" target="_blank">View program documentation</a> 
-						  for the main traceroute submission (tr-sub) program.</li>                      
+
+					  <li><a href="TrGen/doxygen/index.html" target="_blank">View program documentation</a>
+						  for the main traceroute submission (tr-sub) program.</li>
 				  </ul>
 
 	    <h5>&nbsp;</h5>

@@ -61,6 +61,10 @@
 
                         <p>The IXmaps project is proud to announce the upcoming release of the its annual report on the Data Privacy Transparency of Canadian Internet Service Providers titled <a href="../transparency.php" target="_blank">Keeping Internet Users in the Know of in the Dark</a> for 2014.</p>
 
+                        <p>This article in TechVibes highlights the importance of data privacy and transparency <a href="http://www.techvibes.com/blog/canadian-internet-providers-transparent-protecting-consumer-data-2014-03-27" target="_blank">through a discussion of the recent IXmaps report</a>.
+
+                        <p>IXmaps and the transparency report <a href="../transparency.php" target="_blank">Keeping Internet Users in the Know or in the Dark</a> were the subject of <a href="http://www.computerdealernews.com/news/canadian-isps-need-to-be-more-transparent-u-of-t-report/32674" target="_blank">this article in Computer Dealer News</a> on April 1st, 2014.
+
                         <p>The IXmaps project receives funding through the <a href="http://www.cira.ca/about-cira/community-investment-program/" target="_blank">Community Investment Program</a> of the Canadian Internet Registration Authority (CIRA) to further develop its on-line platform for visualizing the physical and organizational aspects of Canadian internet routing.</p>
 
         		  		<p>IXmaps endorses the February 11, 2014 protest <a href="https://thedaywefightback.org/">The Day We Fight Back: Mass Surveillance Must Stop.</a>
@@ -75,11 +79,8 @@
 						<a href="http://www.mediacastermagazine.com/news/lack-of-internet-capacity-threatens-canadian-data-transmissions/1001653656/" target="_blank">this article</a>
 						about CIRA's concerns with Canadian IXPs and boomerang traffic on August 29, 2012.</p>
 
-						<p>The IXmaps team is greatly saddened by the unexpected passing of our dear friend
-						and colleague, Erik "Possum" Stewart. Erik was a talented and fiercely intelligent member of our team,
-						who possessed a considerable breadth of knowledge and experience. He will be greatly missed.
-						More information can be <a href="../erik.php" target="_blank">
-						found here</a>.</p>
+						<p>The IXmaps team is greatly saddened by the unexpected passing of our dear friend and colleague, Erik "Possum" Stewart. Erik was a talented and fiercely intelligent member of our team,
+						who possessed a considerable breadth of knowledge and experience. He will be greatly missed. More information can be <a href="../erik.php" target="_blank">found here</a>.</p>
 
 						<p>IXmaps was the subject of an
 						<a href="http://www.calgaryherald.com/technology/Mapping+privacy+concerns+Your+data+crosses+borders+without+your+knowledge/7018373/story.html#ixzz22Eek5tey"
