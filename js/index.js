@@ -110,34 +110,6 @@ var initialize = function() {
 	jQuery('#news-btn').click(function() {
 		window.open("/documents/Keeping_Internet_Users_Summ_review_App_final_Jan_27.pdf");
 	});
-
-
-	// jQuery('.slideshow-img').click(function(ev) {
-	// 	var url = jQuery(ev.target).data('url');
-	// 	window.open(url);
-	// });
-
-	jQuery('.text-video-link').click(function(ev) {
-		//var playerEl = ev.target.parentElement.parentElement.siblings()[0].children[1];			// lololololol
-		// setupVideoPlayer(ev.target.parentElement.parentElement.parentElement.id);   TODO: FIXME
-	});
-}
-
-
-function setupVideoPlayer(vidId) {
-	// jQuery('.slideshow').cycle('pause');
-	// jQuery('.slideshow-img-container').hide();
-	// jQuery('#play-icon').hide();
-	// jQuery('#pager').hide();
-	// jQuery('#'+vidId+' .player-container').show();
-	// //jQuery('#player-container').css('z-index',999);
-
-	// jQuery('#'+vidId+' .player-container').html('<iframe id="player_'+vidId+'" class="vid-iframe" src="http://www.youtube.com/embed/'+vidId+'?enablejsapi=1&autoplay=1" frameborder="0" allowfullscreen></iframe>');
-	// new YT.Player('player_'+vidId, {
- //        events: {
- //            'onStateChange': onPlayerStateChange
- //        }
-	// });
 }
 
 function onPlayerStateChange(event) {

@@ -403,7 +403,7 @@ var loadAutoCompleteData = function(type, value) {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Autocomplete data loaded : "+type);
+      console.log("Autocomplete data loaded: "+type);
       //jQuery('#autocomplete-data').html(e);
 
       // populate js auto-complete array(s)
@@ -418,7 +418,6 @@ var loadAutoCompleteData = function(type, value) {
 };
 
 var populateAutoCompleteArrays = function(type, data){
-  console.log('Populating AutoComplete Arrays...')
   if(type=='country') {
     countryTags.length = 0;
     jQuery.each(data, function(key, value) {
@@ -426,7 +425,6 @@ var populateAutoCompleteArrays = function(type, data){
         countryTags.push(value);
       }
     });
-    console.log(type+" : ["+countryTags.length+"]");
 
   } else if(type=='region') {
     regionTags.length = 0;
@@ -435,7 +433,6 @@ var populateAutoCompleteArrays = function(type, data){
        regionTags.push(value);
       }
     });
-    console.log(type+" : ["+regionTags.length+"]");
 
   } else if(type=='city') {
     cityTags.length = 0;
@@ -444,7 +441,6 @@ var populateAutoCompleteArrays = function(type, data){
        cityTags.push(value);
       }
     });
-    console.log(type+" : ["+cityTags.length+"]");
 
   } else if(type=='asnum') {
     ASnumTags.length = 0;
@@ -453,7 +449,6 @@ var populateAutoCompleteArrays = function(type, data){
        ASnumTags.push(value);
       }
     });
-    console.log(type+" : ["+ASnumTags.length+"]");
 
   } else if(type=='zipCode') {
     zipCodeTags.length = 0;
@@ -462,28 +457,26 @@ var populateAutoCompleteArrays = function(type, data){
        zipCodeTags.push(value);
       }
     });
-    console.log(type+" : ["+zipCodeTags.length+"]");
 
-    } else if(type=='ISP') {
+  } else if(type=='ISP') {
     ISPTags.length = 0;
     jQuery.each(data, function(key, value) {
       if(value != null){
        ISPTags.push(value);
       }
-    });
-    console.log(type+" : ["+ISPTags.length+"]");
-    } else if(type=='submitter') {
-    ISPTags.length = 0;
+  });
+
+  } else if(type=='submitter') {
+    submitterTags.length = 0;
     jQuery.each(data, function(key, value) {
       if(value != null){
        submitterTags.push(value);
       }
-    });
-    console.log(type+" : ["+submitterTags.length+"]");
+  });
   }
 
   if(firstLoad==true){
-      firstLoadFunc();
+    firstLoadFunc();
   }
 
 }
