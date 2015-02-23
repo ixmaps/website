@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
@@ -20,7 +20,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -38,8 +38,8 @@
 	<script type="text/javascript">
 	    $.noConflict();
 	    // jquery and prototype fight for the $
-	</script>	
-	
+	</script>
+
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
@@ -47,16 +47,16 @@
 </head>
 
 <body onload="initialize()">
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
 
 <section id="main"><!-- #main content and sidebar area -->
-	
+
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 	<article id="tour-container">
@@ -64,7 +64,7 @@
 		<h2>A brief overview of what we're currently interested in...</h2>
 		<div class="tour-container">
 			<div class="tour-img-container">
-				<h5>Mapping How Data Travels</h5>		
+				<h5>Mapping How Data Travels</h5>
 				<img class="tour-img" src="images/ShowcasePage_Mapping_How_Data_Travels.jpg"/>
 			</div>
 			<div class="tour-text-container">
@@ -75,26 +75,26 @@
 		</div>
 		<div class="tour-container">
 			<div class="tour-img-container">
-				<h5>Tracking Internet Surveillance</h5>		
+				<h5>Tracking Internet Surveillance</h5>
 				<img class="tour-img" src="images/ShowcasePage_Tracking_Internet_Surveillance.jpg"/>
 			</div>
 			<div class="tour-text-container">
 				<p><a class="explore-route-1859">This is traceroute #1859</a>. TR1859 shows data packets travelling from a home computer in Toronto to the San Francisco Art Institute's website. Along this route, we see that the data passes through a known NSA surveillance site, AT&T's internet switching facility in San Francisco, located at 611 Folsom Street.At this site, a <a href="/faq.php#Splitter Cabinet (7th Floor)">splitter cabinet</a> has been installed to divert a copy of all gateway traffic to NSA computers for inspection.</p>
-				<p>The NSA is strongly suspected of having installed 15-20 similar spy rooms at other locations across the United States, including Los Angeles, New York and Chicago. The IXmaps database contains hundreds of routes that pass through both known and suspected NSA suveillance sites. <a href="/explore">See more routes that travel through NSA surveillance sites</a></p>
+				<p>The NSA is strongly suspected of having installed 15-20 similar spy rooms at other locations across the United States, including Los Angeles, New York and Chicago. The IXmaps database contains hundreds of routes that pass through both known and suspected NSA suveillance sites. <a class="explore-nsa-routes">See more routes that travel through NSA surveillance sites</a></p>
 				<p><a href="https://docs.google.com/spreadsheet/ccc?key=0Aiub6gMLPmfYdGp3VzBRWU1kSnNhbWNqaHRFVlNCcWc&authkey=CMeo8ZkG&hl=en_US&authkey=CMeo8ZkG#gid=0">See a summary of the evidence supporting our claims regarding the NSA</a></p>
 			</div>
 		</div>
 		<div class="tour-container">
 			<div class="tour-img-container">
-				<h5>Canadian Network Sovereignty</h5>		
+				<h5>Canadian Network Sovereignty</h5>
 				<img class="tour-img" src="images/ShowcasePage_Cdn_Network_Sovereignty.jpg"/>
 			</div>
 			<div class="tour-text-container">
 				<p><a class="explore-route-3381">This is traceroute #3381</a>. TR3381 shows data packets travelling from a home computer in Toronto to a local news and entertainment website. Along this route, we see that <a href="/faq.php#Packet">packets</a> that begin and end in Toronto, pass through Chicago, a suspected NSA surveillance site.</p>
-				<p>As a result of many technical, economic and policy choices made principally by private corporations, Canadian internet traffic is often routed through the US, even when both origin and destination are within Canada. These "<a href="explore-boomerang-routes">boomerang routes</a>" prompt concerns regarding <a href="/sovereignty">Canadian network sovereignty</a>, since Canadians' <a href="/faq.php#Packet">packets</a> passing through routers in the US are subject to US interests, such as surveillance under provisions of the USA Patriot Act or the NSA's warrentless surveillance program described elsewhere. The IXmaps database contains hundreds of examples of Canadian boomerang routes. <a href="explore-boomerang-routes">See examples here.</a></p>
+				<p>As a result of many technical, economic and policy choices made principally by private corporations, Canadian internet traffic is often routed through the US, even when both origin and destination are within Canada. These "<a class="explore-boomerang-routes">boomerang routes</a>" prompt concerns regarding <a href="/sovereignty">Canadian network sovereignty</a>, since Canadians' <a href="/faq.php#Packet">packets</a> passing through routers in the US are subject to US interests, such as surveillance under provisions of the USA Patriot Act or the NSA's warrentless surveillance program described elsewhere. The IXmaps database contains hundreds of examples of Canadian boomerang routes. <a class="explore-boomerang-routes">See examples here.</a></p>
 			</div>
 		</div>
-	
+
 	</article>
     </section><!-- end of #content -->
 </section><!-- end of #container -->

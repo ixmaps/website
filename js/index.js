@@ -1,4 +1,4 @@
-var baseURL = 'http://www.ixmaps.ca'
+var baseURL = 'http://www.ixmaps.ca/'
 
 var initialize = function() {
 
@@ -20,7 +20,7 @@ var initialize = function() {
 					constraint4: "1859",
 					constraint5: "AND"
 				}
-			}	
+			}
 		};
 		JSONstr = JSON.stringify(str);
 		window.location = baseURL + '/explore.php?data=' + JSONstr;
@@ -44,12 +44,12 @@ var initialize = function() {
 					constraint4: "3381",
 					constraint5: "AND"
 				}
-			}	
+			}
 		};
 		JSONstr = JSON.stringify(str);
 		window.location = baseURL + '/explore.php?data=' + JSONstr;
 	});
-	
+
 	jQuery('.explore-boomerang-routes').click(function() {
 		var str = {
 			"parameters":
@@ -89,7 +89,7 @@ var initialize = function() {
 		var JSONstr = JSON.stringify(str);
 		window.location = baseURL + 'explore.php?data=' + JSONstr;
 	});
-	
+
 	jQuery('.explore-my-country-routes').click(function() {
 		var str = {
 			"parameters":
@@ -115,8 +115,21 @@ var initialize = function() {
 		var JSONstr = JSON.stringify(str);
 		window.location = baseURL + 'explore.php?data=' + JSONstr;
 	});
-	
-	
+
+	jQuery('.explore-nsa-routes').click(function() {
+		var str = {
+			"parameters":
+			{
+				   "submitOnLoad":true,
+				   "submissionType":null,
+				   "otherFunction":"nsas"
+			}
+		};
+		var JSONstr = JSON.stringify(str);
+		window.location = baseURL + 'explore.php?data=' + JSONstr;
+	});
+
+
 	jQuery('#news-btn').click(function() {
 		window.open("/documents/Keeping_Internet_Users_Summ_review_App_final_Jan_27.pdf");
 	});
@@ -126,11 +139,11 @@ var initialize = function() {
 	// 	var url = jQuery(ev.target).data('url');
 	// 	window.open(url);
 	// });
-	
+
 	jQuery('.text-video-link').click(function(ev) {
 		//var playerEl = ev.target.parentElement.parentElement.siblings()[0].children[1];			// lololololol
 		// setupVideoPlayer(ev.target.parentElement.parentElement.parentElement.id);   TODO: FIXME
-	});	
+	});
 }
 
 
@@ -141,7 +154,7 @@ function setupVideoPlayer(vidId) {
 	// jQuery('#pager').hide();
 	// jQuery('#'+vidId+' .player-container').show();
 	// //jQuery('#player-container').css('z-index',999);
-	
+
 	// jQuery('#'+vidId+' .player-container').html('<iframe id="player_'+vidId+'" class="vid-iframe" src="http://www.youtube.com/embed/'+vidId+'?enablejsapi=1&autoplay=1" frameborder="0" allowfullscreen></iframe>');
 	// new YT.Player('player_'+vidId, {
  //        events: {

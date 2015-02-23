@@ -49,7 +49,7 @@ var initialize = function() {
 
   jQuery('#all-boomerangs-button').click(function() {
     submitBoomerangObject();
-  });  
+  });
 
   jQuery('#all-submitters-button').click(function() {
     submitAllSubmittersObject();
@@ -102,12 +102,12 @@ var initialize = function() {
   loadAutoCompleteData('ISP', ' ');
   loadAutoCompleteData('submitter', ' ');
 
-  // 
+  //
   jQuery('#cancel-query').click(function() {
     cancelQuery();
     hideLoader();
   });
-  
+
 }
 
 var submitNSAObject = function() {
@@ -138,11 +138,11 @@ var submitNSAObject = function() {
       console.log('adding constraint');
   });
 
-  
+
   //jQuery('#filter-constraint-1 .constraint input').val('Chicago');
-  
-  
-  
+
+
+
 }
 
 var addFilterConstraint = function () {
@@ -209,7 +209,7 @@ var addFilterConstraint = function () {
   // adding the elements to the row
   jQuery(filterLine).append(booleanFilter);
   jQuery(filterLine).append(addButton);
-  jQuery(filterLine).append(deleteButton);  
+  jQuery(filterLine).append(deleteButton);
   jQuery('#filter-container').append(filterLine);
 
   // adding the autocompletes to the text inputs
@@ -224,7 +224,7 @@ var addFilterConstraint = function () {
     //////
     console.log('ev.target', ev.target);
     console.log('rowId', rowId);
-    
+
     console.log(jQuery(ev.target).val());
     bindAutocompletes(jQuery(ev.target).val(), rowId);
   });
@@ -235,8 +235,8 @@ var addFilterConstraint = function () {
     var type = jQuery(ev.target.previousSibling).val();
     bindAutocompletes(type, rowId);
   });
-  
-  // ANTO: key down approch 
+
+  // ANTO: key down approch
 
 /*  jQuery('input.constraint:text').keyup(function(e) {
     vMin = 1;
@@ -246,23 +246,23 @@ var addFilterConstraint = function () {
 
     console.log('key... '+a+' : '+b+' : '+c);
     console.log(c+':'+a.length);
-    // ANTO: autocomplete functional for the following 
+    // ANTO: autocomplete functional for the following
     if((c=='city' || c=='country' || c=='region') && a.length>=vMin) {
       loadAutoCompleteData(c,a);
-    } 
+    }
 
     if (a.length==0) {
       jQuery('#autocomplete-data').html('');
     }
 
-   
-    // on hit enter   
+
+    // on hit enter
     code = (e.keyCode ? e.keyCode : e.which);
     if (code == 13) {
       //alert('Enter key was pressed.');
       jQuery('#process-filters-button').focus();
     }
-  
+
   });*/
 
   // increment the counter to get ready for the next row
@@ -287,7 +287,7 @@ var removeAllFilterConstraints = function() {
 var clearFilterValues = function() {
   _.each(jQuery('.constraint'), function(constraint) {
     jQuery(constraint).val('');
-  });  
+  });
 };
 
 var resetFilterConstraints = function() {
@@ -324,7 +324,7 @@ var processFilters = function() {
     });
 
     // one line of filters
-    submission[jQuery(item).attr('id')] = constraint;    
+    submission[jQuery(item).attr('id')] = constraint;
   });
 
   // if there are no errors, submit
@@ -335,7 +335,7 @@ var processFilters = function() {
   }
 };
 
-var submitQuery = function(obj) {  
+var submitQuery = function(obj) {
   console.log('submitting...');
   submittedObj = obj;
   jQuery('#map-canvas-container').hide();
@@ -379,7 +379,7 @@ var submitQuery = function(obj) {
       console.log("Error! Submission unsuccessful");
       hideLoader();
     }
-  }); 
+  });
 };
 
 var writeIxMapsJs = function(ixMapsJsFile){
@@ -398,7 +398,7 @@ var loadAutoCompleteData = function(type, value) {
     field: type,
     keyword: value
   };
-  
+
   jQuery.ajax(url_base + '/application/controller/autocomplete.php', {
     type: 'post',
     data: obj,
@@ -413,7 +413,7 @@ var loadAutoCompleteData = function(type, value) {
     error: function (e) {
       console.log("Error! autocomplete data can't be loaded", e);
     }
-  });  
+  });
 
 };
 
@@ -445,7 +445,7 @@ var populateAutoCompleteArrays = function(type, data){
       }
     });
     console.log(type+" : ["+cityTags.length+"]");
-  
+
   } else if(type=='asnum') {
     ASnumTags.length = 0;
     jQuery.each(data, function(key, value) {
@@ -463,7 +463,7 @@ var populateAutoCompleteArrays = function(type, data){
       }
     });
     console.log(type+" : ["+zipCodeTags.length+"]");
-  
+
     } else if(type=='ISP') {
     ISPTags.length = 0;
     jQuery.each(data, function(key, value) {
@@ -481,7 +481,7 @@ var populateAutoCompleteArrays = function(type, data){
     });
     console.log(type+" : ["+submitterTags.length+"]");
   }
-  
+
   if(firstLoad==true){
       firstLoadFunc();
   }
@@ -555,7 +555,7 @@ var bindAutocompletes = function(tagType, rowId) {
 var showLoader = function() {
   var h = jQuery(document).height();
   jQuery('#loader-mask').height(h+'px');
-  
+
   jQuery('#loader').show();
 };
 
@@ -630,7 +630,7 @@ var submitMyCityObject = function() {
 };
 
 var submitBoomerangObject = function() {
-  // ANTO: new approach 
+  // ANTO: new approach
   resetFilterConstraints();
   var a;
   var fixedFilterC;
@@ -751,9 +751,9 @@ var toggleText = function() {
   }
 };
 
-var asnClours = '{"174":"E431EB","3356":"EB7231","7018":"42EDEA","7132":"42EDEA","-1":"676A6B","577":"3D49EB","1239":"ECF244","6461":"E3AEEB","6327":"9C6846","6453":"676A6B","3561":"676A6B","812":"ED0924","20453":"ED0924","852":"4BE625","13768":"419C6B","3257":"676A6B","1299":"676A6B","22822":"676A6B","6939":"676A6B","376":"676A6B","32613":"676A6B","6539":"3D49EB","15290":"676A6B","5769":"676A6B","855":"676A6B","26677":"676A6B","271":"676A6B","6509":"676A6B","3320":"676A6B","23498":"676A6B","549":"676A6B","239":"676A6B","11260":"676A6B","1257":"676A6B","20940":"676A6B","23136":"676A6B","5645":"676A6B","21949":"676A6B","8111":"676A6B","13826":"676A6B","16580":"676A6B","9498":"676A6B","802":"676A6B","19752":"676A6B","11854":"676A6B","7992":"676A6B","17001":"676A6B","611":"676A6B","19080":"676A6B","26788":"676A6B","12021":"676A6B","33554":"676A6B","30528":"676A6B","16462":"676A6B","11700":"676A6B","14472":"676A6B","13601":"676A6B","11032":"676A6B","12093":"676A6B","10533":"676A6B","26071":"676A6B","32156":"676A6B","5764":"676A6B","27168":"676A6B","33361":"676A6B","32489":"676A6B","15296":"676A6B","10400":"676A6B","10965":"676A6B","18650":"676A6B","36522":"676A6B","19086":"676A6B"}';
+var asnColours = '{"174":"E431EB","3356":"EB7231","7018":"42EDEA","7132":"42EDEA","-1":"676A6B","577":"3D49EB","1239":"ECF244","6461":"E3AEEB","6327":"9C6846","6453":"676A6B","3561":"676A6B","812":"ED0924","20453":"ED0924","852":"4BE625","13768":"419C6B","3257":"676A6B","1299":"676A6B","22822":"676A6B","6939":"676A6B","376":"676A6B","32613":"676A6B","6539":"3D49EB","15290":"676A6B","5769":"676A6B","855":"676A6B","26677":"676A6B","271":"676A6B","6509":"676A6B","3320":"676A6B","23498":"676A6B","549":"676A6B","239":"676A6B","11260":"676A6B","1257":"676A6B","20940":"676A6B","23136":"676A6B","5645":"676A6B","21949":"676A6B","8111":"676A6B","13826":"676A6B","16580":"676A6B","9498":"676A6B","802":"676A6B","19752":"676A6B","11854":"676A6B","7992":"676A6B","17001":"676A6B","611":"676A6B","19080":"676A6B","26788":"676A6B","12021":"676A6B","33554":"676A6B","30528":"676A6B","16462":"676A6B","11700":"676A6B","14472":"676A6B","13601":"676A6B","11032":"676A6B","12093":"676A6B","10533":"676A6B","26071":"676A6B","32156":"676A6B","5764":"676A6B","27168":"676A6B","33361":"676A6B","32489":"676A6B","15296":"676A6B","10400":"676A6B","10965":"676A6B","18650":"676A6B","36522":"676A6B","19086":"676A6B"}';
 
-var asnColoursJson = jQuery.parseJSON(asnClours);
+var asnColoursJson = jQuery.parseJSON(asnColours);
 var getAsnColour = function(asNum){
   var c = '676A6B';
   //if(asnColoursJson.indexOf(asNum) != -1){
@@ -764,7 +764,7 @@ var getAsnColour = function(asNum){
 }
 
 var showTestedCarriers = function(){
-  var carrierSampleJson = { 
+  var carrierSampleJson = {
      "parameters":
      {
              "submitOnLoad":true,
@@ -885,7 +885,7 @@ var showTestedCarriers = function(){
   processpostedData(jsonToString);
 }
 
-var boomerangJSON = { 
+var boomerangJSON = {
    "parameters":
    {
            "submitOnLoad":true,
@@ -923,24 +923,24 @@ var boomerangJSON = {
   };
 
 var submitCustomQuery = function(trId, multipleTRs){
-  var singleTrJSON = { 
-   "parameters":
-   {
-           "submitOnLoad":true,
-           "submissionType":"customFilter",
-           "otherFunction":""
-   },
-   "constraints":
-   {
-           "filter-constraint-1":
-           {
-                   constraint1: "does",
-                   constraint2: "contain",
-                   constraint3: "trId",
-                   constraint4: trId,
-                   constraint5: "AND"
-           }
-   }
+  var singleTrJSON = {
+    "parameters":
+    {
+      "submitOnLoad":true,
+      "submissionType":"customFilter",
+      "otherFunction":""
+    },
+    "constraints":
+    {
+      "filter-constraint-1":
+      {
+        constraint1: "does",
+        constraint2: "contain",
+        constraint3: "trId",
+        constraint4: trId,
+        constraint5: "AND"
+      }
+    }
   };
   var jsonToString = JSON.stringify(singleTrJSON);
   processpostedData(jsonToString);
@@ -952,8 +952,8 @@ var processpostedData = function(d){
   var data = jQuery.parseJSON(d);
   //console.log(data);
 
- 
-  setTimeout(function(){ 
+
+  setTimeout(function(){
     console.log('Timer ok for load page');
     if(data.parameters.otherFunction=='myCity'){
       submitMyCityObject();
@@ -964,6 +964,9 @@ var processpostedData = function(d){
     } else if (data.parameters.otherFunction=='boomerangs'){
       submitBoomerangObject();
       console.log('submitBoomerangObject...');
+    } else if (data.parameters.otherFunction=='nsas'){
+      submitNSAObject();
+      console.log('submitNSAObject...');
     } else if(data.parameters.submissionType=="customFilter"){
       //console.log('constraints', data.constraints);
       resetFilterConstraints();
