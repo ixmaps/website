@@ -79,7 +79,7 @@
 				<img class="tour-img" src="images/ShowcasePage_Tracking_Internet_Surveillance.jpg"/>
 			</div>
 			<div class="tour-text-container">
-				<p><a class="explore-route-1859">This is traceroute #1859</a>. TR1859 shows data packets travelling from a home computer in Toronto to the San Francisco Art Institute's website. Along this route, we see that the data passes through a known NSA surveillance site, AT&T's internet switching facility in San Francisco, located at 611 Folsom Street.At this site, a <a href="/faq.php#Splitter Cabinet (7th Floor)">splitter cabinet</a> has been installed to divert a copy of all gateway traffic to NSA computers for inspection.</p>
+				<p><a class="explore-target-route" data-route-id="1859">This is traceroute #1859</a>. TR1859 shows data packets travelling from a home computer in Toronto to the San Francisco Art Institute's website. Along this route, we see that the data passes through a known NSA surveillance site, AT&T's internet switching facility in San Francisco, located at 611 Folsom Street.At this site, a <a href="/faq.php#Splitter Cabinet (7th Floor)">splitter cabinet</a> has been installed to divert a copy of all gateway traffic to NSA computers for inspection.</p>
 				<p>The NSA is strongly suspected of having installed 15-20 similar spy rooms at other locations across the United States, including Los Angeles, New York and Chicago. The IXmaps database contains hundreds of routes that pass through both known and suspected NSA suveillance sites. <a class="explore-nsa-routes">See more routes that travel through NSA surveillance sites</a></p>
 				<p><a href="https://docs.google.com/spreadsheet/ccc?key=0Aiub6gMLPmfYdGp3VzBRWU1kSnNhbWNqaHRFVlNCcWc&authkey=CMeo8ZkG&hl=en_US&authkey=CMeo8ZkG#gid=0">See a summary of the evidence supporting our claims regarding the NSA</a></p>
 			</div>
@@ -90,7 +90,7 @@
 				<img class="tour-img" src="images/ShowcasePage_Cdn_Network_Sovereignty.jpg"/>
 			</div>
 			<div class="tour-text-container">
-				<p><a class="explore-route-3381">This is traceroute #3381</a>. TR3381 shows data packets travelling from a home computer in Toronto to a local news and entertainment website. Along this route, we see that <a href="/faq.php#Packet">packets</a> that begin and end in Toronto, pass through Chicago, a suspected NSA surveillance site.</p>
+				<p><a class="explore-target-route" data-route-id="3381">This is traceroute #3381</a>. TR3381 shows data packets travelling from a home computer in Toronto to a local news and entertainment website. Along this route, we see that <a href="/faq.php#Packet">packets</a> that begin and end in Toronto, pass through Chicago, a suspected NSA surveillance site.</p>
 				<p>As a result of many technical, economic and policy choices made principally by private corporations, Canadian internet traffic is often routed through the US, even when both origin and destination are within Canada. These "<a class="explore-boomerang-routes">boomerang routes</a>" prompt concerns regarding <a href="/sovereignty">Canadian network sovereignty</a>, since Canadians' <a href="/faq.php#Packet">packets</a> passing through routers in the US are subject to US interests, such as surveillance under provisions of the USA Patriot Act or the NSA's warrentless surveillance program described elsewhere. The IXmaps database contains hundreds of examples of Canadian boomerang routes. <a class="explore-boomerang-routes">See examples here.</a></p>
 			</div>
 		</div>

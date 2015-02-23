@@ -2,7 +2,8 @@ var baseURL = 'http://www.ixmaps.ca/'
 
 var initialize = function() {
 
-	jQuery('.explore-route-1859').click(function() {
+	jQuery('.explore-target-route').click(function() {
+		var routeId = jQuery(this).data('route-id');
 		var str = {
 			"parameters":
 			{
@@ -17,31 +18,7 @@ var initialize = function() {
 					constraint1: "does",
 					constraint2: "contain",
 					constraint3: "trId",
-					constraint4: "1859",
-					constraint5: "AND"
-				}
-			}
-		};
-		JSONstr = JSON.stringify(str);
-		window.location = baseURL + '/explore.php?data=' + JSONstr;
-	});
-
-	jQuery('.explore-route-3381').click(function() {
-		var str = {
-			"parameters":
-			{
-				   "submitOnLoad":true,
-				   "submissionType":"customFilter",
-				   "otherFunction":null
-			},
-			"constraints":
-			{
-				"filter-constraint-1":
-				{
-					constraint1: "does",
-					constraint2: "contain",
-					constraint3: "trId",
-					constraint4: "3381",
+					constraint4: routeId,
 					constraint5: "AND"
 				}
 			}
