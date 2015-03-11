@@ -42,8 +42,6 @@ class PrivacyReportCollect
 
 		pg_free_result($result1);
 
-		pg_close($dbconn);
-
 		$c=0;
 		$csvData = "";
 		foreach ($data as $key => $value) {
@@ -74,11 +72,13 @@ class PrivacyReportCollect
 
 			$result2 = pg_query($dbconn, $sql2) or die('Query as_users failed: ' . pg_last_error());
 			$dataFormated2 = array();
+
 			$data2 = pg_fetch_all($result2);
 
 			if(count($data2)){
 				echo "<br/>No match on as_users";
 			} else {
+				print_r($data2);
 				// collect data from as_users and update privacy_scores_carriers table with asn_ix and name_ix 
 			}
 			pg_free_result($result2);
