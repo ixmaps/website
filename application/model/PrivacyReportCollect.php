@@ -31,5 +31,65 @@ class PrivacyReportCollect
 
 		return $csvData;
 	}
+
+	public static function ckeckCarriers(){
+		global $dbconn;
+
+		$sql1="SELECT * FROM privacy_scores_carriers";
+		$result1 = pg_query($dbconn, $sql1) or die('Query privacy_stars failed: ' . pg_last_error());
+		$dataFormated = array();
+		$data = pg_fetch_all($result1);
+
+		pg_free_result($result1);
+
+		pg_close($dbconn);
+
+		$c=0;
+		$csvData = "";
+		foreach ($data as $key => $value) {
+
+			// split asn
+			$asn_report = explode(",", $value['asn_report']);
+
+			echo "<br/>Carrier:".$value['name_report'];
+
+			echo "<br/>ASN report:".$asn_report[0].",".$asn_report[1].",".$asn_report[2];
+
+			// search carrier by name or asn in ixmaps database
+			$sql2="SELECT * FROM as_users WHERE ";
+			$sql2.="name LIKE '%".trim($value['name_report'])."%'";
+			
+			if($asn_report[0]!=0){
+				$sql2.=" OR num = ".$asn_report[0];
+			}
+			if($asn_report[1]!=0){
+				$sql2.=" OR num = ".$asn_report[1];
+				
+			}
+			if($asn_report[2]!=0){
+				$sql2.=" OR num = ".$asn_report[2];
+			}
+			
+
+			$result2 = pg_query($dbconn, $sql1) or die('Query privacy_stars failed: ' . pg_last_error());
+			$dataFormated2 = array();
+			$data2 = pg_fetch_all($result2);
+
+			if(count($data2)){
+				echo "<br/>No match on as_users";
+			} else {
+				// collect data from as_users and update privacy_scores_carriers table with asn_ix and name_ix 
+			}
+			pg_free_result($result2);
+
+		} // end for
+
+		pg_free_result($result1);
+
+		pg_close($dbconn);
+
+
+		//return $csvData;
+	}
 }
 ?>
