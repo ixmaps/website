@@ -71,7 +71,7 @@ class PrivacyReportCollect
 			}
 			
 
-			$result2 = pg_query($dbconn, $sql2) or die('Query privacy_stars failed: ' . pg_last_error());
+			$result2 = pg_query($dbconn, $sql2) or die('Query as_users failed: ' . pg_last_error());
 			$dataFormated2 = array();
 			$data2 = pg_fetch_all($result2);
 
