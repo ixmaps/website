@@ -70,8 +70,9 @@ class PrivacyReportCollect
 				$sql2.=" OR num = ".$asn_report[2];
 			}
 			
-
-			$result2 = pg_query($dbconn, $sql2) or die('Query as_users failed: ' . pg_last_error());
+			echo "<hr/>".$sql2;
+			
+			/*$result2 = pg_query($dbconn, $sql2) or die('Query as_users failed: ' . pg_last_error());
 			$dataFormated2 = array();
 			$data2 = pg_fetch_all($result2);
 
@@ -80,7 +81,7 @@ class PrivacyReportCollect
 			} else {
 				// collect data from as_users and update privacy_scores_carriers table with asn_ix and name_ix 
 			}
-			pg_free_result($result2);
+			pg_free_result($result2);*/
 
 		} // end for
 
