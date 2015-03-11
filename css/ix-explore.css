@@ -245,7 +245,7 @@
 	height: 252px;
 }
 
-#tr-details, #ip-flags, #privacy-details{
+#tr-details, #ip-flags{
 	position: fixed;
 	left: 5%;
 	z-index: 1000;
@@ -257,6 +257,17 @@
 	border-radius: 20px;
 }
 
+#privacy-details {
+  position: fixed;
+  left: 5%;
+  z-index: 1000;
+  top: 5%;
+  background: #fff;
+  height: 380px;
+  width: 696px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
 #tr-details-close, #ip-flags-close, #privacy-details-close{
 	margin: 10px;
 	float: right;
