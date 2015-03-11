@@ -2,7 +2,7 @@
 /*
 	IXmaps google maps global vars and init scripts
 */
-var privacyRepUrl = 'http://www.ixmaps.ca/documents/Canadian%20Carriers%20Transparency%20and%20Privacy%20Report%20-%20interim%20June%202013.pdf';
+var privacyRepUrl = 'http://www.ixmaps.ca/documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf';
 
 var allowMultipleTrs = false; // !!
 var allowRecenter = true;
