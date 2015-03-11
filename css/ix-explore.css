@@ -309,6 +309,7 @@
 #privacy-details-data table td{
 	padding: 2px;
 	font-size: 13px;
+	border-bottom: 1px dotted;
 }
 
 .privacy-score-tot{
