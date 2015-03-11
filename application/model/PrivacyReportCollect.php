@@ -5,7 +5,7 @@ class PrivacyReportCollect
 		global $dbconn;
 
 		$sql1="SELECT * FROM privacy_scores_import";
-		$result1 = pg_query($dbconn, $sql1) or die('Query privacy_stars failed: ' . pg_last_error());
+		$result1 = pg_query($dbconn, $sql1) or die('Query privacy_scores_import failed: ' . pg_last_error());
 		$dataFormated = array();
 		$data = pg_fetch_all($result1);
 
@@ -36,7 +36,7 @@ class PrivacyReportCollect
 		global $dbconn;
 
 		$sql1="SELECT * FROM privacy_scores_carriers";
-		$result1 = pg_query($dbconn, $sql1) or die('Query privacy_stars failed: ' . pg_last_error());
+		$result1 = pg_query($dbconn, $sql1) or die('Query privacy_scores_carriers failed: ' . pg_last_error());
 		$dataFormated = array();
 		$data = pg_fetch_all($result1);
 
