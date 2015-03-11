@@ -7,7 +7,7 @@ if(!isset($_REQUEST) || count($_REQUEST)==0)
 } else {
 	//$privacyReportCollect = PrivacyReportCollect::getPrivacyDataImport();	
 	//echo $privacyReportCollect;
-	
+	echo "ckeckCarriers()<br/>";
 	$ckeckCarriers = PrivacyReportCollect::ckeckCarriers();	
 
 }
