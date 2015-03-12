@@ -2,7 +2,9 @@
 /*
 	IXmaps google maps global vars and init scripts
 */
-var privacyRepUrl = 'http://www.ixmaps.ca/documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf';
+//var privacyRepUrl = 'http://www.ixmaps.ca/documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf';
+var privacyRepUrl = 'http://www.ixmaps.ca/transparency-2014.php';
+
 
 var allowMultipleTrs = false; // !!
 var allowRecenter = true;
