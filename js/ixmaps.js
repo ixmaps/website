@@ -112,7 +112,7 @@ var initialize = function() {
 
 var submitNSAObject = function() {
   resetFilterConstraints();
-  var nsaCities = new Array("San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland");
+  var nsaCities = new Array("San Francisco", "Los Angeles", "New York", "Dallas", "Washington", "Ashburn", "Seattle", "San Jose", "San Diego", "Miami", "Boston", "Phoenix", "Salt Lake City", "Nashville", "Denver", "Saint Louis", "Bridgeton", "Bluffdale", "Houston", "Chicago", "Atlanta", "Portland");
   var a;
 
   var c=0;
