@@ -38,7 +38,7 @@
 
 		<!-- yeah, this is gross. This is what comes from not hand-knitting all your html/css -->
 		<section id="download" style="padding-top:1em">
-			<p class="readbelow"><em>The evaluation criteria for the 2014 report can be found <a href="documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf" target="_blank">here (.pdf)</a>. The 2014 report will be launched the week of March 9, 2015.</em></p>
+			<p class="readbelow"><em>The evaluation criteria for the 2014 report can be found <a href="documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf" target="_blank">here (.pdf)</a>. The 2014 report will be launched Thursday March 12, 2015.</em></p>
 			<p class="readbelow"><em>Continue reading below for the 2013 report.</em><br><a href="#toc">&#9759</a></p>
 		</section>
 

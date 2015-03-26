@@ -32,6 +32,22 @@ body #container{
 	border: 1px solid red;
 }
 
+
+#prompt{
+	margin: 0;
+	padding: 1.75em;
+	text-align: center;
+	border: 2px solid #e89b9b;
+	background: #f8e8e8;
+	display: block;
+}
+
+#prompt p{
+	line-height: 2em;
+	font-style: italic;
+	margin: 1em 0 0 0;
+}
+
 #download p{
 	margin: 1.75em 4em;
 	line-height: 1em;
@@ -54,8 +70,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #container #download  {
-	background-color: #fef8eb;
-	border: 4px solid #be9f23;
+/*	background-color: #fef8eb;
+	border: 4px solid #be9f23;*/
 	text-align: center;
 	padding: 2.5em 1em 1em 1em;
 	margin-bottom: 2em;
@@ -185,12 +201,53 @@ h1,h2,h3,h4,h5,h6 {
 	width: 800px;
 }
 
-img.startable {
+
+.wrapper{
 	width: 1000px;
-
-	margin: 4em 0 2em 0;
-
+	margin-top: 2em;
 }
+
+.center { text-align: center;}
+.tabs li {
+  float: left;
+  width: 33.33%;
+  list-style: none;
+}
+.tabs a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #888;
+  padding: 20px 0;
+  background: #ddd;
+  border-bottom: none;
+}
+.tabs a:hover,
+.tabs a.active {
+  background: #888;
+}
+#container section .tabgroup{margin: 0;}
+
+.tabgroup div {
+  padding: 1em;
+  background: #888;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tabgroup img{
+	width: 100%;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+
 #download h2,
 #toc h2,
 #contents h2{
@@ -213,12 +270,12 @@ img.startable {
 	font-size: 1.5em;
 	font-variant: small-caps;
 	text-transform: lowercase;
-	letter-spacing: 1px;
 	color: #7f8c8d;
+	letter-spacing: 0;
 	border-top: 2px solid #7f8c8d;
 	border-bottom: 2px solid #7f8c8d;
 	padding: .25em 0 0.45em 0;
-	margin: 1em 0 .5em 0;
+	margin: 2em 0 .5em 0;
 }
 
 #contents h5{
