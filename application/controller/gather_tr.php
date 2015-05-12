@@ -36,8 +36,9 @@ $_REQUEST['privacy'] = 8;
 $_REQUEST['submitter_ip'] = $myIp;
 $_REQUEST['status'] = "c";
 
+print_r($_REQUEST);
 
-if(isset($_REQUEST['dest_ip']) && $_REQUEST['dest_ip']!="")
+if(isset($_REQUEST['dest_ip']) && $_REQUEST['dest_ip']=="...")
 {
 	//print_r($_REQUEST);	
 	$tr_c_id = GatherTr::saveContribution($_REQUEST);
