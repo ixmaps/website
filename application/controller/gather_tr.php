@@ -38,6 +38,8 @@ $_REQUEST['status'] = "c";
 
 print_r($_REQUEST);
 
+echo "test";
+
 if(isset($_REQUEST['dest_ip']) && $_REQUEST['dest_ip']=="...")
 {
 	//print_r($_REQUEST);	
