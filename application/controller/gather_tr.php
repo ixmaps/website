@@ -22,8 +22,8 @@ $myIp = $_SERVER['REMOTE_ADDR'];
 $myCity = '';
 $gi1 = geoip_open("../geoip/dat/GeoLiteCityv6.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
-$_REQUEST['myCity'] = ''.$record1->city;
-$_REQUEST['myCountry'] = ''.$record1->country;
+$_REQUEST['city'] = ''.$record1->city;
+$_REQUEST['country'] = ''.$record1->country;
 geoip_close($gi1);
 
 //echo json_encode($_REQUEST);
