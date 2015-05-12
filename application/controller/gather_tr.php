@@ -38,7 +38,7 @@ $_REQUEST['status'] = "c";
 
 //print_r($_REQUEST);
 
-if(isset($_REQUEST['dest_ip']) && $_REQUEST['dest_ip']=="...")
+if(isset($_REQUEST['dest_ip']) && $_REQUEST['dest_ip']!="")
 {
 	//print_r($_REQUEST);	
 	$tr_c_id = GatherTr::saveContribution($_REQUEST);
