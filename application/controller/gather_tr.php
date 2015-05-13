@@ -31,6 +31,10 @@ geoip_close($gi1);
 $_REQUEST['privacy'] = 8;
 $_REQUEST['submitter_ip'] = $myIp;
 
+
+print_r($_REQUEST);
+echo "<hr/>";
+
 $tr_data = $_REQUEST['tr-stringify]'];
 $tr_data = str_replace("\\", "", $tr_data);
 echo $tr_data;
