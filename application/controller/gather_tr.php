@@ -38,7 +38,7 @@ $_REQUEST['submitter_ip'] = $myIp;
 $tr_data = $_REQUEST['tr-stringify'];
 $tr_data = str_replace("\\", "", $tr_data);
 echo $tr_data;
-$tr_data_arr = json_decode($tr_data);
+$tr_data_arr = json_decode($tr_data, true);
 
 print_r($tr_data_arr);
 /*
