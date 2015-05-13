@@ -32,10 +32,10 @@ $_REQUEST['privacy'] = 8;
 $_REQUEST['submitter_ip'] = $myIp;
 
 
-print_r($_REQUEST);
-echo "<hr/>";
+//print_r($_REQUEST);
+//echo "<hr/>";
 
-$tr_data = $_REQUEST['tr-stringify]'];
+$tr_data = $_REQUEST['tr-stringify'];
 $tr_data = str_replace("\\", "", $tr_data);
 echo $tr_data;
 $tr_data_arr = json_decode($tr_data);
