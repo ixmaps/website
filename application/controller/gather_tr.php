@@ -20,7 +20,7 @@ $starttime = $mtime;
 $myIp='201.245.56.136';
 //$myIp = $_SERVER['REMOTE_ADDR'];
 $gi1 = geoip_open("../geoip/dat/GeoLiteCity.dat",GEOIP_STANDARD);
-$record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
+$record1 = geoip_record_by_addr($gi1,"::".$myIp);
 $_REQUEST['city'] = ''.$record1->city;
 $_REQUEST['country'] = ''.$record1->country;
 geoip_close($gi1);
@@ -31,7 +31,11 @@ geoip_close($gi1);
 $_REQUEST['privacy'] = 8;
 $_REQUEST['submitter_ip'] = $myIp;
 
-print_r($_REQUEST);
+$tr_data = $_REQUEST['tr-stringify]'];
+$tr_data = str_replace("\\", "", $tr_data);
+$tr_data_arr = json_decode($tr_data);
+
+print_r($tr_data_arr);
 /*
 if(isset($_REQUEST['dest_ip']) && $_REQUEST['dest_ip']!="")
 {
