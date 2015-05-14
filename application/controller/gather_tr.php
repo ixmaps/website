@@ -31,11 +31,10 @@ geoip_close($gi1);
 //echo json_encode($_REQUEST);
 
 // FIXME: add extra data 
-//$_REQUEST['privacy'] = 8;
+$_REQUEST['privacy'] = 8;
 
 
-
-print_r($_REQUEST);
+//print_r($_REQUEST);
 
 
 
