@@ -23,13 +23,12 @@ $starttime = $mtime;
 $myIp = $_SERVER['REMOTE_ADDR'];
 $_REQUEST['submitter_ip'] = $myIp;
 $gi1 = geoip_open("../geoip/dat/GeoLiteCity.dat",GEOIP_STANDARD);
-$record1 = geoip_record_by_addr($gi1,"::".$myIp);
+$record1 = geoip_record_by_addr($gi1,$myIp);
 $_REQUEST['city'] = ''.$record1->city;
-$_REQUEST['country'] = ''.$record1->country;
+$_REQUEST['country'] = ''.$record1->country_code;
 geoip_close($gi1);
 
-
-$gi1 = geoip_open("../geoip/dat/GeoLiteCity.dat",GEOIP_STANDARD);
+/*$gi1 = geoip_open("../geoip/dat/GeoLiteCity.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr($gi1,$ip);
 print $record1->country_code . " " . $record->country_code3 . " " . $record->country_name . "<br/>";
 print $record1->region . " " . $GEOIP_REGION_NAME[$record->country_code][$record->region] . "<br/>";
@@ -41,7 +40,7 @@ print $record1->metro_code . "<br/>";
 print $record1->area_code . "<br/>";
 print $record1->continent_code . "<br/>";
 geoip_close($gi1);
-
+*/
 //echo json_encode($_REQUEST);
 
 // FIXME: add extra data 
