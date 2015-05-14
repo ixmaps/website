@@ -1,45 +1,35 @@
 
-var submitTr = function (){
-  console.log('submitTr...');
-  //var testData = jQuery.parseJSON(testJson);
-  //console.log(testJson);
-
-}
+var url_base="http://www.ixmaps.ca";
 
 var collectTrData = function(){
-  //testJson1.traceroute_submissions[0].tr_data=jQuery('#raw1').val();
-  //testJson1.traceroute_submissions[1].tr_data=jQuery('#raw1').val();
-  //testJson1.traceroute_submissions[2].tr_data=jQuery('#raw2').val();
-  //testJson1.traceroute_submissions[3].tr_data=jQuery('#raw4').val();  
-  //console.log(testJson1);
+
+  var trDataString = JSON.stringify(TrTestJsonData);
+  //console.log(TrTestJsonData);
+  jQuery("#tr-json").val(trDataString);
 
   ajaxObj = jQuery.ajax(url_base + '/application/controller/gather_tr.php', {
-    type: 'post',
-    data: testJson1,
+    type: 'POST',
+    data: TrTestJsonData,
     success: function (e) {
       console.log("collectTrData: OK! ", e);
-      //if(e!=0){
-      //var data = jQuery.parseJSON(e);
-      //jQuery('#filter-results-log').html(data.queryLogs);
-      
+      jQuery("#tr-result").val(e);
     },
     error: function (e) {
-      console.log("collectTrData: Error! : Submission unsuccessful");
+      console.log("collectTrData: Error!");
       
     }
   });
-
 }
 
-var testJson1={
+var TrTestJsonData={
     "timeout": "1",
     "queries": "4",
-    "dest": "zooid.org",
+    "dest": "mydomain.org",
     "dest_ip": "142.4.222.224",
-    "submitter": "me",
+    "submitter": "lodeanto",
     "postal_code": "M6G 1L5",
     "maxhops": "255",
-    "os": "Linux",
+    "os": "Mac OS",
     "traceroute_submissions": [
         {
             "client": "ixjs v.0.0.1",
@@ -328,42 +318,4 @@ var testJson1={
             "tr_data": "traceroute -n -q 4 -P udp  www.ixmaps.ca\ntraceroute to www.ixmaps.ca (142.150.149.197), 64 hops max, 52 byte packets\n 1  192.168.0.1  1.652 ms  1.228 ms  1.169 ms  1.075 ms\n 2  181.48.239.233  2.839 ms\n    181.49.53.77  2.174 ms\n    181.48.239.233  2.810 ms\n    181.49.53.77  2.043 ms\n 3  10.177.48.1  2.217 ms  2.509 ms  2.337 ms  2.620 ms\n 4  200.26.135.102  3.901 ms  4.183 ms  3.151 ms *\n 5  200.26.135.101  7.252 ms\n    190.81.241.161  3.949 ms\n    200.26.135.101  3.947 ms\n    190.81.241.161  3.709 ms\n 6  * * * *\n 7  160.81.138.1  58.859 ms  57.839 ms  58.305 ms  61.141 ms\n 8  144.232.2.235  61.761 ms\n    144.232.12.73  58.300 ms\n    144.232.12.75  59.882 ms\n    144.232.2.233  62.003 ms\n 9  144.232.24.214  59.742 ms\n    144.232.7.90  43.678 ms\n    144.232.24.214  62.163 ms\n    144.232.7.90  44.114 ms\n10  154.54.24.233  59.762 ms\n    154.54.80.41  44.282 ms\n    154.54.24.233  59.252 ms\n    154.54.80.41  44.225 ms\n11  154.54.24.193  87.217 ms  57.103 ms  87.806 ms\n    154.54.24.197  57.355 ms\n12  154.54.28.73  105.442 ms  87.522 ms\n    154.54.29.97  87.183 ms\n    154.54.28.73  87.966 ms\n13  154.54.43.178  100.944 ms\n    154.54.44.86  88.116 ms\n    154.54.43.178  103.073 ms\n    154.54.44.86  87.444 ms\n14  154.54.31.54  99.449 ms  87.956 ms  99.493 ms\n    154.54.31.90  93.794 ms\n15  154.54.0.122  99.259 ms  87.301 ms  99.735 ms\n    66.28.4.166  87.508 ms\n16  38.117.74.226  101.724 ms  87.601 ms  102.855 ms  87.157 ms\n17  128.100.96.9  102.980 ms  87.819 ms  102.606 ms  87.324 ms\n18  * * * *\n19  142.150.148.1  87.884 ms  102.631 ms  88.238 ms  102.205 ms\n20  142.150.149.197  87.404 ms  102.917 ms  87.088 ms  102.513 ms"
         }
     ]
-};
-
-
-var testJson={
-  dest: 'www.ixmaps.ca',
-  dest_ip:'142.150.149.197',
-  submitter: 'anto',
-  os:'macos, v.10.6',
-  postal_code: 'M6G',
-  timeout: 1,
-  queries: 4,
-  maxhops: 64,
-  traceroute_submissions: [
-    {
-      client:'ixnodejs v.1',
-      protocol:'icmp',
-      format: 'json',
-      tr_data:'some data1'
-    },
-    {
-      client:'ixnodejs v.1',
-      protocol:'udp',
-      format: 'txt',
-      tr_data:'some data2'
-    },
-    {
-      client:'traceroute',
-      protocol:'udp',
-      format: 'txt',
-      tr_data:'some data3'
-    },
-    {
-      client:'traceroute',
-      protocol:'icmp',
-      format: 'txt',
-      tr_data:'some data4'
-    }
-  ]
 };
