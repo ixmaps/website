@@ -35,7 +35,7 @@ geoip_close($gi1);
 
 
 
-//print_r($_REQUEST);
+print_r($_REQUEST);
 
 
 
