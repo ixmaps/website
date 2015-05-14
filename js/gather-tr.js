@@ -1,6 +1,4 @@
 
-var url_base="http://www.ixmaps.ca";
-
 var collectTrData = function(){
 
   var trDataString = JSON.stringify(TrTestJsonData);

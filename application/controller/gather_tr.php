@@ -28,19 +28,6 @@ $_REQUEST['city'] = ''.$record1->city;
 $_REQUEST['country'] = ''.$record1->country_code;
 geoip_close($gi1);
 
-/*$gi1 = geoip_open("../geoip/dat/GeoLiteCity.dat",GEOIP_STANDARD);
-$record1 = geoip_record_by_addr($gi1,$ip);
-print $record1->country_code . " " . $record->country_code3 . " " . $record->country_name . "<br/>";
-print $record1->region . " " . $GEOIP_REGION_NAME[$record->country_code][$record->region] . "<br/>";
-print $record1->city . "<br/>";
-print $record1->postal_code . "<br/>";
-print $record1->latitude . "<br/>";
-print $record1->longitude . "<br/>";
-print $record1->metro_code . "<br/>";
-print $record1->area_code . "<br/>";
-print $record1->continent_code . "<br/>";
-geoip_close($gi1);
-*/
 //echo json_encode($_REQUEST);
 
 // FIXME: add extra data 
@@ -48,7 +35,7 @@ geoip_close($gi1);
 
 
 
-print_r($_REQUEST);
+//print_r($_REQUEST);
 
 
 
