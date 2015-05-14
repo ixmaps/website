@@ -16,6 +16,10 @@ class GatherTr
 
 		$trData = array($data['dest'], $data['dest_ip'], $data['city'], $data['country'], $data['submitter'], $data['submitter_ip'], $data['os'], $data['postal_code'], $data['privacy'], $data['timeout'], $data['queries'], $data['maxhops'], 0);
 
+		echo $sql;
+
+		print_r($trData);
+
 		$result = pg_query_params($dbconn, $sql, $trData) or die('saveContribution: Query failed: incorrect parameters');
 		$lastId = pg_fetch_all($result);
 		$tr_c_id = $lastId[0]['tr_c_id'];
