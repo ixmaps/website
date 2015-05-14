@@ -20,7 +20,7 @@ class GatherTr
 
 		print_r($trData);
 
-		$result = pg_query_params($dbconn, $sql, $trData) or die('saveContribution: Query failed: incorrect parameters');
+		$result = pg_query_params($dbconn, $sql, $trData) or die('saveContribution: Query failed: incorrect parameters'.pg_last_error());
 		$lastId = pg_fetch_all($result);
 		$tr_c_id = $lastId[0]['tr_c_id'];
 		pg_free_result($result);
@@ -53,7 +53,7 @@ class GatherTr
 			//print_r($trData);
 
 			// FIXME: debug if SQL error
-			$result = pg_query_params($dbconn, $sql, $trData) or die('saveContributionData: Query failed: incorrect parameters');
+			$result = pg_query_params($dbconn, $sql, $trData) or die('saveContributionData: Query failed: incorrect parameters'.pg_last_error());
 
 		}
 
