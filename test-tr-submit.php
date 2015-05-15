@@ -14,12 +14,13 @@
 
 	<div>loading TR sample data from: js/gather-tr.js</div>
 	TR-JSON data:<br/>
+	<button id="tr-submit" onclick="collectTrData()">Submit TR</button>
+	<br/>
+	<br/>
 	<textarea id="tr-json" cols="30" rows="5"></textarea>
 	<br/>
 	Server result (test)<br/>
 	<textarea id="tr-result" cols="30" rows="5"></textarea>
-	<br/>
-	<button id="tr-submit" onclick="collectTrData()">Submit TR</button>
 
 </body>
 </html>

@@ -2,7 +2,6 @@
 header('Access-Control-Allow-Origin: *'); 
 ini_set( "display_errors", 0);
 include('../config.php');
-include('../model/Encoding.php');
 include('../model/GatherTr.php');
 
 // MaxMind Include Files
@@ -25,9 +24,8 @@ $myIp = $_SERVER['REMOTE_ADDR'];
 $_REQUEST['submitter_ip'] = $myIp;
 $gi1 = geoip_open("../geoip/dat/GeoLiteCity.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr($gi1,$myIp);
-$_REQUEST['city'] = ''.$record1->city;
-$_REQUEST['city'] = Encoding::toUTF8($_REQUEST['city']);
-//$_REQUEST['city'] = '...';
+//$_REQUEST['city'] = ''.$record1->city;
+$_REQUEST['city'] = '';
 $_REQUEST['country'] = ''.$record1->country_code;
 geoip_close($gi1);
 
@@ -49,7 +47,8 @@ if(isset($_REQUEST['dest_ip']) && $_REQUEST['dest_ip']!="")
 	$b = GatherTr::saveContributionData($_REQUEST,$tr_c_id);
 	if($b==1){
 		$c = GatherTr::getContribution($tr_c_id);
-		echo "Data saved!\n";
+		echo "TR Data saved!\n\n";
+
 		print_r($c);
 		//$d = GatherTr::processTrData($tr_c_id); 
 	} else {
