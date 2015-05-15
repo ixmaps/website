@@ -49,8 +49,10 @@ if(isset($_REQUEST['dest_ip']) && $_REQUEST['dest_ip']!="")
 		$c = GatherTr::getContribution($tr_c_id);
 		echo "TR Data saved!\n\n";
 
-		print_r($c);
+		//print_r($c);
 		//$d = GatherTr::processTrData($tr_c_id); 
+		echo "Analyzing TR data from ixnode: \n\n";
+		print_r($c);
 	} else {
 		// undo transaction...
 	}
