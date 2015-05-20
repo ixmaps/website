@@ -12,6 +12,9 @@ if(isset($_REQUEST['tr_c_id']) && $_REQUEST['tr_c_id']!="")
 	
 	$c = GatherTr::getTrContribution($_REQUEST['tr_c_id']);
 	//echo "TR Data saved!\n\n";
+	if($c['traceroute_submissions'][0]['data_type']=="json"){
+		$c['traceroute_submissions'][0]['tr_data']= json_decode($c['traceroute_submissions'][0]['tr_data']);
+	}
 	echo json_encode($c);
 
 } else {
