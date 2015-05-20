@@ -53,7 +53,7 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 	//print_r($d);
 	$trId = GatherTr::publishTraceroute($d);
 	$f = GatherTr::flagContribution($tr_c_id, $trId); 
-	$result = array("TRid"=>$trId);
+	$result = array("TRid"=>$trId, "tr_c_id"=>$tr_c_id );
 	echo json_encode($result);
 
 } else {
