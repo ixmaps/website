@@ -12,8 +12,7 @@ if(isset($_REQUEST['tr_c_id']) && $_REQUEST['tr_c_id']!="")
 	
 	$c = GatherTr::getTrContribution($_REQUEST['tr_c_id']);
 	//echo "TR Data saved!\n\n";
-	print_r($c);
-
+	echo json_encode($c);
 
 } else {
 	echo 'No tr_c_id sent.';
