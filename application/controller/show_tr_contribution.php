@@ -5,12 +5,12 @@ include('../config.php');
 include('../model/GatherTr.php');
 
 
-if(isset($_POST['tr_c_id']) && $_POST['tr_c_id']!="")
+if(isset($_REQUEST['tr_c_id']) && $_REQUEST['tr_c_id']!="")
 {
 	
 	// use only for debugging 
 	
-	$c = GatherTr::getTrContribution($_POST['tr_c_id']);
+	$c = GatherTr::getTrContribution($_REQUEST['tr_c_id']);
 	//echo "TR Data saved!\n\n";
 	print_r($c);
 
