@@ -41,20 +41,27 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 	//echo "\ntr_c_id: ". $tr_c_id."\n";
 	$b = GatherTr::saveTrContributionData($_POST,$tr_c_id);
 	
-	// use only for debugging 
-	/*
-		$c = GatherTr::getTrContribution($tr_c_id);
-		echo "TR Data saved!\n\n";
-		//print_r($c);
-	*/
+	$trData = GatherTr::getTrContribution($tr_c_id);
+	//print_r($rawTrData);
 	
-	$d = GatherTr::analyzeTrData($tr_c_id); 
-	//echo "Analyzing TR data: \n\n";
+	$trByHop = GatherTr::formatTrData($trData); 
 	//print_r($d);
-	$trId = GatherTr::publishTraceroute($d);
-	$f = GatherTr::flagContribution($tr_c_id, $trId); 
-	$result = array("TRid"=>$trId, "tr_c_id"=>$tr_c_id );
-	echo json_encode($result);
+	
+	if($trByHop==0){
+		// analyis of TR failed or not implemented yet
+
+	} else {
+		$trAnalyzed = GatherTr::analyzeTrData($trByHop); 
+		$trData['ip_analysis']=$trAnalyzed;
+
+		//print_r($trData);
+		
+		$trId = GatherTr::publishTraceroute($trData);
+
+		$f = GatherTr::flagContribution($tr_c_id, $trId); 
+		$result = array("TRid"=>$trId, "tr_c_id"=>$tr_c_id );
+		echo json_encode($result);
+	}
 
 } else {
 	echo 'No parameters sent.';

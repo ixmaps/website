@@ -75,9 +75,107 @@ class GatherTr
 	}
 
 	/**
-		Analyze TR data
+		Format TR data 
+		This function assumes that the ixnode data is structured as follows:
+		[tr_data][pass][hop-query]
 	*/
-	public static function analyzeTrData($tr_c_id) 
+	public static function formatTrData($data) 
+	{
+		$TrByHop = array();
+
+		// submissions
+		foreach ($data['traceroute_submissions'] as $key1 => $submission) {
+
+			// check contribution type
+			if($submission['data_type']=='json'){
+				$trDataPasses = json_decode($submission['tr_data'], true); 
+				
+				// passes
+				foreach ($trDataPasses as $key2 => $trPass) {
+
+					// hops
+					foreach ($trPass as $key3 => $passHop) {
+						//collect hops and latencies from all passes
+						$TrByHop[$passHop['hop']][]=$passHop;
+
+					} // end hops
+			
+				} //end passes
+				//echo '\n\n';
+				//print_r($TrByHop);
+				return $TrByHop;
+
+			} else if($submission['data_type']=='txt'){
+				//echo "\nis txt";
+				//$data = GatherTr::analyzeRawTracerouteTxt();		
+				//return 0;
+
+			} else {
+				return 0;	
+			}
+			
+		}
+
+	}
+
+	/**
+		Analyze TR data. 
+		This function assumes that the tr data is structured as follows:
+		[tr_data][hop][queries]
+	*/
+	public static function analyzeTrData($trHops) 
+	{
+		$TR = array();
+				
+		//hops
+		foreach ($trHops as $key2 => $hop) {
+			$hopNum = $key2;
+			$latencies = array();
+			$ip_rank = array();
+
+			// queries/passes
+			foreach ($hop as $key3 => $hopPass) {
+				
+				//$hopPass['rtt'] = $hopPass['rtt']*100;
+				$latencies[] = $hopPass['rtt'];
+				$ip_latencies[$hopPass['ip']][]  = $hopPass['rtt'];
+				
+				// prevent ip !set
+				if(isset($hopPass['ip'])){
+					if(!isset($ip_rank[$hopPass['ip']]))
+					{
+						$ip_rank[$hopPass['ip']] = 1;	
+					} else {
+						$ip_rank[$hopPass['ip']] += 1;
+					}
+				} else {
+					// error at this hop
+				}
+
+			} // end queries
+
+			sort($latencies);
+			arsort($ip_rank);					
+			$keys=array_keys($ip_rank);
+			$winnerIp = $keys[0];
+
+			//echo "\nWinner IP: ".$winnerIp;
+
+			$TR['hops'][$hopNum]['latencies'] = $latencies;
+			$TR['hops'][$hopNum]['winIp'] = $winnerIp;
+			
+		} //end hop
+		//print_r($TR);
+		//$data['ip_analysis'] = $TR;
+		return $TR;
+
+	}
+	/**
+		Analyze TR data. 
+		This function assumes that the tr data is structured as follows:
+		[tr_data][hop][queries]
+	*/
+	public static function analyzeTrDataOld($tr_c_id) 
 	{
 		global $dbconn;
 		$data = GatherTr::getTrContribution($tr_c_id);
@@ -91,6 +189,7 @@ class GatherTr
 			if($submission['data_type']=='json'){				
 				$trHops = json_decode($submission['tr_data'], true);
 				$totHops = count($trHops);
+				//print_r($trHops);
 				
 				//hops
 				foreach ($trHops as $key2 => $hop) {
@@ -132,20 +231,22 @@ class GatherTr
 					$TR['hops'][$hopNum]['winIp'] = $winnerIp;
 					
 				} //end hop
+				//print_r($TR);
 				$data['ip_analysis'] = $TR;
 				return $data;
 
 			} else if($submission['data_type']=='txt'){
 				//echo "\nis txt";
-				//$data = GatherTr::analyzeRawTracerouteTxt($tr_c_id, );			
+				//$data = GatherTr::analyzeRawTracerouteTxt();		
+				return 0; // TODO:
 
+			} else {
+				return 0;	
 			}
 			
 		}
 
 	}
-
-
 	/**
 	Publish TR data 
 	*/
@@ -172,6 +273,7 @@ class GatherTr
 
 		//echo "\nProtocol: ".$data['traceroute_submissions'][0]['protocol'];
 
+		// FIXME: assume no order in the contributions
 		if($data['traceroute_submissions'][0]['protocol']=="icmp"){
 			$protocol = "i";
 		} else if($data['traceroute_submissions'][0]['protocol']=="udp"){ 
@@ -179,6 +281,11 @@ class GatherTr
 		} else if($data['traceroute_submissions'][0]['protocol']=="tcp"){ 
 			$protocol = "t";
 		}		
+
+		// TODO: check for null fields
+
+		// convert timeout to seconds 
+		$data['timeout'] = round($data['timeout']/1000);
 
 		$trString = "dest=".$data['dest']."&dest_ip=".$data['dest_ip']."&submitter=".urlencode($data['submitter'])."&zip_code=".urlencode($data['postal_code'])."&client=".urlencode($data['traceroute_submissions'][0]['client'])."&cl_ver=1.0&privacy=8&timeout=".$data['timeout']."&protocol=".$protocol."&maxhops=".$data['maxhops']."&attempts=".$data['queries']."&status=".$trStatus;
 		
@@ -238,6 +345,7 @@ class GatherTr
 		}
 		$totItems = $hopCount*$data['queries'];
 		$trString .= "&n_items=".$totItems;
+		
 		//echo "\n".$trString."";
 
 		// publish data
