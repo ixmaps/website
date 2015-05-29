@@ -39,7 +39,10 @@ class GatherTr
 
 			$sql = "INSERT INTO tr_contribution_data (tr_c_id, sub_time, client, protocol, data_type, tr_invocation, tr_data, tr_flag) VALUES (".$tr_c_id.", NOW(), $1, $2, $3, $4, $5, $6)";
 			
-			$trData = array($trDataItem['client'], $trDataItem['protocol'], $trDataItem['data_type'],'...cmd', $trDataItem['tr_data'], 0);
+			if(!isset($trDataItem['tr_invocation'])){
+				$trDataItem['tr_invocation'] = '...cmd';
+			}
+			$trData = array($trDataItem['client'], $trDataItem['protocol'], $trDataItem['data_type'],$trDataItem['tr_invocation'], $trDataItem['tr_data'], 0);
 
 			$result = pg_query_params($dbconn, $sql, $trData) or die('saveContributionData: Query failed: incorrect parameters'.pg_last_error());
 		}
@@ -382,15 +385,6 @@ class GatherTr
 	}
 
 	/**
-		...
-	*/
-
-	public static function showTrContribution($data) 
-	{
-
-	}
-
-	/**
 	Determine if the IP is Private/Reserved
 	*/
 
@@ -414,6 +408,33 @@ class GatherTr
 			$sql = "UPDATE tr_contributions SET traceroute_id = $traceroute_id, tr_flag=1 WHERE tr_c_id = $tr_c_id";
 			$result = pg_query($dbconn, $sql) or die('flagContribution: Query failed'.pg_last_error());
 			pg_free_result($result);
+			return true;
+		} else {
+			return false;
+		}		
+	}
+
+	/**
+	Flag TR contribution
+	*/
+
+	public static function checkHostnameChanged($ip)
+	{
+		global $dbconn;
+		$output = shell_exec('getent hosts '.$ip);
+		echo "<pre>$output</pre>";
+		$host_data = explode('  ', $output);
+		print_r($host_data);
+		/*ixmaps@trgen:~$ getent hosts 64.124.196.213
+64.124.196.213  xe-0-1-0.er2.iad10.us.above.net*/
+
+		if($ip!=''){
+			$sql = "SELECT ip_addr, hostname FROM ip_addr_info WHERE ip_addr = '".$ip."'";
+			$result = pg_query($dbconn, $sql) or die('checkHostnameChanged: Query failed'.pg_last_error());
+			$ip_data = pg_fetch_all($result);
+			pg_free_result($result);
+			print_r($ip_data);
+
 			return true;
 		} else {
 			return false;
