@@ -427,12 +427,12 @@ class GatherTr
 		echo "<pre>$output</pre>";
 		$host_data = explode('   ', $output);
 		print_r($host_data);
-		
+
 		/*ixmaps@trgen:~$ getent hosts 64.124.196.213
 64.124.196.213  xe-0-1-0.er2.iad10.us.above.net*/
 
 		if($ip!=''){
-			$sql = "SELECT ip_addr, hostname FROM ip_addr_info WHERE ip_addr = '".$ip."'";
+			$sql = "SELECT * FROM ip_addr_info WHERE ip_addr = '".$ip."'";
 			$result = pg_query($dbconn, $sql) or die('checkHostnameChanged: Query failed'.pg_last_error());
 			$ip_data = pg_fetch_all($result);
 			pg_free_result($result);
