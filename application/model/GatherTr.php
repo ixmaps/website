@@ -421,9 +421,11 @@ class GatherTr
 	public static function checkHostnameChanged($ip)
 	{
 		global $dbconn;
-		$output = shell_exec('getent hosts '.$ip);
+		$cmd = 'getent hosts '.$ip;
+		echo "<br/>".$cmd;
+		$output = shell_exec($cmd);
 		echo "<pre>$output</pre>";
-		$host_data = explode('  ', $output);
+		$host_data = explode('   ', $output);
 		print_r($host_data);
 		/*ixmaps@trgen:~$ getent hosts 64.124.196.213
 64.124.196.213  xe-0-1-0.er2.iad10.us.above.net*/
