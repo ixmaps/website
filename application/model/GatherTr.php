@@ -436,7 +436,9 @@ class GatherTr
 			$result = pg_query($dbconn, $sql) or die('checkHostnameChanged: Query failed'.pg_last_error());
 			$ip_data = pg_fetch_all($result);
 			pg_free_result($result);
-			print_r($ip_data);
+			echo "<pre>";
+				print_r($ip_data);
+			echo "</pre>";
 
 			return true;
 		} else {
