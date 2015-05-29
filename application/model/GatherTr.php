@@ -424,6 +424,9 @@ class GatherTr
 		$cmd = 'getent hosts '.$ip;
 		echo "<br/>".$cmd;
 		$output = shell_exec($cmd);
+		if($output==""){
+			echo "<br/>No hostname found";
+		}
 		echo "<pre>$output</pre>";
 		$host_data = explode('   ', $output);
 		print_r($host_data);
