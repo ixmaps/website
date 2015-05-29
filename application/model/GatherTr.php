@@ -427,6 +427,7 @@ class GatherTr
 		echo "<pre>$output</pre>";
 		$host_data = explode('   ', $output);
 		print_r($host_data);
+		
 		/*ixmaps@trgen:~$ getent hosts 64.124.196.213
 64.124.196.213  xe-0-1-0.er2.iad10.us.above.net*/
 
