@@ -437,10 +437,11 @@ class GatherTr
 			return $response;
 		} else {
 
-			$output = str_replace('   ', '  ', $output);
+			$output = str_replace('   ', ' ', $output);
+			$output = str_replace('  ', ' ', $output);
 
 			//echo "<pre>$output</pre>";
-			$hostname_data = explode('  ', $output);
+			$hostname_data = explode(' ', $output);
 			
 			//print_r($hostname_data);
 
