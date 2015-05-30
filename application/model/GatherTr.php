@@ -449,7 +449,7 @@ class GatherTr
 			//echo "<pre>$output</pre>";
 			$hostname_data = explode(' ', $output);
 			
-			//print_r($hostname_data);
+			print_r($hostname_data);
 
 			//216.187.68.222  peer1-gw.korax.net
 			//4.69.137.18     ae-62-62.csw1.losangeles1.level3.net
