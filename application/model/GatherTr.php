@@ -479,8 +479,14 @@ class GatherTr
 		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 4466 or asnum = 5730 or asnum = 7018 order by ip_addr";
 
 		//"Hurricane Electric"
-		$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 6939 order by ip_addr";
+		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 6939 order by ip_addr";
 
+		//"Level 3"
+		$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 30686 or asnum = 3356 or asnum = 3549 order by ip_addr";
+
+		//"Rogers"
+		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 812 or asnum = 3602 order by ip_addr";
+		
 		echo $sql;
 
 		$result = pg_query($dbconn, $sql) or die('getHostnames: Query failed'.pg_last_error());
