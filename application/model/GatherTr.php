@@ -425,7 +425,7 @@ class GatherTr
 		//echo "<br/>Finding hosthame for: ".$ip;
 		$output = shell_exec($cmd);
 
-		sleep(1); 
+		//sleep(1); 
 
 		$response = array(
 				"status"=>0,
@@ -437,9 +437,14 @@ class GatherTr
 			return $response;
 		} else {
 
+			$output = str_replace('   ', '  ', $output);
+
 			//echo "<pre>$output</pre>";
-			$hostname_data = explode('   ', $output);
+			$hostname_data = explode('  ', $output);
+			
 			//print_r($hostname_data);
+
+			//216.187.68.222  peer1-gw.korax.net
 			
 			// remove spaces before comparison
 			$hostname_data[1] = trim($hostname_data[1]);
