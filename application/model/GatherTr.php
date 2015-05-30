@@ -437,8 +437,14 @@ class GatherTr
 			return $response;
 		} else {
 
-			$output = str_replace('   ', ' ', $output);
-			$output = str_replace('  ', ' ', $output);
+			$spaces = '';
+			$tSpace = substr_count($text, ''); 
+			for ($i=0; $i < $tSpace; $i++) { 
+				$spaces.' ';
+			}
+
+			$output = str_replace($spaces, ' ', $output);
+			//$output = str_replace('  ', ' ', $output);
 
 			//echo "<pre>$output</pre>";
 			$hostname_data = explode(' ', $output);
@@ -446,6 +452,7 @@ class GatherTr
 			//print_r($hostname_data);
 
 			//216.187.68.222  peer1-gw.korax.net
+			//4.69.137.18     ae-62-62.csw1.losangeles1.level3.net
 			
 			// remove spaces before comparison
 			$hostname_data[1] = trim($hostname_data[1]);
