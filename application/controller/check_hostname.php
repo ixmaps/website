@@ -16,6 +16,7 @@ echo "<hr/>";
 
 echo "<br/>IP;ixmaps-hostname;new-hostname";
 $c=0;
+echo "<pre>"
 foreach ($ip_data as $key => $ip) {
 	$c++;
 
@@ -29,10 +30,11 @@ foreach ($ip_data as $key => $ip) {
 	
 	if($hCheck['status']==2){
 		
-		echo "<br/>".$ip['ip_addr'], ";".$ip['hostname'].";".$hCheck['hostname'];
+		echo "\n".$ip['ip_addr'], "\t".strtolower($ip['hostname'])."\t".$hCheck['hostname'];
 		// hostname has changed
 	}
 
 }
+echo "</pre>"
 echo "<hr/>Tot IPs changed: ".$c;
 ?>

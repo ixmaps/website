@@ -443,6 +443,7 @@ class GatherTr
 			$hostname_data[1] = trim($hostname_data[1]);
 			$hostnameIX = trim($hostnameIX);
 
+			// normanize to lowerCase
 			$hostname_data[1] = strtolower($hostname_data[1]);
 			$hostnameIX = strtolower($hostnameIX);
 
@@ -450,6 +451,20 @@ class GatherTr
 				$response['status']=1;
 				$response['hostname']=$hostnameIX;
 				return $response;
+			
+			/*
+				test... CASE
+				DOES IT MATCH hostname pattern?
+				OR RATHER... 
+
+				if hostname == ip
+
+
+				!! start the check diff --> save time !!
+
+			*/
+			} else if($hostnameIX==$hostname_data[1] && ){
+			
 			} else {
 				$response['status']=2;
 				$response['hostname']=$hostname_data[1];
