@@ -23,7 +23,7 @@ foreach ($ip_data as $key => $ip) {
 
 	$hCheck = GatherTr::checkHostnameChanged($ip['ip_addr'], $ip['hostname']);
 	
-	if(isset($hCheck['status']){		
+	if(isset($hCheck['status'])){		
 		echo "\n".$ip['ip_addr'], "\t".strtolower($ip['hostname'])."\t".$hCheck['hostname']."\t".$hCheck['status'];
 	}
 
