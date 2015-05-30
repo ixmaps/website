@@ -23,7 +23,7 @@ foreach ($ip_data as $key => $ip) {
 	
 	if($hCheck['status']==2){
 		echo "<br/>IP;old-hostname;new-hostname";
-		echo "<br/>".$ip['ip_addr'], ";", $hCheck['hostname'];
+		echo "<br/>".$ip['ip_addr'], ";".$ip['hostname'].";".$hCheck['hostname'];
 		// hostname has changed
 	}
 
