@@ -10,7 +10,7 @@ include('../model/GatherTr.php');
 }*/
 
 $ip_data = GatherTr::getHostnames();
-
+echo "<br/>IP;old-hostname;new-hostname";
 foreach ($ip_data as $key => $ip) {
 
 	$hCheck = GatherTr::checkHostnameChanged($ip['ip_addr'], $ip['hostname']);
@@ -22,7 +22,7 @@ foreach ($ip_data as $key => $ip) {
 	}*/
 	
 	if($hCheck['status']==2){
-		echo "<br/>IP;old-hostname;new-hostname";
+		
 		echo "<br/>".$ip['ip_addr'], ";".$ip['hostname'].";".$hCheck['hostname'];
 		// hostname has changed
 	}
