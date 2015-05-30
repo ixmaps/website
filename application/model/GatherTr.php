@@ -452,20 +452,7 @@ class GatherTr
 				$response['hostname']=$hostnameIX;
 				return $response;
 			
-			/*
-				test... CASE
-				DOES IT MATCH hostname pattern?
-				OR RATHER... 
-
-				if hostname == ip
-
-
-				!! start the check diff --> save time !!
-
-			*/
-			} else if($hostnameIX==$hostname_data[1] && ){
-			
-			} else {
+			} else if($hostnameIX!=$hostname_data[1]){
 				$response['status']=2;
 				$response['hostname']=$hostname_data[1];
 				return $response;
@@ -473,7 +460,7 @@ class GatherTr
 		}
 	}
 
-	public static function getHostnames($ip='';){
+	public static function getHostnames($ip=''){
 		global $dbconn;
 		$sql = "SELECT ip_addr, hostname FROM ip_addr_info where ip_addr > '".$ip."' order by ip_addr DESC LIMIT 1000";
 		echo $sql;

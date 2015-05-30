@@ -14,9 +14,10 @@ echo "TOT: IPs analyzed:".count($ip_data);
 
 echo "<hr/>";
 
-echo "<br/>IP;ixmaps-hostname;new-hostname";
+
 $c=0;
 echo "<pre>";
+echo "IP\tixmaps-hostname\tnew-hostname";
 foreach ($ip_data as $key => $ip) {
 	$c++;
 
