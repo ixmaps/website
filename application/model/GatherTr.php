@@ -438,12 +438,12 @@ class GatherTr
 		} else {
 
 			$spaces = '';
-			$tSpace = substr_count($text, ''); 
+/*			$tSpace = substr_count($text, ''); 
 			for ($i=0; $i < $tSpace; $i++) { 
 				$spaces.' ';
-			}
+			}*/
 
-			$output = str_replace($spaces, ' ', $output);
+			//$output = str_replace($spaces, ' ', $output);
 			//$output = str_replace('  ', ' ', $output);
 
 			//echo "<pre>$output</pre>";
