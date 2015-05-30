@@ -417,9 +417,6 @@ class GatherTr
 	/**
 	Attempts a hostname lookup for a given IP address.
 	If a hostname if found, compares if the current hostname is different from the old one provided.
-	return 0: no hostname
-	return 1: hostname is the same
-	return 2: hostname has changed
 	*/
 
 	public static function checkHostnameChanged($ip, $hostnameIX)
@@ -445,6 +442,9 @@ class GatherTr
 			// remove spaces before comparison
 			$hostname_data[1] = trim($hostname_data[1]);
 			$hostnameIX = trim($hostnameIX);
+
+			$hostname_data[1] = strtolower($hostname_data[1]);
+			$hostnameIX = strtolower($hostnameIX);
 
 			if($hostnameIX==$hostname_data[1]){
 				$response['status']=1;
