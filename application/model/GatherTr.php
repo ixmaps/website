@@ -469,9 +469,12 @@ class GatherTr
 		global $dbconn;
 		//$sql = "SELECT ip_addr, hostname FROM ip_addr_info where ip_addr >= '".$ip."' order by ip_addr LIMIT ".$total;
 
-		// select all Cognet
-		$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 2149 or asnum = 174 order by ip_addr";
+		// Cognet
+		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 2149 or asnum = 174 order by ip_addr";
 		
+		//"AboveNet/Zayo"
+		$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 17025 or asnum = 6461 order by ip_addr";
+
 		echo $sql;
 
 		$result = pg_query($dbconn, $sql) or die('getHostnames: Query failed'.pg_last_error());
