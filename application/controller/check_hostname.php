@@ -16,7 +16,7 @@ echo "<hr/>";
 
 echo "<br/>IP;ixmaps-hostname;new-hostname";
 $c=0;
-echo "<pre>"
+echo "<pre>";
 foreach ($ip_data as $key => $ip) {
 	$c++;
 
@@ -35,6 +35,6 @@ foreach ($ip_data as $key => $ip) {
 	}
 
 }
-echo "</pre>"
+echo "</pre>";
 echo "<hr/>Tot IPs changed: ".$c;
 ?>
