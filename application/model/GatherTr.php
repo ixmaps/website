@@ -425,6 +425,8 @@ class GatherTr
 		//echo "<br/>Finding hosthame for: ".$ip;
 		$output = shell_exec($cmd);
 
+		sleep(1); 
+
 		$response = array(
 				"status"=>0,
 				"hostname"=>""
