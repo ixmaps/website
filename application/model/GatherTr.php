@@ -456,7 +456,7 @@ class GatherTr
 
 			if($hostnameIX==$hostname_data[1]){
 				$response['status']=1;
-				$response['hostname']=$hostnameIX;
+				$response['hostname']=$hostname_data[1];
 				return $response;
 			
 			} else if($hostnameIX!=$hostname_data[1]){

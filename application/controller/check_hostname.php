@@ -17,25 +17,17 @@ echo "<hr/>";
 
 $c=0;
 echo "<pre>";
-echo "IP\tixmaps-hostname\tnew-hostname";
+echo "IP\tixmaps-hostname\tnew-hostname\tStatus";
 foreach ($ip_data as $key => $ip) {
 	$c++;
 
 	$hCheck = GatherTr::checkHostnameChanged($ip['ip_addr'], $ip['hostname']);
 	
-/*	if($hCheck['status']==0){
-		// do nothing, unless required to report no hostname look up found
-	} else if($hCheck['status']==1){
-		// host name is the same as existing in (last) ixmaps table
-	}*/
-	
-	if($hCheck['status']==2){
-		
-		echo "\n".$ip['ip_addr'], "\t".strtolower($ip['hostname'])."\t".$hCheck['hostname'];
-		// hostname has changed
+	if(isset($hCheck['status']){		
+		echo "\n".$ip['ip_addr'], "\t".strtolower($ip['hostname'])."\t".$hCheck['hostname']."\t".$hCheck['status'];
 	}
 
 }
 echo "</pre>";
-echo "<hr/>Tot IPs changed: ".$c;
+//echo "<hr/>Tot IPs changed: ".$c;
 ?>
