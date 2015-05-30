@@ -10,8 +10,14 @@ include('../model/GatherTr.php');
 }*/
 
 $ip_data = GatherTr::getHostnames();
+echo "TOT: IPs analyzed:".count($ip_data);
+
+echo "<hr/>";
+
 echo "<br/>IP;ixmaps-hostname;new-hostname";
+$c=0;
 foreach ($ip_data as $key => $ip) {
+	$c++;
 
 	$hCheck = GatherTr::checkHostnameChanged($ip['ip_addr'], $ip['hostname']);
 	
@@ -28,5 +34,5 @@ foreach ($ip_data as $key => $ip) {
 	}
 
 }
-
+echo "<hr/>Tot IPs changed: ".$c;
 ?>
