@@ -460,9 +460,9 @@ class GatherTr
 		}
 	}
 
-	public static function getHostnames($ip=''){
+	public static function getHostnames($ip='', $total=100){
 		global $dbconn;
-		$sql = "SELECT ip_addr, hostname FROM ip_addr_info where ip_addr > '".$ip."' order by ip_addr DESC LIMIT 100";
+		$sql = "SELECT ip_addr, hostname FROM ip_addr_info where ip_addr >= '".$ip."' order by ip_addr DESC LIMIT ".$total;
 		echo $sql;
 		$result = pg_query($dbconn, $sql) or die('getHostnames: Query failed'.pg_last_error());
 		$ip_host_data = pg_fetch_all($result);

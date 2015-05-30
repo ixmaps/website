@@ -9,7 +9,7 @@ if(isset($_REQUEST['ip']) && $_REQUEST['ip']!=""){
 	$ip=0;
 }
 
-$ip_data = GatherTr::getHostnames($ip);
+$ip_data = GatherTr::getHostnames($_REQUEST['ip'],$_REQUEST['t']);
 echo "TOT: IPs analyzed:".count($ip_data);
 
 echo "<hr/>";
