@@ -438,38 +438,28 @@ class GatherTr
 		} else {
 
 			$spaces = '';
-/*			$tSpace = substr_count($text, ''); 
-			for ($i=0; $i < $tSpace; $i++) { 
-				$spaces.' ';
-			}*/
-
-			//$output = str_replace($spaces, ' ', $output);
-			//$output = str_replace('  ', ' ', $output);
 
 			//echo "<pre>$output</pre>";
 			$hostname_data = explode(' ', $output);
 			
-			print_r($hostname_data);
+			//print_r($hostname_data);
 
-			//216.187.68.222  peer1-gw.korax.net
-			//4.69.137.18     ae-62-62.csw1.losangeles1.level3.net
-			
 			// remove spaces before comparison
-			$hostname_data[1] = trim($hostname_data[1]);
+			$hostnameNew= trim($hostname_data[count($hostname_data)-1]);
 			$hostnameIX = trim($hostnameIX);
 
 			// normanize to lowerCase
-			$hostname_data[1] = strtolower($hostname_data[1]);
+			$hostnameNew = strtolower($hostnameNew);
 			$hostnameIX = strtolower($hostnameIX);
 
 			if($hostnameIX==$hostname_data[1]){
 				$response['status']=1;
-				$response['hostname']=$hostname_data[1];
+				$response['hostname']=$hostnameNew;
 				return $response;
 			
-			} else if($hostnameIX!=$hostname_data[1]){
+			} else if($hostnameIX!=$hostnameNew){
 				$response['status']=2;
-				$response['hostname']=$hostname_data[1];
+				$response['hostname']=$hostnameNew;
 				return $response;
 			}
 		}
