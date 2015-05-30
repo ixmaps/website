@@ -415,38 +415,56 @@ class GatherTr
 	}
 
 	/**
-	Flag TR contribution
+	Attempts a hostname lookup for a given IP address.
+	If a hostname if found, compares if the current hostname is different from the old one provided.
+	return 0: no hostname
+	return 1: hostname is the same
+	return 2: hostname has changed
 	*/
 
-	public static function checkHostnameChanged($ip)
+	public static function checkHostnameChanged($ip, $hostnameIX)
 	{
-		global $dbconn;
 		$cmd = 'getent hosts '.$ip;
-		echo "<br/>".$cmd;
+		//echo "<br/>Finding hosthame for: ".$ip;
 		$output = shell_exec($cmd);
+
+		$response = array(
+				"status"=>0,
+				"hostname"=>""
+				);
+
 		if($output==""){
-			echo "<br/>No hostname found";
-		}
-		echo "<pre>$output</pre>";
-		$host_data = explode('   ', $output);
-		print_r($host_data);
-
-		/*ixmaps@trgen:~$ getent hosts 64.124.196.213
-64.124.196.213  xe-0-1-0.er2.iad10.us.above.net*/
-
-		if($ip!=''){
-			$sql = "SELECT * FROM ip_addr_info WHERE ip_addr = '".$ip."'";
-			$result = pg_query($dbconn, $sql) or die('checkHostnameChanged: Query failed'.pg_last_error());
-			$ip_data = pg_fetch_all($result);
-			pg_free_result($result);
-			echo "<pre>";
-				print_r($ip_data);
-			echo "</pre>";
-
-			return true;
+			//echo "<br/>No hostname found";
+			return $response;
 		} else {
-			return false;
-		}		
+
+			//echo "<pre>$output</pre>";
+			$hostname_data = explode('   ', $output);
+			//print_r($hostname_data);
+			
+			// remove spaces before comparison
+			$hostname_data[1] = trim($hostname_data[1]);
+			$hostnameIX = trim($hostnameIX);
+
+			if($hostnameIX==$hostname_data[1]){
+				$response['status']=1;
+				$response['hostname']=$hostnameIX;
+				return $response;
+			} else {
+				$response['status']=2;
+				$response['hostname']=$hostname_data[1];
+				return $response;
+			}
+		}
+	}
+
+	public static function getHostnames(){
+		global $dbconn;
+		$sql = "SELECT ip_addr, hostname FROM ip_addr_info order by ip_addr LIMIT 1000";
+		$result = pg_query($dbconn, $sql) or die('getHostnames: Query failed'.pg_last_error());
+		$ip_host_data = pg_fetch_all($result);
+		pg_free_result($result);
+		return $ip_host_data;
 	}
 		
 }
