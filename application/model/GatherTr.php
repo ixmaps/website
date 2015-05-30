@@ -473,7 +473,10 @@ class GatherTr
 		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 2149 or asnum = 174 order by ip_addr";
 		
 		//"AboveNet/Zayo"
-		$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 17025 or asnum = 6461 order by ip_addr";
+		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 17025 or asnum = 6461 order by ip_addr";
+
+		//"AT&T"
+		$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 4466 or asnum = 5730 or asnum = 7018 order by ip_addr";
 
 		echo $sql;
 
