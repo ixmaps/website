@@ -116,7 +116,6 @@ if($ip!='')
 	// ASN
 	echo '<hr/><b>Using GeoIPASNum.dat</b><br/>';
 	$giasn = geoip_open("dat/GeoIPASNum.dat", GEOIP_STANDARD);
-	//$ip = '2001:4860:0:1001::68';
 	$asn = geoip_name_by_addr($giasn, $ip);
 	echo "<br/>ASN: ".$asn;
 	geoip_close($giasn);	
