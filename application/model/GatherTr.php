@@ -415,8 +415,24 @@ class GatherTr
 	}
 
 	/**
+	Get hostname using getent hosts [ip]
+	*/
+
+	public static function getHostname($ip)
+	{
+		$cmd = 'getent hosts '.$ip;
+		//echo "<br/>Finding hosthame for: ".$ip;
+		$output = shell_exec($cmd);
+		$hostname_data = explode(' ', $output);
+		$hostname= trim($hostname_data[count($hostname_data)-1]);
+		return $hostname;
+	}
+
+
+
+	/**
 	Attempts a hostname lookup for a given IP address.
-	If a hostname if found, compares if the current hostname is different from the old one provided.
+	If a hostname is found, compares if the current hostname is different from the old in the IXmaps DB
 	*/
 
 	public static function checkHostnameChanged($ip, $hostnameIX)
@@ -424,9 +440,6 @@ class GatherTr
 		$cmd = 'getent hosts '.$ip;
 		//echo "<br/>Finding hosthame for: ".$ip;
 		$output = shell_exec($cmd);
-
-		//sleep(1); 
-
 		$response = array(
 				"status"=>0,
 				"hostname"=>""
@@ -464,10 +477,53 @@ class GatherTr
 			}
 		}
 	}
+	
+	
+	/**
+		Get geodata, hostname and ASnum from ipinfo.io
+		NOTE: 1000 max requests per day
+	*/
+	public static function getIpDataIpInfoIo($ip=''){
+		$cmd = 'curl ipinfo.io/'.$ip;
+		$output = shell_exec($cmd);
+		$hostname_data = json_decode($output, true);
+		return $hostname_data;
+	}
 
+	/**
+		Get a ASN for an IP: Using local DBs
+	*/
+	public static function getIpForAsn($ip=''){
+		global $dbconn, $ixmaps_debug_mode;
+		$sql = "SELECT asn_netmask.*, asn_carrier.name FROM asn_netmask, asn_carrier WHERE (asn_carrier.num=asn_netmask.asn) AND asn_netmask.netmask >>= inet('".$ip."');";
+		//echo $sql;
+		//$trParams = array($ip);
+		//$result = pg_query_params($dbconn, $sql, $trParams) or die('getIpForAsn: Query failed'.pg_last_error());
+		$result = pg_query($dbconn, $sql) or die('getIpForAsn: Query failed'.pg_last_error());
+		$asnData = pg_fetch_all($result);
+		//print_r($asnData);
+		pg_free_result($result);
+		return $asnData;
+	}
+
+	/**
+		Get MaxMind Geolocation data for an IP: Using local MM .dat files
+	*/
+	public static function getMaxMindData($ip=''){
+
+	}
+
+	/**
+		Get ip addresses from IXmaps DB
+	*/
 	public static function getHostnames($ip='', $total=100){
 		global $dbconn;
-		//$sql = "SELECT ip_addr, hostname FROM ip_addr_info where ip_addr >= '".$ip."' order by ip_addr LIMIT ".$total;
+		$fields = " ip_addr, hostname, mm_lat, mm_long, lat, long, mm_city, mm_country, gl_override ";
+		//$sql = "SELECT ip_addr, hostname, asnum FROM ip_addr_info where ip_addr >= '".$ip."' order by ip_addr LIMIT ".$total;
+
+		// process ALL
+		//$sql = "SELECT ip_addr, hostname, asnum FROM ip_addr_info order by ip_addr";
+
 
 		// Cognet
 		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 2149 or asnum = 174 order by ip_addr";
@@ -482,10 +538,21 @@ class GatherTr
 		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 6939 order by ip_addr";
 
 		//"Level 3"
-		$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 30686 or asnum = 3356 or asnum = 3549 order by ip_addr";
+		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 30686 or asnum = 3356 or asnum = 3549 order by ip_addr";
 
 		//"Rogers"
-		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 812 or asnum = 3602 order by ip_addr";
+		$sql ="SELECT ".$fields." FROM ip_addr_info where asnum = 812 or asnum = 3602 order by ip_addr";
+
+		//"Teksavvy"
+		//"5645,20375,0"
+
+		//"Telus"
+		// "852,7861,54719"
+
+		//"Verizon" 
+		//"702,703,701"
+
+
 		
 		echo $sql;
 
