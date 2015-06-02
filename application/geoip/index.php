@@ -112,6 +112,15 @@ if($ip!='')
 
 	//$gi = geoip_open("/usr/local/share/GeoIP/GeoLiteCityv6.dat",GEOIP_STANDARD);
 	
+
+	// ASN
+	echo '<hr/><b>Using GeoIPASNum.dat</b><br/>';
+	$giasn = geoip_open("dat/GeoIPASNum.dat", GEOIP_STANDARD);
+	//$ip = '2001:4860:0:1001::68';
+	$asn = geoip_name_by_addr($giasn, $ip);
+	echo "<br/>ASN: ".$asn;
+	geoip_close($giasn);	
+
 	echo '<hr/><b>Using GeoLiteCityv6.dat</b><br/>';
 	$gi = geoip_open("dat/GeoLiteCityv6.dat",GEOIP_STANDARD);
 	//$record = geoip_record_by_addr_v6($gi,"::24.24.24.24");
