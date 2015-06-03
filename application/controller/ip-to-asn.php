@@ -7,17 +7,31 @@ include('../model/GatherTr.php');
 $ip = $_REQUEST['ip'];
 
 /*
-  IP to AS using DB:
+  Check ip IP for geolocation purposes
  */
 
+  // dev display
   $asn_carrier = GatherTr::getIpForAsn($ip);
   echo "<hr/>getIpForAsn...";
-  echo "<br/>netmask: ".$asn_carrier[0]['netmask'];
-  echo "<br/>asn: ".$asn_carrier[0]['asn'];
-  echo "<br/>Carrier: ".$asn_carrier[0]['name'];
+  echo "<pre>";
+  print_r($asn_carrier);
+  echo "</pre>";
+
+  echo "<hr/>ipInIXmaps...";
+  $ixmaps_data = GatherTr::ipInIXmaps($ip);
+  echo "<pre>";
+  print_r($ixmaps_data);
+  echo "</pre>";
 
   echo "<hr/>getHostname...";
   $hostname_new = GatherTr::getHostname($ip);
-  echo "<br/>Current hostname: ".$hostname_new;
+  echo "<pre>";
+  print_r($hostname_new);
+  echo "</pre>";
+
+  // display
+  /*echo "<br/>netmask: ".$asn_carrier[0]['netmask'];
+  echo "<br/>asn: ".$asn_carrier[0]['asn'];
+  echo "<br/>Carrier: ".$asn_carrier[0]['name'];*/
 
 ?>
