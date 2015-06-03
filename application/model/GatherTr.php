@@ -421,14 +421,24 @@ class GatherTr
 	public static function getHostname($ip)
 	{
 		$cmd = 'getent hosts '.$ip;
-		//echo "<br/>Finding hosthame for: ".$ip;
 		$output = shell_exec($cmd);
 		$hostname_data = explode(' ', $output);
 		$hostname= trim($hostname_data[count($hostname_data)-1]);
-		return $hostname;
+		$host_r = array(
+			'hostname'=>$hostname);
+		return $host_r;
 	}
 
-
+	public static function ipInIXmaps($ip)
+	{
+		global $dbconn;
+		$sql = "SELECT ip_addr, asnum, hostname FROM ip_addr_info WHERE ip_addr = $1";
+		$params = array($ip);
+		$result = pg_query_params($dbconn, $sql, $params) or die('ipInIXmaps: Query failed: incorrect parameters'.pg_last_error());
+		$data = pg_fetch_all($result);
+		pg_free_result($result);
+		return $data;
+	}
 
 	/**
 	Attempts a hostname lookup for a given IP address.
