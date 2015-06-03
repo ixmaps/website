@@ -4,7 +4,7 @@
 include('../config.php');
 include('../model/GatherTr.php');
 
-if(!isset($_REQUEST['ip'])){
+if(!isset($_REQUEST['ip']) && $_REQUEST['ip']!=""){
  echo "You must provide an IP as parameter: <br/>
  http://www.ixmaps.ca/application/controller/ip-to-asn.php?ip=<b>[ip]</b>";
 } else {
