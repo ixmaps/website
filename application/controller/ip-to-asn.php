@@ -18,6 +18,6 @@ $ip = $_REQUEST['ip'];
 
   echo "<hr/>getHostname...";
   $hostname_new = GatherTr::getHostname($ip);
-  echo "<br/>netmask: ".$hostname_new;
+  echo "<br/>Current hostname: ".$hostname_new;
 
 ?>
