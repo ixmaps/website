@@ -4,11 +4,15 @@
 include('../config.php');
 include('../model/GatherTr.php');
 
-$ip = $_REQUEST['ip'];
+if(!isset($_REQUEST['ip'])){
+ echo "You must provide an IP as parameter: <br/>
+ http://www.ixmaps.ca/application/controller/ip-to-asn.php?ip=<b>[ip]</b>";
+} else {
+  $ip = $_REQUEST['ip'];
 
-/*
+  /*
   Check ip IP for geolocation purposes
- */
+  */
 
   // dev display
   $asn_carrier = GatherTr::getIpForAsn($ip);
@@ -34,5 +38,5 @@ $ip = $_REQUEST['ip'];
   /*echo "<br/>netmask: ".$asn_carrier[0]['netmask'];
   echo "<br/>asn: ".$asn_carrier[0]['asn'];
   echo "<br/>Carrier: ".$asn_carrier[0]['name'];*/
-
+}
 ?>
