@@ -278,7 +278,8 @@ class GatherTr
 		// FIXED! collecting the protocol used in the submission data_type = json
 		foreach ($data['traceroute_submissions'] as $sub_data) {
 			if($sub_data['data_type']=="json"){
-
+				// convert to lowercase before comparison
+				$sub_data['protocol'] = strtolower($sub_data['protocol']);
 				if($sub_data['protocol']=="icmp"){
 					$protocol = "i";
 				} else if($sub_data['protocol']=="udp"){ 
