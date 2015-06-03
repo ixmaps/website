@@ -273,17 +273,21 @@ class GatherTr
 		} else {
 			$trStatus = "i";
 		}
+		
 
-		//echo "\nProtocol: ".$data['traceroute_submissions'][0]['protocol'];
+		// FIXED! collecting the protocol used in the submission data_type = json
+		foreach ($data['traceroute_submissions'] as $sub_data) {
+			if($sub_data['data_type']=="json"){
 
-		// FIXME: assume no order in the contributions
-		if($data['traceroute_submissions'][0]['protocol']=="icmp"){
-			$protocol = "i";
-		} else if($data['traceroute_submissions'][0]['protocol']=="udp"){ 
-			$protocol = "u";
-		} else if($data['traceroute_submissions'][0]['protocol']=="tcp"){ 
-			$protocol = "t";
-		}		
+				if($sub_data['protocol']=="icmp"){
+					$protocol = "i";
+				} else if($sub_data['protocol']=="udp"){ 
+					$protocol = "u";
+				} else if($sub_data['protocol']=="tcp"){ 
+					$protocol = "t";
+				}		
+			}
+		}
 
 		// TODO: check for null fields
 
