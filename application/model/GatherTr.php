@@ -418,7 +418,7 @@ class GatherTr
 	Get hostname using getent hosts [ip]
 	*/
 
-	public static function getHostname($ip)
+	public static function getHostnameForIp($ip)
 	{
 		$cmd = 'getent hosts '.$ip;
 		$output = shell_exec($cmd);
