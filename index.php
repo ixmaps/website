@@ -62,7 +62,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 			});
 		});
 	</script>
-	<script src="http://www.youtube.com/iframe_api"></script>
+	<script src="///www.youtube.com/iframe_api"></script>
 
 
 	<!-- STYLESHEETS -->
