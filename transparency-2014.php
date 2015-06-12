@@ -12,7 +12,7 @@
 
 
 	<!-- STYLESHEETS -->
-	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='///fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="transparency/css/globalstyles.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/overwrites.css" type="text/css" />
@@ -258,7 +258,7 @@
                                                     <a class="returntoarticle" href="#fn7-inline">↩</a></li>
 
                                                 <li id="fn8">
-                                                    <a href="http://IXmaps/explore" target="blank">http://IXmaps/explore</a>
+                                                    <a href="https://ixmaps.ca/explore" target="blank">https//ixmaps.ca/explore</a>
                                                     <a class="returntoarticle" href="#fn8-inline">↩</a></li>
 
                                                 <li id="fn9">
@@ -271,7 +271,7 @@
 			</ol>
 
 		<h3 id="authors">About the Authors</h3>
-			<p><b>Andrew Clement</b> (<a href="mailto:andrew.clement@utoronto.ca?subject=Regarding IXmaps Transparency Report">andrew.clement@utoronto.ca</a>) is a Professor in the Faculty of Information at the University of Toronto, where he coordinates the Information Policy Research Program and is a co-founder of the Identity, Privacy and Security Institute. With a PhD in Computer Science, he has had longstanding research and teaching interests in the social implications of information/communication technologies and participatory design. Among his recent privacy/surveillance research projects, are <a href="http://ixmaps.ca" target="_blank">IXmaps.ca</a> an internet mapping tool that helps make more visible NSA warrantless wiretapping activities and the routing of Canadian personal data through the U.S. even when the origin and destination are both in Canada; <a href="http://surveillancerights.ca" target="_blank">SurveillanceRights.ca</a>, which documents (non)compliance of video surveillance installations with privacy regulations and helps citizens understand their related privacy rights. The SurveillanceWatch app enables users to locate surveillance cameras around them and contribute new sightings of their own; and <a href="http://iprp.ischool.utoronto.ca/#propid" target="_blank">Proportionate ID</a>, which demonstrates through overlays for conventional ID cards and a smartphone app privacy protective alternatives to prevailing full disclosure norms. Clement is a co-investigator in The New Transparency: Surveillance and Social Sorting research collaboration. See <a href="http://www.digitallymediatedsurveillance.ca/" target="_blank">http://www.digitallymediatedsurveillance.ca/</a></p>
+			<p><b>Andrew Clement</b> (<a href="mailto:andrew.clement@utoronto.ca?subject=Regarding IXmaps Transparency Report">andrew.clement@utoronto.ca</a>) is a Professor in the Faculty of Information at the University of Toronto, where he coordinates the Information Policy Research Program and is a co-founder of the Identity, Privacy and Security Institute. With a PhD in Computer Science, he has had longstanding research and teaching interests in the social implications of information/communication technologies and participatory design. Among his recent privacy/surveillance research projects, are <a href="https://ixmaps.ca" target="_blank">IXmaps.ca</a> an internet mapping tool that helps make more visible NSA warrantless wiretapping activities and the routing of Canadian personal data through the U.S. even when the origin and destination are both in Canada; <a href="https://surveillancerights.ca" target="_blank">SurveillanceRights.ca</a>, which documents (non)compliance of video surveillance installations with privacy regulations and helps citizens understand their related privacy rights. The SurveillanceWatch app enables users to locate surveillance cameras around them and contribute new sightings of their own; and <a href="http://iprp.ischool.utoronto.ca/#propid" target="_blank">Proportionate ID</a>, which demonstrates through overlays for conventional ID cards and a smartphone app privacy protective alternatives to prevailing full disclosure norms. Clement is a co-investigator in The New Transparency: Surveillance and Social Sorting research collaboration. See <a href="http://www.digitallymediatedsurveillance.ca/" target="_blank">http://www.digitallymediatedsurveillance.ca/</a></p>
 			<p><b>Jonathan Obar</b> (<a href="mailto:jonathan.obar@uoit.ca?subject=Regarding IXmaps Transparency Report">jonathan.obar@uoit.ca</a>) is an Assistant Professor in the Faculty of Social Science and Humanities at the University of Ontario Institute of Technology. He also serves as a Research Associate at the Quello Center for Telecommunication Management and Law at Michigan State University. Dr. Obar has published in a wide variety of academic journals about the relationship between digital media technologies, ICT policy and the protection of civil liberties.</p>
 
 		<h3 id="acknowledgements">Acknowledgements</h3>
@@ -281,14 +281,14 @@
 
 			<p>Website and report design assistance: <a href="http://www.dialogicaldesign.com" target="_blank">Jennette Weber</a>.</p>
 
-                                    <p>This research was conducted under the auspices of the <em>IXmaps: Mapping Canadian privacy risks in the internet ‘cloud’</em> project (see <a href="http:/ixmaps.ca" target="blank">IXmaps.ca</a>) and the Information Policy Research Program (IPRP), with the support of the Office of the Privacy Commissioner of Canada (2012-13), <em>The New Transparency: Surveillance and Social Sorting</em> project funded by the Social Sciences and Humanities Research Council (2012-15), and the <em>Mapping Canadian internet traffic, infrastructure and service provision</em> (2014-15), funded by the Canadian Internet Registration Authority (CIRA).  </p>
+                                    <p>This research was conducted under the auspices of the <em>IXmaps: Mapping Canadian privacy risks in the internet ‘cloud’</em> project (see <a href="https://ixmaps.ca" target="blank">IXmaps.ca</a>) and the Information Policy Research Program (IPRP), with the support of the Office of the Privacy Commissioner of Canada (2012-13), <em>The New Transparency: Surveillance and Social Sorting</em> project funded by the Social Sciences and Humanities Research Council (2012-15), and the <em>Mapping Canadian internet traffic, infrastructure and service provision</em> (2014-15), funded by the Canadian Internet Registration Authority (CIRA).  </p>
 
                                     <p>The views expressed are of course those of the authors alone.</p>
 
 	 		<p class="cc">
-	 		<a class="cc-image" rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+	 		<a class="cc-image" rel="license" href="///creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 	 		<br>
-	 		<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><em>"Keeping internet users in the know or in the dark: A report on the data privacy transparency of Canadian internet carriers"</em></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://ixmaps.ca/transparency.php" property="cc:attributionName" rel="cc:attributionURL">Andrew Clement and Jonathan Obar </a> is licensed under a <a rel="license" href=" http://creativecommons.org/licenses/by/2.5/ca/" target="_blank">Creative Commons Attribution 2.5 Canada (CC BY 2.5 CA) </a>.
+	 		<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><em>"Keeping internet users in the know or in the dark: A report on the data privacy transparency of Canadian internet carriers"</em></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ixmaps.ca/transparency.php" property="cc:attributionName" rel="cc:attributionURL">Andrew Clement and Jonathan Obar </a> is licensed under a <a rel="license" href=" https://creativecommons.org/licenses/by/2.5/ca/" target="_blank">Creative Commons Attribution 2.5 Canada (CC BY 2.5 CA) </a>.
 	 		</p>
 	</section>
 

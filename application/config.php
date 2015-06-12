@@ -25,7 +25,7 @@ $dbconn = pg_connect("host=localhost dbname=$dbname user=$dbuser password=$dbpas
 //$savePath = '/var/www/dev.ixmaps.ca/gm-temp';
 
 // production
-$webUrl = "http://ixmaps.ca";
+$webUrl = "https://ixmaps.ca";
 $appRootPath = '/var/www/www.ixmaps.ca'; // !!
 $savePath = $appRootPath.'/gm-temp';
 
@@ -34,8 +34,8 @@ $trNumLimit=100;
 
 $ixmaps_debug_mode = true;
 
-$ixmaps_hands_off_config = array(	
-		
+$ixmaps_hands_off_config = array(
+
 );
 
 // ADD ONCE POSTGRES IS SET UP

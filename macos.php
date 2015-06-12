@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
@@ -19,7 +19,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -41,25 +41,25 @@
 </head>
 
 <body>
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
 
 <section id="main"><!-- #main content and sidebar area -->
-	
+
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 
 		<article>
 			<h2>Mac OS Installation</h2>
-			 
-		   	<p>To install the Mac OS version of TrGen, download the installer 
-			<a href = "http://www.ixmaps.ca/TrGen/tr-sub-mac-0.8.6_v5.dmg">from here</a>
-			and	follow the instructions in ReadMe file. You will need administrator privileges 
+
+		   	<p>To install the Mac OS version of TrGen, download the installer
+			<a href = "https://www.ixmaps.ca/TrGen/tr-sub-mac-0.8.6_v5.dmg">from here</a>
+			and	follow the instructions in ReadMe file. You will need administrator privileges
 			to run and install the software. This version of the software has been tested on the following versions of Mac OS:</p>
 			<ul>
 				<li>10.6.8</li>
