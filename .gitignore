@@ -1,3 +1,6 @@
+# For OSX Users
+.DS_Store
+
 /application/geoip/dat
 js/config.js
 application/config.php
