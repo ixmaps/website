@@ -34,7 +34,7 @@
 <section id="container"><!-- #container -->
 
         <section id="prompt" >
-            <p>This is an archived report. Read the new <a href="transparency-2014.php">2014 Report</a> now.</p>
+            <p>This is an archived report. Read the <a href="transparency.php">Current Report</a>.</p>
         </section>
 
 
