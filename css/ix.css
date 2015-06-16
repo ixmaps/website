@@ -413,6 +413,10 @@ overflow: hidden;
 	margin: 0 0 1em 0;
 }
 
+#homepage-news p strong{
+	font-family: 'PT Serif', Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif !important;
+}
+
 #homepage-news p a{
 	font-family: 'PT Serif', Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif !important;
 	border-bottom: none;
