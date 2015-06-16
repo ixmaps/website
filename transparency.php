@@ -2,17 +2,13 @@
 <html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+	<!-- META INFORMATION -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="description" content="IXmaps is an internet mapping tool that allows you to see how your personal data travels across the internet.">
 	<title>See where your data packets go | IXmaps</title>
 
-
-
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-
-
 	<!-- STYLESHEETS -->
-	<link href='///fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="transparency/css/globalstyles.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/overwrites.css" type="text/css" />
@@ -20,6 +16,9 @@
             <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css"/>
             <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css"/> -->
 	<link rel="stylesheet" href="transparency/css/transparency.css" type="text/css" />
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
 
 </head>
 
