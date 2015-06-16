@@ -71,9 +71,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 <body onload="initialize()">
 <div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">
-  <span style="float:right; background-color:yellow; padding: 3px 10px 3px 10px">IXmaps is looking for software developers with IP geo-location experience.<a href="documents/IXmaps-RequestforProposals20140815.pdf"
-class="smallinks">Click here.</a></span>
+	<img src="images/headerimage.jpg" width="1000" height="138">
 </header><!-- end of header -->
 
 <?php include("includes/navigation.php"); ?>
