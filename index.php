@@ -1,16 +1,13 @@
 <?php
 $ixHost = $_SERVER["SERVER_NAME"];
-
-/*if ($ixHost!='www.ixmaps.ca'){
-    header('Location: http://www.ixmaps.ca/index.php');
-	exit;
-}*/
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+	<!-- META INFORMATION -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="description" content="IXmaps is an internet mapping tool that allows you to see how your personal data travels across the internet.">
 	<title>See where your data packets go | IXmaps</title>
 
 	<!-- JAVASCRIPT -->
@@ -19,7 +16,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 	<script type="text/javascript" src="js/lightbox.js"></script>
 	<script src="flowplayer/example/flowplayer-3.1.4.min.js"></script>
 
-	<script language="JavaScript" type="text/javascript">
+	<script type="text/javascript">
 	//--------------- LOCALIZEABLE GLOBALS ---------------
 	var d=new Date();
 	var monthname=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
@@ -62,7 +59,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 			});
 		});
 	</script>
-	<script src="///www.youtube.com/iframe_api"></script>
+	<script src="//www.youtube.com/iframe_api"></script>
 
 
 	<!-- STYLESHEETS -->
@@ -77,29 +74,27 @@ $ixHost = $_SERVER["SERVER_NAME"];
   <img src="images/headerimage.jpg" width="1000" height="138">
   <span style="float:right; background-color:yellow; padding: 3px 10px 3px 10px">IXmaps is looking for software developers with IP geo-location experience.<a href="documents/IXmaps-RequestforProposals20140815.pdf"
 class="smallinks">Click here.</a></span>
-  <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
 
 <?php include("includes/navigation.php"); ?>
 
 <section id="main"><!-- #main content and sidebar area -->
 
-<!-- BETA VERSION MESSAGE -->
-<!-- 	<span id="beta-message"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website Home Page">feedback</a></i></span>
- -->
-
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 
 		<article id="homepage-news">
-			<p class="justreleased">Now Out!</p> <p><b>Keeping Internet Users in the Know or in the Dark:</b><br>2014 Report on Data Privacy Transparency of Canadian Internet Service Providers.</p><p><a href="https://ixmaps.ca/transparency-2014.php"> Read the 2014 Report</a></p>
+			<p class="justreleased">Now Out!</p>
+			<p><strong>Keeping Internet Users in the Know or in the Dark:</strong>
+				<br />2014 Report on Data Privacy Transparency of Canadian Internet Service Providers.</p>
+			<p><a href="https://ixmaps.ca/transparency.php"> Read the 2014 Report</a></p>
 		</article>
 		<article>
 			<div class="slideshow">
 				<div class="index-container">
 					<a class="slideshow-img-container" href="https://vimeo.com/67102223" target="_blank">
 						<img class="slideshow-img" src="images/MainPage_What_Is_IXmaps.jpg"/>
-						<img class="play-icon" src="images/play_icon.png"/>
+						<img class="play-icon" src="images/play_icon.png" alt="Play Video icon" />
 					</a>
 					<span class="slideshow-text">
 						<h5>What is IXmaps?</h5>
@@ -112,14 +107,14 @@ class="smallinks">Click here.</a></span>
 				</div>
 				<div class="index-container">
 					<a class="slideshow-img-container" href="https://www.youtube.com/embed/pvdIB5vr4cw?enablejsapi=1&autoplay=1" target="_blank">
-						<img class="slideshow-img" src="images/MainPage_Whos_Looking_At_Your_Data.jpg"/>
-						<img class="play-icon" src="images/play_icon.png"/>
+						<img class="slideshow-img" src="images/MainPage_Whos_Looking_At_Your_Data.jpg" />
+						<img class="play-icon" src="images/play_icon.png" alt="Play Video icon" />
 					</a>
 					<span class="slideshow-text">
 						<h5>Who's looking at your data?</h5>
 						<p>The U.S. <a href="/nsa.php">National Security Agency (NSA)</a> engages in warrantless internet surveillance.
-						Mark Klein, a former AT&T technician turned whistleblower has revealed that the NSA has
-						installed <a href="/faq.php#Spy Room (6th Floor)">surveillance equipment</a> at AT&T’s main switching centre in San Francisco capable
+						Mark Klein, a former AT&amp;T technician turned whistleblower has revealed that the NSA has
+						installed <a href="/faq.php#Spy Room (6th Floor)">surveillance equipment</a> at AT&amp;T’s main switching centre in San Francisco capable
 						of intercepting all the data passing through it. The NSA is strongly suspected of operating
 						similar spying facilities in 15-20 other U.S. cities. For example, <a class="explore-route-1859">one of our routes</a> shows that data packets from Toronto to
 						the San Francisco Art Institute pass through several such suspected sites. <a class="text-video-link">Learn more about who's looking at your data...</a></p>
@@ -128,7 +123,7 @@ class="smallinks">Click here.</a></span>
 				<div class="index-container">
 					<a class="slideshow-img-container" href="https://www.youtube.com/embed/F_v0VMvjcI8?enablejsapi=1&autoplay=1" target="_blank">
 						<img class="slideshow-img" src="images/MainPage_What_Are_Boomerang_Routes.jpg"/>
-						<img class="play-icon" src="images/play_icon.png"/>
+						<img class="play-icon" src="images/play_icon.png" alt="Play Video icon" />
 					</a>
 					<span class="slideshow-text">
 						<h5>What are 'boomerang' routes?</h5>
@@ -142,7 +137,7 @@ class="smallinks">Click here.</a></span>
 				<div class="index-container">
 					<a class="slideshow-img-container" href="https://www.youtube.com/embed/g8-NmMNGpyk?enablejsapi=1&autoplay=1" target="_blank">
 						<img class="slideshow-img" src="images/MainPage_HowTo_Video_Placeholder.jpg"/>
-						<img class="play-icon" src="images/play_icon.png"/>
+						<img class="play-icon" src="images/play_icon.png" alt="Play Video icon" />
 					</a>
 					<span class="slideshow-text">
 						<h5>The IXmaps database</h5>
@@ -154,63 +149,12 @@ class="smallinks">Click here.</a></span>
 
 			</div>
 
-			<!-- <div class="btn-container">
-				<button id="news-btn">
-					<span>
-						<div><i> Keeping Internet Users in the Know or in the Dark 2013</i></div>
-						<div>A Report on the Data Privacy Transparency of Canadian Internet Service Providers</div>
-						<div>(Jan 28, 2014, preview version)</div>
-					</span>
-				</button>
-			</div> -->
-
-			<!-- <div class="btn-container">
-				<button id="news-btn">
-					<span>
-						<div><i> Keeping Internet Users in the Know or in the Dark 2013</i></div>
-						<div>A Report on the Data Privacy Transparency of Canadian Internet Service Providers</div>
-						<div>(Jan 28, 2014, preview version)</div>
-					</span>
-				</button>
-			</div> -->
-
-			<!-- <div class="box btn-container">
-			    <div class="box-content">
-			    	<p><i> Keeping Internet Users in the Know or in the Dark 2013</i></p>
-			    	<p>A Report on the Data Privacy Transparency of the Canadian Internet Service Providers</p>
-			    </div>
-			    <img class='ribbon' src="https://quickribbon.com/ribbon/2014/01/4635089bf318b59a00ed2901b2559dc4.gif" />
-			</div> -->
-
-			<!-- <div id="report-container">
-				<div><i> Keeping Internet Users in the Know or in the Dark 2013</i></div>
-				<div>A Report on the Data Privacy Transparency of the Canadian Internet Service Providers</div>
-				<button id="news-btn">
-					Read more...
-				</button>
-			</div> -->
-
-
-			<!-- <div id="star-table-container">
-				<img src="images/star_table_26012014.png">
-			</div> -->
-
 		</article>
-
-<!--
-		<button id="left-big-btn" class="big-btn">
-			Learn more at the IXmaps Workshop on May 29, 2013 from 9am to 12am.
-		</button>
-		<button id="right-big-btn" class="big-btn">
-			Interested in what your ISP does with your data? Read our ISP Privacy Report.
-		</button>
- -->
-
-
 
 	</section><!-- end of #content -->
 </section><!-- end of #container -->
 
+</section><!-- end of #content -->
 
 <footer>
 	<?php include("includes/footer.php"); ?>
