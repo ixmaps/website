@@ -2,15 +2,17 @@
 <html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+	<!-- META INFORMATION -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="description" content="IXmaps is an internet mapping tool that allows you to see how your personal data travels across the internet.">
 	<title>See where your data packets go | IXmaps</title>
-
+	
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
 	<script type="text/javascript" src="/js/lightbox.js"></script>
 	<script src="/flowplayer/example/flowplayer-3.1.4.min.js"></script>
-	<script language="JavaScript" type="text/javascript">
+	<script type="text/javascript">
 	//--------------- LOCALIZEABLE GLOBALS ---------------
 	var d=new Date();
 	var monthname=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
@@ -59,52 +61,40 @@
 	    <p>The IXmaps research project was created to develop an interactive mapping tool that enables internet users and researchers to study the routes that data packets take across the internet, with surveillance and other 'interesting' features highlighted along the way. It also annually reports on the privacy transparency ratings of internet carriers that route Canadian traffic.
 	    Beginning in 2008, the project has received funding from
 	    <a href="http://www.sshrc-crsh.gc.ca/funding-financement/programs-programmes/itst/research_grants-subventions_recherche-eng.aspx" target="_blank">
-	    Social Sciences and Humanities Research Council of Canada (SSHRC)</a>
-	    ,
-	    <a href="http://www.priv.gc.ca/index_e.asp" target="_blank">
-	    Office of the Privacy Commissioner of Canada (OPC)</a>
-		and
-		<a href="http://www.cira.ca/" target="_blank">
-		Canadian Internet Registration Authority (CIRA)</a>
-		. The views expressed herein are those of the author(s) and do not necessarily reflect those of the funders
+	    Social Sciences and Humanities Research Council of Canada (SSHRC)</a>, <a href="http://www.priv.gc.ca/index_e.asp" target="_blank">Office of the Privacy Commissioner of Canada (OPC)</a> and <a href="http://www.cira.ca/" target="_blank">Canadian Internet Registration Authority (CIRA)</a>. 
+	    The views expressed herein are those of the author(s) and do not necessarily reflect those of the funders.
 	    </p>
-	   	<p>IXmaps is affiliated with the <a href="http://www.sscqueens.org/projects/the-new-transparency/about"
-	   	target="_blank">New Transparency Project</a> and the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">
-	   	Information Policy Research Program</a> at the <a href="http://www.ischool.utoronto.ca/" target="_blank">
-	   	Faculty of Information</a>, <a href="http://www.utoronto.ca/" target="_blank">University of Toronto</a>.</p>
-	   	<h5>Current Project Team</h5>
+		<h5>Current Project Team</h5>
 		<ul>
-		    <li><a href="http://www.ischool.utoronto.ca/users/andrewclement" target="_blank">
-		    Andrew Clement, PhD</a>, Professor, Faculty of Information, University of Toronto</li>
-		    <li><a href="http://www.linkedin.com/pub/colin-mccann/27/867/820" target="_blank">
-		    Colin McCann, MI</a>, Faculty of Information, University of Toronto</li>
-		    <li><a href="http://www.ischool.utoronto.ca/students/antonio-gamba-bari" target="_blank">
-		    Antonio Gamba, PhD Student</a>, Faculty of Information, University of Toronto</li>
-		    <li><a href="http://tc.msu.edu/users/jonathan-obar" target="_blank">
-		    Jonathan Obar, PhD</a>, Faculty of Social Science and Humanities, University of Ontario Institute of Technology</li>
-		    <li>David Mason, Software Developer</a>, Montreal</li>
-		    <li>Alex Goel, MI Student</a>, Faculty of Information, University of Toronto</li>
+			<li><a href="http://current.ischool.utoronto.ca/faculty/andrew-clement" target="_blank">Andrew Clement, PhD</a>, Professor, Faculty of Information, University of Toronto</li>
+			<li><a href="http://www.linkedin.com/pub/colin-mccann/27/867/820" target="_blank">Colin McCann, MI</a>, Faculty of Information, University of Toronto</li>
+			<li><a href="http://www.ischool.utoronto.ca/students/antonio-gamba-bari" target="_blank">Antonio Gamba, PhD Student</a>, Faculty of Information, University of Toronto</li>
+			<li><a href="http://tc.msu.edu/users/jonathan-obar" target="_blank">Jonathan Obar, PhD</a>, Faculty of Social Science and Humanities, University of Ontario Institute of Technology</li>
+			<li>David Mason, Software Developer</a>, Montreal</li>
+			<li>Dawn Walker, MI Student</a>, Faculty of Information, University of Toronto</li>
 		</ul>
-        <h5>Former Members</h5>
+		<h5>Former Members</h5>
 		<ul>
-			<li><a href="http://www.vacuumwoman.com/" target="_blank">
-			Nancy Paterson, PhD</a>, Associate Professor, OCAD University</li>
-		    <li><a href="http://www.ischool.utoronto.ca/users/davidjphillips" target="_blank">
-		    David J. Phillips, PhD</a>, Associate Professor, Faculty of Information, University of Toronto</li>
-		    <li><a href="/erik.php" target="_blank">
-		    Erik Stewart</a>, Programmer, Toronto</li>
-		    <li>Steve Harvey, Software Developer, Toronto</li>
-		    <li>Yannet Lathrop, MI, Faculty of Information, University of Toronto</li>
-		    <li><a href="http://www.ischool.utoronto.ca/phd/gabby-resch" target="_blank">
-		    Gabby Resch, PhD Student</a>, Faculty of Information, University of Toronto</li>
-		    <li><a href="ca.linkedin.com/pub/lauren-dimonte/27/15/169" target="_blank">
-		    Lauren Di Monte, Graduate student</a>, Faculty of Information, University of Toronto</li>
-		    <li><a href="http://www.linkedin.com/in/johnharrisstevenson" target="_blank">
-		    John Stevenson, PhD student</a>, University of Toronto</li>
-		    <br><br>
-            <img src="images/logos.jpg" width="650" height="175"></p>
-	        </li>
-        </ul>
+			<li><a href="http://www.vacuumwoman.com/" target="_blank">Nancy Paterson, PhD</a>, Associate Professor, OCAD University</li>
+			<li><a href="http://www.ischool.utoronto.ca/faculty/david-j-phillips" target="_blank">David J. Phillips, PhD</a>, Associate Professor, Faculty of Information, University of Toronto</li>
+			<li>Erik Stewart, Programmer, Toronto</li>
+			<li><a href="//ca.linkedin.com/pub/lauren-dimonte/27/15/169" target="_blank">Lauren Di Monte, MI, MA</a>, Faculty of Information, University of Toronto</li>
+			<li>Alex Goel, MI</a>, Faculty of Information, University of Toronto</li>
+			<li>Steve Harvey, Software Developer, Toronto</li>
+			<li>Yannet Lathrop, MI, Faculty of Information, University of Toronto</li>
+			<li><a href="http://www.ischool.utoronto.ca/students/gabby-resch" target="_blank">Gabby Resch, PhD Student</a>, Faculty of Information, University of Toronto</li>
+			<li><a href="//www.linkedin.com/in/johnharrisstevenson" target="_blank">John Stevenson, PhD</a>, University of Toronto</li>
+		</ul>
+		<br />
+		<p>IXmaps is affiliated with the 
+		<a href="http://www.sscqueens.org/projects/the-new-transparency/about" target="_blank">New Transparency Project</a> and the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">Information Policy Research Program</a> at the 
+		<a href="http://www.ischool.utoronto.ca/" target="_blank">Faculty of Information</a>, 
+		<a href="http://www.utoronto.ca/" target="_blank">University of Toronto</a>.
+		</p>
+		<p style="text-align:center">
+        <img src="images/logos.jpg" alt="Affiliated institutions logos: utoronto, IPRP, utoronto faculty of information, OCAD" width="434" height="116">
+    	</p>
+
 	  </article>
 	</section>
 	<!-- end of #content -->

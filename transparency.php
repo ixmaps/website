@@ -2,22 +2,24 @@
 <html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+	<!-- META INFORMATION -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="description" content="IXmaps is an internet mapping tool that allows you to see how your personal data travels across the internet.">
 	<title>See where your data packets go | IXmaps</title>
 
-
-
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-
-
 	<!-- STYLESHEETS -->
-	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="transparency/css/globalstyles.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/overwrites.css" type="text/css" />
 
+            <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css"/>
+            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css"/> -->
 	<link rel="stylesheet" href="transparency/css/transparency.css" type="text/css" />
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
 </head>
 
 <body>
@@ -34,30 +36,51 @@
 <section id="container"><!-- #container -->
 
 	<section id="hero">
-		<img src="transparency/img/hero-banner.png" alt="Keeping Internet Users in the Know or in the Dark: Data Privacy Transparncy of Canadian Internet Service Providers">
+		<img src="transparency/img/hero-banner-2014.png" alt="Keeping Internet Users in the Know or in the Dark: Data Privacy Transparncy of Canadian Internet Carriers">
 
-		<!-- yeah, this is gross. This is what comes from not hand-knitting all your html/css -->
-		<section id="download" style="padding-top:1em">
-			<p class="readbelow"><em>The evaluation criteria for the 2014 report can be found <a href="documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf" target="_blank">here (.pdf)</a>. The 2014 report will be launched Thursday March 12, 2015.</em></p>
-			<p class="readbelow"><em>Continue reading below for the 2013 report.</em><br><a href="#toc">&#9759</a></p>
-		</section>
 
-		<img class="startable" src="transparency/img/star-table.png">
-	</section><!-- end of #hero -->
+
+<div class="wrapper">
+
+    <h5 class="center">Select a Category to View Carrier Ratings</h5>
+
+    <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+      <li><a href="#tab1" class="active"><img src="transparency/img/st-thumb1.png" alt="Major Retailers"></a></li>
+      <li><a href="#tab2"><img src="transparency/img/st-thumb2.png" alt="Minor Retailers"></a></li>
+      <li><a href="#tab3"><img src="transparency/img/st-thumb3.png" alt="Transit Retailers"></a></li>
+    </ul>
+
+    <section id="first-tab-group" class="tabgroup">
+      <div id="tab1">
+        <img src="transparency/img/star-table2014-major.png">
+      </div>
+      <div id="tab2">
+        <img src="transparency/img/star-table2014-minor.png">
+      </div>
+      <div id="tab3">
+        <img src="transparency/img/star-table2014-transit.png">
+      </div>
+    </section>
+
+</div>
+
+</section><!-- end of #hero -->
 
 	<section id="download">
-		<h3><a class="btn" href="transparency/img/DataPrivacyTransparencyofCanadianISPs.pdf" target="_blank">Download the Full 2013 Report</a></h3>
-		<p>Download the complete <em>“Keeping Internet Users in the Know or in the Dark”</em> report (PDF)</p>
+		<h3><a class="btn" href="transparency/img/DataPrivacyTransparencyofCanadianCarriers-2014.pdf" target="_blank">Download the Full 2014 Report</a></h3>
+		<p>Download the complete <em>“Keeping Internet Users in the Know or in the Dark”</em> report (PDF)
+                        <br>Or, read the <a href="transparency-2013.php" target="blank">2013 Report</a> in our archives.</p>
 	</section>
 
 	<section id="toc">
 		<h2>Report Summary</h2>
 		<ul>
-			<li><a href="#evaluating">Evaluating ISP transparency</a></li>
-			<li><a href="#findings">Findings</a></li>
+			<li><a href="#evaluating">Evaluating Internet Carrier Transparency</a></li>
+			<li><a href="#changes">Main Changes from the 2013 Report</a></li>
+                                    <li><a href="#findings">Findings</a></li>
 			<li><a href="#recommendations">Policy Recommendations</a></li>
 				<ul>
-					<li><a href="#forisps">For ISPs that Handle Canadian Traffic</a></li>
+					<li><a href="#forcarriers">For Carriers that Handle Canadian Internet Traffic</a></li>
 					<li><a href="#forcrtc">For Privacy Commissioners and the CRTC</a></li>
 					<li><a href="#forpoliticians">For Legislators and Politicians</a></li>
 					<li><a href="#forlaw">For Canadian Law Enforcement and Security Agencies</a></li>
@@ -68,160 +91,203 @@
 	</section><!-- end of #toc -->
 
 	<section id="contents">
-		<h3 id="evaluating">Evaluating ISP Transparency</h3>
-			<p>In the wake of the Snowden revelations about NSA surveillance, recent calls for greater data privacy recommend that internet service providers (ISPs) be more forthcoming about their handling of our personal information. Responding to this concern as well as in keeping with the transparency, openness and accountability principles fundamental to Canadian privacy law, this report evaluates the data privacy transparency of twenty of the most prominent ISPs (aka carriers) currently serving the Canadian public. We award ISPs up to ten 'stars' based on the public availability of the following information:</p>
+		<h3 id="evaluating">Evaluating Internet Carrier Transparency</h3>
+			<p>In the wake of the Snowden revelations about NSA surveillance, recent calls for greater data privacy recommend that internet service providers (ISPs) be more forthcoming about their handling of our personal information. Responding to this concern as well as in keeping with the transparency, openness and accountability principles fundamental to Canadian privacy law, this repoIn the wake of the Snowden revelations about mass state surveillance, notably by the US National Security Agency and it Five Eyes partners, there is growing demand for internet carriers to be more forthcoming about how they handle our personal information. Calls for greater privacy transparency in Canada became more urgent after it was revealed that Canadian government agencies are asking telecoms companies to turn over Canadians’ user data at “jaw-dropping” rates. Nine carriers received nearly 1.2 million requests in 2011 alone, largely without warrants.<sup id="fn1-inline"> <a href="#fn1">1</a></sup></p>
+
+                                    <p>Responding to these concerns, as well as in keeping with the transparency, openness and accountability principles fundamental to Canadian privacy law, this is the second annual report that evaluates the data privacy transparency of the most significant internet carriers serving the Canadian public. We award carriers up to ten ‘stars’ based on the ready public availability of the following information:</p>
+
 				<ol>
-					<li>A public commitment to PIPEDA<sup id="fn1-inline"><a href="#fn1">1</a></sup>  compliance.</li>
+					<li>A public commitment to PIPEDA<sup id="fn2-inline"><a href="#fn2">2</a></sup>  compliance.</li>
 					<li>A public commitment to inform users about all third party data requests.</li>
 					<li>Transparency about frequency of third party data requests and disclosures.</li>
 					<li>Transparency about conditions for third party data disclosures.</li>
 					<li>An explicitly inclusive definition of ‘personal information’.</li>
 					<li>The normal retention period for personal information.</li>
-					<li>Transparency about where personal information is stored.</li>
+					<li>Transparency about where personal information is is stored and/or processed.</li>
 					<li>Transparency about where personal information is routed.</li>
-					<li>Publicly visible steps to avoid U.S. routing of Canadian data.</li>
-					<li>Open advocacy for user privacy rights (such as in court and/or legislatively).</li>
+					<li>Domestic Canadian routing where possible.</li>
+					<li>Open advocacy for user privacy rights.</li>
 				</ol>
 
 
-			<p>These criteria are designed to address on-going privacy and civil liberties concerns, especially in light of the controversial expansion of state surveillance of internet activities as well as recent ‘lawful access’ proposals, notably Bill C-30 and the current Bill C-13.</p>
-			<p>Stars are awarded based on careful examination of each ISP’s corporate website. Assuming that carriers want to make it easy for their customers to find information about corporate practices relating to personal information, and that the on-line privacy policy is the first (and only) place users might look, we focus our attention on these public statements<sup id="fn2-inline"> <a href="#fn2">2</a></sup>.</p>
-			<p>We selected the 20 ISPs in our sample based on their prevalence among the approximately 6000 internet traceroutes in the IXmaps.ca database (out of 25,000+ in total) that correspond to intra-Canadian routes — i..e. with origin and destination in Canada. The star ratings can be seen in the Star Table above<sup id="fn3-inline"> <a href="#fn3">3</a> </sup>. The full report contains the detailed assessments for each carrier.</p>
+			<p>These criteria are designed to address on-going privacy and civil liberties concerns, especially in light of the controversial expansion of state surveillance of internet activities.<sup id="fn3-inline"><a href="#fn3">3</a></sup> They are also relevant and timely in relation to the landmark Spencer Supreme Court of Canada decision that recognized that anonymity on-line is a privacy interest protected by s.8 of the Charter and that law enforcement authorities need a warrant to obtain subscriber information from telecoms (R. v. Spencer 2014 SCC 43). This report may also contribute to the debate over several items of federal legislation related to surveillance, privacy and national security that are currently before Parliament.<sup id="fn4-inline"><a href="#fn4">4</a></sup></p>
 
-		<h3 id="findings">Findings</h3>
-			<h5>ISPs all score poorly</h5>
-			<p>As noted in the Star Table, while we able to award at least one half star in each of the criteria, we were only able to award very few stars overall (31.5 out of a possible 200). For individual ISPs, this means an average of 1.5 out of a maximum of 10. The highest ISP score is 3.5 stars (Teksavvy), another earned 3 stars (Primus), followed by three each earning 2.5 stars (Bell Aliant, Distributel and MTS Allstream).</p>
+			<p>We awarded stars based on careful examination of each carrier’s corporate website. Assuming that carriers want to make it easy for their customers to find information about corporate practices relating to personal information, and that the on-line privacy policy page is the first (and likely only) place users might look, we focus our attention on these public statements.<sup id="fn5-inline"> <a href="#fn5">5</a></sup></p>
 
-			<h5>Smaller, independent Canadian carriers score better than larger incumbents</h5>
-			<p>The large incumbent Canadian ISPs (Bell, Bell Aliant, MTS Allstream, Rogers, Shaw, Telus, Videotron) averaged 2 stars, while their smaller independent competitors scored 2.75. All but one of these, Eastlink, scored at least as well as the highest scoring incumbent. An important contributor to this discrepancy is that these small carriers generally peer openly at Canadian public internet exchange points, whereas none of their larger competitors do.</p>
+                                    <p>We expanded to 43 the carriers in our sample based on their prevalence among the approximately 9500 internet traceroutes in the IXmaps.ca database that correspond to intra-Canadian routes – i.e. with origin and destination in Canada. This added several major behind the scenes transit providers that handle internet traffic across the internet ‘backbone’, typically routing traffic via the US. We also included carriers that are the subject of parallel transparency initiatives. In particular, we were greatly assisted by the Volunteer Student Working Group at the Centre for Innovation Law and Policy (CILP) in the University of Toronto’s  Faculty of Law. Their companion analysis of six of the most prominent wireless carriers provides valuable detail on the scoring of carriers.<sup id="fn6-inline"> <a href="#fn6">6</a></sup></p>
 
-			<h5>Canadian carriers score better than foreign ones</h5>
-			<p>The highest scoring non-Canadian carrier, Primus Canada, received 3 stars. It was the only foreign carrier to indicate compliance with PIPEDA (Criterion #1). Cogent and AboveNet received no stars. In a counter-privacy form of transparency, Cogent makes clear to customers that they should not expect protection for their personal data:</p>
-			<blockquote>
-				<p>Cogent makes no guarantee of confidentiality or privacy of any information transmitted through or stored upon Cogent technology, and makes no guarantee that any other entity or group of users will be included or excluded from Cogent's network.</p>
-			</blockquote>
+                                    <p>The resulting star ratings can be seen in the accompanying 3 Star Tables:<sup id="fn7-inline"> <a href="#fn7">7</a></sup></p>
+                                            <ol>
+                                                <li>Major Canadian retail internet carriers</li>
+                                                <li>Minor Canadian retail internet carriers </l>
+                                                <li>Major international internet transit carriers</li>
+                                            </ol>
 
-			<h5>TekSavvy scores highest</h5>
-			<p>In addition to receiving more stars in aggregate than any other carrier (3.5), TekSavvy stands out from the others by earning stars in more criteria (5) than any other and is the only ISP to receive recognition (half star) for <b>Criteria 2: Public commitment to inform users about third party data requests</b>. TekSavvy also distinguishes itself as the only ISP to discuss its stance on user privacy rights on its website by informing customers how they treat third party requests and the presentation of court documents. This is chiefly in relation to the Voltage Pictures filesharing suit. ISP subscribers shouldn’t have to wait until court cases arise to be told basic information about how their carriers treat third party requests and fight for their rights.</p>
+                                    <p>The Appendix contains detailed assessments for each carrier. Transparency ratings for particular internet routings and carriers can also be reviewed on the Explore page of the IXmaps website.<sup id="fn8-inline"> <a href="#fn8">8</a></sup></p>
 
-			<h5>PIPEDA compliance is minimal and partial at best</h5>
-			<p>Of all the criteria, we awarded the highest number of stars (11/20) for <b>Criterion #1: A public commitment to PIPEDA compliance</b>. Exclusively, these are ISPs operating mainly in Canada, and of these very few went significantly beyond stating their compliance. Retention periods and handling of third party requests are left vague.  As noted, Primus was the only foreign owned carrier to indicate PIPEDA compliance, even though the others have major Canadian operations (Cogent, Hurricane, Tata). This finding should of considerable concern to Canadians because many Canadian ISPs that do claim PIPEDA compliance often hand traffic to these non-US carriers that seemingly ignore Canadian privacy law.</p>
 
-			<h5>No proactive transparency reporting</h5>
-			<p>No carrier providing internet services directly to Canadians has yet followed the lead of major US internet service providers, such as AT&T, Verizon, Google, Facebook or Twitter, and proactively reports on the frequency of law enforcement requests and how they respond to them.</p>
+		<h3 id="changes">Main Changes from the 2013 Report</h3>
+                                        <p>While internet carriers generally show little interest in being transparent about key aspects of the handling of personal information, there are some notable improvements over the past year.  For the first time a small handful of Canadian carriers have begun issuing their own Transparency Reports, mainly providing statistics about the number of law enforcement requests they receive.  While the details in these reports are typically scanty, and not up to the standards being established by large U.S. service providers, this is a good sign that Canadian carriers are beginning to respond to public pressure for greater transparency.</p>
 
-			<h5>Routing transparency is almost entirely absent</h5>
-			<p>Fewer than half (8/20) of the ISP privacy policies refer to the location and jurisdiction for the information they store. Only one (Hurricane) gives an indication of where it routes customer data and none make explicit that they may route data via the US where it is subject to NSA surveillance<sup id="fn4-inline"> <a href="#fn4">4</a> </sup>. This is part of a more general pattern of not providing specific information publicly, instead placing the burden on individuals to make specific enquiries.</p>
+		<h3 id="findings">Key Findings</h3>
+                                    <p>As the Star Tables make clear, <b>internet carriers are generally not transparent in their handling of personal information,</b> earning on average only 2 stars out of 10 possible.</p>
 
-			<h5>ISPs rely heavily on implied consent</h5>
-			<p>Many of the privacy policies evaluated contain buried “catch-all” language relating to implied consent. For example, Bell’s privacy policy (p. 8) notes:</p>
-			<blockquote>
-				<p>In general, the use of products and services by a customer, or the acceptance of employment or benefits by an employee, constitutes implied consent for the Bell companies to collect, use and disclose personal information for all identified purposes.</p>
-			</blockquote>
+                                    <p><b>No carrier earned a full star in any of these four criteria:</b></p>
+                                        <ul>
+                                            <li>#2 - A public commitment to inform users of all third party data requests</li>
+                                            <li>#6 - The normal retention periods for personal information</li>
+                                            <li>#7 - Transparency about where personal information is stored and/or processed</li>
+                                            <li>#8 - Transparency about where personal information is routed.</li>
+                                        </ul>
+
+                                    <p><b>The ‘fighting brands’ of major mobile carriers, Virgin Mobile, Fido and Koodo, all score below average and are significantly less transparent than their corporate owners, Bell, Rogers and Telus respectively.</b></p>
+
+                                    <p><b>Only one company stands out by earning more than 5 stars. TekSavvy</b>, achieved 6 stars in aggregate based on full or half stars across eight criteria, the widest spectrum of privacy transparency of any carrier.</p>
+
+                                    <p><b>For the first time in 2014, Canadian internet carriers have begun issuing Transparency Reports</b> that systematically provide statistics and other relevant details on law enforcement requests for personal data.  Rogers, Sasktel, Telus, Teksavvy, and Wind are the pioneers. Carriers are also being more publically explicit about what they require from law enforcement when making such requests for personal subscriber information. </p>
+
+                                    <p><b>No transit provider indicates explicit compliance with Canadian privacy law.</b> This is concerning because these behind the scenes internet carriers handle large quantities of intra-Canadian traffic.</p>
+
+                                    <p><b>Transit carriers generally score much lower than the retail carriers and typically expose personal data to mass state surveillance by the NSA.</b> This is concerning because when outside Canada, or handled by carriers subject to US or other jurisdictions, Canadians’ data enjoy no effective legal protection, and certainly much less than when within Canadian jurisdiction.<sup id="fn9-inline"> <a href="#fn9">9</a></sup></p>
+
+                                    <p>Given the lack of equivalent privacy protection between Canada and the U.S., the reliance on U.S. transit providers or U.S. routing for Canadian domestic internet traffic, aka ‘boomerang’ routing, it appears that <b>many Canadian internet carriers are in violation of their legal responsibilities under PIPEDA.</b></p>
+
 
 		<h3 id="recommendations">Policy Recommendations</h3>
-			<p>Without proactive public reporting on the part of ISPs in the key areas identified above, it is very difficult for Canadians to protect their personal privacy nor hold these important organizations to account. To remedy this situation, we make the following recommendations directed at the primary internet privacy actors:</p>
+			<p>Without proactive public reporting on the part of carriers in the key areas identified above, it is very difficult for Canadians to hold these important organizations to account and develop the trust in them appropriate to the sensitivity of the information they carry is such large volumes. To remedy this situation, we make two primary recommendations:</p>
 
-			<h4 id="forisps">Recommendations for ISPs that Handle Canadian Internet Traffic</h4>
-				<p>ISPS should go beyond minimum compliance with Canadian privacy law, and, in the spirit of PIPEDA’s <em>Principle 8 – Openness</em>, commit proactively to making the information identified by the ten criteria readily available on their corporate websites. In particular, this proactive process should include publishing on the privacy sections of their websites:</p>
+                                    <h5>Primary Recommendation 1: </h5>
+                                        <p>To earn the trust of Canadians, the companies that carry their personal information via the internet need to be much more transparent about the handling of information – who has access to it, on what terms, how long it is kept, where it is stored, processed and routed – and generally more actively promote the privacy interests of their subscribers.</p>
 
-				<h5>Recommendation 1: A public commitment to PIPEDA compliance</h5>
-				<p>All ISPs that handle Canadian internet traffic should prominently display a public commitment to compliance with Canada’s Personal Information Protection and Electronic Documents Act (PIPEDA). This should include reference to the Act itself. They should make explicit the implicit requirement that to the extent feasible any other carrier they hand personal data to provides comparable privacy protection. (See also Recommendations 7 & 8)</p>
+                                    <h5>Primary Recommendation 2: </h5>
+                                        <p>Given the risks of mass suspicionless surveillance, especially by the National Security Agency, when Canadians’ data transits the U.S. or is handled by U.S. based transit providers, and the absence of legal or constitutional protections for Canadians’ data in these cases, Canadian retail carriers should avoid transferring personal data to companies that bring such exposure. Thus can be achieved by only handing domestic traffic off inside Canada to carriers that are exclusively within Canadian jurisdiction.</p>
 
-				<h5>Recommendation 2: A public commitment to inform users when personal data has been requested by a third party</h5>
-				<p>All ISPs that handle Canadian internet traffic should prominently display a public commitment to notify customers in a timely way when their personal data has been requested by a third party, unless otherwise prohibited by law. Website text could read:</p>
-				<blockquote>
-					<p>&#60;This company&#62;'s policy is to notify users of requests for their information prior to disclosure unless we are prohibited from doing so by statute or court order. Law enforcement or security agency officials who believe that notification would jeopardize an investigation should obtain an appropriate court order or other process that specifically precludes customer notification.</p>
-				</blockquote>
+                                    <hr>
 
-				<h5>Recommendation 3: Regular detailed transparency reporting that provides information about third party data requests and disclosures</h5>
-				<p>All ISPs that handle Canadian internet traffic should publish transparency reports every year or more often. These reports should include information about the requesting entities, including their country of origin, the specific agency or organization, the legal authority for the request and purpose for the request. For all such disclosure or transfer requests complied with, ISPs should provide relevant justifications. Reporting should include the numbers of requests, the number of accounts covered, the number of requests fully and partially complied with, the number declined, and the number of accounts implicated.  These transparency reports should be easily accessible via the web as well as downloadable for easy sharing and analysis. Those ISPs that want to lead by example should also commit to related public education campaigns by creating whole sections of their websites devoted to these reports and include additional explanatory materials, such as videos and supplementary documents where possible.</p>
+                                    <p>We also offer the following more specific recommendations directed at various key internet privacy actors:</p>
 
-				<h5>Recommendation 4: Detailed conditions and procedures for law enforcement and other third parties that submit requests for personal information</h5>
-				<p>All ISPs that handle Canadian internet traffic should make public clear guidelines for law enforcement and other third parties to follow when making requests for personal information. A suitable way to do this is through publishing law enforcement agency (LEA) handbooks.</p>
-				<p><a href="https://support.twitter.com/articles/41949-guidelines-for-law-enforcement#9">The Guidelines for Law Enforcement</a>, posted by Twitter provide a good model to follow.</p>
+			<h4 id="forcarriers">For carriers that handle Canadian internet traffic: </h4>
+				<p>Carriers should to go beyond minimum compliance with Canadian privacy law, and, in the spirit of PIPEDA’s Principle 8 – Openness, commit proactively to making the information identified by the ten criteria readily available publicly. In particular, they should publish on the privacy/transparency sections of their corporate websites:</p>
 
-				<h5>Recommendation 5: A clear indication that metadata and device identifiers are included in the definition of ‘personal information’</h5>
-				<p>All ISPs that handle Canadian internet traffic should make publicly clear that they include communication meta-data as well as persistent unique devices identifiers among the personal information they protect under Canadian privacy law. Since metadata is a broad term, they should itemize specifically the items comprising the metadata that they collect.</p>
+				<h5>Recommendation 1:</h5>
+				<p>A public commitment to PIPEDA compliance, and ensuring that data hand to third parties for any form of storage, processing or routing enjoys equivalent protection</p>
 
-				<h5>Recommendation 6: Retention periods and the justification for these, for the various types of personal information handled,</h5>
-				<p>All ISPs that handle Canadian internet traffic should provide details about retention periods for the various types of personal information it handles. Justifications for these retention periods should be provided. Many ISPs have determined internally how long they will hold onto certain types of data. This information must be made public. For example:</p>
-				<blockquote>
-					<p>“The following is a list of types of personal information that we retain and the normal retention periods for each type of data:<br>
-						<span class="indented">— IP logs: x days;</span><br>
-						<span class="indented">— call records: y days;</span><br>
-						<span class="indented">— preservation requests: 90 days.</span><br>
-						In case of legal proceedings, we may be required to retain personal data until the litigation is concluded.”
-					</p>
-				</blockquote>
+				<h5>Recommendation 2:</h5>
+				<p>A public commitment to inform users when personal data has been requested by a third party,</p>
 
-				<h5>Recommendation 7: Details of whether personal data may be stored or routed outside Canada</h5>
-				<p>All ISPs that handle Canadian internet traffic should provide detailed information about the location of storage and routing of personal data. This includes listing, for example:</p>
-					<ul>
-						<li>the countries through which data is routinely routed;</li>
-						<li>the countries where data is stored,</li>
-						<li>the jurisdictional authority of all the carriers it exchanges traffic with,</li>
-						<li>an explicit indication of whether these carriers provide data protection comparable to that expected under Canadian law.</li>
-					</ul>
 
-				<h5>Recommendation 8: How they strive to keep Canadians’ data within Canadian legal jurisdiction</h5>
-				<p>All ISPs that handle Canadian internet traffic should make public the measures they adopt to keep Canadians’ data and domestic interent traffic within Canadian legal jurisdiction, or at least protect it from foreign jurisdiction, particularly the US. These measures could include:</p>
-					<ul>
-						<li>storing data within Canada,</li>
-						<li>exchanging traffic only with carriers providing data protection comparable to that expected under Canadian law,</li>
-						<li>exchanging traffic at public internet exchange points in Canada,</li>
-						<li>encrypting traffic when unavoidably subject to foreign jurisdiction, with the keys kept with the individual subscriber or within Canadian legal jurisdiction</li>
-					</ul>
+				<h5>Recommendation 3:</h5>
+				<p>Regular, detailed transparency reports that provide information about third party data requests and disclosures,</p>
 
-				<h5>Recommendation 9: How they strive to keep Canadians’ data protected against mass Canadian state surveillance</h5>
-				<p>All ISPs that handle Canadian internet traffic should make public, to the extent legally permissible, their relations with Canadian law enforcement and security agencies, as well as  the measures they adopt to protect data against access by these agencies without legal due process and oversight.</p>
+				<h5>Recommendation 4:</h5>
+				<p>Detailed conditions and procedures for law enforcement and other third parties that submit requests for personal information,.</p>
 
-				<h5>Recommendation 10: The extent to which they advocate for their subscribers’ privacy rights</h5>
-				<p>All ISPs that handle Canadian internet traffic should clearly indicate their stance on current related to personal data privacy protection and mass state surveillance. This stance should include their position on alleged NSA and CSEC surveillance of Canadian internet transmissions. If an ISP is making official submissions or lobbying in relation to any prospective legislative, regulatory or policy change that can influence subscriber data protections, its activities should be readily available on its privacy pages. An ISP should be similarly transparent if it is involved in any court case around the privacy rights of their subscribers. Whatever the ISPs position in relation to user privacy rights, this should be made publicly clear.</p>
+				<h5>Recommendation 5:</h5>
+				<p>A clear indication that metadata and device identifiers are included in the definition of ‘personal information’,</p>
 
-			<h4 id="forcrtc">Recommendation for Privacy Commissioners and the Canadian Radio-Television and Telecommunications Commission (CRTC)</h4>
-				<h5>Recommendation 11: Regulators should more closely oversee ISPs to ensure their data privacy transparency</h5>
-				<p>Both the Office of the Privacy Commissioner (OPC) and Canadian Radio-Television and Telecommunications Commission (CRTC) have responsibilities under their respective legislative mandates to ensure that ISPs are respecting the privacy of their subscribers.  They should exercise their powers more vigourously, to ensure proper handling of personal information and in particular that ISPs only hand off internet traffic to carriers that meet  Canadian privacy law standards.</p>
+				<h5>Recommendation 6:</h5>
+				<p>Retention periods and the justification for these, for the various types of personal information handled,</p>
 
-			<h4 id="forpoliticians">Recommendation for Legislators and Politicians</h4>
-				<h5>Recommendation 12: Amend PIPEDA’s Principle 8 — Openness to include public transparency</h5>
-				<p>In particular it should be amended as follows:</p>
-				<blockquote cite="http:\/\/example.com\/facts">
-					<p>An organization shall make readily available to individuals, <b>and the public generally,</b> specific information about its policies and practices relating to the management of personal information. <em>(emphasis added to inserted text)</em></p>
-				</blockquote>
+				<h5>Recommendation 7:</h5>
+				<p>Details of whether personal data may be stored, processed or routed outside Canada, and what risks this may entail,</p>
 
-				<h5>Recommendation 13:  Amend PIPEDA’s Principle 9 — Individual Access to require proactive notification</h5>
-				<p>Currently Principle 9 only requires organizations to respond to individual requests. It should be amended to require timely proactive notification to the individual whenever a third party requests disclosure of their personal information. Any exceptions should be limited, specific and justified in relation to the circumstances.</p>
+				<h5>Recommendation 8:</h5>
+				<p>How they strive to keep Canadians’ data within Canadian legal jurisdiction,</p>
 
-			<h4 id="forlaw">Recommendation for Canadian Law Enforcement and Security Agencies</h4>
-				<h5>Recommendation 14: Canadian law enforcement and security agencies should proactively publish statistics about requests for personal information they make to ISPs</h5>
-				<p>Just as leading internet businesses are beginning to do, the law enforcement and security agencies that requests ISP to disclose personal customer information should routinely and proactively publish detailed statistics about their requests, the rationales, ISP responses, and how these have assisted or not in achieving their mandates.</p>
-				<p><b>This report calls on ISPs, regulators, legislators, law enforcement and security agencies to remove the systemic barriers to data privacy transparency, and to implement a more proactive approach requiring robust public transparency norms.</b></p>
-				<p>These various measures advancing data privacy transparency will contribute to ensuring that ISPs and third party data requestors are accountable to the public and the spirit of Canadian privacy law for their data management practices. Those actors adopting strong transparency measures will demonstrate leadership in the global battle for data privacy protections, and help bring state surveillance under more democratic control.</p>
+				<h5>Recommendation 9:</h5>
+				<p>How they strive to keep Canadians’ data protected against mass Canadian state surveillance, </p>
+
+				<h5>Recommendation 10:</h5>
+				<p>How they advocate for their subscribers’ privacy rights. </p>
+
+                                                <h5>Recommendation 11:</h5>
+                                                <p>Consolidate all privacy and transparency policy information so it is easily accessible though the main corporate privacy page.</p>
+
+			<h4 id="forcrtc">For Privacy Commissioners and the Canadian Radio-Television and Telecommunications Commission (CRTC):</h4>
+				<h5>Recommendation 12:</h5>
+				<p>Regulators should more closely oversee carriers, Canadian and foreign, to ensure their data privacy transparency and compliance with legal obligations.</p>
+
+			<h4 id="forpoliticians">For Legislators and Politicians:</h4>
+				<h5>Recommendation 13:</h5>
+				<p>Amend PIPEDA’s Principle 8 — Openness to include proactive transparency around key privacy policies.</p>
+
+				<h5>Recommendation 14:</h5>
+				<p>Amend PIPEDA’s Principle 9 — Individual Access to require proactive notification in the case of third party disclosure requests</p>
+
+			<h4 id="forlaw">For Canadian Law Enforcement and Security Agencies:</h4>
+				<h5>Recommendation 15:</h5>
+                                                <p>Canadian law enforcement and security agencies should proactively publish statistics about requests for personal information they make to ISPs. Canadian law enforcement and security agencies should proactively publish statistics about requests for personal information they make to internet carriers, including the legal basis for such requests and the responses from carriers.</p>
+
+
+				<p>These various measures advancing data privacy transparency will contribute to ensuring that ISPs and third party data requestors are accountable to the Canadian public for their data management practices. Those actors adopting strong transparency measures will demonstrate leadership in the global battle for data privacy protections, and help bring state surveillance under more democratic control. </p>
 
 		<h6 id="notes">Notes</h6>
-				<ol class="notes">
-					<li id="fn1">Personal Information Protection and Electronic Documents Act <a class="returntoarticle" href="#fn1-inline">↩</a></li>
-					<li id="fn2">In the case of criterion 9 – <em>Publicly visible steps to avoid U.S. routing of Canadian data</em>, we also examine the peering arrangements noted on the websites of the two main Canadian public internet exchanges, TorIX and OttIX (Toronto/Ottawa Internet Exchanges) as these are also publicly visible. <a class="returntoarticle" href="#fn2-inline">↩</a></li>
-					<li id="fn3">Star ratings can also be reviewed for particular internet routings and carriers on the
-				<a href="http://IXmaps/explore">Explore page of the IXmaps website</a>. <a class="returntoarticle" href="#fn3-inline">↩</a></li>
-					<li id="fn4">It is worth noting that personal information that is kept within Canadian jurisdiction is also subject to state surveillance activities; however, Canadian entities conducting surveillance within Canada are subject to Canadian law and its Constitution. Should Canadians determine that the Canadian surveillance apparatus is to change, that would possibly affect the level of surveillance on intra-Canadian traffic. The same cannot be said about traffic that passes through the US and other foreign countries as Canadians cannot easily force change in the laws and surveillance practices of foreign countries. <a class="returntoarticle" href="#fn4-inline">↩</a></li>
-				</ol>
+			<ol class="notes">
+    				<li id="fn1">
+                                                    Alex Boutilier, <a href="http://www.thestar.com/news/canada/2014/04/29/telecoms_refuse_say_how_often_they_hand_over_customers_data.html" target="_blank">Government agencies seek telecom user data at ‘jaw-dropping’ rates,</a> Toronto Star, Apr 29 2014.
+                                                    <a class="returntoarticle" href="#fn1-inline">↩</a></li>
+
+                                                <li id="fn2">
+                                                    Personal Information Protection and Electronic Documents Act
+                                                    <a class="returntoarticle" href="#fn2-inline">↩</a></li>
+
+
+                                                <li id="fn3">
+                                                    Note for instance that the latest incarnation of highly controversial ‘lawful access’ legislation, Bill C-13 - Protecting Canadians from Online Crime Act, passed into law October 20, 2014.
+                                                    <a class="returntoarticle" href="#fn3-inline">↩</a></li>
+
+
+                                                <li id="fn4">
+                                                    Current Federal Bills:
+                                                        <br>&emsp;S-4 - Digital Privacy Act, 2014
+                                                        <br>&emsp;C-44 - Protection of Canada from Terrorists Act, 2014
+                                                        <br>&emsp;C-51 - Anti-terrorism Act, 2015
+                                                    <a class="returntoarticle" href="#fn4-inline">↩</a></li>
+
+                                                <li id="fn5">
+                                                    In the case of criterion 9 – Publicly visible steps to avoid U.S. routing of Canadian data, we also examine the peering arrangements noted on the websites of the  main Canadian public internet exchanges, TorIX, OttIX and YYCIX (Toronto/Ottawa/Calgary Internet Exchanges) as these are also publicly visible.
+                                                    <a class="returntoarticle" href="#fn5-inline">↩</a></li>
+
+                                                <li id="fn6">
+                                                    <a href="http://innovationlaw.org/3_plus_3" target="blank">The 3+3 Project: Evaluating Canada’s Wireless Carriers’ Data Privacy Transparency</a>, 2014-2015 Centre for Innovation Law and Policy Volunteer Student Working Group, Centre for Innovation Law and Policy (CILP), Faculty of Law, University of Toronto, March 12, 2015.
+                                                    <a class="returntoarticle" href="#fn6-inline">↩</a></li>
+
+                                                <li id="fn7">
+                                                    Division into these three tables was based primarily on the difference in role, between Canadian retail ISP and backbone transit carrier, and then secondarily among retail carriers based on the prominence of their internet presence in Canada, rather than their telephone or other service offerings.
+                                                    <a class="returntoarticle" href="#fn7-inline">↩</a></li>
+
+                                                <li id="fn8">
+                                                    <a href="https://ixmaps.ca/explore" target="blank">https//ixmaps.ca/explore</a>
+                                                    <a class="returntoarticle" href="#fn8-inline">↩</a></li>
+
+                                                <li id="fn9">
+                                                    Lisa M. Austin, Heather Black, Michael Geist, Avner Levin and Ian Kerr, <a href="http://news.nationalpost.com/2013/12/12/our-data-our-laws/ " target="blank">Our data, our laws,</a> National Post, December 12, 2013.
+                                                    <br>
+                                                    Lisa M. Austin, <a href="http://ssrn.com/abstract=2524512 " target="blank">Enough About Me: Why Privacy is About Power, Not Consent (or Harm)</a>, Forthcoming in Austin Sarat, ed., A World Without Privacy?: What Can/Should Law Do (Cambridge 2014)
+                                                    <br>
+                                                    Lisa M Austin and Daniel Carens-Nedelsky, Jurisdiction still matters: The Legal Contexts of Extra-National Outsourcing, presented at the Assessing Privacy Risks of Extra-National Outsourcing of eCommunications public forum, Seeing Through the Cloud: Why Jurisdiction Still Matters in a Digitally Interconnected World, University of Toronto, March 6, 2015. <a href="http://mediacast.ic.utoronto.ca/20150306-eComm/index.htm " target="blank">See webcast.</a>
+                                                    <a class="returntoarticle" href="#fn9-inline">↩</a></li>
+			</ol>
 
 		<h3 id="authors">About the Authors</h3>
-			<p><b>Andrew Clement</b> (<a href="mailto:andrew.clement@utoronto.ca?subject=Regarding IXmaps Transparency Report">andrew.clement@utoronto.ca</a>) is a Professor in the Faculty of Information at the University of Toronto, where he coordinates the Information Policy Research Program and is a co-founder of the Identity, Privacy and Security Institute. With a PhD in Computer Science, he has had longstanding research and teaching interests in the social implications of information/communication technologies and participatory design. Among his recent privacy/surveillance research projects, are <a href="http://ixmaps.ca" target="_blank">IXmaps.ca</a> an internet mapping tool that helps make more visible NSA warrantless wiretapping activities and the routing of Canadian personal data through the U.S. even when the origin and destination are both in Canada; <a href="http://surveillancerights.ca" target="_blank">SurveillanceRights.ca</a>, which documents (non)compliance of video surveillance installations with privacy regulations and helps citizens understand their related privacy rights. The SurveillanceWatch app enables users to locate surveillance cameras around them and contribute new sightings of their own; and <a href="http://iprp.ischool.utoronto.ca/#propid" target="_blank">Proportionate ID</a>, which demonstrates through overlays for conventional ID cards and a smartphone app privacy protective alternatives to prevailing full disclosure norms. Clement is a co-investigator in The New Transparency: Surveillance and Social Sorting research collaboration. See <a href="http://www.digitallymediatedsurveillance.ca/" target="_blank">http://www.digitallymediatedsurveillance.ca/</a></p>
-			<p><b>Jonathan Obar</b> (<a href="mailto:jonathan.obar@utoronto.ca?subject=Regarding IXmaps Transparency Report">jonathan.obar@utoronto.ca</a>) is a Postdoctoral Research Fellow in the Faculty of Information at the University of Toronto. He also serves as Visiting Assistant Professor in the Department of Telecommunication, Information Studies, and Media at Michigan State University, and as Associate Director of the Quello Center for Telecommunication Management and Law. Dr. Obar has published in a wide variety of academic journals about the relationship between digital media technologies, ICT policy and the protection of civil liberties.</p>
+			<p><b>Andrew Clement</b> (<a href="mailto:andrew.clement@utoronto.ca?subject=Regarding IXmaps Transparency Report">andrew.clement@utoronto.ca</a>) is a Professor in the Faculty of Information at the University of Toronto, where he coordinates the Information Policy Research Program and is a co-founder of the Identity, Privacy and Security Institute. With a PhD in Computer Science, he has had longstanding research and teaching interests in the social implications of information/communication technologies and participatory design. Among his recent privacy/surveillance research projects, are <a href="https://ixmaps.ca" target="_blank">IXmaps.ca</a> an internet mapping tool that helps make more visible NSA warrantless wiretapping activities and the routing of Canadian personal data through the U.S. even when the origin and destination are both in Canada; <a href="https://surveillancerights.ca" target="_blank">SurveillanceRights.ca</a>, which documents (non)compliance of video surveillance installations with privacy regulations and helps citizens understand their related privacy rights. The SurveillanceWatch app enables users to locate surveillance cameras around them and contribute new sightings of their own; and <a href="http://iprp.ischool.utoronto.ca/#propid" target="_blank">Proportionate ID</a>, which demonstrates through overlays for conventional ID cards and a smartphone app privacy protective alternatives to prevailing full disclosure norms. Clement is a co-investigator in The New Transparency: Surveillance and Social Sorting research collaboration. See <a href="http://www.digitallymediatedsurveillance.ca/" target="_blank">http://www.digitallymediatedsurveillance.ca/</a></p>
+			<p><b>Jonathan Obar</b> (<a href="mailto:jonathan.obar@uoit.ca?subject=Regarding IXmaps Transparency Report">jonathan.obar@uoit.ca</a>) is an Assistant Professor in the Faculty of Social Science and Humanities at the University of Ontario Institute of Technology. He also serves as a Research Associate at the Quello Center for Telecommunication Management and Law at Michigan State University. Dr. Obar has published in a wide variety of academic journals about the relationship between digital media technologies, ICT policy and the protection of civil liberties.</p>
 
 		<h3 id="acknowledgements">Acknowledgements</h3>
-			<p>We appreciate the contributions of our research collaborators and assistants at the University of Toronto: Andi Argast, Alex Cybulski, Lauren DiMonte, Antonio Gamba, Colin McCann and Nancy Paterson (OCAD University). We would also like to acknowledge the input of Steve Anderson, Nate Cardozo, Tamir Israel, Christopher Parsons, Christopher Prince and Rainey Reitman.</p>
+			<p>We appreciate the contributions of our research collaborators and assistants at the University of Toronto:  Antonio Gamba, Alex Goel and Colin McCann. We are also pleased to acknowledge the input of Steve Anderson, (Openmedia.ca), Nate Cardozo (EFF), Andrew Hilts (Cyber Stewards Initiative), Tamir Israel (CIPPIC) and Christopher Parsons (Citizen Lab).</p>
+
+                                    <p>The research reported here benefited significantly from collaboration with the Centre for Innovation Law and Policy (CILP), Faculty of Law, University of Toronto. We worked most closely with Matthew Schuman, Assistant Director, and Ainslie Keith, who led a Volunteer Student Working Group consisting of Shawn Arksey, Michael Cockburn, Caroline Garel-Jones, Aaron Goldstein, Nathaniel Rattansey, Kassandra Shortt, Jada Tellier and Matthew Vaughan.</p>
+
 			<p>Website and report design assistance: <a href="http://www.dialogicaldesign.com" target="_blank">Jennette Weber</a>.</p>
-			<p>This research was conducted under the auspices of the <em>IXmaps: Mapping Canadian privacy risks in the internet ‘cloud’</em> project (see <a href="http://ixmaps.ca" target="_blank">IXmaps.ca</a>) and the <a href="http://iprp.ischool.utoronto.ca" target="_blank">Information Policy Research Program (IPRP)</a>, with the support of the Office of the Privacy Commissioner of Canada as well as <em>The New Transparency: Surveillance and Social Sorting</em> project, funded by the Social Sciences and Humanities Research Council.</p>
-			<p>The views expressed are of course those of the authors alone.</p>
+
+                                    <p>This research was conducted under the auspices of the <em>IXmaps: Mapping Canadian privacy risks in the internet ‘cloud’</em> project (see <a href="https://ixmaps.ca" target="blank">IXmaps.ca</a>) and the Information Policy Research Program (IPRP), with the support of the Office of the Privacy Commissioner of Canada (2012-13), <em>The New Transparency: Surveillance and Social Sorting</em> project funded by the Social Sciences and Humanities Research Council (2012-15), and the <em>Mapping Canadian internet traffic, infrastructure and service provision</em> (2014-15), funded by the Canadian Internet Registration Authority (CIRA).  </p>
+
+                                    <p>The views expressed are of course those of the authors alone.</p>
 
 	 		<p class="cc">
-	 		<a class="cc-image" rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+	 		<a class="cc-image" rel="license" href="///creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 	 		<br>
-	 		<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><em>"Keeping internet users in the know or in the dark: A report on the data privacy transparency of Canadian internet service providers"</em></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://ixmaps.ca/transparency.php" property="cc:attributionName" rel="cc:attributionURL">Andrew Clement and Jonathan Obar </a> is licensed under a <a rel="license" href=" http://creativecommons.org/licenses/by/2.5/ca/" target="_blank">Creative Commons Attribution 2.5 Canada (CC BY 2.5 CA) </a>.
+	 		<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><em>"Keeping internet users in the know or in the dark: A report on the data privacy transparency of Canadian internet carriers"</em></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://ixmaps.ca/transparency.php" property="cc:attributionName" rel="cc:attributionURL">Andrew Clement and Jonathan Obar </a> is licensed under a <a rel="license" href=" https://creativecommons.org/licenses/by/2.5/ca/" target="_blank">Creative Commons Attribution 2.5 Canada (CC BY 2.5 CA) </a>.
 	 		</p>
 	</section>
 
@@ -242,6 +308,31 @@
 
 	<script type="text/javascript" src="/js/lightbox.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
+<!--             <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script> -->
+
+            <script>
+                $(document).ready(function(){
+                    $(".st-thumbnail").on("click", function() {
+                        var $this = $(this),
+                            $target = $($this.attr("href"));
+
+                        $(".st").not($target).removeClass("active");
+                        $target.addClass("active");
+                        return false;
+                    });
+                });
+
+                // $(document).ready(function(){
+                //     $(".star-carousel").slick({
+                //         infinite: true,
+                //         dots: true,
+                //         autoplay: true,
+                //         autoplaySpeed: 4000,
+                //         pauseOnHover: true
+                //     });
+                // });
+            </script>
+
 
 	<script type="text/javascript">
 
@@ -256,6 +347,8 @@
 	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();</script>
+
+
 	<script language="JavaScript" type="text/javascript">
 		//--------------- LOCALIZEABLE GLOBALS ---------------
 		var d=new Date();
@@ -271,7 +364,7 @@
 		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 		      var target = $(this.hash);
 		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-		      if (target.length) {
+		      if (target.length && !$(this).hasClass("no-scroll")) {
 		        $('html,body').animate({
 		          scrollTop: target.offset().top
 		        }, 1000);
@@ -281,6 +374,27 @@
 		  });
 		});
 	</script>
+
+
+    <script>
+        $(function() {
+    $('.tabgroup > div').hide();
+        $('.tabgroup > div:first-of-type').show();
+$('.tabs a').click(function(e){
+  e.preventDefault();
+    var $this = $(this),
+        tabgroup = '#'+$this.parents('.tabs').data('tabgroup'),
+        others = $this.closest('li').siblings().children('a'),
+        target = $this.attr('href');
+    others.removeClass('active');
+    $this.addClass('active');
+    $(tabgroup).children('div').hide();
+    $(target).show();
+
+        })
+    });
+    </script>
+
 
 </body>
 </html>

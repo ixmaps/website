@@ -1,7 +1,7 @@
 <?php
 $ixHost = $_SERVER["SERVER_NAME"];
 if ($ixHost!='www.ixmaps.ca'){
-    header('Location: http://www.ixmaps.ca/explore.php');
+    header('Location: https://www.ixmaps.ca/explore.php');
 	exit;
 }
 
@@ -49,7 +49,7 @@ geoip_close($gi1);
 	<!--
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	 -->
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 
   	<!-- jQuery Utils  -->
 	<script type="text/javaScript" src="js/underscore-min.js"></script>
@@ -91,7 +91,7 @@ geoip_close($gi1);
     </script>
 
     <script type="text/javascript">
-      var script = '<script type="text/javascript" src="http://google-maps-' +
+      var script = '<script type="text/javascript" src="///google-maps-' +
           'utility-library-v3.googlecode.com/svn/trunk/infobubble/src/infobubble';
       if (document.location.search.indexOf('compiled') !== -1) {
         script += '-compiled';

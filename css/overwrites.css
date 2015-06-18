@@ -12,15 +12,11 @@ nav .menu ul li a.new-section {
 
 #content {
 	width: 1000px;
-	padding-left: 0px;
+	padding-left: 0;
 }
 
 #container {
 	width: 1000px;
-}
-
-footer {
-	background-color: #E0E0E0;
 }
 
 #footer-area {
@@ -45,7 +41,7 @@ footer {
 .no-link-decoration {
 	border-bottom: none !important;
 	text-decoration: none !important;
-	padding: 0px;
+	padding: 0;
 }
 
 
@@ -56,7 +52,7 @@ footer {
 	background-color: yellow;
 	float: right;
 	margin-top: -40px;
-	padding: 5px 10px 0px 10px;
+	padding: 5px 10px 0 10px;
 }
 
 .error-banner {
@@ -64,7 +60,7 @@ footer {
 	background-color: yellow;
 	float: right;
 	margin-top: -40px;
-	padding: 5px 10px 0px 10px;
+	padding: 5px 10px 0 10px;
 }
 
 .new-tag {
@@ -274,8 +270,8 @@ footer {
     margin: 0;
     padding: 0;
     border: 0;
-    right: 0px;
-    top: 0px;
+    right: 0;
+    top: 0;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
 }*/

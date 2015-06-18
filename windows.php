@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
@@ -19,7 +19,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -41,28 +41,28 @@
 </head>
 
 <body>
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
 
 <section id="main"><!-- #main content and sidebar area -->
-	
+
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 
 		<article>
 			<h2>Windows Installation</h2>
-			 
-		   	<p>To install the Windows version of TrGen, download the Windows installer 
-			<a href = "http://www.ixmaps.ca/TrGen/trgen-0.8.8.msi">from here</a>
-			and	follow the instructions. You will not need administrator privileges to run the 
-			software once installed, but you may need to be logged into an administrator 
+
+		   	<p>To install the Windows version of TrGen, download the Windows installer
+			<a href = "https://www.ixmaps.ca/TrGen/trgen-0.8.8.msi">from here</a>
+			and	follow the instructions. You will not need administrator privileges to run the
+			software once installed, but you may need to be logged into an administrator
 			account to install it.</p>
-        
+
         </article>
 
 	</section><!-- end of #content -->
