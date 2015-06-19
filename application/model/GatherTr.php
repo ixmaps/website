@@ -141,10 +141,10 @@ class GatherTr
 				
 				//$hopPass['rtt'] = $hopPass['rtt']*100;
 				$latencies[] = $hopPass['rtt'];
-				$ip_latencies[$hopPass['ip']][]  = $hopPass['rtt'];
 				
 				// prevent ip !set
 				if(isset($hopPass['ip'])){
+					$ip_latencies[$hopPass['ip']][]  = $hopPass['rtt'];
 					if(!isset($ip_rank[$hopPass['ip']]))
 					{
 						$ip_rank[$hopPass['ip']] = 1;	
@@ -160,7 +160,12 @@ class GatherTr
 			sort($latencies);
 			arsort($ip_rank);					
 			$keys=array_keys($ip_rank);
-			$winnerIp = $keys[0];
+			
+			if(isset($keys[0])){
+				$winnerIp = $keys[0];
+			} else {
+				$winnerIp = "";
+			}
 
 			//echo "\nWinner IP: ".$winnerIp;
 
@@ -257,7 +262,8 @@ class GatherTr
 	{
 		global $dbconn, $ixmaps_debug_mode;
 
-		$URI = "http://www.ixmaps.ca/cgi-bin/gather-tr.cgi";
+		// FIXME: move this to config.php
+		$URI = "https://www.ixmaps.ca/cgi-bin/gather-tr.cgi";
 		$trSubString = "";
 
 		$trString ="";
@@ -356,10 +362,18 @@ class GatherTr
 		
 		//echo "\n".$trString."";
 
+		// adding exceptions for SSL certificate
+		$arrContextOptions=array(
+		    "ssl"=>array(
+		        "verify_peer"=>false,
+		        "verify_peer_name"=>false,
+		    ),
+		);  
+
 		// publish data
-		$trResult = file_get_contents($URI."?".$trString);
+		$trResult = file_get_contents($URI."?".$trString, false, stream_context_create($arrContextOptions));
 		
-		//echo "\n\n".$trResult;
+		echo "\n\n".$trResult;
 
 		$search      = "new traceroute ID";
 		//$lines       = file('example.txt');
