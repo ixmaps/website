@@ -373,7 +373,7 @@ class GatherTr
 		// publish data
 		$trResult = file_get_contents($URI."?".$trString, false, stream_context_create($arrContextOptions));
 		
-		echo "\n\n".$trResult;
+		//echo "\n\n".$trResult;
 
 		$search      = "new traceroute ID";
 		//$lines       = file('example.txt');
