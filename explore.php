@@ -375,8 +375,9 @@ geoip_close($gi1);
 				<div id="filter-results-log" class="hide"></div>
 			  	<!-- Map  options -->
 			  	<!-- FIXME add all this calls to javascript functions in jquery -->
-			  	<a name="tot-trs" id="tot-trs"></a>
+			  <a name="tot-trs" id="tot-trs"></a>
 				<div id="map-container" class="hide">
+					<div>Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it, so it can be corrected.</div>
 					<div id="map-core-controls" class="hide" style="float:right;">
 						<div id="map-status-info" class="" style="float:left;">
 							<span id="map-loading-status"></span>
