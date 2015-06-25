@@ -55,7 +55,7 @@
 		<article>
 			<h2>Contribute</h2>
 
-			<div id="beta-message-ok">Please try out a preview version of our updated TrGen software for 
+			<div id="announcement">Please try out a preview version of our updated TrGen software for 
 			<a href="/TrGen/ixmapsNode-2.0.1-linux.tgz" title="ixmapsNode-2.0.1-linux.tgz">Linux</a> and 
 			<a href="/TrGen/ixmapsNode-2.0.1-osx.dmg" title="ixmapsNode-2.0.1-osx.dmg">Mac OSX</a>, and let us know 
 			what you think. You can view the <a href="https://github.com/ixmaps/ixnode" title="Github ixmaps/ixnode repository">source code on GitHub</a> 
