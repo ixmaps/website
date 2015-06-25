@@ -73,14 +73,14 @@ geoip_close($gi1);
   		getChotel();
   		getPrivacyReport();
 		<?php
-		if($_GET && isset($_GET['data'])){
-			//echo '<hr/>';
-			//print_r($_GET);
+		if(isset($_GET['trid'])){
+		?>
+		submitCustomQuery(<?php echo $_GET['trid']; ?>);
+		<?php
+		} else if($_GET && isset($_GET['data'])){
 		?>
 		var postedData = '<?php echo $_GET['data'];?>';
 		processpostedData(postedData);
-		//processpostedData(boomerangJSON);
-
 		<?php
 		}
 		?>
