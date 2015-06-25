@@ -53,15 +53,14 @@
 	<section id="content"><!-- #content -->
 
 		<article>
-			<h2>Contribute</h2>
-
 			<div id="announcement">Please try out a preview version of our updated TrGen software for 
 			<a href="/TrGen/ixmapsNode-2.0.1-linux.tgz" title="ixmapsNode-2.0.1-linux.tgz">Linux</a> and 
 			<a href="/TrGen/ixmapsNode-2.0.1-osx.dmg" title="ixmapsNode-2.0.1-osx.dmg">Mac OSX</a>, and let us know 
 			what you think. You can view the <a href="https://github.com/ixmaps/ixnode" title="Github ixmaps/ixnode repository">source code on GitHub</a> 
 			and <a href="https://github.com/ixmaps/ixnode/issues" title="IXmaps ixnode issue tracker">report any issues on our issue tracker</a>.
 			</div>
-
+			
+			<h2>Contribute</h2>
 			<h3>Contributing to the IXmaps database</h3>
 			<p>IXmaps relies on voluntary contributions of anonymized data. We invite you to join over 300 other 
 			contributors who have helped grow the main database to 

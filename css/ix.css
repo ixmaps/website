@@ -447,7 +447,6 @@ overflow: hidden;
 
 /* Anouncement for any page */
 #announcement {
-    height: 25px;
     background-color: #FEF8EB;
  	border: 2px solid #F3D14F;   
     margin-top: 0px;
