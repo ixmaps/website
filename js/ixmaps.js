@@ -588,20 +588,6 @@ var submitRecentRoutesObject = function() {
   // select id from traceroute order by sub_time desc limit 25;
 };
 
-var submitTrIdObject = function(trId){
-  console.log("TrId:", trId);
-  resetFilterConstraints();
-  var a;
-  a = jQuery('#filter-constraint-1 .constraint');
-  jQuery(a[0]).val('does');
-  jQuery(a[1]).val('contain');
-  jQuery(a[2]).val('trId');
-  jQuery(a[3]).val(trId);
-  jQuery(a[4]).val('AND');
-  console.log(a);
-  //submitQuery(a);
-};
-
 var submitMyCountryObject = function(){
   //alert('Based on your IP:'+myIp+', your country seems to be: "'+myCountry+'"');
   resetFilterConstraints();
