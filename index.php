@@ -80,7 +80,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
-		<article id="announcement">
+		<article>
 			<div id="announcement">Please try out a preview version of our updated TrGen software for 
 			<a href="/TrGen/ixmapsNode.v.2.0_linux.tgz" title="ixmapsNode-2.0.1-linux.tgz">Linux</a> and 
 			<a href="/TrGen/ixmapsNode.v.2.0_osx.dmg" title="ixmapsNode-2.0.1-osx.dmg">Mac OS X</a>, and let us know what you think. 
