@@ -54,10 +54,11 @@
 
 		<article>
 			<div id="announcement">Please try out a preview version of our updated TrGen software for 
-			<a href="/TrGen/ixmapsNode-2.0.1-linux.tgz" title="ixmapsNode-2.0.1-linux.tgz">Linux</a> and 
-			<a href="/TrGen/ixmapsNode-2.0.1-osx.dmg" title="ixmapsNode-2.0.1-osx.dmg">Mac OSX</a>, and let us know 
-			what you think. You can view the <a href="https://github.com/ixmaps/ixnode" title="Github ixmaps/ixnode repository">source code on GitHub</a> 
-			and <a href="https://github.com/ixmaps/ixnode/issues" title="IXmaps ixnode issue tracker">report any issues on our issue tracker</a>.
+			<a href="/TrGen/ixmapsNode.v.2.0_linux.tgz" title="ixmapsNode-2.0.1-linux.tgz">Linux</a> and 
+			<a href="/TrGen/ixmapsNode.v.2.0_osx.dmg" title="ixmapsNode-2.0.1-osx.dmg">Mac OS X</a>, and let us know what you think. 
+			<br />You can view the <a href="https://github.com/ixmaps/ixnode" title="Github ixmaps/ixnode repository" target="_blank">source code on GitHub</a> 
+			and <a href="https://github.com/ixmaps/ixnode/issues" title="IXmaps ixnode issue tracker" target="_blank">report any issues on our issue tracker</a> or 
+			<a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%202.0.1%20Feedback]">email us</a>.
 			</div>
 			
 			<h2>Contribute</h2>
@@ -94,11 +95,11 @@
 			<p>The source code for these versions of TrGen 0.8.8 can be found <a href="/technical.php">here</a>.</p>
 
 			<p>Please note that due to how Mac handles OS updates, the listed TrGen may not be compatible with all OSX versions. 
-			If you would like to help with updating the Mac version <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute&93;">please get in touch</a></p>
+			If you would like to help with updating the Mac version <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">please get in touch</a>.</p>
 
 			<p>We also welcome corrections to our geo-location of IP addresses (i.e. via Flag this IP on the Explore page), and appreciate any 
 			information (including photos) about the various facilities we refer to. 
-			<a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute&93;">Email the IXmaps team</a>.</p>
+			<a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">Email the IXmaps team</a>.</p>
         </article>
 
 	</section><!-- end of #content -->
