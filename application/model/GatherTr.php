@@ -169,14 +169,14 @@ class GatherTr
 			
 			/*Preventing the submission of more that 4 attempts/queries
 			Note: this needs further discussion. In this case submitting the lowest 4 latencies. */
-			$totQueries = count($latencies);
+			/*$totQueries = count($latencies);
 			if($totQueries>4) {
 				for($i=4; $i < $totQueries; $i++){
 					if(isset($latencies[$i])){
 						unset($latencies[$i]);
 					}
 				}
-			}
+			}*/
 			//echo "\nWinner IP: ".$winnerIp;
 			$TR['hops'][$hopNum]['latencies'] = $latencies;
 			$TR['hops'][$hopNum]['winIp'] = $winnerIp;
