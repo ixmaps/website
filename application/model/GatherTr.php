@@ -172,7 +172,7 @@ class GatherTr
 					$latencies[]=-1;
 				}
 			}
-			
+
 			sort($latencies);
 			arsort($ip_rank);					
 			$keys=array_keys($ip_rank);
@@ -366,7 +366,7 @@ class GatherTr
 					
 					$rtt_ms=0;
 					
-					if($latency==-1)
+					if($hop['winIp']=="")
 					{
 						$status="t";
 					} else {
