@@ -57,30 +57,30 @@
 		<article>
 			<h2>News</h2>
 			<h3>2015</h3>
-			<ul>
-				<li>June 26, 2015<br />CIRA <a href="https://cira.ca/blog/building-a-stronger-national-internet-part-1-local-peering" target="_blank">blog post</a> discussing the role of local peering in a national internet mentions the IXmaps project.</li>
-				<li>March 27, 2015<br />TechVibes highlights the importance of data privacy and transparency <a href="http://www.techvibes.com/blog/canadian-internet-providers-transparent-protecting-consumer-data-2014-03-27" target="_blank">through a discussion of the recent Transparency report</a>.</li>
-				<li>March 12, 2015<br />The IXmaps project is proud to announce the release of the its 2014 report on the Data Privacy Transparency of Canadian Internet Service Providers titled <a href="/transparency.php" target="_blank">Keeping Internet Users in the Know of in the Dark</a>.</li>
-				<li>February 04, 2015<br />Toronto Star profiled IXmaps as part of the <a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">newspaper's segment on privacy</a>.</li>
+			<ul class="nobullet">
+				<li>June 26, 2015 - CIRA <a href="https://cira.ca/blog/building-a-stronger-national-internet-part-1-local-peering" target="_blank">blog post</a> discussing the role of local peering in a national internet mentions the IXmaps project.</li>
+				<li>March 27, 2015 - TechVibes highlights the importance of data privacy and transparency <a href="http://www.techvibes.com/blog/canadian-internet-providers-transparent-protecting-consumer-data-2014-03-27" target="_blank">through a discussion of the recent Transparency report</a>.</li>
+				<li>March 12, 2015 - The IXmaps project is proud to announce the release of the its 2014 report on the Data Privacy Transparency of Canadian Internet Service Providers titled <a href="/transparency.php" target="_blank">Keeping Internet Users in the Know of in the Dark</a>.</li>
+				<li>February 04, 2015 - Toronto Star profiled IXmaps as part of the <a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">newspaper's segment on privacy</a>.</li>
 			</ul>
 
 			<h3>2014</h3>
-			<ul>
-				<li>May 30, 2014<br />IXmaps receives funding through the Canadian Internet Registration Authority's (CIRA) <a href="https://cira.ca/news/cira-invests-28-ways-advance-canadas-internet" target="_blank">Community Investment Program</a> to further develop its on-line platform for visualizing the physical and organizational aspects of Canadian internet routing.</li>
-				<li>April 01, 2014<br />Computer Dealer News covers IXmaps and the transparency report <a href="/transparency.php" target="_blank">Keeping Internet Users in the Know or in the Dark</a> in a <a href="http://www.computerdealernews.com/news/canadian-isps-need-to-be-more-transparent-u-of-t-report/32674" target="_blank">recent article</a>.</li>
-				<li><p>February 11, 2014<br />IXmaps endorses <a href="https://thedaywefightback.org/" target="_blank">The Day We Fight Back: Mass Surveillance Must Stop</a>.</li>
+			<ul class="nobullet">
+				<li>May 30, 2014 - IXmaps receives funding through the Canadian Internet Registration Authority's (CIRA) <a href="https://cira.ca/news/cira-invests-28-ways-advance-canadas-internet" target="_blank">Community Investment Program</a> to further develop its on-line platform for visualizing the physical and organizational aspects of Canadian internet routing.</li>
+				<li>April 01, 2014 - Computer Dealer News covers IXmaps and the transparency report <a href="/transparency.php" target="_blank">Keeping Internet Users in the Know or in the Dark</a> in a <a href="http://www.computerdealernews.com/news/canadian-isps-need-to-be-more-transparent-u-of-t-report/32674" target="_blank">recent article</a>.</li>
+				<li>February 11, 2014 - IXmaps endorses <a href="https://thedaywefightback.org/" target="_blank">The Day We Fight Back: Mass Surveillance Must Stop</a>.</li>
 			</ul>
 
 			<h3>2012</h3>
-				<ul>
-					<li>October 11, 2012<br />Lee Rickwood discusses IXmaps at the <a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">Ontario Science Centre's 'Canadian Live Tech Demo'</a>.</li>
-					<li>September 12, 2012<br />CIRA publishes <a href="https://cira.ca/sites/default/files/attachments/publications/toward-efficiencies-in-canadian-internet-traffic-exchange.pdf" target="_blank">Towards Efficiencies in Canadian Internet Traffic Exchange</a> which discusses what we term 'boomerang routing.'</li>
-					<li>August 29, 2012<br />Mediacaster mentions <a href="https://web.archive.org/web/20130923222528/http://www.mediacastermagazine.com/news/lack-of-internet-capacity-threatens-canadian-data-transmissions/1001653656/" target="_blank">IXmaps and its members (archived)</a> while covering CIRA's concerns with Canadian IXPs and boomerang traffic.</li>
-					<li>July 31, 2012<br />Lee Rickwood's <a href="https://web.archive.org/web/20120810002047/http://www.calgaryherald.com/technology/Mapping+privacy+concerns+Your+data+crosses+borders+without+your+knowledge/7018373/story.html" target="_blank">Calgary Herald article (archived)</a> focuses on IXmaps and boomerang routing.</li>
-					<li>July 10, 2012<br />Florence de Borja's thoughtful discussion of <a href="http://www.cloudtweaks.com/2012/07/how-are-canadians-affected-by-the-usa-patriot-act-and-cloud-computing/" target="_blank">How Are Canadians Affected By The USA Patriot Act And Cloud Computing?</a> emphasizes many issues that the IXmaps project has hoped to expose.</li>
-					<li>June 2012 - The IXmaps team is greatly saddened by the unexpected passing of our dear friend and colleague, Erik "Possum" Stewart. Erik was a talented and fiercely intelligent member of our team, who possessed a considerable breadth of knowledge and experience. He will be greatly missed.</li>
-					<li>April 26, 2012<br />Democracy Now!'s <a href="http://www.democracynow.org/2012/4/26/targeted_hacker_jacob_appelbaum_on_cispa" target="_blank">interview with Jacob Appelbaum</a> references IXmaps.</li>
-				</ul>
+			<ul class="nobullet">
+				<li>October 11, 2012 - Lee Rickwood discusses IXmaps at the <a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">Ontario Science Centre's 'Canadian Live Tech Demo'</a>.</li>
+				<li>September 12, 2012 - CIRA publishes <a href="https://cira.ca/sites/default/files/attachments/publications/toward-efficiencies-in-canadian-internet-traffic-exchange.pdf" target="_blank">Towards Efficiencies in Canadian Internet Traffic Exchange</a> which discusses what we term 'boomerang routing.'</li>
+				<li>August 29, 2012 - Mediacaster mentions <a href="https://web.archive.org/web/20130923222528/http://www.mediacastermagazine.com/news/lack-of-internet-capacity-threatens-canadian-data-transmissions/1001653656/" target="_blank">IXmaps and its members (archived)</a> while covering CIRA's concerns with Canadian IXPs and boomerang traffic.</li>
+				<li>July 31, 2012 - Lee Rickwood's <a href="https://web.archive.org/web/20120810002047/http://www.calgaryherald.com/technology/Mapping+privacy+concerns+Your+data+crosses+borders+without+your+knowledge/7018373/story.html" target="_blank">Calgary Herald article (archived)</a> focuses on IXmaps and boomerang routing.</li>
+				<li>July 10, 2012 - Florence de Borja's thoughtful discussion of <a href="http://www.cloudtweaks.com/2012/07/how-are-canadians-affected-by-the-usa-patriot-act-and-cloud-computing/" target="_blank">How Are Canadians Affected By The USA Patriot Act And Cloud Computing?</a> emphasizes many issues that the IXmaps project has hoped to expose.</li>
+				<li>June 2012 - The IXmaps team is greatly saddened by the unexpected passing of our dear friend and colleague, Erik "Possum" Stewart. Erik was a talented and fiercely intelligent member of our team, who possessed a considerable breadth of knowledge and experience. He will be greatly missed.</li>
+				<li>April 26, 2012 - Democracy Now!'s <a href="http://www.democracynow.org/2012/4/26/targeted_hacker_jacob_appelbaum_on_cispa" target="_blank">interview with Jacob Appelbaum</a> references IXmaps.</li>
+			</ul>
 
 			<h2>Research Papers</h2>
 			<p>Clement, A. "NSA Surveillance: Exploring the Geographies of Internet Interception", Proceedings of the iConference 2014, Berlin, Mar 4-7, 2014:
