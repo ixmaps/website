@@ -4,12 +4,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
 	<script type="text/javascript" src="/js/lightbox.js"></script>
-	<script src="/flowplayer/example/flowplayer-3.1.4.min.js"></script>
 	<script language="JavaScript" type="text/javascript">
 	//--------------- LOCALIZEABLE GLOBALS ---------------
 	var d=new Date();
@@ -19,7 +18,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -41,12 +40,12 @@
 </head>
 
 <body>
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
 
 <section id="main"><!-- #main content and sidebar area -->
@@ -57,8 +56,8 @@
 		<article>
 			<h2>Instructions</h2>
 
-			<p>When a user enters a destination URL in their browser, they see in an adjacent window, a map of North America on which the packets’ routes will be displayed. Each ‘exchange point’ or carrier hotel along that route is displayed in Google Earth as a labelled highlighted icon. When the icon is clicked, a balloon appears containing an HTML document with information about that interchange point and the building where it is physically located. This includes a photo of the building, its ownership, ISPs and other facilities within it and known links or alliances among the building owners, clients, and government or corporate entities.</p> 
-			
+			<p>When a user enters a destination URL in their browser, they see in an adjacent window, a map of North America on which the packets’ routes will be displayed. Each ‘exchange point’ or carrier hotel along that route is displayed in Google Earth as a labelled highlighted icon. When the icon is clicked, a balloon appears containing an HTML document with information about that interchange point and the building where it is physically located. This includes a photo of the building, its ownership, ISPs and other facilities within it and known links or alliances among the building owners, clients, and government or corporate entities.</p>
+
 			<p>Examples are the building at 151 Front Street, Toronto or the multi-story tower called One Wilshire in Los Angeles. Clickable icons are color-coded and an overlay with a legend is shown which contains a brief summary of the route and exchange points traversed. In the Google Earth ‘Places panel’, an ordered list of traceroute hops with IP addresses and AS numbers is displayed.</p>
 			<p><img src="images/legend.jpg" width="655" height="366"></p>
 							</article>

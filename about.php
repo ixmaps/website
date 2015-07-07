@@ -6,12 +6,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="description" content="IXmaps is an internet mapping tool that allows you to see how your personal data travels across the internet.">
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
 	<script type="text/javascript" src="/js/lightbox.js"></script>
-	<script src="/flowplayer/example/flowplayer-3.1.4.min.js"></script>
 	<script type="text/javascript">
 	//--------------- LOCALIZEABLE GLOBALS ---------------
 	var d=new Date();
@@ -61,7 +60,7 @@
 	    <p>The IXmaps research project was created to develop an interactive mapping tool that enables internet users and researchers to study the routes that data packets take across the internet, with surveillance and other 'interesting' features highlighted along the way. It also annually reports on the privacy transparency ratings of internet carriers that route Canadian traffic.
 	    Beginning in 2008, the project has received funding from
 	    <a href="http://www.sshrc-crsh.gc.ca/funding-financement/programs-programmes/itst/research_grants-subventions_recherche-eng.aspx" target="_blank">
-	    Social Sciences and Humanities Research Council of Canada (SSHRC)</a>, <a href="http://www.priv.gc.ca/index_e.asp" target="_blank">Office of the Privacy Commissioner of Canada (OPC)</a> and <a href="http://www.cira.ca/" target="_blank">Canadian Internet Registration Authority (CIRA)</a>. 
+	    Social Sciences and Humanities Research Council of Canada (SSHRC)</a>, <a href="http://www.priv.gc.ca/index_e.asp" target="_blank">Office of the Privacy Commissioner of Canada (OPC)</a> and <a href="http://www.cira.ca/" target="_blank">Canadian Internet Registration Authority (CIRA)</a>.
 	    The views expressed herein are those of the author(s) and do not necessarily reflect those of the funders.
 	    </p>
 		<h5>Current Project Team</h5>
@@ -86,9 +85,9 @@
 			<li><a href="//www.linkedin.com/in/johnharrisstevenson" target="_blank">John Stevenson, PhD</a>, University of Toronto</li>
 		</ul>
 		<br />
-		<p>IXmaps is affiliated with the 
-		<a href="http://www.sscqueens.org/projects/the-new-transparency/about" target="_blank">New Transparency Project</a> and the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">Information Policy Research Program</a> at the 
-		<a href="http://www.ischool.utoronto.ca/" target="_blank">Faculty of Information</a>, 
+		<p>IXmaps is affiliated with the
+		<a href="http://www.sscqueens.org/projects/the-new-transparency/about" target="_blank">New Transparency Project</a> and the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">Information Policy Research Program</a> at the
+		<a href="http://www.ischool.utoronto.ca/" target="_blank">Faculty of Information</a>,
 		<a href="http://www.utoronto.ca/" target="_blank">University of Toronto</a>.
 		</p>
 		<p style="text-align:center">

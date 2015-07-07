@@ -3,22 +3,17 @@
 
 /application/geoip/dat
 js/config.js
-application/config.php
 buildings-anim/
-chotels/
 database-eg.txt
 documents/
-flowplayer/
-forum/
 ge/
 gm-temp/
 jquery-ui-1.10.1/
 lightbox/
-old_html/
-old_unused/
 research/
 robots.txt
 TrGen/
+TrGen2/
 trsets/
 videos/
 dumps/

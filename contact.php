@@ -6,12 +6,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="description" content="IXmaps is an internet mapping tool that allows you to see how your personal data travels across the internet.">
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
 	<script type="text/javascript" src="/js/lightbox.js"></script>
-	<script src="/flowplayer/example/flowplayer-3.1.4.min.js"></script>
 	<script type="text/javascript">
 	//--------------- LOCALIZEABLE GLOBALS ---------------
 	var d=new Date();
@@ -21,7 +20,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -39,25 +38,25 @@
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="css/overwrites.css" type="text/css" />	
+	<link rel="stylesheet" href="css/overwrites.css" type="text/css" />
 </head>
 
 <body>
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
 	<img src="images/headerimage.jpg" alt="IXmaps Logo" width="1000" height="138">
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
-	
+
 <section id="main"><!-- #main content and sidebar area -->
-	
+
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 
 		<article>
 			<h2>Contact</h2>
-			<p>We encourage all feedback from visitors as to what they find interesting, confusing, boring or inaccessible, and welcome helpful suggestions for further refinement.</p> 
+			<p>We encourage all feedback from visitors as to what they find interesting, confusing, boring or inaccessible, and welcome helpful suggestions for further refinement.</p>
 			<p>For inquiries, comments or suggestions regarding the IXmaps project, please contact:</p>
 			<ul id="contact-list">
 				<li><a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Comments&93;">IXmaps Comments</a></li>

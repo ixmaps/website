@@ -4,12 +4,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
 	<title>See where your data packets go | IXmaps</title>
-	
+
 	<!-- JAVA SCRIPT -->
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
 	<script type="text/javascript" src="/js/lightbox.js"></script>
-	<script src="/flowplayer/example/flowplayer-3.1.4.min.js"></script>
 	<script language="JavaScript" type="text/javascript">
 	//--------------- LOCALIZEABLE GLOBALS ---------------
 	var d=new Date();
@@ -19,7 +18,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-	  
+
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-24555700-1']);
 	  _gaq.push(['_setDomainName', 'none']);
@@ -37,16 +36,16 @@
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="css/ix.css" type="text/css" />
 	<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />	
+	<link rel="stylesheet" href="/css/overwrites.css" type="text/css" />
 </head>
 
 <body>
-<div id="wrapper"><!-- #wrapper -->	
+<div id="wrapper"><!-- #wrapper -->
 <header><!-- header -->
-  <img src="images/headerimage.jpg" width="1000" height="138">      
+  <img src="images/headerimage.jpg" width="1000" height="138">
   <!-- <img src="images/headerimg.jpg" width="932" height="200" alt=""> header image -->
 </header><!-- end of header -->
-	
+
 <?php include("includes/navigation.php"); ?>
 
 <section id="main"><!-- #main content and sidebar area -->
@@ -73,7 +72,7 @@ internet traffic control.</p>
                   <th>destination</th>
                   <th>description</th>
                 </tr>
-                
+
                 <tr>
                   <td><a href="../cgi-bin/tr-detail.cgi?traceroute_id=1250" target="_blank">1250</a></td>
                   <td>Nanaimo, BC</td>

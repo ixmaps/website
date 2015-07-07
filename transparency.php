@@ -301,11 +301,6 @@
 
 </div><!-- #wrapper -->
 
-	<!-- JAVA SCRIPT
-		<script type="text/javascript" src="/js/prototype.js"></script>
-		<script src="/flowplayer/example/flowplayer-3.1.4.min.js"></script>
-	-->
-
 	<script type="text/javascript" src="/js/lightbox.js"></script>
 	<script type="text/javascript" src="/js/scriptaculous.js?load=effects,builder"></script>
 <!--             <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script> -->
