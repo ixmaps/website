@@ -1,6 +1,6 @@
 ixmaps=# \d
                List of relations
- Schema |       Name        |   Type   | Owner  
+ Schema |       Name        |   Type   | Owner
 --------+-------------------+----------+--------
  public | ip_addr_info      | table    | ixmaps
  public | tr_item           | table    | ixmaps
@@ -10,7 +10,7 @@ ixmaps=# \d
 
 
 ixmaps=# select * from ip_addr_info limit 12;
-     ip_addr     | asnum |   lat   |   long   |                 hostname                  
+     ip_addr     | asnum |   lat   |   long   |                 hostname
 -----------------+-------+---------+----------+-------------------------------------------
  222.222.222.222 | 17672 | 39.9289 |  116.388 | 222.222.222.222
  206.223.115.12  |  1273 |  37.555 | -122.269 | xe-0.equinix.asbnva01.us.bb.gin.ntt.net
@@ -28,7 +28,7 @@ ixmaps=# select * from ip_addr_info limit 12;
 
 
 ixmaps=# select * from tr_item limit 12;
- traceroute_id | hop | attempt | status |   ip_addr   | rtt_ms 
+ traceroute_id | hop | attempt | status |   ip_addr   | rtt_ms
 ---------------+-----+---------+--------+-------------+--------
             13 |   1 |       1 | c      | 12.4.5.1    |     12
             13 |   1 |       2 | c      | 12.4.5.1    |     17
@@ -46,7 +46,7 @@ ixmaps=# select * from tr_item limit 12;
 
 
 ixmaps=> select * from traceroute limit 12;
- id |        sub_time        |       dest       |     dest_ip     | submitter |  zip_code  | privacy | timeout | protocol | maxhops | status | attempts 
+ id |        sub_time        |       dest       |     dest_ip     | submitter |  zip_code  | privacy | timeout | protocol | maxhops | status | attempts
 ----+------------------------+------------------+-----------------+-----------+------------+---------+---------+----------+---------+--------+----------
   1 | 2009-09-03 18:39:04-04 | www.ixmaps.ca    | 206.248.138.108 | Private12 | M5S 1C7    |       8 |       1 | i        |     255 | i      |        4
   2 | 2009-09-06 19:26:13-04 | uvic.ca          | 142.104.193.247 | Ellen72   | M6G 4M1    |       8 |       1 | i        |     255 | c      |        4
@@ -64,7 +64,7 @@ ixmaps=> select * from traceroute limit 12;
 
 
 ixmaps=# select * from traceroute_id_seq;
-   sequence_name   | last_value | increment_by |      max_value      | min_value | cache_value | log_cnt | is_cycled | is_called 
+   sequence_name   | last_value | increment_by |      max_value      | min_value | cache_value | log_cnt | is_cycled | is_called
 -------------------+------------+--------------+---------------------+-----------+-------------+---------+-----------+-----------
  traceroute_id_seq |        541 |            1 | 9223372036854775807 |         1 |           1 |      32 | f         | t
 (1 row)
