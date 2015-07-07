@@ -1,7 +1,7 @@
 # For OSX Users
 .DS_Store
 
-/application/geoip/dat/
+application/geoip/dat/
 js/config.js
 buildings-anim/
 database-eg.txt
