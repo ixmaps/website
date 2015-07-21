@@ -214,7 +214,6 @@ geoip_close($gi1);
                 </form>
               </td>
             </tr>
-
             <tr>
               <td>
                 <form>
@@ -241,7 +240,7 @@ geoip_close($gi1);
               <td>
                 <form>
                   <button type="button" class="ql-button" id="my-country-button">
-                    Routes from my Country
+                    Routes from my country
                   </button>
                 </form>
               </td>
@@ -354,7 +353,7 @@ geoip_close($gi1);
       <!-- FIXME add all this calls to javascript functions in jquery -->
       <a name="tot-trs" id="tot-trs"></a>
       <div id="map-container" class="hide">
-        <div class="announcement" style="margin-bottom: 5px;">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it, so it can be corrected.</div>
+        <div class="announcement" style="margin-bottom: 5px; text-align: center;">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</div>
         <div id="map-core-controls" class="hide" style="float:right;">
           <div id="map-status-info" class="" style="float:left;">
             <span id="map-loading-status"></span>

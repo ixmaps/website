@@ -156,7 +156,6 @@ var addFilterConstraint = function () {
   filterLine += "<select class='constraint'>";
   filterLine += "<option value='originate'>Originate in</option>";
   filterLine += "<option value='terminate'>Terminate in</option>";
-  filterLine += "<option value='goVia'>Go Via</option>";
   filterLine += "<option value='contain'>Contain</option>";
   filterLine += "</select>";
 
