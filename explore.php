@@ -338,73 +338,73 @@ geoip_close($gi1);
 
 
       <div style="clear: both"></div>
-        <br/>
-        <div id="filter-results-log" class="hide"></div>
-        <!-- Map  options -->
-        <!-- FIXME add all this calls to javascript functions in jquery -->
-        <a name="tot-trs" id="tot-trs"></a>
-        <div id="map-container" class="hide">
-          <div>Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it, so it can be corrected.</div>
-          <div id="map-core-controls" class="hide" style="float:right;">
-            <div id="map-status-info" class="" style="float:left;">
-              <span id="map-loading-status"></span>
-            </div>
-            <div style="float:left;">
-              <input class="map-tool-off" type="button" onMouseDown="addAllTrs()" value="Add All"/>
-              <input class="map-tool-off" type="button" onMouseDown="removeAllTrs()" value="Remove All"/>
-
-              <!-- <input id="map-render-stop-play" class="map-tool-off" type="button" onMouseDown="stopRender()" value="Stop (Experimental)"/>  -->
-            </div>
+      <br/>
+      <div id="filter-results-log" class="hide"></div>
+      <!-- Map  options -->
+      <!-- FIXME add all this calls to javascript functions in jquery -->
+      <a name="tot-trs" id="tot-trs"></a>
+      <div id="map-container" class="hide">
+        <div>Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it, so it can be corrected.</div>
+        <div id="map-core-controls" class="hide" style="float:right;">
+          <div id="map-status-info" class="" style="float:left;">
+            <span id="map-loading-status"></span>
           </div>
-
-          <div id="map-stats-container">
-            <!-- Check the css for this, some not used now  -->
-            <div id="map-info-global" class="map-info-containers hide">
-              <span id="map-info-total"></span>
-              <br/>
-              <span id="map-router-exclusion"></span>
-              <br/>
-              <span id="map-impossible-distance-log"></span>
-            </div>
-          </div>
-          <!-- / map-stats-container -->
-        </div>
-        <!-- / map-container -->
-
-        <div style="clear:both;"></div>
-
-        <!-- map-canvas-container -->
-        <div id="map-canvas-container" class="hide">
           <div style="float:left;">
-            <div id="map_canvas" class="map-canvas"></div>
-          </div>
-          <div style="">
-            <div id="map-legend" class="map-info-containers--">map-legend</div>
-            <div id="map-tr-active" class="map-info-containers">map-tr-active</div>
-            <div id="map-info" class="map-info-containers">map-mouse-actions</div>
+            <input class="map-tool-off" type="button" onMouseDown="addAllTrs()" value="Add All"/>
+            <input class="map-tool-off" type="button" onMouseDown="removeAllTrs()" value="Remove All"/>
+
+            <!-- <input id="map-render-stop-play" class="map-tool-off" type="button" onMouseDown="stopRender()" value="Stop (Experimental)"/>  -->
           </div>
         </div>
-        <!-- /map-canvas-container -->
 
-        <div style="clear:both;"></div>
-
-        <div id="filter-results" class="hide">
-          <!-- filled in when queries are returned -->
-        </div>
-        <div id="filter-results-ixmaps-data" class="hide">
-          <!-- filled in when queries are returned -->
-        </div>
-
-        <div id="loader" style="display: none">
-          <div id="loader-mask"></div>
-          <div class="loader-image">
-            <img width="100px" src="images/loading2.gif"/>
-            <br/><br/>
-            <div id="cancel-query-div">
-              <button id="cancel-query">Cancel</button>
-            </div>
+        <div id="map-stats-container">
+          <!-- Check the css for this, some not used now  -->
+          <div id="map-info-global" class="map-info-containers hide">
+            <span id="map-info-total"></span>
+            <br/>
+            <span id="map-router-exclusion"></span>
+            <br/>
+            <span id="map-impossible-distance-log"></span>
           </div>
         </div>
+        <!-- / map-stats-container -->
+      </div>
+      <!-- / map-container -->
+
+      <div style="clear:both;"></div>
+
+      <!-- map-canvas-container -->
+      <div id="map-canvas-container" class="hide">
+        <div style="float:left;">
+          <div id="map_canvas" class="map-canvas"></div>
+        </div>
+        <div style="">
+          <div id="map-legend" class="map-info-containers--">map-legend</div>
+          <div id="map-tr-active" class="map-info-containers">map-tr-active</div>
+          <div id="map-info" class="map-info-containers">map-mouse-actions</div>
+        </div>
+      </div>
+      <!-- /map-canvas-container -->
+
+      <div style="clear:both;"></div>
+
+      <div id="filter-results" class="hide">
+        <!-- filled in when queries are returned -->
+      </div>
+      <div id="filter-results-ixmaps-data" class="hide">
+        <!-- filled in when queries are returned -->
+      </div>
+
+      <div id="loader" style="display: none">
+        <div id="loader-mask"></div>
+        <div class="loader-image">
+          <img width="100px" src="images/loading2.gif"/>
+          <br/><br/>
+          <div id="cancel-query-div">
+            <button id="cancel-query">Cancel</button>
+          </div>
+        </div>
+      </div>
 
     </div><!-- #content -->
     <footer>
