@@ -144,6 +144,16 @@ geoip_close($gi1);
     <div style="clear: both;"></div>
 
     <div id="explore-content">
+      <div id="loader" style="display: none">
+        <div id="loader-mask"></div>
+        <div class="loader-image">
+          <img width="100px" src="images/loading2.gif"/>
+          <br/><br/>
+          <div id="cancel-query-div">
+            <button id="cancel-query">Cancel</button>
+          </div>
+        </div>
+      </div>
       <!-- tabs -->
       <div id="tabs">
         <ul>
@@ -393,17 +403,6 @@ geoip_close($gi1);
       </div>
       <div id="filter-results-ixmaps-data" class="hide">
         <!-- filled in when queries are returned -->
-      </div>
-
-      <div id="loader" style="display: none">
-        <div id="loader-mask"></div>
-        <div class="loader-image">
-          <img width="100px" src="images/loading2.gif"/>
-          <br/><br/>
-          <div id="cancel-query-div">
-            <button id="cancel-query">Cancel</button>
-          </div>
-        </div>
       </div>
 
     </div><!-- #content -->

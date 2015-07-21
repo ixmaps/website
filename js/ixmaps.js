@@ -546,9 +546,6 @@ var bindAutocompletes = function(tagType, rowId) {
 };
 
 var showLoader = function() {
-  var h = jQuery(document).height();
-  jQuery('#loader-mask').height(h+'px');
-
   jQuery('#loader').show();
 };
 
