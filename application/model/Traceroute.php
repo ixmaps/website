@@ -204,14 +204,12 @@ class Traceroute
 		//$dbQueryHtml.='<hr/>'.$sql;
 		//$data1 = array();
 		$id_last = 0;
-
-		$in_nsa_city = array();
 		
 		$c = 0;
 		while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
 		    $c++;
 		    $id=$line['id'];
-		    $city = $line['mm_city'];
+		    //$city = $line['mm_city'];
 		    if($id!=$id_last){
 		    	$data[]=$id;
 			}
@@ -542,7 +540,7 @@ class Traceroute
 			//will get you the id of the last traceroute submitted
 			$sql = "select id from traceroute order by sub_time desc limit 1"; 
 			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
-			return Traceroute::getTrSet($sql);
+			return Traceroute::getTrSet($sql, "");
 		} else if ($qlArray[0]['constraint2']=="recentRoutes") {
 			$dbQueryHtml .= "Processing last 50 submitted traceroutes";
   			$sql = 'select id from traceroute order by id desc limit 50';
@@ -1298,8 +1296,12 @@ class Traceroute
 			
 */
 		$totHopsData = count($trDetailsAllData);
-		$lastHop = $trDetailsAllData[$totHopsData]['hop'];
+		
+		/*FIXME: why is not set?*/
+		$lastHop = $trDetailsAllData[$totHopsData-1]['hop'];
+		
 		$firstHop = $trDetailsAllData[0]['hop'];
+
 		$latenciesArray = array();
 
 		foreach ($trDetailsAllData as $trDetail => $TrDetailData) {
