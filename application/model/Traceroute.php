@@ -546,7 +546,7 @@ class Traceroute
   			$sql = 'select id from traceroute order by id desc limit 50';
   			
   			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
-  			return Traceroute::getTrSet($sql);
+  			return Traceroute::getTrSet($sql, "");
 		} else {
 			return array();
 		}
@@ -950,13 +950,16 @@ class Traceroute
 							new google.maps.LatLng('.$lat2.', '.$long2.')';
 
 							// get colour
-							//)
+							$hopC="";
 							if(!isset($as_num_color[$hops[$r-1][5]]))
 							{
 								$hopC = '#676A6B';
 							} else {
 
-								$hopC = '#'.$as_num_color[$asNum];
+								// fixed this notice
+								if(isset($as_num_color[$asNum])){
+									$hopC = '#'.$as_num_color[$asNum];
+								} 
 							}
 							
 							if($addPolylines) {
