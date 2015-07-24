@@ -155,7 +155,7 @@ geoip_close($gi1);
         </div>
       </div>
       <!-- tabs -->
-      <div id="tabs">
+<!--       <div id="tabs">
         <ul>
           <li><a href="#tabs-0">Quick Links</a></li>
           <li><a href="#tabs-1">Custom Filters</a></li>
@@ -164,19 +164,13 @@ geoip_close($gi1);
           <li><a href="#tabs-4">Help</a></li>
         </ul>
 
-        <!-- tabs-0 -->
+
         <div id="tabs-0">
 
         </div>
-        <!-- /tabs-0 -->
-
-        <!-- /tabs-1 -->
         <div id="tabs-1">
 
         </div>
-        <!-- /tabs-1 -->
-
-        <!-- /tabs-2 -->
         <div id="tabs-2">
           <h3>Selected Routes</h3>
           <br/>
@@ -190,9 +184,7 @@ geoip_close($gi1);
           <br/>
           <a href="javascript:showTestedCarriers();">Show Carriers TR Sample</a>
         </div>
-        <!-- /tabs-2 -->
 
-        <!-- tabs-3 -->
         <div id="tabs-3">
           <div id="map-op-0" class="map-actions-controls">
             <h3>Enable</h3>
@@ -222,9 +214,6 @@ geoip_close($gi1);
             <input id="map-show-uc" class="map-tool-off" type="button" onMouseDown="setShowUc()" value="Undersea Cable Landing Site"/>
           </div>
         </div>
-        <!-- /tabs-3 -->
-
-        <!-- tabs-4 -->
         <div id="tabs-4">
           <h3>Help</h3>
           <p>
@@ -251,11 +240,10 @@ geoip_close($gi1);
             </div>
           </div>
         </div>
-        <!-- /tabs-4 -->
 
       </div>
-      <!-- /tabs -->
 
+ -->
 
       <div style="clear: both"></div>
       <!-- Map  options -->
@@ -297,21 +285,18 @@ geoip_close($gi1);
         <span id="traceroute-set-container" style="float:right;">
           <h2>Traceroutes Set</h2>
           <div id="filter-results-log" class="hidden"></div>
+          <div id="filter-results" class="hidden">
+            <!-- filled in when queries are returned -->
+          </div>
+          <div id="filter-results-ixmaps-data" class="hidden">
+            <!-- filled in when queries are returned -->
+          </div>
           <div id="map-legend" class="map-info-containers">map-legend</div>
           <div id="map-tr-active" class="map-info-containers">map-tr-active</div>
           <div id="map-info" class="map-info-containers">map-mouse-actions</div>
         </span>
       </div>
       <!-- /map-canvas-container -->
-
-      <div style="clear:both;"></div>
-
-      <div id="filter-results" class="hidden">
-        <!-- filled in when queries are returned -->
-      </div>
-      <div id="filter-results-ixmaps-data" class="hidden">
-        <!-- filled in when queries are returned -->
-      </div>
 
       <span id="search-container" style="float:left">
         <h2>Search</h2>

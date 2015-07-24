@@ -1535,21 +1535,34 @@ class Traceroute
 
 	*/
 	public static function renderTrSets($data)
+	// <th>#</th>
+	// <th>TR Id</th>
+	// <th>Submitter</th>
+	// <th>Date</th>
+	// <th>Country</th>
+	// <th>Origin city</th>
+	// <th>Destination city</th>
+	// <th>Destination URL</th>
+	// <th>Destination IP</th>
+	// <td>'.$c.'</td>
+	// <td><a id="tr-a-'.$trId.'" class="tr-list-ids-item '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</a></td>
+	// <td>'.$trIdData[0][9].'</td>
+	// <td>'.$trIdData[0][12].'</td>
+	// <td>'.$trIdData[0][11].'</td>
+	// <td>'.$trIdData[0][10].'</td>
+	// <td>'.$trIdData[$lastHopIdx-1][10].'</td>
+	// <td>'.$trIdData[0][7].'</td>
+	// <td>'.$trIdData[0][8].'</td>
 	{
 		$html = '
 		<div id="tr-list-ids" class="map-info-containers-- tr-list-result">
 		<table id="tr-list-table" class="tablesorter">
 		<thead>
 		<tr>
-			<th>#</th>
 			<th>TR Id</th>
-			<th>Submitter</th>
-			<th>Date</th>
-			<th>Country</th>
 			<th>Origin city</th>
 			<th>Destination city</th>
-			<th>Destination URL</th>
-			<th>Destination IP</th>
+			<th>Date</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -1576,18 +1589,17 @@ class Traceroute
 			$trIdData[0][12]=$sDate[0];
 			$html .='
 			<tr>
-				<td>'.$c.'</td>
 				<td><a id="tr-a-'.$trId.'" class="tr-list-ids-item '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</a></td>
-				<td>'.$trIdData[0][9].'</td>
-				<td>'.$trIdData[0][12].'</td>
-				<td>'.$trIdData[0][11].'</td>
 				<td>'.$trIdData[0][10].'</td>
 				<td>'.$trIdData[$lastHopIdx-1][10].'</td>
-				<td>'.$trIdData[0][7].'</td>
-				<td>'.$trIdData[0][8].'</td>
+				<td>'.$trIdData[0][12].'</td>
 			</tr>
 			';
 		}
+
+
+
+
 		$html .= '
 		</tbody>
 		</table>
