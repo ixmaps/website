@@ -26,7 +26,8 @@ var trIdTags = [];
 var initialize = function() {
   // onclick events
   jQuery('.ql-button').click(function() {
-    console.log('start here');
+    jQuery('.ql-button').removeClass('selected');
+    jQuery(this).addClass('selected');
   });
 
   jQuery('#last-submission-button').click(function() {
@@ -102,7 +103,8 @@ var initialize = function() {
 
   // since we now want the last submitted route to be shown on landing
   submitLastSubmissionObject();
-  // now gray out button
+  // show button as selected
+  jQuery('#last-submission-button').addClass('selected');
 }
 
 

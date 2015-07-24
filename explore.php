@@ -444,7 +444,7 @@ geoip_close($gi1);
       <a href="javascript:newIpFlag();">Create a new Report</a>
     </div>
 
-    <div id="ip-flags-Title">
+    <div id="ip-flags-title">
       <h2>User generated flags</h2>
     </div>
 
