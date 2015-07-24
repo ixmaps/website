@@ -1,6 +1,6 @@
 <?php
 $ixHost = $_SERVER["SERVER_NAME"];
-if ($ixHost!='www.ixmaps.ca') {
+if ($ixHost != 'www.ixmaps.ca' && $ixHost != 'dev.ixmaps.ca') {
   header('Location: https://www.ixmaps.ca/explore.php');
   exit;
 }

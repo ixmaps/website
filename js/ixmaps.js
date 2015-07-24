@@ -100,7 +100,11 @@ var initialize = function() {
     hideLoader();
   });
 
+  // since we now want the last submitted route to be shown on landing
+  submitLastSubmissionObject();
+  // now gray out button
 }
+
 
 var submitNSAObject = function() {
   resetFilterConstraints();
@@ -327,7 +331,7 @@ var submitQuery = function(obj) {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Query submitted");
+      console.log("Query submitted", e);
       //if(e!=0){
       var data = jQuery.parseJSON(e);
       if(data.totTrs!=undefined){

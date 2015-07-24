@@ -1,4 +1,5 @@
 <?php
+ini_set( "display_errors", 1);
 
 /* Db configuration */
 
@@ -9,7 +10,7 @@ $dbport		= '5432';
 */
 $dbname 	= 'ixmaps';
 $dbuser		= 'ixmaps';
-/*$dbpassword	= '';*/
+$dbpassword	= '';
 $dbport		= '5432';
 
 // Connecting, selecting database
@@ -21,12 +22,12 @@ $dbconn = pg_connect("host=localhost dbname=$dbname user=$dbuser password=$dbpas
 //$savePath = '/Applications/XAMPP/htdocs/mywebapps/ixmaps.ca/dev.ixmaps.ca/gm-temp';
 
 // development
-//$webUrl = "http://dev.ixmaps.ischool.utoronto.ca";
+//$webUrl = "http://dev.ixmaps.ca";
 //$savePath = '/var/www/dev.ixmaps.ca/gm-temp';
 
 // production
-$webUrl = "https://ixmaps.ca";
-$appRootPath = '/var/www/www.ixmaps.ca'; // !!
+$webUrl = "https://dev.ixmaps.ca";
+$appRootPath = '/var/www/dev.ixmaps.ca'; // !!
 $savePath = $appRootPath.'/gm-temp';
 
 //$trNumLimit=800; // 500 is very safe num with the new approach
