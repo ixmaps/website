@@ -139,7 +139,7 @@ geoip_close($gi1);
     </header><!-- end of header -->
 
     <?php include("includes/navigation.php"); ?>
-    <div id="beta-message-ok"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i></div>
+<!--     <div id="beta-message-ok"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i></div> -->
 
     <div style="clear: both;"></div>
 
@@ -258,12 +258,10 @@ geoip_close($gi1);
 
 
       <div style="clear: both"></div>
-      <br/>
-      <div id="filter-results-log" class="hidden"></div>
       <!-- Map  options -->
       <!-- FIXME add all this calls to javascript functions in jquery -->
       <a name="tot-trs" id="tot-trs"></a>
-      <div id="map-container" class="hidden">
+      <div id="map-container">
         <div class="announcement" style="margin-bottom: 5px; text-align: center;">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</div>
         <div id="map-core-controls" class="hidden" style="float:right;">
           <div id="map-status-info" class="" style="float:left;">
@@ -272,8 +270,6 @@ geoip_close($gi1);
           <div style="float:left;">
             <input class="map-tool-off" type="button" onMouseDown="addAllTrs()" value="Add All"/>
             <input class="map-tool-off" type="button" onMouseDown="removeAllTrs()" value="Remove All"/>
-
-            <!-- <input id="map-render-stop-play" class="map-tool-off" type="button" onMouseDown="stopRender()" value="Stop (Experimental)"/>  -->
           </div>
         </div>
 
@@ -294,15 +290,17 @@ geoip_close($gi1);
       <div style="clear:both;"></div>
 
       <!-- map-canvas-container -->
-      <div id="map-canvas-container" class="hidden">
-        <div style="float:left;">
+      <div id="map-canvas-container">
+        <span id="map-output-container" style="float:left;">
           <div id="map_canvas" class="map-canvas"></div>
-        </div>
-        <div style="">
-          <div id="map-legend" class="map-info-containers--">map-legend</div>
+        </span>
+        <span id="traceroute-set-container" style="float:right;">
+          <h2>Traceroutes Set</h2>
+          <div id="filter-results-log" class="hidden"></div>
+          <div id="map-legend" class="map-info-containers">map-legend</div>
           <div id="map-tr-active" class="map-info-containers">map-tr-active</div>
           <div id="map-info" class="map-info-containers">map-mouse-actions</div>
-        </div>
+        </span>
       </div>
       <!-- /map-canvas-container -->
 

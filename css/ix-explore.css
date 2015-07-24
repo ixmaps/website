@@ -5,18 +5,6 @@
   font-size: 26px;
 }
 
-#map-info {
-  min-height: 63px;
-  width: 432px;
-  float: right;
-}
-
-#map-tr-active {
-  min-height: 20px;
-  width: 432px;
-  float: right;
-}
-
 #tr-ids-active {
   color:red;
   font-weight:bold;
@@ -50,24 +38,9 @@
   border-color: red;
 }
 
-#map-info-total {
-
-}
-
 #map-status-info {
   font-size: 18px;
   padding: 5px;
-}
-
-#map-canvas-container {
-  bottom: 260px;
-  left: 0;
-}
-
-.map-canvas {
-  margin: 0;
-  height: 450px;
-  width: 550px;
 }
 
 .info-win-text {
@@ -325,9 +298,6 @@
 }
 
 #filter-results-log {
-  border: 1px solid #ccc;
-  padding: 3px 5px;
-  border-radius: 10px;
   min-height: 25px;
 }
 
@@ -441,4 +411,34 @@
 
 .constraint {
   margin: 4px;
+}
+
+#map-canvas-container {
+  bottom: 260px;
+  left: 0;
+}
+
+.map-canvas {
+  margin: 0;
+  height: 450px;
+  width: 100%;
+}
+
+#map-output-container {
+  float: left;
+  width: 65%;
+}
+
+#traceroute-set-container {
+  float: right;
+  width: 34%;
+}
+
+#map-info {
+  min-height: 63px;
+  float: right;
+}
+
+#map-tr-active {
+  float: right;
 }
