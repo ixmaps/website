@@ -166,102 +166,13 @@ geoip_close($gi1);
 
         <!-- tabs-0 -->
         <div id="tabs-0">
-          <h4>Quick Links:</h4>
-          <table>
-            <tr>
-              <td>
-                <form>
-                  <button type="button" class="ql-button" id="last-submission-button">
-                    Last submitted route
-                  </button>
-                </form>
-              </td>
-              <td>
-                <form>
-                  <button type="button" class="ql-button" id="recent-routes-button">
-                    Last 50 submitted routes
-                  </button>
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>
-              </td>
-              <td>
-              </td>
-            </tr>
-          </table>
+
         </div>
         <!-- /tabs-0 -->
 
         <!-- /tabs-1 -->
         <div id="tabs-1">
-          <h3>Custom Filter Examples</h3>
-          <table>
-            <tr>
-              <td>
-                <form>
-                  <button type="button" class="ql-button" id="all-boomerangs-button">
-                    Boomerang routes
-                  </button>
-                </form>
-              </td>
-              <td>
-                <form>
-                  <button type="button" class="ql-button" id="non-CA-button">
-                    Routes that do not go via Canada
-                  </button>
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <form>
-                  <button type="button" class="ql-button" id="contain-NSA-button">
-                    Routes that contain NSA cities
-                  </button>
-                </form>
-              </td>
-              <td>
-                <form>
-                  <button type="button" class="ql-button" id="non-US-button">
-                    Routes that do not go via the US
-                  </button>
-                </form>
-              </td>
-            <tr>
-              <td>
-                <form>
-                  <button type="button" class="ql-button" id="my-city-button">
-                    Routes from my city
-                  </button>
-                </form>
-              </td>
-              <td>
-                <form>
-                  <button type="button" class="ql-button" id="my-country-button">
-                    Routes from my country
-                  </button>
-                </form>
-              </td>
-            </tr>
-          </table>
 
-          <br/>
-          <h3>Custom Filters</h3>
-          <!-- autocomplete data -->
-          <div id="autocomplete-data" class="hide"></div>
-          <div id="filter-container">
-            <!-- these will filled in by addFilterConstraint -->
-          </div>
-          <div>
-            <div style="float: left;">
-                <button id="reset-filters-button" class="action-button">Reset Values</button>
-              </div>
-              <div>
-                <button id="process-filters-button" class="action-button"><b>Submit</b></button>
-              </div>
-          </div>
         </div>
         <!-- /tabs-1 -->
 
@@ -326,7 +237,7 @@ geoip_close($gi1);
             For users more comfortable with querying databases, the Custom Filters section allows dynamic, extensible queries based
             on many of the data fields collected by the route generator program
           </div>
-          <div class="expandable- hide-">
+          <div class="expandable- hidden-">
             <div>For example, to view routes that neither start nor end in Canada, a user could query:</div>
             <div><b>| Does not | Originate in | Country | CA | AND | +</b></div>
             <div><b>| Does not | Terminate in | Country | CA |</b></div>
@@ -348,13 +259,13 @@ geoip_close($gi1);
 
       <div style="clear: both"></div>
       <br/>
-      <div id="filter-results-log" class="hide"></div>
+      <div id="filter-results-log" class="hidden"></div>
       <!-- Map  options -->
       <!-- FIXME add all this calls to javascript functions in jquery -->
       <a name="tot-trs" id="tot-trs"></a>
-      <div id="map-container" class="hide">
+      <div id="map-container" class="hidden">
         <div class="announcement" style="margin-bottom: 5px; text-align: center;">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</div>
-        <div id="map-core-controls" class="hide" style="float:right;">
+        <div id="map-core-controls" class="hidden" style="float:right;">
           <div id="map-status-info" class="" style="float:left;">
             <span id="map-loading-status"></span>
           </div>
@@ -368,7 +279,7 @@ geoip_close($gi1);
 
         <div id="map-stats-container">
           <!-- Check the css for this, some not used now  -->
-          <div id="map-info-global" class="map-info-containers hide">
+          <div id="map-info-global" class="map-info-containers hidden">
             <span id="map-info-total"></span>
             <br/>
             <span id="map-router-exclusion"></span>
@@ -383,7 +294,7 @@ geoip_close($gi1);
       <div style="clear:both;"></div>
 
       <!-- map-canvas-container -->
-      <div id="map-canvas-container" class="hide">
+      <div id="map-canvas-container" class="hidden">
         <div style="float:left;">
           <div id="map_canvas" class="map-canvas"></div>
         </div>
@@ -397,12 +308,99 @@ geoip_close($gi1);
 
       <div style="clear:both;"></div>
 
-      <div id="filter-results" class="hide">
+      <div id="filter-results" class="hidden">
         <!-- filled in when queries are returned -->
       </div>
-      <div id="filter-results-ixmaps-data" class="hide">
+      <div id="filter-results-ixmaps-data" class="hidden">
         <!-- filled in when queries are returned -->
       </div>
+
+      <span id="search-container" style="float:left">
+        <h2>Search</h2>
+        <!-- autocomplete data -->
+        <div id="autocomplete-data" class="hidden"></div>
+        <div id="filter-container">
+          <!-- these will filled in by addFilterConstraint -->
+        </div>
+        <div style="float: right;">
+          <span>
+            <button id="reset-filters-button" class="action-button">Reset Values</button>
+          </span>
+          <span>
+            <button id="process-filters-button" class="action-button"><b>Submit</b></button>
+          </span>
+        </div>
+      </span>
+
+      <!-- tables? for real!? -->
+      <span id="quick-search-container" style="float:right">
+        <h2>Quick Searches:</h2>
+        <table>
+          <tr>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="last-submission-button">
+                  Last submitted
+                </button>
+              </form>
+            </td>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="recent-routes-button">
+                  Last 50 submitted
+                </button>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="all-boomerangs-button">
+                  Boomerangs
+                </button>
+              </form>
+            </td>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="contain-NSA-button">
+                  Containing NSA Cities
+                </button>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="non-CA-button">
+                  Not Via Canada
+                </button>
+              </form>
+            </td>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="non-US-button">
+                  Not Via US
+                </button>
+              </form>
+            </td>
+          <tr>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="my-city-button">
+                  From My City
+                </button>
+              </form>
+            </td>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="my-country-button">
+                  From My Country
+                </button>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </span>
 
     </div><!-- #content -->
     <footer>
@@ -411,7 +409,7 @@ geoip_close($gi1);
   </div><!-- #wrapper -->
   <br/>
 
-  <div id="tr-details" class="hide">
+  <div id="tr-details" class="hidden">
     <div id="tr-details-close">
       <a href="javascript:closeTrDetails();">
         <img src="images/icon-close.png">
@@ -423,7 +421,7 @@ geoip_close($gi1);
     </div>
   </div>
 
-  <div id="privacy-details" class="hide">
+  <div id="privacy-details" class="hidden">
     <div id="privacy-details-close">
       <a href="javascript:closePrivacy();">
         <img src="images/icon-close.png">
@@ -434,7 +432,7 @@ geoip_close($gi1);
     <div id="privacy-details-data">privacy-details-data</div>
   </div>
 
-  <div id="ip-flags" class="hide">
+  <div id="ip-flags" class="hidden">
     <div id="ip-flags-close">
       <a href="javascript:closeIpFlags();">
         <img src="images/icon-close.png">
@@ -465,7 +463,7 @@ geoip_close($gi1);
 
     <div style="clear: both;"></div>
 
-    <div id="ip-flag-insert" class="hide">
+    <div id="ip-flag-insert" class="hidden">
       <h3>Create a new report</h3>
       <table>
         <tr>

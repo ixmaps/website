@@ -140,7 +140,7 @@ var submitNSAObject = function() {
 var addFilterConstraint = function () {
   // creating the row
   var filterLine = "<div class='filter-item'>";
-  filterLine += "<select class='constraint' class='hide'>";
+  filterLine += "<select class='constraint' class='hidden'>";
   filterLine += "<option value='does'>Does</option>";
   filterLine += "<option value='doesNot'>Does not</option>";
   filterLine += "</select>";

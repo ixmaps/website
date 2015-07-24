@@ -1,128 +1,53 @@
 /*********** Explore page ***********/
 
 .h2-bigger {
-	color: #10578b;
-	font-size: 26px;
+  color: #10578b;
+  font-size: 26px;
 }
 
 #map-info {
-	min-height: 63px;
-	width: 432px;
-	float: right;
+  min-height: 63px;
+  width: 432px;
+  float: right;
 }
 
 #map-tr-active {
-	min-height: 20px;
-	width: 432px;
-	float: right;
+  min-height: 20px;
+  width: 432px;
+  float: right;
 }
 
 #tr-ids-active {
-	color:red;
-	font-weight:bold;
+  color:red;
+  font-weight:bold;
 }
 
 #tr-list-ids {
-	max-height: 254px;
-	overflow-y: auto;
-	bottom: 0;
-	left: 0px;
-	padding: 0px;
+  max-height: 254px;
+  overflow-y: auto;
+  bottom: 0;
+  left: 0px;
+  padding: 0px;
 }
 
 .tr-list-result table {
-	width: 100%;
-	border: 1px solid #ccc;
+  width: 100%;
+  border: 1px solid #ccc;
 }
 .tr-list-result td {
-	border: 1px solid #ccc;
-	padding: 2px;
-	font-size: 12px;
+  border: 1px solid #ccc;
+  padding: 2px;
+  font-size: 12px;
 }
 
 #tr-list-table tr:hover {
-	background-color: yellow;
-}
-
-
-#quick-links-table {
-	border: 1px dashed #CCC;
-	padding: 5px;
-}
-
-#explore-content {
-	position: relative;
-}
-
-#explore-content table button {
-	width: 300px;
-	height: 30px;
-	font-size: 13px;
-	padding: 5px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 20px;
-}
-
-#quick-links-table td {
-	text-align: center;
-}
-
-.action-button {
-	width: 130px;
-	height: 30px;
-	margin-top: 20px;
-}
-
-.filter-item {
-	margin-bottom: 5px;
-	padding: 5px;
-}
-
-.constraint {
-	margin: 4px;
+  background-color: yellow;
 }
 
 .blank-field-error {
-	border-style: solid;
-	border-width: 2px;
-	border-color: red;
-}
-
-.hide {
-	display: none;
-}
-
-#loader {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-}
-
-.loader-image {
-	position: relative;
-	text-align: center;
-	z-index: 1000;
-	top: 15%;
-}
-
-#loader-mask {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #000;
-	opacity:0.6;
-	z-index: 50;
-}
-
-.loader-image img {
-	border: none;
-	-webkit-box-shadow: 0px 0px 0px #777;
+  border-style: solid;
+  border-width: 2px;
+  border-color: red;
 }
 
 #map-info-total {
@@ -130,86 +55,86 @@
 }
 
 #map-status-info {
-	font-size: 18px;
-	padding: 5px;
+  font-size: 18px;
+  padding: 5px;
 }
 
 #map-canvas-container {
-	bottom: 260px;
-	left: 0;
+  bottom: 260px;
+  left: 0;
 }
 
 .map-canvas {
-	margin: 0;
-	height: 450px;
- 	width: 550px;
+  margin: 0;
+  height: 450px;
+  width: 550px;
 }
 
 .info-win-text {
-	color: #000;
+  color: #000;
 }
 
 #ip-flags {
-	padding: 15px;
+  padding: 15px;
 }
 
 #ip-flags-title {
-	float: left;
-	margin-bottom: 15px;
+  float: left;
+  margin-bottom: 15px;
 }
 
 #ip-flag-info {
-	float: left;
-	margin-right: 10px;
-	font-size: 13px;
+  float: left;
+  margin-right: 10px;
+  font-size: 13px;
 }
 
 #ip-flag-insert {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 #ip-flag-info table {
-	width: 440px;
-	padding: 10px;
-	font-size: 14px;
-	border-collapse: collapse;
+  width: 440px;
+  padding: 10px;
+  font-size: 14px;
+  border-collapse: collapse;
 }
 
 #ip-flag-info td {
-	border: 1px solid #ccc;
-	padding: 2px;
+  border: 1px solid #ccc;
+  padding: 2px;
 }
 
 #ip-flag-log {
-	color: red;
-	float: right;
+  color: red;
+  float: right;
 }
 
 #ip-flag-first-msg {
-	padding: 5px;
-	overflow: auto;
+  padding: 5px;
+  overflow: auto;
 }
 
 #ip-flags-new {
-	float: right;
-	margin: 12px 50px 0 0;
+  float: right;
+  margin: 12px 50px 0 0;
 }
 
 #ip-flags-data-list {
-	overflow: auto;
-	height: 252px;
+  overflow: auto;
+  height: 252px;
 }
 
 #tr-details, #ip-flags {
-	position: fixed;
-	left: 5%;
-	z-index: 1000;
-	top: 5%;
-	background: #fff;
-	height: 600px;
-	width: 900px;
-	border: 1px solid black;
-	border-radius: 20px;
+  position: fixed;
+  left: 5%;
+  z-index: 1000;
+  top: 5%;
+  background: #fff;
+  height: 600px;
+  width: 900px;
+  border: 1px solid black;
+  border-radius: 20px;
 }
 
 #privacy-details {
@@ -225,229 +150,295 @@
 }
 
 #tr-details-close, #ip-flags-close, #privacy-details-close {
-	margin: 10px;
-	float: right;
+  margin: 10px;
+  float: right;
 }
 
 #tr-details-close img, #ip-flags-close img, #privacy-details-close img {
-	width: 25px
+  width: 25px
 }
 .privacy-score-col-non-zero {
-	font-size: 14px;
-	font-weight: bold;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 #privacy-total-label {
-	float: right;
-	margin-top: 16px;
-	margin-right: 10px;
-	font-size: 18px;
-	margin-left: 14px;
+  float: right;
+  margin-top: 16px;
+  margin-right: 10px;
+  font-size: 18px;
+  margin-left: 14px;
 }
 
 #privacy-feedback-info {
-	float: left;
-	border: 1px solid #000;
-	border-radius: 10px;
-	padding: 5px;
+  float: left;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .privacy-score-col-total {
-	font-size: 18px;
-	font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .privacy-score-col {
-	background-color: #ccc;
-	text-align: center;
-	vertical-align: middle;
+  background-color: #ccc;
+  text-align: center;
+  vertical-align: middle;
 }
 #privacy-details-data table td {
-	padding: 2px;
-	font-size: 13px;
-	border-bottom: 1px dotted;
+  padding: 2px;
+  font-size: 13px;
+  border-bottom: 1px dotted;
 }
 
 .privacy-score-tot {
-	text-align: right;
+  text-align: right;
 }
 
 #privacy-details {
-	padding: 15px;
-	overflow: auto;
+  padding: 15px;
+  overflow: auto;
 }
 #carrier-title {
-	float: left;
+  float: left;
 }
 
 #tr-details-iframe {
-	width: 894px;
-	height: 533px;
+  width: 894px;
+  height: 533px;
 }
 
 .tab-right {
-	margin-right: 20px;
+  margin-right: 20px;
 }
 
 #map-legend {
-	max-height: 300px;
-	overflow: auto;
-	margin: 0px 0px 0 10px;
-	padding-left: 10px;
+  max-height: 300px;
+  overflow: auto;
+  margin: 0px 0px 0 10px;
+  padding-left: 10px;
 }
 
 /* redefining jQuery ui-widget */
 
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
-	font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .map-tool-on, .map-tool-off {
-	font-size: 0.8em;
-	border-radius: 5px;
+  font-size: 0.8em;
+  border-radius: 5px;
 }
 
 .map-tool-on {
-	color: #000000;
-	background-color: #8dbdd8;
+  color: #000000;
+  background-color: #8dbdd8;
 }
 
 .map-tool-off {
-	color: #000000;
-	background-color: #FFFFFF;
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 #map-actions {
-	clear: both;
+  clear: both;
 }
 
 .asn-num-hops {
-	background-color: #FFFFFF;
-	padding: 1px;
-	text-align: center;
-	font-size: 11px;
-	border-radius: 10px;
-	margin: 5px;
+  background-color: #FFFFFF;
+  padding: 1px;
+  text-align: center;
+  font-size: 11px;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .asn-color-text {
-	text-align: center;
+  text-align: center;
 }
 
 .map-info-containers {
-	padding: 5px;
+  padding: 5px;
 }
 
 #map-stats-container {
-	padding: 0px;
-	margin-left: 20px;
-	margin-right: 20px;
-	float: left;
+  padding: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  float: left;
 }
 #map-actions-container h4 {
-	text-align: center;
-	padding: 10px;
+  text-align: center;
+  padding: 10px;
 }
 
 #map-actions-container {
-	width: 100%;
-	padding: 0px;
-	float: left;
+  width: 100%;
+  padding: 0px;
+  float: left;
 }
 
 #tabs a:hover, #map-actions a:hover {
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 .map-actions-controls, .ui-accordion .ui-accordion-content {
-	padding: 0em 0em;
+  padding: 0em 0em;
 }
 
 .map-actions-controls {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #map-hide-control {
-	position: absolute;
-	background-color: orange;
-	padding-left: 25px;
-	font-size: 13px;
-	top: 0;
-	left: 0;
-	border: 1px solid;
-	width: 118px;
-	height: 37px;
+  position: absolute;
+  background-color: orange;
+  padding-left: 25px;
+  font-size: 13px;
+  top: 0;
+  left: 0;
+  border: 1px solid;
+  width: 118px;
+  height: 37px;
 }
 
 #map-info-global {
-	padding: 1em;
-	font-size: 14px;
-	background-color: rgb(14, 14, 14);
-	opacity: 0.9;
-	color: #ffffff;
-	width: 200px;
+  padding: 1em;
+  font-size: 14px;
+  background-color: rgb(14, 14, 14);
+  opacity: 0.9;
+  color: #ffffff;
+  width: 200px;
 }
 
 #map-core-controls {
-	margin: 0;
+  margin: 0;
 }
 
 #map-core-controls input {
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 .warning {
-	background-color: #FFAC1C;
+  background-color: #FFAC1C;
 }
 
 #filter-results-log {
-	border: 1px solid #ccc;
-	padding: 3px 5px;
-	border-radius: 10px;
-	min-height: 25px;
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  border-radius: 10px;
+  min-height: 25px;
 }
 
 .text-new {
-	color: red;
-	font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
 .score-header {
-	width: 150px;
+  width: 150px;
 }
 .star-col {
-	vertical-align: top;
+  vertical-align: top;
 }
 .score-hide {
-	display: none;
+  display: none;
 }
 .nat-header {
-	width: 38px;
+  width: 38px;
 }
 .routers-header {
-	width: 60px;
+  width: 60px;
 }
 
 #beta-message-ok {
-	height: 25px;
-	background-color: yellow;
-	float: right;
-	margin-top: 0px;
-	padding: 5px 10px 0px 10px;
+  height: 25px;
+  background-color: yellow;
+  float: right;
+  margin-top: 0px;
+  padding: 5px 10px 0px 10px;
 }
 
 #cancel-query-div {
-	z-index: 100;
+  z-index: 100;
 }
 
 #cancel-query {
-	font-size: 1.2em;
-	border: 2px solid #ccc;
-	border-radius: 10px;
+  font-size: 1.2em;
+  border: 2px solid #ccc;
+  border-radius: 10px;
 }
 
 
 /* REVAMPED CSS STARTS HERE */
-
 .selected {
-	outline: solid 1px red;
+  background: #4aa0f9 !important;      /* OMG so many different blues - we need to get someone on this */
+  opacity: 0.7;
+}
+
+.hidden {
+  display: none;
+}
+
+#loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.loader-image {
+  position: relative;
+  text-align: center;
+  z-index: 1000;
+  top: 15%;
+}
+
+#loader-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity:0.6;
+  z-index: 50;
+}
+
+.loader-image img {
+  border: none;
+  -webkit-box-shadow: 0px 0px 0px #777;
+}
+
+#explore-content {
+  position: relative;
+}
+
+#explore-content table button {
+  background: white;
+  text-align: center;
+  width: 160px;
+  height: 30px;
+  font-size: 13px;
+  padding: 5px;
+  margin: 5px 0px 0px 5px;
+  border-radius: 6px;
+}
+
+#search-container, #quick-search-container {
+  margin-bottom: 20px;
+}
+
+.action-button {
+  font-size: 13px;
+  width: 100px;
+  height: 30px;
+  margin-top: 20px;
+}
+
+.constraint {
+  margin: 4px;
 }
