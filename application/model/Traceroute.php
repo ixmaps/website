@@ -1560,7 +1560,7 @@ class Traceroute
 		<thead>
 		<tr>
 			<th>TR Id</th>
-			<th>Origin City</th>
+			<th>Origin</th>
 			<th>Dest. Hostname</th>
 			<th>Date</th>
 		</tr>
@@ -1587,15 +1587,22 @@ class Traceroute
 			// get short date
 			$sDate = explode(" ", $trIdData[0][12]);
 			$trIdData[0][12]=$sDate[0];
+			// set up 'city, country' format if city exists
+			$originStr = '';
+			if(strlen($trIdData[0][10]) > 0) {
+				$originStr = $trIdData[0][10].', '.$trIdData[0][11];
+			} else {
+				$originStr = $trIdData[0][11];
+			}
+			// strimwidth to ellipsisize anything over 20 chars
 			$html .='
 			<tr>
 				<td><a id="tr-a-'.$trId.'" class="tr-list-ids-item '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</a></td>
-				<td>'.$trIdData[0][10].'</td>
+				<td>'.$originStr.'</td>
 				<td>'.mb_strimwidth($trIdData[0][7], 0, 20, "...").'</td>
 				<td>'.$trIdData[0][12].'</td>
 			</tr>
 			';
-			// strimwidth to ellipsisize anything over 20 chars
 		}
 
 
