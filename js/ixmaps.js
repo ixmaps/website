@@ -777,7 +777,7 @@ var showTestedCarriers = function(){
   };
 
   var jsonToString = JSON.stringify(carrierSampleJson);
-  processpostedData(jsonToString);
+  processPostedData(jsonToString);
 }
 
 var boomerangJSON = {
@@ -837,11 +837,10 @@ var submitCustomQuery = function(trId, multipleTRs) {
     }
   };
   var jsonToString = JSON.stringify(singleTrJSON);
-  processpostedData(jsonToString);
+  processPostedData(jsonToString);
 }
 
-var processpostedData = function(d){
-  jQuery('#tabs').tabs({ active: 1 });
+var processPostedData = function(d){
   var data = jQuery.parseJSON(d);
 
   setTimeout(function(){

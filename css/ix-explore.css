@@ -391,15 +391,16 @@
   left: 0;
 }
 
-.map-canvas {
-  margin: 0;
-  height: 450px;
-  width: 100%;
-}
-
 #map-output-container {
   float: left;
+  height: 550px;
   width: 65%;
+}
+
+.map-canvas {
+  margin: 0;
+  height: 550px;
+  width: 100%;
 }
 
 /************ TRACEROUTES FOUND (RIGHT SIDE) ************/
@@ -410,7 +411,7 @@
 }
 
 #tr-list-ids {
-  max-height: 200px;
+  max-height: 230px;
   overflow-y: auto;
   bottom: 0;
   left: 0px;
@@ -432,7 +433,8 @@
 }
 
 #map-legend {
-  max-height: 300px;
+  max-height: 250px;
+  margin-top: 10px;
   overflow: auto;
 }
 

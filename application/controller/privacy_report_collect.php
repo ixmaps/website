@@ -5,10 +5,10 @@ if(!isset($_REQUEST) || count($_REQUEST)==0)
 {
 	echo '<br/><hr/>No parameters sent.';
 } else {
-	//$privacyReportCollect = PrivacyReportCollect::getPrivacyDataImport();	
+	//$privacyReportCollect = PrivacyReportCollect::getPrivacyDataImport();
 	//echo $privacyReportCollect;
-	echo "ckeckCarriers()<br/>";
-	$ckeckCarriers = PrivacyReportCollect::ckeckCarriers();	
+	echo "checkCarriers()<br/>";
+	$checkCarriers = PrivacyReportCollect::checkCarriers();
 
 }
 ?>

@@ -265,7 +265,6 @@ geoip_close($gi1);
             <span id="map-impossible-distance-log"></span>
           </div>
         </div>
-        <!-- / map-stats-container -->
       </div>
       <!-- / map-container -->
 
@@ -278,16 +277,25 @@ geoip_close($gi1);
         </span>
         <span id="traceroutes-found-container" style="float:right;">
           <h2>Traceroutes Found</h2>
-          <div id="filter-results-log" class="hidden"></div>
-          <div id="filter-results" class="hidden">
+          <div>
+            <span id="filter-results-log"></span>
+            <span style="float: right">
+              <button id="">Map All</button>
+              <button id="">Remove All</button>
+            </span>
+          </div>
+          <div style="clear: both"></div>
+          <div id="filter-results">
             <!-- filled in when queries are returned -->
           </div>
-          <div id="filter-results-ixmaps-data" class="hidden">
+          <div id="filter-results-ixmaps-data">
             <!-- filled in when queries are returned -->
           </div>
           <div id="map-legend" class="map-info-containers"></div>
-          <div id="map-tr-active" class="map-info-containers"></div>
-          <div id="map-info" class="map-info-containers"></div>
+
+          <!-- COME BACK TO THIS - IT WILL BE IMPORTANT FOR POP OVER STUFF -->
+<!--           <div id="map-tr-active" class="map-info-containers"></div>
+          <div id="map-info" class="map-info-containers"></div> -->
         </span>
       </div>
       <!-- /map-canvas-container -->

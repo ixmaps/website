@@ -26,13 +26,13 @@ class PrivacyReportCollect
 			$csvData .="\n(7,".$value["asn"].",'".$value["carrier_name"]."',".$value["score7"].",'".$value["created_by"]."'),";
 			$csvData .="\n(8,".$value["asn"].",'".$value["carrier_name"]."',".$value["score8"].",'".$value["created_by"]."'),";
 			$csvData .="\n(9,".$value["asn"].",'".$value["carrier_name"]."',".$value["score9"].",'".$value["created_by"]."'),";
-			$csvData .="\n(10,".$value["asn"].",'".$value["carrier_name"]."',".$value["score10"].",'".$value["created_by"]."'),";			
+			$csvData .="\n(10,".$value["asn"].",'".$value["carrier_name"]."',".$value["score10"].",'".$value["created_by"]."'),";
 		}
 
 		return $csvData;
 	}
 
-	public static function ckeckCarriers(){
+	public static function checkCarriers(){
 		global $dbconn;
 
 		$sql1="SELECT * FROM privacy_scores_carriers";
@@ -63,21 +63,21 @@ class PrivacyReportCollect
 				$asn_non_0[]=$asn_report[0];
 			}
 			if($asn_report[1]!=0){
-				$asn_non_0[]=$asn_report[1];				
+				$asn_non_0[]=$asn_report[1];
 			}
 			if($asn_report[2]!=0){
 				$asn_non_0[]=$asn_report[2];
 			}
-			
+
 			$totAs = 0;
 
 			foreach ($asn_non_0 as $key1 => $asnNum) {
 				$totAs++;
 
 				if($totAs==1){
-					$sql2.=" num = ".$asnNum;	
+					$sql2.=" num = ".$asnNum;
 				} else {
-					$sql2.=" OR num = ".$asnNum;	
+					$sql2.=" OR num = ".$asnNum;
 
 				}
 			}
@@ -95,11 +95,11 @@ class PrivacyReportCollect
 				if(count($data2)==0){
 					echo "<br/>No match on as_users";
 				} else {
-					//print_r($data2);	
+					//print_r($data2);
 					$asn_in_ix_c = 0;
 					$asn_in_ix = "";
 					$name_in_ix = "";
-					// collect data from as_users and update privacy_scores_carriers table with asn_ix and name_ix 
+					// collect data from as_users and update privacy_scores_carriers table with asn_ix and name_ix
 					foreach ($data2 as $key2 => $valueDb) {
 						$asn_in_ix_c++;
 						if($asn_in_ix_c==1){
@@ -114,7 +114,7 @@ class PrivacyReportCollect
 
 				// clean up ' char
 				$name_in_ix = str_replace("'","\'", $name_in_ix);
-				// update 
+				// update
 				$update_privacy_scores_carriers = "UPDATE privacy_scores_carriers SET name_ix ='".$name_in_ix."', asn_ix='".$asn_in_ix."' WHERE id = ".$value['id'];
 				echo "<br/>".$update_privacy_scores_carriers;
 				$result3 = pg_query($dbconn, $update_privacy_scores_carriers) or die('Updating privacy_scores_carriers failed: ' . pg_last_error());
