@@ -1591,10 +1591,11 @@ class Traceroute
 			<tr>
 				<td><a id="tr-a-'.$trId.'" class="tr-list-ids-item '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</a></td>
 				<td>'.$trIdData[0][10].'</td>
-				<td>'.$trIdData[0][7].'</td>
+				<td>'.mb_strimwidth($trIdData[0][7], 0, 20, "...").'</td>
 				<td>'.$trIdData[0][12].'</td>
 			</tr>
 			';
+			// strimwidth to ellipsisize anything over 20 chars
 		}
 
 
