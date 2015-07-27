@@ -64,11 +64,6 @@ geoip_close($gi1);
     var myCity = '<?php echo $myCity; ?>';
     var myCountry = '<?php echo $myCountry; ?>';
 
-    jQuery(function() {
-      jQuery("#tabs").tabs();
-      jQuery("#map-actions").tabs();
-    });
-
     jQuery(document).ready(function() {
       getChotel();
       getPrivacyReport();
@@ -281,7 +276,7 @@ geoip_close($gi1);
         <span id="map-output-container" style="float:left;">
           <div id="map_canvas" class="map-canvas"></div>
         </span>
-        <span id="traceroute-set-container" style="float:right;">
+        <span id="traceroutes-found-container" style="float:right;">
           <h2>Traceroutes Found</h2>
           <div id="filter-results-log" class="hidden"></div>
           <div id="filter-results" class="hidden">

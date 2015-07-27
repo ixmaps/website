@@ -6,30 +6,8 @@
 }
 
 #tr-ids-active {
-  color:red;
-  font-weight:bold;
-}
-
-#tr-list-ids {
-  max-height: 254px;
-  overflow-y: auto;
-  bottom: 0;
-  left: 0px;
-  padding: 0px;
-}
-
-.tr-list-result table {
-  width: 100%;
-  border: 1px solid #ccc;
-}
-.tr-list-result td {
-  border: 1px solid #ccc;
-  padding: 2px;
-  font-size: 12px;
-}
-
-#tr-list-table tr:hover {
-  background-color: yellow;
+  color: red;
+  font-weight: bold;
 }
 
 .blank-field-error {
@@ -183,19 +161,7 @@
   height: 533px;
 }
 
-.tab-right {
-  margin-right: 20px;
-}
-
-#map-legend {
-  max-height: 300px;
-  overflow: auto;
-  margin: 0px 0px 0 10px;
-  padding-left: 10px;
-}
-
 /* redefining jQuery ui-widget */
-
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
   font-size: 0.9em;
 }
@@ -215,10 +181,6 @@
   background-color: #FFFFFF;
 }
 
-#map-actions {
-  clear: both;
-}
-
 .asn-num-hops {
   background-color: #FFFFFF;
   padding: 1px;
@@ -230,10 +192,6 @@
 
 .asn-color-text {
   text-align: center;
-}
-
-.map-info-containers {
-  padding: 5px;
 }
 
 #map-stats-container {
@@ -351,6 +309,12 @@
   display: none;
 }
 
+#explore-content {
+  position: relative;
+  min-height: 800px;
+  margin-bottom: 5px;
+}
+
 #loader {
   position: absolute;
   top: 0;
@@ -381,11 +345,6 @@
 .loader-image img {
   border: none;
   -webkit-box-shadow: 0px 0px 0px #777;
-}
-
-#explore-content {
-  position: relative;
-  margin-bottom: 5px;
 }
 
 .announcement {
@@ -425,6 +384,8 @@
   margin: 4px;
 }
 
+/*********** MAP (LEFT SIDE) ************/
+
 #map-canvas-container {
   bottom: 260px;
   left: 0;
@@ -441,9 +402,38 @@
   width: 65%;
 }
 
-#traceroute-set-container {
+/************ TRACEROUTES FOUND (RIGHT SIDE) ************/
+
+#traceroutes-found-container {
   float: right;
   width: 34%;
+}
+
+#tr-list-ids {
+  max-height: 200px;
+  overflow-y: auto;
+  bottom: 0;
+  left: 0px;
+  padding: 0px;
+}
+
+.tr-list-result table {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+.tr-list-result td {
+  border: 1px solid #ccc;
+  padding: 2px;
+  font-size: 12px;
+}
+
+#tr-list-table tr:hover {
+  background-color: yellow;
+}
+
+#map-legend {
+  max-height: 300px;
+  overflow: auto;
 }
 
 #map-info {
