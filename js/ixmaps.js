@@ -323,9 +323,9 @@ var processFilters = function() {
 var submitQuery = function(obj) {
   console.log('Submitting...');
   submittedObj = obj;
-  jQuery('#map-canvas-container').hide();
-  jQuery('#map-container').hide();
-  jQuery('#filter-results').hide();
+  // jQuery('#map-canvas-container').hide();
+  // jQuery('#map-container').hide();
+  // jQuery('#filter-results').hide();
   jQuery('#filter-results-log').html('');
   /*jQuery('#map-core-controls').hide();*/
   showLoader();

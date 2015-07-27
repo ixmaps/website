@@ -385,6 +385,13 @@
 
 #explore-content {
   position: relative;
+  margin-bottom: 5px;
+}
+
+.announcement {
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 7px;
 }
 
 #explore-content table button {
@@ -398,7 +405,12 @@
   border-radius: 6px;
 }
 
+#map-container {
+  margin-top: -10px;
+}
+
 #search-container, #quick-search-container {
+  margin-top: 15px;
   margin-bottom: 20px;
 }
 

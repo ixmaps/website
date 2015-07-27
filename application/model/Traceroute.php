@@ -1560,8 +1560,8 @@ class Traceroute
 		<thead>
 		<tr>
 			<th>TR Id</th>
-			<th>Origin city</th>
-			<th>Destination city</th>
+			<th>Origin City</th>
+			<th>Dest. Hostname</th>
 			<th>Date</th>
 		</tr>
 		</thead>
@@ -1591,7 +1591,7 @@ class Traceroute
 			<tr>
 				<td><a id="tr-a-'.$trId.'" class="tr-list-ids-item '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</a></td>
 				<td>'.$trIdData[0][10].'</td>
-				<td>'.$trIdData[$lastHopIdx-1][10].'</td>
+				<td>'.$trIdData[0][7].'</td>
 				<td>'.$trIdData[0][12].'</td>
 			</tr>
 			';

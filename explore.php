@@ -203,7 +203,6 @@ geoip_close($gi1);
             <input id="map-exclude-a" class="map-tool-on" type="button" onMouseDown="excludeA()" value="Lat/Long = 0"/>
             <input id="map-exclude-b" class="map-tool-on" type="button" onMouseDown="excludeB()" value="Generic Locations"/>
             <input id="map-exclude-d" class="map-tool-on" type="button" onMouseDown="excludeD()" value="Reserved AS"/>
-            <!-- <input id="map-exclude-c" class="map-tool-on" type="button" onMouseDown="excludeC()" value="Impossible Distances"/> -->
             <input id="map-exclude-e" class="map-tool-on" type="button" onMouseDown="excludeE()" value="User-flagged"/>
           </div>
           <div id="map-op-3" class="map-actions-controls">
@@ -248,9 +247,9 @@ geoip_close($gi1);
       <div style="clear: both"></div>
       <!-- Map  options -->
       <!-- FIXME add all this calls to javascript functions in jquery -->
-      <a name="tot-trs" id="tot-trs"></a>
+      <a name="tot-trs" id="tot-trs" style="height: 0px;"></a>
       <div id="map-container">
-        <div class="announcement" style="margin-bottom: 5px; text-align: center;">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</div>
+        <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</div>
         <div id="map-core-controls" class="hidden" style="float:right;">
           <div id="map-status-info" class="" style="float:left;">
             <span id="map-loading-status"></span>
@@ -283,7 +282,7 @@ geoip_close($gi1);
           <div id="map_canvas" class="map-canvas"></div>
         </span>
         <span id="traceroute-set-container" style="float:right;">
-          <h2>Traceroutes Set</h2>
+          <h2>Traceroutes Found</h2>
           <div id="filter-results-log" class="hidden"></div>
           <div id="filter-results" class="hidden">
             <!-- filled in when queries are returned -->
@@ -291,9 +290,9 @@ geoip_close($gi1);
           <div id="filter-results-ixmaps-data" class="hidden">
             <!-- filled in when queries are returned -->
           </div>
-          <div id="map-legend" class="map-info-containers">map-legend</div>
-          <div id="map-tr-active" class="map-info-containers">map-tr-active</div>
-          <div id="map-info" class="map-info-containers">map-mouse-actions</div>
+          <div id="map-legend" class="map-info-containers"></div>
+          <div id="map-tr-active" class="map-info-containers"></div>
+          <div id="map-info" class="map-info-containers"></div>
         </span>
       </div>
       <!-- /map-canvas-container -->
