@@ -244,7 +244,7 @@ geoip_close($gi1);
       <!-- FIXME add all this calls to javascript functions in jquery -->
       <a name="tot-trs" id="tot-trs" style="height: 0px;"></a>
       <div id="map-container">
-        <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</div>
+        <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, <span>please flag it</span></div>
         <div id="map-core-controls" class="hidden" style="float:right;">
           <div id="map-status-info" class="" style="float:left;">
             <span id="map-loading-status"></span>

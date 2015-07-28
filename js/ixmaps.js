@@ -50,13 +50,17 @@ var initialize = function() {
     submitBoomerangObject();
   });
 
-  jQuery('#all-submitters-button').click(function() {
-    submitAllSubmittersObject();
+  jQuery('#contain-NSA-button').click(function() {
+    submitNSAObject();
   });
 
-  jQuery('#all-postal-codes-button').click(function() {
-    submitAllSubmittersObject();
-  });
+  // jQuery('#all-submitters-button').click(function() {
+  //   submitAllSubmittersObject();
+  // });
+
+  // jQuery('#all-postal-codes-button').click(function() {
+  //   submitAllSubmittersObject();
+  // });
 
   jQuery('#non-CA-button').click(function() {
     submitNonCAObject();
@@ -66,7 +70,6 @@ var initialize = function() {
     submitNonUSObject();
   });
 
-  // advanced query buttons
   jQuery('#process-filters-button').click(function() {
     processFilters();
   });
@@ -78,10 +81,6 @@ var initialize = function() {
 
   jQuery('#custom-filters-more-button').click(function() {
     toggleText();
-  });
-
-  jQuery('#contain-NSA-button').click(function() {
-    submitNSAObject();
   });
 
   // add the first row of constraints
