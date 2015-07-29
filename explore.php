@@ -245,7 +245,7 @@ geoip_close($gi1);
       <a name="tot-trs" id="tot-trs" style="height: 0px;"></a>
       <div id="map-container">
         <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, <span>please flag it</span></div>
-        <div id="map-core-controls" class="hidden" style="float:right;">
+<!--         <div id="map-core-controls" class="hidden" style="float:right;">
           <div id="map-status-info" class="" style="float:left;">
             <span id="map-loading-status"></span>
           </div>
@@ -253,7 +253,7 @@ geoip_close($gi1);
             <input class="map-tool-off" type="button" onMouseDown="addAllTrs()" value="Add All"/>
             <input class="map-tool-off" type="button" onMouseDown="removeAllTrs()" value="Remove All"/>
           </div>
-        </div>
+        </div> -->
 
         <div id="map-stats-container">
           <!-- Check the css for this, some not used now  -->
@@ -276,12 +276,12 @@ geoip_close($gi1);
           <div id="map_canvas" class="map-canvas"></div>
         </span>
         <span id="traceroutes-found-container" style="float:right;">
-          <h2>Traceroutes Found</h2>
+          <h3>Traceroutes Found</h3>
           <div>
             <span id="filter-results-log"></span>
             <span style="float: right">
-              <button id="">Map All</button>
-              <button id="">Remove All</button>
+              <button id="add-all-trs-btn">Map All</button>
+              <button id="remove-all-trs-btn">Remove All</button>
             </span>
           </div>
           <div style="clear: both"></div>
@@ -301,7 +301,7 @@ geoip_close($gi1);
       <!-- /map-canvas-container -->
 
       <span id="search-container" style="float:left">
-        <h2>Search</h2>
+        <h3>Search</h3>
         <!-- autocomplete data -->
         <div id="autocomplete-data" class="hidden"></div>
         <div id="filter-container">
@@ -319,7 +319,7 @@ geoip_close($gi1);
 
       <!-- tables? for real!? -->
       <span id="quick-search-container" style="float:right">
-        <h2>Quick Searches:</h2>
+        <h3>Quick Searches</h3>
         <table>
           <tr>
             <td>

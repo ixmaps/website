@@ -240,13 +240,12 @@ var setAllowMultipleTrs = function(){
   if(allowMultipleTrs){
     allowMultipleTrs=false;
     jQuery("#map-allow-multiple").removeClass("map-tool-on").addClass("map-tool-off");
-    jQuery('#map-core-controls').hide();
+    //jQuery('#map-core-controls').hide();
     jQuery('#map-action-remove-all-but-this').hide();
-
   } else {
     allowMultipleTrs=true;
     jQuery("#map-allow-multiple").removeClass("map-tool-off").addClass("map-tool-on");
-    jQuery('#map-core-controls').show();
+    //jQuery('#map-core-controls').show();
     jQuery('#map-action-remove-all-but-this').show();
   }
 console.log('setAllowMultipleTrs',allowMultipleTrs);
@@ -355,11 +354,9 @@ var showTotalTrInfo = function(){
     carriers += '<table id="dynamic-legend" style="width: 100%;" class="tablesorter tr-list-result">';
     carriers += '<thead><tr>';
 
-    carriers += '<th>Asn</th>';
+    carriers += '<th>ASN</th>';
     carriers += '<th>Carrier</th>';
-    carriers += '<th class="routers-header">Routers</th>';
-
-
+    carriers += '<th class="routers-header">Rtrs.</th>';
 
     // mock up
     //carriers+='<th class="nat-header">Nat.</th><th class="score-header">1</th><th class="score-header">2</th><th class="score-header">3</th><th class="score-header">4</th><th class="score-header">5</th>';
@@ -425,13 +422,13 @@ var showTotalTrInfo = function(){
       carriers+='<td>'+cLink+'</td>';
 
       // # of routers
-      carriers+='<td class="asn-color-text">'+d[0]+'</td>';
+      carriers+='<td class="centered-table-cell">'+d[0]+'</td>';
 
       // add nat
-      carriers+='<td>'+d[2]+'</td>';
+      carriers+='<td class="centered-table-cell">'+d[2]+'</td>';
 
       // add stars
-      carriers+='<td class="star-col">'+starsHtml+scoreDis+'</td>';
+      carriers+='<td class="star-col">'+starsHtml+'</td>';
 
       // end tr
       carriers+='</tr>';
@@ -634,7 +631,7 @@ var excludeRouter = function(value,trId,hop,type) {
 var renderTr = function (trId) {
   var hopObj = null;
   var p = [];
-  var hops=[];
+  var hops = [];
   var coordinates = [];
   var skipHop = false;
   var trInMap = false;
@@ -1544,26 +1541,26 @@ var renderPrivacyScore = function(asnScore){
   if(scoreInt>=1){
     // add full stars
     for (var i = 0; i < scoreInt; i++) {
-      starHtml += '<img src="'+url_base+'/images/star-a-4.png" width="25px">';
+      starHtml += '<img src="'+url_base+'/images/star-a-4.png" class="privacy-star-img">';
     }
   }
 
   // add stars 0
   if(scoreD==0){
-    starHtml += '<img src="'+url_base+'/images/star-a-0.png" width="25px">';
+    starHtml += '<img src="'+url_base+'/images/star-a-0.png" class="privacy-star-img">';
   }
 
   // add fraction stars
   if(scoreF>0 && scoreF<=0.5){
-    starHtml += '<img src="'+url_base+'/images/star-a-2.png" width="25px">';
+    starHtml += '<img src="'+url_base+'/images/star-a-2.png" class="privacy-star-img">';
     //console.log('star 0.25-0.50');
 
   //} else if(scoreF>0.50 && scoreF<=0.75){
-    //starHtml += '<img src="'+url_base+'/images/star-3.png" width="25px">';
+    //starHtml += '<img src="'+url_base+'/images/star-3.png" class="privacy-star-img">';
     //console.log('star 0.50-0.75');
 
   //} else if(scoreF>0.5 && scoreF<1){
-    //starHtml += '<img src="'+url_base+'/images/star-3.png" width="25px">';
+    //starHtml += '<img src="'+url_base+'/images/star-3.png" class="privacy-star-img">';
     //console.log('star 0.75-1');
   }
 

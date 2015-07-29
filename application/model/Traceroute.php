@@ -1597,7 +1597,7 @@ class Traceroute
 			// strimwidth to ellipsisize anything over 20 chars
 			$html .='
 			<tr>
-				<td><a id="tr-a-'.$trId.'" class="tr-list-ids-item '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</a></td>
+				<td><a id="tr-a-'.$trId.'" class="tr-list-ids-item centered-table-cell '.$active.'" href="'.$onClick.'" '.$onMouseOver.'>'.$trId.'</a></td>
 				<td>'.$originStr.'</td>
 				<td>'.mb_strimwidth($trIdData[0][7], 0, 20, "...").'</td>
 				<td>'.$trIdData[0][12].'</td>

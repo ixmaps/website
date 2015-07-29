@@ -24,7 +24,19 @@ var hostNameTags = [];
 var trIdTags = [];
 
 var initialize = function() {
+  // default settings
+  setAllowMultipleTrs();
+
+
   // onclick events
+  jQuery('#remove-all-trs-btn').click(function() {
+    removeAllTrs();
+  });
+
+  jQuery('#add-all-trs-btn').click(function() {
+    addAllTrs();
+  });
+
   jQuery('.ql-button').click(function() {
     jQuery('.ql-button').removeClass('selected');
     jQuery(this).addClass('selected');
@@ -156,10 +168,10 @@ var addFilterConstraint = function () {
   filterLine += "<option value='region'>Province/State</option>";
   filterLine += "<option value='city'>City</option>";
   filterLine += "<option value='ISP'>ISP/Carrier</option>";
-  filterLine += "<option value='asnum'>AS number</option>";
-  filterLine += "<option value='zipCode'>Zip code/Postal</option>";
+  filterLine += "<option value='asnum'>AS Number</option>";
+  filterLine += "<option value='zipCode'>Postcode</option>";
   filterLine += "<option value='submitter'>Submitter</option>";
-  filterLine += "<option value='zipCodeSubmitter'>Zip Code/Postal (Submitter)</option>";
+  filterLine += "<option value='zipCodeSubmitter'>Postcode (Submitter)</option>";
   //filterLine += "<option value='NSA'>NSA</option>";
   filterLine += "<option value='destHostName'>Destination Host Name</option>";
   filterLine += "<option value='ipAddr'>IP Address</option>";

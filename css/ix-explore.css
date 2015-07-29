@@ -193,6 +193,9 @@
 .asn-color-text {
   text-align: center;
 }
+.centered-table-cell {
+  text-align: center;
+}
 
 #map-stats-container {
   padding: 0px;
@@ -269,6 +272,9 @@
 }
 .star-col {
   vertical-align: top;
+}
+.privacy-star-img {
+  width: 15px;
 }
 .score-hide {
   display: none;
