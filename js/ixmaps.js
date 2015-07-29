@@ -74,8 +74,8 @@ var initialize = function() {
   //   submitAllSubmittersObject();
   // });
 
-  jQuery('#non-CA-button').click(function() {
-    submitNonCAObject();
+  jQuery('#destination-ixmaps').click(function() {
+    submitDestinationIXmapsObject();
   });
 
   jQuery('#non-US-button').click(function() {
@@ -164,20 +164,19 @@ var addFilterConstraint = function () {
   filterLine += "</select>";
 
   filterLine += "<select class='constraint constraint-dropdown'>";
+  filterLine += "<option value='trId'>Traceroute Id</option>";
+  filterLine += "<option value='ipAddr'>IP Address</option>";
+  filterLine += "<option value='asnum'>AS Number</option>";
+  filterLine += "<option value='hostName'>Hostname</option>";
+  filterLine += "<option value='ISP'>ISP/Carrier</option>";
   filterLine += "<option value='country'>Country</option>";
   filterLine += "<option value='region'>Province/State</option>";
-  filterLine += "<option value='city'>City</option>";
-  filterLine += "<option value='ISP'>ISP/Carrier</option>";
-  filterLine += "<option value='asnum'>AS Number</option>";
   filterLine += "<option value='zipCode'>Postcode</option>";
-  filterLine += "<option value='submitter'>Submitter</option>";
-  filterLine += "<option value='zipCodeSubmitter'>Postcode (Submitter)</option>";
+  filterLine += "<option value='city'>City</option>";
+  filterLine += "<option value='destHostName'>Destination Hostname</option>";
+  filterLine += "<option value='submitter'>Submitter Name</option>";
+  filterLine += "<option value='zipCodeSubmitter'>Submitter Postcode</option>";
   //filterLine += "<option value='NSA'>NSA</option>";
-  filterLine += "<option value='destHostName'>Destination Host Name</option>";
-  filterLine += "<option value='ipAddr'>IP Address</option>";
-  filterLine += "<option value='hostName'>Host Name</option>";
-  filterLine += "<option value='trId'>Traceroute Id</option>";
-
   filterLine += "</select>";
   filterLine += "<input class='constraint constraint-text-entry' type='text'/>";
   filterLine += "</div>";
@@ -628,14 +627,14 @@ var submitBoomerangObject = function() {
   jQuery(a[4]).val('AND');
 };
 
-var submitNonCAObject = function() {
+var submitDestinationIXmapsObject = function() {
   resetFilterConstraints();
   var a;
   a = jQuery('#filter-constraint-1 .constraint');
-  jQuery(a[0]).val('doesNot');
-  jQuery(a[1]).val('contain');
-  jQuery(a[2]).val('country');
-  jQuery(a[3]).val('CA');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('terminate');
+  jQuery(a[2]).val('destHostName');
+  jQuery(a[3]).val('ixmaps.ca');
   jQuery(a[4]).val('AND');
 };
 

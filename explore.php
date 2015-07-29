@@ -356,8 +356,8 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="non-CA-button">
-                  Not Via Canada
+                <button type="button" class="ql-button" id="destination-ixmaps">
+                  Destination IXmaps.ca
                 </button>
               </form>
             </td>
