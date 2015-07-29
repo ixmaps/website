@@ -415,6 +415,9 @@
   float: right;
   width: 34%;
 }
+#traceroutes-found-title-container {
+  margin-bottom: 3px;
+}
 
 #tr-list-ids {
   max-height: 230px;
@@ -439,8 +442,8 @@
 }
 
 #map-legend {
-  max-height: 250px;
-  margin-top: 10px;
+  max-height: 230px;
+  margin-top: 5px;
   overflow: auto;
 }
 

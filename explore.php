@@ -276,18 +276,19 @@ geoip_close($gi1);
           <div id="map_canvas" class="map-canvas"></div>
         </span>
         <span id="traceroutes-found-container" style="float:right;">
-          <h3>Traceroutes Found</h3>
-          <div>
-            <span id="filter-results-log"></span>
+          <div id="traceroutes-found-title-container">
+            <span><h3 style="display: inline">Traceroutes Found</h3></span>
             <span style="float: right">
               <button id="add-all-trs-btn">Map All</button>
               <button id="remove-all-trs-btn">Remove All</button>
             </span>
           </div>
+          <div id="filter-results-log"></div>
           <div style="clear: both"></div>
           <div id="filter-results">
             <!-- filled in when queries are returned -->
           </div>
+          <h3 style="margin-top: 15px">Carrier Summary</h3>
           <div id="filter-results-ixmaps-data">
             <!-- filled in when queries are returned -->
           </div>
