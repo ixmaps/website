@@ -407,7 +407,7 @@ var showTotalTrInfo = function(){
       }
 
       // start tr
-      carriers+='<tr style="border:dotted 0.19em #'+getAsnColour(asNum)+'">';
+      carriers+='<tr style="border: solid 0.19em #'+getAsnColour(asNum)+'">';
 
       if(cScore>=0){
         cLink='<a href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';

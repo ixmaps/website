@@ -66,20 +66,20 @@ var initialize = function() {
     submitNSAObject();
   });
 
-  // jQuery('#all-submitters-button').click(function() {
-  //   submitAllSubmittersObject();
-  // });
-
-  // jQuery('#all-postal-codes-button').click(function() {
-  //   submitAllSubmittersObject();
-  // });
-
   jQuery('#destination-ixmaps').click(function() {
     submitDestinationIXmapsObject();
   });
 
   jQuery('#non-US-button').click(function() {
     submitNonUSObject();
+  });
+
+  jQuery('#submitted-by-button').click(function() {
+    submitSubmittedBy();
+  });
+
+  jQuery('#submitted-from-button').click(function() {
+    submitSubmittedFrom();
   });
 
   jQuery('#process-filters-button').click(function() {
@@ -646,6 +646,28 @@ var submitNonUSObject = function() {
   jQuery(a[1]).val('contain');
   jQuery(a[2]).val('country');
   jQuery(a[3]).val('US');
+  jQuery(a[4]).val('AND');
+};
+
+var submitSubmittedBy = function() {
+  resetFilterConstraints();
+  var a;
+  a = jQuery('#filter-constraint-1 .constraint');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('contain');
+  jQuery(a[2]).val('submitter');
+  jQuery(a[3]).val('Enter name here...');
+  jQuery(a[4]).val('AND');
+};
+
+var submitSubmittedFrom = function() {
+  resetFilterConstraints();
+  var a;
+  a = jQuery('#filter-constraint-1 .constraint');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('contain');
+  jQuery(a[2]).val('zipCodeSubmitter');
+  jQuery(a[3]).val('Enter postcode here...');
   jQuery(a[4]).val('AND');
 };
 

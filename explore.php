@@ -385,6 +385,22 @@ geoip_close($gi1);
               </form>
             </td>
           </tr>
+          <tr>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="submitted-by-button">
+                  Submitted By...
+                </button>
+              </form>
+            </td>
+            <td>
+              <form>
+                <button type="button" class="ql-button" id="submitted-from-button">
+                  Submitted From...
+                </button>
+              </form>
+            </td>
+          </tr>
         </table>
       </span>
 
