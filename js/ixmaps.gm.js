@@ -47,6 +47,7 @@ var trsAddedToMap = [];
 var ipCollection = new Object();
 var cHotelData;
 var gmObjects = [];
+var infowindow = null;
 
 // gm collections of extra layers
 var gmNsa = [];
@@ -379,7 +380,7 @@ var showTotalTrInfo = function(){
 
         //console.log('---- Carrier score('+asNum+'):' + cScore);
         //console.log('Carrier ' + asNum + ' HAS Privacy data');
-        scoreDis = ' ('+cScore+')';
+        //scoreDis = ' ('+cScore+')';
         //console.log('Carrier score('+asNum+') : ' + cScore);
       }
 
@@ -637,7 +638,7 @@ var renderTr = function (trId) {
 
       if(!skipHop){
         //console.log(key +':'+ value.long+', '+value.lat);
-        var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip, value.gl_override);
+        var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip, value.gl_override, value.mm_city, value.mm_country);
         //google.maps.LatLng(value.lat, value.long);
 
         if(value.asNum in activeCarriers){
@@ -722,15 +723,34 @@ var renderTr = function (trId) {
           //console.log("Tr clicked: ", p[index]);
         });
         google.maps.event.addListener(routerMark, 'mouseover', function() {
-            trHopMouseover(p[index][0],p[index][1],0);
-            //showFlags(p[index], false); // passing router obj, false= do not open flagging window
-            showFlags(p[index][0], p[index][1], p[index][6], false); // passing each var
+          // close all other infowindows
+          if (infowindow) {
+            infowindow.close();
+          }
+          // good lord, why make this so obscure?! We had nice json to work with, and now it's all p[index][5]s
+          var cScore = getPrivacyScore(p[index][4]);
+          var starsEl = '';
+          if (cScore > 0) {
+            starsEl = '<div>'+renderPrivacyScore(cScore)+'</div>';
+          }
+          var el =  '<div>'+p[index][5]+'</div>'+
+                    starsEl+
+                    '<div>'+p[index][8]+', '+p[index][9]+'</div>'+
+                    '<div>'+p[index][6]+'</div>'+
+                    '<a href="javascript:viewTrDetails('+p[index][0]+');">View Details</a>'
+
+          infowindow = new google.maps.InfoWindow({
+            content: el
+          });
+          infowindow.open(map,routerMark);
+          //trHopMouseover(p[index][0],p[index][1],0);
+          //showFlags(p[index], false); // passing router obj, false= do not open flagging window
+          //showFlags(p[index][0], p[index][1], p[index][6], false); // passing each var
         });
 
         // var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip);
         routerMark.setMap(map);
         trOcollection.push(routerMark);
-
       }
 
       /*  // FIX ME;) just for consistency and accuracy in the data displayed in the map we need add here the first router
@@ -1462,14 +1482,14 @@ var getPrivacyReport = function(){
 }
 
 var getPrivacyScore = function(asn){
-  //console.log('getting getPrivacyScore for :', asn);
   var score = 0;
-  jQuery.each(privacyData.scores[asn], function(key,value) {
-   //console.log(key, value);
-   var s = parseFloat(value.score);
-   score += s;
-  });
-  //console.log('Score: ',score);
+  if (privacyData.scores[asn]) {
+    jQuery.each(privacyData.scores[asn], function(key,value) {
+     //console.log(key, value);
+     var s = parseFloat(value.score);
+     score += s;
+    });
+  }
   return score;
 }
 
