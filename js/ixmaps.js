@@ -25,7 +25,7 @@ var trIdTags = [];
 
 var initialize = function() {
   // default settings
-  setAllowMultipleTrs();
+  //setAllowMultipleTrs();
 
 
   // onclick events

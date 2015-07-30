@@ -274,6 +274,7 @@
 }
 
 .star-col {
+  font-size: 0px;           /* hackaroo! we need the privacy numeric values to allow sorting, but don't want to actually see them */
   vertical-align: top;
 }
 .privacy-star-img {

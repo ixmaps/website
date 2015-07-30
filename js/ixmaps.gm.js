@@ -6,7 +6,7 @@
 var privacyRepUrl = 'https://www.ixmaps.ca/transparency-2014.php';
 
 
-var allowMultipleTrs = false; // !!
+var allowMultipleTrs = true; // !!
 var allowRecenter = true;
 
 var showHops = true;
@@ -17,7 +17,6 @@ var showHotel = false;
 var showGoogle = false;
 var showUc = false;
 var addMarkerInOrigin = false;
-
 
 var showDynamicLegend = true; // !!
 var showMapInfoGlobal = false;
@@ -59,11 +58,6 @@ var totTRs = 0;
 var activeCarriers = new Object();
 var coordCollected = [];
 var coordCollectedObj = [];
-
-// not implemented yet ;)
-var setMapToFullScreen = true; // this involves having all the other info in absolute positioning
-/*var excluedeUntrustedTrs  = true; //e.g. excluede TRs flaged by users
-*/
 var addMarkerInLastHop = true; // Not implemented
 var addMarkerInDesination = true; //
 
@@ -122,7 +116,7 @@ var setShowInfoGlobal = function(){
     jQuery("#map-show-info-global").removeClass("map-tool-off").addClass("map-tool-on");
     jQuery("#map-info-global").show();
   }
-console.log('showMapInfoGlobal',showMapInfoGlobal);
+  console.log('showMapInfoGlobal',showMapInfoGlobal);
 }
 
 var setShowHops = function(){
@@ -133,7 +127,7 @@ var setShowHops = function(){
     showHops=true;
     jQuery("#map-show-hops").removeClass("map-tool-off").addClass("map-tool-on");
   }
-console.log('setShowHops',showHops);
+  console.log('setShowHops',showHops);
 }
 
 var setShowHopsNum = function(){
@@ -146,7 +140,6 @@ var setShowHopsNum = function(){
   }
   console.log('setShowHopsNum',showHops);
 }
-
 
 var setAllowRecenter = function(){
   if(allowRecenter){
@@ -316,7 +309,6 @@ var loadMapData = function () {
   totTRs = c;
   console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
   for (first in ixMapsDataJson) break;
-  //console.log('showing the first TR', first);
 
   // wait a bit before loading the fist TRid and other functions
   setTimeout(function(){
@@ -326,20 +318,15 @@ var loadMapData = function () {
     setTableSorters();
   }, 300);
 
-  //jQuery('#map-legend').draggable();
-  //jQuery('#map-actions-container').draggable();
-  //jQuery('#map-stats-container').draggable();
-
-//  jQuery('#tr-list-ids').draggable();
   jQuery('#tr-details').draggable();
 
-  // to prevent confussion remove all after load
+  // to prevent confusion remove all after load
   removeAllTrs();
 }
 
 var setTableSorters = function(){
   console.log('Sorting TR Tables');
-  jQuery("#tr-list-table").tablesorter();
+  jQuery('#tr-list-table').tablesorter( {sortList: [[0,2]]} );
 }
 
 var showTotalTrInfo = function(){
@@ -423,7 +410,7 @@ var showTotalTrInfo = function(){
       // add nat
       carriers+='<td class="centered-table-cell">'+d[2]+'</td>';
       // add stars
-      carriers+='<td class="star-col">'+starsHtml+'</td>';
+      carriers+='<td class="star-col">'+starsHtml+' '+cScore+'</td>';
       // end tr
       carriers+='</tr>';
     });
@@ -431,8 +418,8 @@ var showTotalTrInfo = function(){
     carriers+='</tbody></table>';
     jQuery('#map-legend').html(carriers);
     if(t2!=0) {
-      // SORT HERE START HERE
-      jQuery("#dynamic-legend").tablesorter({sortList: [[2,1]]} );
+      // sort the second column of the carrier summary table by desc
+      jQuery("#dynamic-legend").tablesorter( {sortList: [[1,1]]} );
     }
   }
 
