@@ -390,10 +390,11 @@ var showTotalTrInfo = function(){
       }
 
       // start tr
-      carriers+='<tr style="border: solid 0.19em #'+getAsnColour(asNum)+'">';
+      //carriers+='<tr style="border: solid 0.19em '+getAsnColour(asNum)+'">';
+      carriers+='<tr>'
 
       if(cScore>=0){
-        cLink='<a href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
+        cLink='<a style="color: white" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
       } else {
         cLink=d[1];
       }
@@ -401,8 +402,10 @@ var showTotalTrInfo = function(){
       // Asn and bg colour
       // carriers+='<td class="asn-color-text" style="background-color:#'+getAsnColour(asNum)+'"><span class="asn-num-hops">'+asNum+'</span></td>';
 
+      var color = getAsnColour(asNum).replace(/rgb/i, "rgba").replace(/\)/i,',0.7)');
       // carrier name
-      carriers+='<td>'+cLink+'</td>';
+      carriers+='<td style="background-color: '+color+'">'+cLink+'</td>';
+      //style="background-color: '+color+'"
       //style="background-color: rgba(255, 255, 0, 0.5)"     unfortunately there is no alphahex yet, so we'd need to convert all colors in ixmaps.js to rgb to this nicer (since the borders are freakin hideous)
 
       // # of routers
@@ -686,7 +689,7 @@ var renderTr = function (trId) {
       }
 
       if(showRouters){
-        var markColour = '#'+ getAsnColour([p[index][4]]);
+        var markColour = getAsnColour([p[index][4]]);
         //var markColour = '#FFFFFF';
         var routerLatLong = new google.maps.LatLng(p[index][2],p[index][3])
         var routerMark = new google.maps.Marker({
@@ -752,7 +755,7 @@ var renderTr = function (trId) {
           coordinates.push(LatLng1);
           coordinates.push(LatLng2);
 
-          var colour = '#'+ getAsnColour([p[index-1][4]]);
+          var colour = getAsnColour([p[index-1][4]]);
           //console.log(LatLng1+'---'+LatLng2+'---'+colour);
     /*      if(hopObj!=null){
             hopObj.setMap(null);
@@ -1023,20 +1026,20 @@ var renderIpFlagDataMouseOver = function(data){
   console.log("renderIpFlagDataMouseOver");
   //console.log(e);
 
-  if(!data['ip_flags']){
-    jQuery('#flagging-info-m').html('No Flags found.');
-    flagTxt = '[Flag this]';
-  } else {
-    var totFlags = data['ip_flags'].length;
-    var geoCorrectStatus = 0;
-    var flagTxt = '';
+  // if(!data['ip_flags']){
+  //   jQuery('#flagging-info-m').html('No Flags found.');
+  //   flagTxt = '[Flag this]';
+  // } else {
+  //   var totFlags = data['ip_flags'].length;
+  //   var geoCorrectStatus = 0;
+  //   var flagTxt = '';
 
-    flagTxt = '[Flagged]';
-    jQuery('#flagging-info-m').html(totFlags+' Flags found');
-  }
+  //   flagTxt = '[Flagged]';
+  //   jQuery('#flagging-info-m').html(totFlags+' Flags found');
+  // }
 
-  var flagLinkHtml = '<a title="Flag this router if inaccurately located" class="text-new" href="javascript:flagActiveRouter();">'+flagTxt+'</a>';
-  jQuery('#flag-this-link').html(flagLinkHtml);
+  // var flagLinkHtml = '<a title="Flag this router if inaccurately located" class="text-new" href="javascript:flagActiveRouter();">'+flagTxt+'</a>';
+  // jQuery('#flag-this-link').html(flagLinkHtml);
 }
 
 var flagActiveRouter = function(){
