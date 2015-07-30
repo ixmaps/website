@@ -336,20 +336,14 @@ var showTotalTrInfo = function(){
     var carriers = '';
     carriers += '<table id="dynamic-legend" style="width: 100%;" class="tablesorter tr-list-result">';
     carriers += '<thead><tr>';
-
     // carriers += '<th>ASN</th>';
     carriers += '<th>Carrier</th>';
+    // add routers
     carriers += '<th class="routers-header">Rtrs.</th>';
-
-    // mock up
-    //carriers+='<th class="nat-header">Nat.</th><th class="score-header">1</th><th class="score-header">2</th><th class="score-header">3</th><th class="score-header">4</th><th class="score-header">5</th>';
-
-    // add Nat
+    // add nat
     carriers+='<th class="nat-header">Nat.</th>';
-
     // add star score
     carriers+='<th class="score-header">Score</th>';
-
     // close headers
     carriers+='</tr></thead><tbody>';
 
@@ -405,8 +399,6 @@ var showTotalTrInfo = function(){
       var color = getAsnColour(asNum).replace(/rgb/i, "rgba").replace(/\)/i,',0.7)');
       // carrier name
       carriers+='<td style="background-color: '+color+'">'+cLink+'</td>';
-      //style="background-color: '+color+'"
-      //style="background-color: rgba(255, 255, 0, 0.5)"     unfortunately there is no alphahex yet, so we'd need to convert all colors in ixmaps.js to rgb to this nicer (since the borders are freakin hideous)
 
       // # of routers
       carriers+='<td class="centered-table-cell">'+d[0]+'</td>';
@@ -776,9 +768,6 @@ var renderTr = function (trId) {
           google.maps.event.addListener(hopObj, 'mouseover', function() {
               trHopMouseover(p[index-1][0],p[index-1][1],1);
           });
-          google.maps.event.addListener(hopObj, 'mouseout', function() {
-              trHopMouseout(p[index-1][0],p[index-1][1]);
-          });
 
           //console.log(hopObj);
 
@@ -821,30 +810,30 @@ var renderTr = function (trId) {
     trActiveHtml += trInMapHtml;
   }
 
-  var h="";
-  h+='<div>';
-  h+='<div style="float:left;">TRid: <strong>'+trId+'</strong></div>';
-  h+='<div style="float:right;"><a href="javascript:viewTrDetails('+trId+');">View TR details</a> <span id="map-action-remove-all-but-this" class="hide">| <a href="javascript:removeAllButThis('+trId+');">Remove all but this</a></span></div>';
-  h+='</div>';
+  // var h="";
+  // h+='<div>';
+  // h+='<div style="float:left;">TRid: <strong>'+trId+'</strong></div>';
+  // h+='<div style="float:right;"><a href="javascript:viewTrDetails('+trId+');">View TR details</a> <span id="map-action-remove-all-but-this" class="hide">| <a href="javascript:removeAllButThis('+trId+');">Remove all but this</a></span></div>';
+  // h+='</div>';
 
   //trActiveHtml = h'<br/> TRid: <strong>'+trId+'</strong> | <a href="javascript:viewTrDetails('+trId+');">View TR details</a> | <a href="javascript:removeAllButThis('+trId+');">Remove all but this</a>';
 
-  var totRoutersSkipped = skippedRouterNum[0]+skippedRouterNum[1]+skippedRouterNum[2]+skippedRouterNum[3]+skippedRouterNum[4];
+  // var totRoutersSkipped = skippedRouterNum[0]+skippedRouterNum[1]+skippedRouterNum[2]+skippedRouterNum[3]+skippedRouterNum[4];
 
-  var routerExcHtml = '';
-  routerExcHtml = '';
+  // var routerExcHtml = '';
+  // routerExcHtml = '';
 
-  routerExcHtml += 'Tot routers added: <strong>' + trRouterAdded+'</strong>';
-  routerExcHtml += '<br/>Tot routers excluded: <strong>' + totRoutersSkipped+'</strong>';
-  routerExcHtml += '<br/><br/><strong>Router excluded details:</strong>';
-  routerExcHtml += '<br/>Lat/Log = 0: <strong>' + skippedRouterNum[0]+'</strong>';
-  routerExcHtml += '<br/>Generic Location: <strong>' + skippedRouterNum[1]+'</strong>';
-  //routerExcHtml += '<br/>Impossible Distance: <strong>' + skippedRouterNum[2]+'</strong>';
-  routerExcHtml += '<br/>Reserved AS: <strong>' + skippedRouterNum[3]+'</strong>';
-  routerExcHtml += '<br/>User-flagged: <strong>' + skippedRouterNum[4]+'</strong>';
+  // routerExcHtml += 'Tot routers added: <strong>' + trRouterAdded+'</strong>';
+  // routerExcHtml += '<br/>Tot routers excluded: <strong>' + totRoutersSkipped+'</strong>';
+  // routerExcHtml += '<br/><br/><strong>Router excluded details:</strong>';
+  // routerExcHtml += '<br/>Lat/Log = 0: <strong>' + skippedRouterNum[0]+'</strong>';
+  // routerExcHtml += '<br/>Generic Location: <strong>' + skippedRouterNum[1]+'</strong>';
+  // //routerExcHtml += '<br/>Impossible Distance: <strong>' + skippedRouterNum[2]+'</strong>';
+  // routerExcHtml += '<br/>Reserved AS: <strong>' + skippedRouterNum[3]+'</strong>';
+  // routerExcHtml += '<br/>User-flagged: <strong>' + skippedRouterNum[4]+'</strong>';
 
-  jQuery('#map-tr-active').html(h);
-  jQuery('#map-router-exclusion').html(routerExcHtml);
+  // jQuery('#map-tr-active').html(h);
+  // jQuery('#map-router-exclusion').html(routerExcHtml);
 
   removeTr();
 
@@ -907,15 +896,12 @@ var renderTr2 = function (trId) {
   activeTrObj.setMap(map);
 }
 
-var trHopMouseout = function (trId,hopN) {
-  /*removeTr();*/
-}
-
 var newIpFlag = function() {
   jQuery('#ip-flags-data').hide();
   jQuery('#ip-flag-insert').show();
   jQuery('#ip-flag-log').html('');
 }
+
 var cancelIpFlag = function() {
   jQuery('#ip-flag-insert').hide();
   jQuery('#ip-flags-data').show();
@@ -1168,26 +1154,27 @@ var trHopMouseover = function (trId,hopN,type) {
 }
 
 var trHopClick = function (trId,hopN,type) {
+  viewTrDetails(trId);
   //console.log('called trHopClick() TRid: '+trId+', hopNum:'+hopN);
   //viewTrDetails(trId);
-  removeTr();
-  renderTr2(trId);
-  var elTxt = '';
-  if(type==0){
-    elTxt="Router"
-  } else {
-    elTxt = "Hop";
-  }
-  //var h=elTxt+'<div>TRid: <strong>'+trId+'</strong>, '+elTxt+': <strong>'+hopN+'</strong>, ASN: <strong>'+ixMapsDataJson[trId][hopN].asNum+'</strong>, Carrier: <strong>'+ixMapsDataJson[trId][hopN].asName+'</strong></div>';
+  // removeTr();
+  // renderTr2(trId);
+  // var elTxt = '';
+  // if(type==0){
+  //   elTxt="Router"
+  // } else {
+  //   elTxt = "Hop";
+  // }
+  // //var h=elTxt+'<div>TRid: <strong>'+trId+'</strong>, '+elTxt+': <strong>'+hopN+'</strong>, ASN: <strong>'+ixMapsDataJson[trId][hopN].asNum+'</strong>, Carrier: <strong>'+ixMapsDataJson[trId][hopN].asName+'</strong></div>';
 
-  var h="";
-  h+='<div>';
-  h+='<div style="float:left;">TRid: <strong>'+trId+'</strong></div>';
-  h+='<div style="float:right;"><a href="javascript:viewTrDetails('+trId+');">View TR details</a> | <a href="javascript:removeAllButThis('+trId+');">Remove all but this</a></div>';
-  h+='</div>';
+  // var h="";
+  // h+='<div>';
+  // h+='<div style="float:left;">TRid: <strong>'+trId+'</strong></div>';
+  // h+='<div style="float:right;"><a href="javascript:viewTrDetails('+trId+');">View TR details</a> | <a href="javascript:removeAllButThis('+trId+');">Remove all but this</a></div>';
+  // h+='</div>';
 
-  //jQuery('#map-tr-active').html(h);
-  jQuery('#map-tr-active').html(h);
+  // //jQuery('#map-tr-active').html(h);
+  // jQuery('#map-tr-active').html(h);
 }
 
 var removeAllButThis = function(trId) {
