@@ -354,7 +354,7 @@ var showTotalTrInfo = function(){
     carriers += '<table id="dynamic-legend" style="width: 100%;" class="tablesorter tr-list-result">';
     carriers += '<thead><tr>';
 
-    carriers += '<th>ASN</th>';
+    // carriers += '<th>ASN</th>';
     carriers += '<th>Carrier</th>';
     carriers += '<th class="routers-header">Rtrs.</th>';
 
@@ -407,7 +407,7 @@ var showTotalTrInfo = function(){
       }
 
       // start tr
-      carriers+='<tr>';
+      carriers+='<tr style="border:dotted 0.19em #'+getAsnColour(asNum)+'">';
 
       if(cScore>=0){
         cLink='<a href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
@@ -416,10 +416,11 @@ var showTotalTrInfo = function(){
       }
 
       // Asn and bg colour
-      carriers+='<td class="asn-color-text" style="background-color:#'+getAsnColour(asNum)+'"><span class="asn-num-hops">'+asNum+'</span></td>';
+      // carriers+='<td class="asn-color-text" style="background-color:#'+getAsnColour(asNum)+'"><span class="asn-num-hops">'+asNum+'</span></td>';
 
       // carrier name
       carriers+='<td>'+cLink+'</td>';
+      //style="background-color: rgba(255, 255, 0, 0.5)"     unfortunately there is no alphahex yet, so we'd need to convert all colors in ixmaps.js to rgb to this nicer (since the borders are freakin hideous)
 
       // # of routers
       carriers+='<td class="centered-table-cell">'+d[0]+'</td>';
