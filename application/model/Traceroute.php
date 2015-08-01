@@ -1605,9 +1605,6 @@ class Traceroute
 			';
 		}
 
-
-
-
 		$html .= '
 		</tbody>
 		</table>

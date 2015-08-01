@@ -25,7 +25,7 @@ var excludeCoord0 = true;
 var excludeCoordGen = true;
 var excludeImpDist = false;
 var excludeReservedAS = true;
-var excludeUserFlaged = true;
+var excludeUserFlagged = true;
 var impDistLog = '';
 
 var skippedRouterNum = new Array(0,0,0,0);
@@ -288,15 +288,24 @@ var excludeD = function(){
 }
 
 var excludeE = function(){
-  if(excludeUserFlaged){
-    excludeUserFlaged=false;
+  if(excludeUserFlagged){
+    excludeUserFlagged=false;
     jQuery("#map-exclude-e").removeClass("map-tool-on").addClass("map-tool-off");
   } else {
-    excludeUserFlaged=true;
+    excludeUserFlagged=true;
     jQuery("#map-exclude-e").removeClass("map-tool-off").addClass("map-tool-on");
   }
-  console.log('exclude User Flaged routers.',excludeUserFlaged);
+  console.log('exclude User Flagged routers.',excludeUserFlagged);
 }
+
+// var sortObject = function(map) {
+//   var keys = _.sortBy(_.keys(map), function(a) { return -a; });
+//   var newmap = {};
+//   _.each(keys, function(k) {
+//     newmap[k] = map[k];
+//   });
+//   return newmap;
+// }
 
 var loadMapData = function () {
   // reset user activity on data set every time a new set is loaded
@@ -311,11 +320,11 @@ var loadMapData = function () {
   console.log('IXmaps geographic data downloaded! [TRs: '+totTRs+']');
   for (first in ixMapsDataJson) break;
 
-  // wait a bit before loading the fist TRid and other functions
+  // wait a bit before loading the first TRid and other functions
   setTimeout(function(){
     initializeMap();
     console.log('Google map canvas initialized !');
-    showThisTr(first);
+    showThisTr(_.last(_.keys(ixMapsDataJson)));           // show the last route (ie the one with the highest trid)
     setTableSorters();
   }, 300);
 
@@ -344,7 +353,7 @@ var showTotalTrInfo = function(){
     // add nat
     carriers+='<th class="nat-header">Nat.</th>';
     // add star score
-    carriers+='<th class="score-header">Score</th>';
+    carriers+='<th class="score-header">Transparency</th>';
     // close headers
     carriers+='</tr></thead><tbody>';
 
@@ -389,9 +398,9 @@ var showTotalTrInfo = function(){
       carriers+='<tr>'
 
       if(cScore>=0){
-        cLink='<a style="color: white" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
+        cLink='<a style="color: white; font-weight: bold; overflow" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
       } else {
-        cLink=d[1];
+        cLink='<span style="color: white">'+d[1]+'</span>';
       }
 
       // Asn and bg colour
@@ -455,7 +464,7 @@ var addAllTrs = function () {
   //jQuery('#map-loading-status').html('');
   //var totR = totTRs;
 
-  var conn=1;
+  var conn = 1;
   var time = trRenderSpeed;
   var lastId;
 
@@ -582,7 +591,7 @@ var excludeRouter = function(value,trId,hop,type) {
       //console.log('excluding ReservedAS Hop:' + hop,  value);
     }
   }
-  if(excludeUserFlaged){
+  if(excludeUserFlagged){
     if(value.flagged==1){
       skipHop = true;
       if(type==1) {
@@ -597,6 +606,7 @@ var excludeRouter = function(value,trId,hop,type) {
 
 
 var renderTr = function (trId) {
+  var trId = trId.toString();         // different calls to this func pass trId as string or int
   var hopObj = null;
   var p = [];
   var hops = [];
@@ -616,10 +626,10 @@ var renderTr = function (trId) {
     trRouterAdded = 0;
   }
 
-  if(trsAddedToMap.indexOf(trId) != -1){
+  //if(trsAddedToMap.indexOf(trId) != -1){
+  if (_.contains(trsAddedToMap, trId)) {
     trInMap = true;
-    //console.log('The TR ('+trId+') is already in the map');
-    trInMapHtml = 'The TR is already on the map';
+    console.log('The TR ('+trId+') is already in the map');
   } else {
     trsAddedToMap.push(trId);
   }
@@ -644,7 +654,12 @@ var renderTr = function (trId) {
         if(value.asNum in activeCarriers){
           activeCarriers[value.asNum][0]+=1;
         } else {
-          activeCarriers[value.asNum]=Array(1,value.asName,value.mm_country);
+          // DUPLICATE: offload this to wherever else it's being done - somewhere in the controller? Anto
+          var asnName = value.asName;
+          if (asnName.length > 19) {
+            asnName = asnName.slice(0,19) + '...';
+          }
+          activeCarriers[value.asNum]=Array(1,asnName,value.mm_country);
         }
         //console.log('---- rendering router: ',value);
         p.push(a);
@@ -717,10 +732,7 @@ var renderTr = function (trId) {
         }
 
         google.maps.event.addListener(routerMark, 'click', function() {
-          //trHopClick(p[index][0],p[index][1],0);
-          //showFlags(p[index], true); // passing router obj, true=open flagging window
-          showFlags(p[index][0], p[index][1], p[index][6], true); // passing each var
-          //console.log("Tr clicked: ", p[index]);
+          viewTrDetails(p[index][0]);
         });
         google.maps.event.addListener(routerMark, 'mouseover', function() {
           // close all other infowindows
@@ -733,11 +745,13 @@ var renderTr = function (trId) {
           if (cScore > 0) {
             starsEl = '<div>'+renderPrivacyScore(cScore)+'</div>';
           }
-          var el =  '<div>'+p[index][5]+'</div>'+
+          var el =  '<div class="router-infowindow">'+
+                    '<div><span style="font-weight: bold">'+p[index][5]+'</span><span><button id="flag-it-btn" data-asn="'+p[index][0]+'" data-hop="'+p[index][1]+'" data-ip="'+p[index][6]+'" onclick="flagActiveRouter()">Flag it!</button></span></div>'+
                     starsEl+
                     '<div>'+p[index][8]+', '+p[index][9]+'</div>'+
                     '<div>'+p[index][6]+'</div>'+
-                    '<a href="javascript:viewTrDetails('+p[index][0]+');">View Details</a>'
+                    '<a href="javascript:viewTrDetails('+p[index][0]+');">View Details</a>'+
+                    '</div>'
 
           infowindow = new google.maps.InfoWindow({
             content: el
@@ -857,6 +871,12 @@ var renderTr = function (trId) {
 
   removeTr();
 
+}
+
+var flagActiveRouter = function() {
+  // this is a pretty sloppy, look into fixing it (eg passing params instead of using the DOM)
+  var data = jQuery('#flag-it-btn').data();
+  showFlags(data.asn, data.hop, data.ip, true);
 }
 
 var setTRidActive = function(id){
@@ -1048,9 +1068,9 @@ var renderIpFlagDataMouseOver = function(data){
   // jQuery('#flag-this-link').html(flagLinkHtml);
 }
 
-var flagActiveRouter = function(){
-  showFlags(activeTridFlag, activeHopNumFlag, activeIpFlag, true);
-}
+// var flagActiveRouter = function(){
+//   showFlags(activeTridFlag, activeHopNumFlag, activeIpFlag, true);
+// }
 
 var renderIpFlagData = function(data){
   console.log('OK! renderIpFlagData');
@@ -1270,7 +1290,6 @@ var toggleMap = function(){
   jQuery('#map-container').toggle();
   jQuery('#map-canvas-container').toggle();
   jQuery('#tr-list-ids').toggle();
-
 }
 
 var initializeMap = function() {
@@ -1287,7 +1306,7 @@ var initializeMap = function() {
   };
   map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
-  document.location.href='#tot-trs';
+  //document.location.href='#tot-trs';
 
 /*  google.maps.event.addListener(map, 'click', function(event){
     //if(!mouse_in_polyline) {

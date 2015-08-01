@@ -686,7 +686,7 @@ var asnColours = '{"174":"rgb(228,49,235)","3356":"rgb(235,114,49)","7018":"rgb(
 
 var asnColoursJson = jQuery.parseJSON(asnColours);
 var getAsnColour = function(asNum){
-  var c = '676A6B';
+  var c = 'rgb(153, 153, 153)';
   if (typeof(asnColoursJson[asNum]) != "undefined") {
     c = asnColoursJson[asNum];
   }

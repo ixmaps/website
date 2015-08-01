@@ -449,3 +449,12 @@
 #map-tr-active {
   float: right;
 }
+
+.router-infowindow {
+  min-height: 105px;
+  min-width: 120px;
+}
+
+#flag-it-btn {
+  margin-left: 30px;
+}
