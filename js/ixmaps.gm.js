@@ -307,7 +307,7 @@ var excludeE = function(){
 //   return newmap;
 // }
 
-var loadMapData = function () {
+var loadMapData = function() {
   // reset user activity on data set every time a new set is loaded
   userActivityOnTrSet = new Object();
 
@@ -326,12 +326,14 @@ var loadMapData = function () {
     console.log('Google map canvas initialized !');
     showThisTr(_.last(_.keys(ixMapsDataJson)));           // show the last route (ie the one with the highest trid)
     setTableSorters();
+
   }, 300);
 
   jQuery('#tr-details').draggable();
 
   // to prevent confusion remove all after load
   removeAllTrs();
+  jQuery('#options-btn').removeClass('hidden');
 }
 
 var setTableSorters = function(){
@@ -457,7 +459,7 @@ var checkIfStopped = function() {
   return trRenderStop;
 }
 
-var addAllTrs = function () {
+var addAllTrs = function() {
   removeAllTrs();
   jQuery('#map-status-info').show();
 
@@ -493,7 +495,7 @@ var addAllTrs = function () {
   //jQuery('#map-status-info').hide();
 }
 
-var removeAllTrs = function () {
+var removeAllTrs = function() {
   removeTr();
   trsAddedToMap = [];
   skippedRouterNum = new Array(0,0,0,0);
@@ -524,7 +526,7 @@ var removeAllTrs = function () {
   jQuery('#tr-count').text('0');
 }
 
-var removeTr = function () {
+var removeTr = function() {
   //console.log('removing active tr');
   if(activeTrObj!=null){
       activeTrObj.setMap(null);
@@ -1270,7 +1272,7 @@ var viewPrivacy = function (asNum) {
   jQuery('#privacy-details-data').html(privacyHtml);
 };
 
-var closePrivacy = function () {
+var closePrivacy = function() {
   jQuery('#privacy-details').hide();
 };
 
@@ -1281,7 +1283,7 @@ var viewTrDetails = function (trId) {
   jQuery('#tr-details-iframe').attr('src', url);
 };
 
-var closeTrDetails = function () {
+var closeTrDetails = function() {
   jQuery('#tr-details').hide();
   removeTr();
 };

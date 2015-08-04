@@ -42,6 +42,14 @@ var initialize = function() {
     jQuery(this).addClass('selected');
   });
 
+  jQuery('#options-btn').click(function() {
+    jQuery('#options-container').toggle();
+  });
+
+  jQuery('.close-options-btn').click(function() {
+    jQuery('#options-container').toggle();
+  });
+
   jQuery('#last-submission-button').click(function() {
     submitLastSubmissionObject();
   });

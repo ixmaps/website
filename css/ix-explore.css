@@ -275,9 +275,9 @@
 
 .star-col {
   font-size: 0px !important;           /* hackaroo! we need the privacy numeric values to allow sorting, but don't want to actually see them */
-  vertical-align: top;
 }
 .privacy-star-img {
+  vertical-align: middle;
   width: 15px;
 }
 .score-hide {
@@ -392,6 +392,7 @@
 }
 
 #map-output-container {
+  position: relative;
   float: left;
   height: 550px;
   width: 65%;
@@ -401,6 +402,39 @@
   margin: 0;
   height: 550px;
   width: 100%;
+}
+
+.router-infowindow {
+  min-height: 105px;
+  min-width: 120px;
+}
+
+#flag-it-btn {
+  margin-left: 30px;
+}
+
+#options-btn {
+  position: absolute;
+  bottom: 150px;
+  left: 24px;
+  width: 40px;
+}
+
+#options-container {
+  position: absolute;
+  bottom: 50px;
+  left: 70px;
+  background-color: white;
+  padding: 20px;
+  border: solid black 1px;
+  border-radius: 12px;
+}
+
+.close-options-btn {
+  position: absolute;
+  right: 17px;
+  top: 15px;
+  width: 25px;
 }
 
 /************ TRACEROUTES FOUND (RIGHT SIDE) ************/
@@ -448,13 +482,4 @@
 
 #map-tr-active {
   float: right;
-}
-
-.router-infowindow {
-  min-height: 105px;
-  min-width: 120px;
-}
-
-#flag-it-btn {
-  margin-left: 30px;
 }
