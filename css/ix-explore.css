@@ -29,6 +29,13 @@
   padding: 15px;
 }
 
+#close-ip-flags {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  width: 25px;
+}
+
 #ip-flags-title {
   float: left;
   margin-bottom: 15px;

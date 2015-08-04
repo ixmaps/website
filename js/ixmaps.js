@@ -46,8 +46,12 @@ var initialize = function() {
     jQuery('#options-container').toggle();
   });
 
-  jQuery('.close-options-btn').click(function() {
+  jQuery('#close-options-btn').click(function() {
     jQuery('#options-container').toggle();
+  });
+
+  jQuery('#close-ip-flags').click(function() {
+    jQuery('#ip-flags').fadeOut('fast');
   });
 
   jQuery('#last-submission-button').click(function() {

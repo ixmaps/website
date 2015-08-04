@@ -1164,10 +1164,6 @@ var showFlagsOld = function(trId,hopN) {
   getIpFlags(true);
 }
 
-var closeIpFlags = function(){
-  jQuery('#ip-flags').fadeOut('fast');
-}
-
 var trHopMouseover = function (trId,hopN,type) {
   //console.log('called trHopMouseover() TRid: '+trId+', hopNum:'+hopN);
   var ipTxt = '';
