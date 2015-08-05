@@ -427,7 +427,14 @@
   width: 40px;
 }
 
-#options-container {
+#help-btn {
+  position: absolute;
+  bottom: 116px;
+  left: 28px;
+  width: 32px;
+}
+
+#options-container, #help-container {
   position: absolute;
   bottom: 50px;
   left: 70px;
@@ -437,7 +444,7 @@
   border-radius: 12px;
 }
 
-.close-options-btn {
+#close-options-btn, #close-help-btn {
   position: absolute;
   right: 17px;
   top: 15px;

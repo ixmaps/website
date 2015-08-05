@@ -333,7 +333,10 @@ var loadMapData = function() {
 
   // to prevent confusion remove all after load
   removeAllTrs();
+
+  // these are hidden to start, unhidden as late as possible in load to prevent them just hanging out in empty space while the map loads
   jQuery('#options-btn').removeClass('hidden');
+  jQuery('#help-btn').removeClass('hidden');
 }
 
 var setTableSorters = function(){

@@ -166,33 +166,6 @@ geoip_close($gi1);
           <a href="javascript:showTestedCarriers();">Show Carriers TR Sample</a>
         </div>
 
-        <div id="tabs-4">
-          <h3>Help</h3>
-          <p>
-            If you're a <i>new user</i>, it may be easiest to begin with some of our canned queries in the Quick Links section.
-            For example, if you've just generated a route, you'll be able to find it be clicking on 'Examine last submitted route'
-            or by clicking on 'Examine routes by submitter' and locating your submitter name.
-          </p>
-
-          <div>
-            For users more comfortable with querying databases, the Custom Filters section allows dynamic, extensible queries based
-            on many of the data fields collected by the route generator program
-          </div>
-          <div class="expandable- hidden-">
-            <div>For example, to view routes that neither start nor end in Canada, a user could query:</div>
-            <div><b>| Does not | Originate in | Country | CA | AND | +</b></div>
-            <div><b>| Does not | Terminate in | Country | CA |</b></div>
-            <div>Or, to browse routes ending in Toronto or Ottawa, a user could query:</div>
-            <div><b>| Does | Terminate in | City | Toronto | OR | +</b></div>
-            <div><b>| Does | Terminate in | City | Ottawa |</b></div>
-            <div>
-              Note that, while the query is performed on the entire IXmaps database, due to computational and bandwidth limitations
-              the server only returns the first 200 results. If you do not see the route you were looking for, it is best to add additional
-              filter constraints (e.g. Submitter).
-            </div>
-          </div>
-        </div>
-
       </div>
 
  -->
@@ -202,7 +175,7 @@ geoip_close($gi1);
       <!-- FIXME add all this calls to javascript functions in jquery -->
       <a name="tot-trs" id="tot-trs" style="height: 0px;"></a>
       <div id="map-container">
-        <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, <span>please flag it</span></div>
+        <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, <span href="#" title="This should explain how flagging is done. What do we think of these tool tips?">please flag it</span></div>
 <!--         <div id="map-core-controls" class="hidden" style="float:right;">
           <div id="map-status-info" class="" style="float:left;">
             <span id="map-loading-status"></span>
@@ -260,6 +233,33 @@ geoip_close($gi1);
               <input id="map-show-hotel" class="map-tool-off" type="button" onMouseDown="setShowHotel()" value="Hotel"/>
               <input id="map-show-google" class="map-tool-off" type="button" onMouseDown="setShowGoogle()" value="Google"/>
               <input id="map-show-uc" class="map-tool-off" type="button" onMouseDown="setShowUc()" value="Undersea Cable Landing Site"/>
+            </div>
+          </div>
+          <img id="help-btn" src="images/icon-help.png" class="hidden"></img>
+          <div id="help-container" class="hidden">
+            <img id="close-help-btn" src="images/icon-close.png"></img>
+            <h3>Help</h3>
+            <p>
+              If you're a <i>new user</i>, it may be easiest to begin with some of our canned queries in the Quick Links section.
+              For example, if you've just generated a route, you'll be able to find it be clicking on 'Examine last submitted route'
+              or by clicking on 'Examine routes by submitter' and locating your submitter name.
+            </p>
+            <div>
+              For users more comfortable with querying databases, the Custom Filters section allows dynamic, extensible queries based
+              on many of the data fields collected by the route generator program
+            </div>
+            <div>
+              <div>For example, to view routes that neither start nor end in Canada, a user could query:</div>
+              <div><b>| Does not | Originate in | Country | CA | AND | +</b></div>
+              <div><b>| Does not | Terminate in | Country | CA |</b></div>
+              <div>Or, to browse routes ending in Toronto or Ottawa, a user could query:</div>
+              <div><b>| Does | Terminate in | City | Toronto | OR | +</b></div>
+              <div><b>| Does | Terminate in | City | Ottawa |</b></div>
+              <div>
+                Note that, while the query is performed on the entire IXmaps database, due to computational and bandwidth limitations
+                the server only returns the first 200 results. If you do not see the route you were looking for, it is best to add additional
+                filter constraints (e.g. Submitter).
+              </div>
             </div>
           </div>
         </span>
@@ -429,16 +429,12 @@ geoip_close($gi1);
     </div>
 
     <div id="ip-flags-title">
-      <h2>User generated flags</h2>
+      <h2>Flag Router as Incorrect</h2>
     </div>
-
     <div id="ip-flag-active"></div>
-
     <div style="clear: both;"></div>
-
     <div>
       <div id="ip-flag-info"></div>
-
       <div id="ip-flag-first-msg">
         <p>Please flag routers you believe are shown in the wrong place. Flagged routers alert other users to possible inaccuracies and can be eliminated from traceroute mapping so what you see is more reliable (See Explore>Map options>Exclude routers>User-flagged). Flagging routers will also help us to re-locate them more accurately, especially if you can provide us with good clues as to their correct position. We periodically review the database and review flagged routes for correction.</p>
         <p>We appreciate helpful details, but all fields are optional.</p>
@@ -449,7 +445,7 @@ geoip_close($gi1);
 
     <div style="clear: both;"></div>
 
-    <div id="ip-flag-insert" class="hidden">
+    <div id="ip-flag-insert">
       <h3>Create a new report</h3>
       <table>
         <tr>

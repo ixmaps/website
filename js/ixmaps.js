@@ -25,8 +25,9 @@ var trIdTags = [];
 
 var initialize = function() {
   // default settings
-  //setAllowMultipleTrs();
-
+  jQuery(function() {
+    jQuery( document ).tooltip();
+  });
 
   // onclick events
   jQuery('#remove-all-trs-btn').click(function() {
@@ -48,6 +49,14 @@ var initialize = function() {
 
   jQuery('#close-options-btn').click(function() {
     jQuery('#options-container').toggle();
+  });
+
+  jQuery('#help-btn').click(function() {
+    jQuery('#help-container').toggle();
+  });
+
+  jQuery('#close-help-btn').click(function() {
+    jQuery('#help-container').toggle();
   });
 
   jQuery('#close-ip-flags').click(function() {
