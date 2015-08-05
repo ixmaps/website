@@ -87,7 +87,7 @@ var addCollectedCoord = function(lat1,long1){
     coordCollected.length = 0;
     coordCollectedObj.length = 0;
   }
-}
+};
 
 var renderCollectedCoords = function(){
   jQuery.each(coordCollected, function(key,value) {
@@ -105,7 +105,7 @@ var renderCollectedCoords = function(){
     objCoords.setMap(map);
   });
 
-}
+};
 
 var setShowInfoGlobal = function(){
   if(showMapInfoGlobal){
@@ -118,7 +118,7 @@ var setShowInfoGlobal = function(){
     jQuery("#map-info-global").show();
   }
   console.log('showMapInfoGlobal',showMapInfoGlobal);
-}
+};
 
 var setShowHops = function(){
   if(showHops){
@@ -129,7 +129,7 @@ var setShowHops = function(){
     jQuery("#map-show-hops").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setShowHops',showHops);
-}
+};
 
 var setShowHopsNum = function(){
   if(showHopsNum){
@@ -140,7 +140,7 @@ var setShowHopsNum = function(){
     jQuery("#map-show-hops-num").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setShowHopsNum',showHops);
-}
+};
 
 var setAllowRecenter = function(){
   if(allowRecenter){
@@ -151,7 +151,7 @@ var setAllowRecenter = function(){
     jQuery("#map-allow-recenter").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setAllowRecenter',allowRecenter);
-}
+};
 
 var setShowRouters = function(){
   if(showRouters){
@@ -162,7 +162,7 @@ var setShowRouters = function(){
     jQuery("#map-show-routers").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setShowRouters',showRouters);
-}
+};
 
 var setShowNsa = function(){
   if(showNsa){
@@ -175,7 +175,7 @@ var setShowNsa = function(){
     jQuery("#map-show-nsa").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setShowNsa',showNsa);
-}
+};
 
 var setShowHotel = function(){
   if(showHotel){
@@ -188,7 +188,7 @@ var setShowHotel = function(){
     jQuery("#map-show-hotel").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setShowHotel',showHotel);
-}
+};
 
 var setShowGoogle = function(){
   if(showGoogle){
@@ -201,7 +201,7 @@ var setShowGoogle = function(){
     jQuery("#map-show-google").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setShowGoogle',showGoogle);
-}
+};
 
 var setShowUc = function(){
   if(showUc){
@@ -214,7 +214,7 @@ var setShowUc = function(){
     jQuery("#map-show-uc").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setShowUc',showUc);
-}
+};
 
 var setAddMarkerInOrigin = function(){
   if(addMarkerInOrigin){
@@ -225,7 +225,7 @@ var setAddMarkerInOrigin = function(){
     jQuery("#map-show-marker-origin").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('setAddMarkerInOrigin',addMarkerInOrigin);
-}
+};
 
 var setAllowMultipleTrs = function(){
   if(allowMultipleTrs){
@@ -240,7 +240,7 @@ var setAllowMultipleTrs = function(){
     jQuery('#map-action-remove-all-but-this').show();
   }
   console.log('setAllowMultipleTrs',allowMultipleTrs);
-}
+};
 
 var excludeA = function(){
   if(excludeCoord0){
@@ -262,7 +262,7 @@ var excludeB = function(){
     jQuery("#map-exclude-b").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('exclude generic coords.',excludeCoordGen);
-}
+};
 
 var excludeC = function(){
   if(excludeImpDist){
@@ -274,7 +274,7 @@ var excludeC = function(){
   }
   console.log('exclude impossible distance.',excludeImpDist);
   alert('Note that this option is functional but it has not been fully tested.');
-}
+};
 
 var excludeD = function(){
   if(excludeReservedAS){
@@ -285,7 +285,7 @@ var excludeD = function(){
     jQuery("#map-exclude-d").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('exclude Reserved AS.',excludeReservedAS);
-}
+};
 
 var excludeE = function(){
   if(excludeUserFlagged){
@@ -296,7 +296,7 @@ var excludeE = function(){
     jQuery("#map-exclude-e").removeClass("map-tool-off").addClass("map-tool-on");
   }
   console.log('exclude User Flagged routers.',excludeUserFlagged);
-}
+};
 
 // var sortObject = function(map) {
 //   var keys = _.sortBy(_.keys(map), function(a) { return -a; });
@@ -337,12 +337,12 @@ var loadMapData = function() {
   // these are hidden to start, unhidden as late as possible in load to prevent them just hanging out in empty space while the map loads
   jQuery('#options-btn').removeClass('hidden');
   jQuery('#help-btn').removeClass('hidden');
-}
+};
 
 var setTableSorters = function(){
   console.log('Sorting TR Tables');
   jQuery('#tr-list-table').tablesorter( {sortList: [[0,2]]} );
-}
+};
 
 var showTotalTrInfo = function(){
   var t2=trCollection.length;
@@ -436,7 +436,7 @@ var showTotalTrInfo = function(){
   //jQuery('#map-info-total').html('Total TRs: '+totTRs+' : Active Hops: '+t2);
   //jQuery('#map-info-total').html('Displayed # of Hops: <strong>'+t2+'</strong>');
   jQuery('#tr-count').text(trsAddedToMap.length);
-}
+};
 
 var showThisTr = function (trId) {
   if(!allowMultipleTrs){
@@ -444,7 +444,7 @@ var showThisTr = function (trId) {
   }
   renderTr(trId);
   showTotalTrInfo();
-}
+};
 
 var stopRender = function(){
   if(trRenderStop){
@@ -455,12 +455,12 @@ var stopRender = function(){
     trRenderStop = true;
   }
   console.log('stopRender', trRenderStop);
-}
+};
 
 var checkIfStopped = function() {
   console.log('... Checking trRenderStop');
   return trRenderStop;
-}
+};
 
 var addAllTrs = function() {
   removeAllTrs();
@@ -496,7 +496,7 @@ var addAllTrs = function() {
 
   showTotalTrInfo();
   //jQuery('#map-status-info').hide();
-}
+};
 
 var removeAllTrs = function() {
   removeTr();
@@ -527,14 +527,14 @@ var removeAllTrs = function() {
   activeCarriers = new Object();
   showTotalTrInfo();
   jQuery('#tr-count').text('0');
-}
+};
 
 var removeTr = function() {
   //console.log('removing active tr');
   if(activeTrObj!=null){
       activeTrObj.setMap(null);
     }
-}
+};
 
 /* Router exclusion functions */
 var excludeRouter = function(value,trId,hop,type) {
@@ -607,7 +607,7 @@ var excludeRouter = function(value,trId,hop,type) {
   }
   jQuery('#map-impossible-distance-log').html(impDistLog);
   return skipHop;
-}
+};
 
 
 var renderTr = function (trId) {
@@ -876,17 +876,17 @@ var renderTr = function (trId) {
 
   removeTr();
 
-}
+};
 
 var flagActiveRouter = function() {
   // this is a pretty sloppy, look into fixing it (eg passing params instead of using the DOM)
   var data = jQuery('#flag-it-btn').data();
   showFlags(data.asn, data.hop, data.ip, true);
-}
+};
 
 var setTRidActive = function(id){
   jQuery('#tr-a-'+id).toggleClass('tr-ids-active');
-}
+};
 
 var renderTr2 = function (trId) {
   var p = [];
@@ -939,12 +939,12 @@ var renderTr2 = function (trId) {
     trHopClick(trId,1,1);
   });
   activeTrObj.setMap(map);
-}
+};
 
 var newIpFlag = function() {
   jQuery('#ip-flags-data').hide();
   jQuery('#ip-flag-log').html('');
-}
+};
 
 var saveIpFlag = function() {
   console.log("saving ip flag");
@@ -984,12 +984,12 @@ var saveIpFlag = function() {
       console.log("Error! saveIpFlag", e);
     }
   });
-}
+};
 
 var getPar = function(par){
   var parVal=jQuery('#'+par+ '').val();
   return parVal;
-}
+};
 
 var getIpFlags = function(openFlagWin) {
   console.log("getting ip flags data");
@@ -1041,7 +1041,7 @@ var getIpFlags = function(openFlagWin) {
       console.log("Error! getIpFlag", e);
     }
   });
-}
+};
 
 var renderIpFlagDataMouseOver = function(data){
   console.log("renderIpFlagDataMouseOver");
@@ -1061,7 +1061,7 @@ var renderIpFlagDataMouseOver = function(data){
 
   // var flagLinkHtml = '<a title="Flag this router if inaccurately located" class="text-new" href="javascript:flagActiveRouter();">'+flagTxt+'</a>';
   // jQuery('#flag-this-link').html(flagLinkHtml);
-}
+};
 
 // var flagActiveRouter = function(){
 //   showFlags(activeTridFlag, activeHopNumFlag, activeIpFlag, true);
