@@ -435,7 +435,7 @@ geoip_close($gi1);
     <div style="clear: both;"></div>
     <div>
       <div id="ip-flag-info">
-        <div><span id="ip-flag-asn-name" /><span id="ip-flag-hostname" /></div>
+        <div><span id="ip-flag-asn-name"></span><span id="ip-flag-hostname"></span></div>
         <div id="ip-flag-star-rating"></div>
         <div id="ip-flag-location"></div>
         <div id="ip-flag-lat-long"></div>
@@ -447,21 +447,9 @@ geoip_close($gi1);
     </div>
     <div style="clear: both;"></div>
     <div id="ip-flag-insert">
-      <table>
-        <tr>
-          <td>Username:</td>
-          <td><input id="user_nick" type="text"/></td>
-        </tr>
-        <tr>
-          <td>Suggested Location:</td>
-          <td><input id="ip_new_loc" type="text"></textarea></td>
-        </tr>
-        <tr>
-          <td>Comment:</td>
-          <td><input id="user_msg" type="text"></textarea></td>
-        </tr>
-      </table>
-      <br/>
+      <input id="user_nick" type="text" placeholder="Username"/>
+      <input id="ip_new_loc" type="text" placeholder="Suggested Location"/>
+      <input id="user_msg" type="text" placeholder="Additional Comment..."/>
       <input type="button" id="submit-ip-flag" value="Submit" onclick="saveIpFlag()"/>
     </div>
     <div id="ip-flags-data">

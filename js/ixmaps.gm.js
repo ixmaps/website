@@ -1071,42 +1071,22 @@ var renderIpFlagData = function(data){
   console.log('OK! renderIpFlagData');
 
   var ipInfo = data['ip_addr_info'][0];
+  var lat = ipInfo.mm_lat;
+  var lng = ipInfo.mm_long;
+  // this could also be done with gl_override, but this feels safer
+  if (ipInfo.mm_lat !== ipInfo.lat) {
+    lat = ipInfo.lat;
+  }
+  if (ipInfo.mm_long !== ipInfo.long) {
+    lng = ipInfo.long;
+  }
+
   jQuery('#ip-flag-asn-name').text(ipInfo.name);        // maybe get shortname?
   jQuery('#ip-flag-hostname').text(ipInfo.hostname);
   jQuery('#ip-flag-star-rating').html(renderPrivacyScore(getPrivacyScore(ipInfo.num)));
   jQuery('#ip-flag-location').text(getCityRegionCountry(ipInfo.mm_city,ipInfo.mm_region,ipInfo.mm_country));
-  //jQuery('#ip-flag-lat-long').text(ipInfo.hostname);      // ruhroh, see ipFlag.php in model
-  jQuery('#ip-flag-lat-long').text('TODO');
+  jQuery('#ip-flag-lat-long').text(lat+', '+lng);
   jQuery('#ip-flag-ip-address').text(ipInfo.ip_addr);
-  // ipInfo += '';
-  // ipInfo += '<tr><td>IP:</td><td>'+data['ip_addr_info'][0].ip_addr+'</td></tr>';
-  // ipInfo += '<tr><td>TrId:</td><td>'+activeTridFlag+'</td></tr>';
-  // ipInfo += '<tr><td>Router #:</td><td>'+activeHopNumFlag+'</td></tr>';
-  // ipInfo += '<tr><td>Hostname:</td><td>'+data['ip_addr_info'][0].hostname+'</td></tr>';
-  // ipInfo += '<tr><td>Carrier:</td><td>'+data['ip_addr_info'][0].name+'</td></tr>';
-  // ipInfo += '<tr><td>ASN:</td><td>'+data['ip_addr_info'][0].asnum+'</td></tr>';
-  // ipInfo += '<tr><td>Country:</td><td>'+data['ip_addr_info'][0].mm_country+'</td></tr>';
-  // ipInfo += '<tr><td>Region:</td><td>'+data['ip_addr_info'][0].mm_region+'</td></tr>';
-  // ipInfo += '<tr><td>City:</td><td>'+data['ip_addr_info'][0].mm_city+'</td></tr>';
-
-  // ipInfo += '<tr><td>Geo-location Status:</td><td>';
-
-  // ipInfo += 'gl_override:'+data['ip_addr_info'][0].gl_override+'';
-  // ipInfo += '<br/>';
-  // ipInfo += 'flagged: '+data['ip_addr_info'][0].flagged+'';
-  // ipInfo += '</td></tr>';
-
-  // ipInfo += '</table>';
-
-  // <div id="ip-flag-info">
-  //   <div><span id="ip-flag-asn-name" /><span id="ip-flag-hostname" /></div>
-  //   <div id="ip-flag-star-rating"></div>
-  //   <div id="ip-flag-location"></div>
-  //   <div id="ip-flag-lat-long"></div>
-  //   <div id="ip-flag-ip-address"></div>
-  // </div>
-
-  // jQuery('#ip-flag-info').html(ipInfo);
 
   var flagsT = '';
 

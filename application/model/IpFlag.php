@@ -11,7 +11,7 @@ class IpFlag
 			$html .='<td>User IP</td>';
 			$html .='<td>Username</td>';
 			$html .='<td>Message</td>';
-			$html .='<td>Suggested Location</td>';			
+			$html .='<td>Suggested Location</td>';
 			$html .='</tr>';
 		foreach ($data as $key => $value) {
 			$html .='<tr>';
@@ -28,7 +28,7 @@ class IpFlag
 		$html .= "</table>";
 		echo $html;
 	}
-	
+
 	public static function getFlagsLogs(){
 		global $dbconn, $ixmaps_debug_mode;
 		$sql="SELECT * FROM ip_flagged_items ORDER BY id_f DESC";
@@ -46,7 +46,7 @@ class IpFlag
 
 		//$sql="SELECT as_users.num, as_users.name, ip_addr_info.ip_addr, ip_addr_info.asnum, ip_addr_info.hostname, ip_addr_info.mm_country, ip_addr_info.mm_region, ip_addr_info.mm_city, ip_addr_info.mm_postal, ip_addr_info.gl_override, ip_addr_info.flagged, glo_reason.reason, glo_reason.evidence FROM as_users, ip_addr_info, glo_reason WHERE (ip_addr_info.gl_override=glo_reason.id) AND (as_users.num=ip_addr_info.asnum) AND ip_addr_info.ip_addr = '".$ip."'";
 
-		$sql="SELECT as_users.num, as_users.name, ip_addr_info.ip_addr, ip_addr_info.asnum, ip_addr_info.hostname, ip_addr_info.mm_country, ip_addr_info.mm_region, ip_addr_info.mm_city, ip_addr_info.mm_postal, ip_addr_info.gl_override, ip_addr_info.flagged FROM as_users, ip_addr_info, glo_reason WHERE (as_users.num=ip_addr_info.asnum) AND ip_addr_info.ip_addr = '".$ip."'";
+		$sql="SELECT as_users.num, as_users.name, ip_addr_info.ip_addr, ip_addr_info.asnum, ip_addr_info.hostname, ip_addr_info.mm_country, ip_addr_info.mm_region, ip_addr_info.mm_city, ip_addr_info.mm_postal, ip_addr_info.mm_lat, ip_addr_info.mm_long, ip_addr_info.lat, ip_addr_info.long, ip_addr_info.gl_override, ip_addr_info.flagged FROM as_users, ip_addr_info, glo_reason WHERE (as_users.num=ip_addr_info.asnum) AND ip_addr_info.ip_addr = '".$ip."'";
 
 		//echo $sql;
 		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
@@ -83,7 +83,7 @@ class IpFlag
 		//echo "<hr/>".$sql;
 		$result = pg_query($dbconn, $sql) or die('Query failed: ' . pg_last_error());
 		pg_free_result($result);
-		
+
 		$updateSql = "UPDATE ip_addr_info SET flagged = 1 WHERE ip_addr = '".$data['ip_addr_f']."'";
 		pg_query($dbconn, $updateSql) or die('Query failed updating ip_addr_info: ' . pg_last_error());
 		//echo $updateSql;
