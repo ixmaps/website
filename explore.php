@@ -424,9 +424,9 @@ geoip_close($gi1);
 
   <div id="ip-flags" class="hidden">
     <img id="close-ip-flags" src="images/icon-close.png">
-    <div id="ip-flags-new">
+<!--     <div id="ip-flags-new">
       <a href="javascript:newIpFlag();">Create a new Report</a>
-    </div>
+    </div> -->
 
     <div id="ip-flags-title">
       <h2>Flag Router as Incorrect</h2>
@@ -434,36 +434,35 @@ geoip_close($gi1);
     <div id="ip-flag-active"></div>
     <div style="clear: both;"></div>
     <div>
-      <div id="ip-flag-info"></div>
+      <div id="ip-flag-info">
+        <div><span id="ip-flag-asn-name" /><span id="ip-flag-hostname" /></div>
+        <div id="ip-flag-star-rating"></div>
+        <div id="ip-flag-location"></div>
+        <div id="ip-flag-lat-long"></div>
+        <div id="ip-flag-ip-address"></div>
+      </div>
       <div id="ip-flag-first-msg">
-        <p>Please flag routers you believe are shown in the wrong place. Flagged routers alert other users to possible inaccuracies and can be eliminated from traceroute mapping so what you see is more reliable (See Explore>Map options>Exclude routers>User-flagged). Flagging routers will also help us to re-locate them more accurately, especially if you can provide us with good clues as to their correct position. We periodically review the database and review flagged routes for correction.</p>
-        <p>We appreciate helpful details, but all fields are optional.</p>
-        <p>Thanks.</p>
         <div id="ip-flag-log"></div>
       </div>
     </div>
-
     <div style="clear: both;"></div>
-
     <div id="ip-flag-insert">
-      <h3>Create a new report</h3>
       <table>
         <tr>
-          <td>Username</td>
+          <td>Username:</td>
           <td><input id="user_nick" type="text"/></td>
         </tr>
         <tr>
-          <td>Comment:</td>
-          <td><textarea id="user_msg"></textarea></td>
+          <td>Suggested Location:</td>
+          <td><input id="ip_new_loc" type="text"></textarea></td>
         </tr>
         <tr>
-          <td>Suggested Location:</td>
-          <td><textarea id="ip_new_loc"></textarea></td>
+          <td>Comment:</td>
+          <td><input id="user_msg" type="text"></textarea></td>
         </tr>
       </table>
       <br/>
       <input type="button" id="submit-ip-flag" value="Submit" onclick="saveIpFlag()"/>
-      <input type="button" id="cancel-ip-flag" value="Cancel" onclick="cancelIpFlag()"/>
     </div>
     <div id="ip-flags-data">
       <div id="ip-flags-data-list"></div>

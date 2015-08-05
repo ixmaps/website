@@ -943,14 +943,7 @@ var renderTr2 = function (trId) {
 
 var newIpFlag = function() {
   jQuery('#ip-flags-data').hide();
-  jQuery('#ip-flag-insert').show();
   jQuery('#ip-flag-log').html('');
-}
-
-var cancelIpFlag = function() {
-  jQuery('#ip-flag-insert').hide();
-  jQuery('#ip-flags-data').show();
-  getIpFlags(true);
 }
 
 var saveIpFlag = function() {
@@ -982,7 +975,6 @@ var saveIpFlag = function() {
     success: function (e) {
       console.log("Ok! saveIpFlag");
       if(e==1){
-        jQuery('#ip-flag-insert').hide();
         getIpFlags(true);
         jQuery('#ip-flag-log').fadeIn('fast');
         jQuery('#').html('<p>Your report has been saved. <br/>Thank you for your contribution.</p>');
@@ -1018,21 +1010,19 @@ var getIpFlags = function(openFlagWin) {
         if(openFlagWin){
           jQuery('#ip-flag-log').html('');
           jQuery('#ip-flags').show();
-          jQuery('#ip-flag-insert').hide();
 
           // only for debug
           //jQuery('#ip-flag-active').html("IP: "+routerObj[6]+", TrId: "+routerObj[0]+", Router: "+routerObj[1]);
 
           if(!data['ip_flags']){
-            jQuery('#ip-flag-info').html('');
+            // jQuery('#ip-flag-info').html('');
             jQuery('#ip-flags-data-list').html('');
-            jQuery('#ip-flag-insert').hide();
             jQuery('#ip-flag-log').show();
             //jQuery('#ip-flags-data').fadeIn('fast');
-            jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b></p>');
+            // jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b></p>');
 
           } else {
-            jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b> if you have anything to add.</p>');
+            // jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b> if you have anything to add.</p>');
             jQuery('#ip-flags-data').fadeIn('fast');
 
             //console.log(data);
@@ -1079,31 +1069,44 @@ var renderIpFlagDataMouseOver = function(data){
 
 var renderIpFlagData = function(data){
   console.log('OK! renderIpFlagData');
-  var ipInfo = '<table>';
-  ipInfo += '';
-  ipInfo += '<tr><td>IP:</td><td>'+data['ip_addr_info'][0].ip_addr+'</td></tr>';
-  ipInfo += '<tr><td>TrId:</td><td>'+activeTridFlag+'</td></tr>';
-  ipInfo += '<tr><td>Router #:</td><td>'+activeHopNumFlag+'</td></tr>';
-  ipInfo += '<tr><td>Hostname:</td><td>'+data['ip_addr_info'][0].hostname+'</td></tr>';
-  ipInfo += '<tr><td>Carrier:</td><td>'+data['ip_addr_info'][0].name+'</td></tr>';
-  ipInfo += '<tr><td>ASN:</td><td>'+data['ip_addr_info'][0].asnum+'</td></tr>';
-  ipInfo += '<tr><td>Country:</td><td>'+data['ip_addr_info'][0].mm_country+'</td></tr>';
-  ipInfo += '<tr><td>Region:</td><td>'+data['ip_addr_info'][0].mm_region+'</td></tr>';
-  ipInfo += '<tr><td>City:</td><td>'+data['ip_addr_info'][0].mm_city+'</td></tr>';
 
-  ipInfo += '<tr><td>Geo-location Status:</td><td>';
+  var ipInfo = data['ip_addr_info'][0];
+  jQuery('#ip-flag-asn-name').text(ipInfo.name);        // maybe get shortname?
+  jQuery('#ip-flag-hostname').text(ipInfo.hostname);
+  jQuery('#ip-flag-star-rating').html(renderPrivacyScore(getPrivacyScore(ipInfo.num)));
+  jQuery('#ip-flag-location').text(getCityRegionCountry(ipInfo.mm_city,ipInfo.mm_region,ipInfo.mm_country));
+  //jQuery('#ip-flag-lat-long').text(ipInfo.hostname);      // ruhroh, see ipFlag.php in model
+  jQuery('#ip-flag-lat-long').text('TODO');
+  jQuery('#ip-flag-ip-address').text(ipInfo.ip_addr);
+  // ipInfo += '';
+  // ipInfo += '<tr><td>IP:</td><td>'+data['ip_addr_info'][0].ip_addr+'</td></tr>';
+  // ipInfo += '<tr><td>TrId:</td><td>'+activeTridFlag+'</td></tr>';
+  // ipInfo += '<tr><td>Router #:</td><td>'+activeHopNumFlag+'</td></tr>';
+  // ipInfo += '<tr><td>Hostname:</td><td>'+data['ip_addr_info'][0].hostname+'</td></tr>';
+  // ipInfo += '<tr><td>Carrier:</td><td>'+data['ip_addr_info'][0].name+'</td></tr>';
+  // ipInfo += '<tr><td>ASN:</td><td>'+data['ip_addr_info'][0].asnum+'</td></tr>';
+  // ipInfo += '<tr><td>Country:</td><td>'+data['ip_addr_info'][0].mm_country+'</td></tr>';
+  // ipInfo += '<tr><td>Region:</td><td>'+data['ip_addr_info'][0].mm_region+'</td></tr>';
+  // ipInfo += '<tr><td>City:</td><td>'+data['ip_addr_info'][0].mm_city+'</td></tr>';
 
-  ipInfo += 'gl_override:'+data['ip_addr_info'][0].gl_override+'';
-  ipInfo += '<br/>';
-  //ipInfo += 'Reason: '+data['ip_addr_info'][0].reason+'';
-  //ipInfo += '<br/>';
-  ipInfo += 'flagged: '+data['ip_addr_info'][0].flagged+'';
-  ipInfo += '</td></tr>';
+  // ipInfo += '<tr><td>Geo-location Status:</td><td>';
 
-  ipInfo += '</table>';
-  jQuery('#ip-flag-info').html(ipInfo);
+  // ipInfo += 'gl_override:'+data['ip_addr_info'][0].gl_override+'';
+  // ipInfo += '<br/>';
+  // ipInfo += 'flagged: '+data['ip_addr_info'][0].flagged+'';
+  // ipInfo += '</td></tr>';
 
-  //var flagsT = '<table id="ip-flags-table" style="width: 100%;" class="tablesorter tr-list-result"><thead><tr><th>Username</th><th>Date</th><th>Reasons</th><th>Comment</th><th>Suggested Location</th></thead><tbody>';
+  // ipInfo += '</table>';
+
+  // <div id="ip-flag-info">
+  //   <div><span id="ip-flag-asn-name" /><span id="ip-flag-hostname" /></div>
+  //   <div id="ip-flag-star-rating"></div>
+  //   <div id="ip-flag-location"></div>
+  //   <div id="ip-flag-lat-long"></div>
+  //   <div id="ip-flag-ip-address"></div>
+  // </div>
+
+  // jQuery('#ip-flag-info').html(ipInfo);
 
   var flagsT = '';
 
@@ -1163,7 +1166,7 @@ var showFlagsOld = function(trId,hopN) {
   ipInfo += '<tr><td>Country:</td><td>'+ixMapsDataJson[trId][hopN].mm_country+'</td></tr>';
   ipInfo += '<tr><td>City:</td><td>'+ixMapsDataJson[trId][hopN].mm_city+'</td></tr>';
   ipInfo += '</table>';
-  jQuery('#ip-flag-info').html(ipInfo);
+  //jQuery('#ip-flag-info').html(ipInfo);
   getIpFlags(true);
 }
 
@@ -1287,11 +1290,38 @@ var closeTrDetails = function() {
   removeTr();
 };
 
+var getCityRegionCountry = function(city, region, country) {
+  var location = '';
+  var locArray = [];
+  var first = true;
+
+  if (city.length > 0) {
+    locArray.push(city);
+  }
+  if (region.length > 0) {
+    locArray.push(region);
+  }
+  if (country.length > 0) {
+    locArray.push(country);
+  }
+
+  locArray.forEach(function(loc) {
+    if (first) {
+      location += loc;
+      first = false;
+    } else {
+      location += ', ' + loc;
+    }
+  });
+
+  return location;
+};
+
 var toggleMap = function(){
   jQuery('#map-container').toggle();
   jQuery('#map-canvas-container').toggle();
   jQuery('#tr-list-ids').toggle();
-}
+};
 
 var initializeMap = function() {
   var myLatLng = new google.maps.LatLng(44, -99);
@@ -1318,7 +1348,7 @@ var initializeMap = function() {
       //}
   });*/
 
-} // end initializeMap()
+}; // end initializeMap()
 
 
 var getChotel = function() {
@@ -1339,7 +1369,7 @@ var getChotel = function() {
       console.log("Error! getChotel", e);
     }
   });
-}
+};
 
 var renderGeoMarkers = function(type){
   jQuery.each(cHotelData, function(key,geoItem) {
@@ -1367,7 +1397,7 @@ var renderGeoMarkers = function(type){
     }
 
   });
-}
+};
 
 var removeGeoMarkers = function(type){
   if(type==1){
@@ -1401,7 +1431,7 @@ var removeGeoMarkers = function(type){
     }
     gmUc.length = 0;
   }
-}
+};
 
 var createGmMarker = function(geoItem){
   //console.log(geoItem);
@@ -1464,7 +1494,7 @@ var createGmMarker = function(geoItem){
   });
 
   return gmObj;
-}
+};
 
 var getPrivacyReport = function(){
   console.log('Loading PrivacyReport data');
@@ -1499,7 +1529,7 @@ var getPrivacyReport = function(){
       console.log("Error! getPrivacyReport", e);
     }
   });
-}
+};
 
 var getPrivacyScore = function(asn){
   var score = 0;
@@ -1511,7 +1541,7 @@ var getPrivacyScore = function(asn){
     });
   }
   return score;
-}
+};
 
 var renderPrivacyScore = function(asnScore){
   //console.log('renderPrivacyScore ... START');
@@ -1557,5 +1587,5 @@ var renderPrivacyScore = function(asnScore){
 
   //console.log('starHtml ...',starHtml);
   return starHtml;
-}
+};
 
