@@ -205,7 +205,7 @@ geoip_close($gi1);
       <div id="map-canvas-container">
         <span id="map-output-container" style="float:left;">
           <div id="map_canvas" class="map-canvas"></div>
-          <img id="options-btn" src="images/icon-gear.png" class="hidden"></img>
+          <button><img id="options-btn" src="images/icon-gear.png" class="hidden"></img></button>
           <div id="options-container" class="hidden">
             <img id="close-options-btn" src="images/icon-close.png"></img>
             <div id="map-op-0" class="map-actions-controls">
@@ -424,35 +424,28 @@ geoip_close($gi1);
 
   <div id="ip-flags" class="hidden">
     <img id="close-ip-flags" src="images/icon-close.png">
-<!--     <div id="ip-flags-new">
-      <a href="javascript:newIpFlag();">Create a new Report</a>
-    </div> -->
 
     <div id="ip-flags-title">
-      <h2>Flag Router as Incorrect</h2>
+      <h3>Flag Router as Incorrect</h3>
     </div>
     <div id="ip-flag-active"></div>
-    <div style="clear: both;"></div>
     <div>
       <div id="ip-flag-info">
-        <div><span id="ip-flag-asn-name"></span><span id="ip-flag-hostname"></span></div>
+        <div id="ip-flag-asn-name"></div>
+        <div id="ip-flag-hostname"></div>
         <div id="ip-flag-star-rating"></div>
-        <div id="ip-flag-location"></div>
-        <div id="ip-flag-lat-long"></div>
+        <div><span id="ip-flag-location"></span><span id="ip-flag-lat-long"></span></div>
         <div id="ip-flag-ip-address"></div>
       </div>
-      <div id="ip-flag-first-msg">
-        <div id="ip-flag-log"></div>
-      </div>
     </div>
-    <div style="clear: both;"></div>
     <div id="ip-flag-insert">
       <input id="user_nick" type="text" placeholder="Username"/>
       <input id="ip_new_loc" type="text" placeholder="Suggested Location"/>
-      <input id="user_msg" type="text" placeholder="Additional Comment..."/>
+      <input id="user_msg" type="text" placeholder="Additional Comments..."/>
       <input type="button" id="submit-ip-flag" value="Submit" onclick="saveIpFlag()"/>
     </div>
-    <div id="ip-flags-data">
+    <div id="ip-flags-data" class="hidden">
+      <h3>Previous Flagging Reports</h3>
       <div id="ip-flags-data-list"></div>
     </div>
   </div>

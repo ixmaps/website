@@ -37,40 +37,42 @@
 }
 
 #ip-flags-title {
-  float: left;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 #ip-flag-info {
-  float: left;
   margin-right: 10px;
   font-size: 13px;
 }
 
-#ip-flag-insert {
-  margin-top: 20px;
+#ip-flag-asn-name, #ip-flag-hostname {
+  font-weight: bold;
 }
 
-#ip-flag-info table {
-  width: 440px;
-  padding: 10px;
-  font-size: 14px;
-  border-collapse: collapse;
+#ip-flag-lat-long {
+  margin-left: 105px;      /* probably need to rethink this, might look wonky for longer location names */
 }
 
-#ip-flag-info td {
-  border: 1px solid #ccc;
-  padding: 2px;
+#user_nick, #ip_new_loc {
+  height: 21px;
+  width: 191px;
+  margin-bottom: 4px;
 }
 
-#ip-flag-log {
-  color: red;
+#user_msg {
+  height: 42px;
+  width: 392px;
+}
+
+#submit-ip-flag {
   float: right;
+  margin-top: 4px;
+  margin-right: 2px;
 }
 
-#ip-flag-first-msg {
-  padding: 5px;
-  overflow: auto;
+#ip-flag-insert {
+  margin-top: 10px;
+  margin-bottom: 35px;
 }
 
 #ip-flags-new {
@@ -79,8 +81,8 @@
 }
 
 #ip-flags-data-list {
+  margin-top: 10px;
   overflow: auto;
-  height: 252px;
 }
 
 #tr-details, #ip-flags {
@@ -89,10 +91,12 @@
   z-index: 1000;
   top: 5%;
   background: #fff;
-  /*height: 600px;*/
-  width: 400px;
   border: 1px solid black;
   border-radius: 12px;
+}
+
+#ip-flags {
+  width: 400px;
 }
 
 #privacy-details {
@@ -425,6 +429,7 @@
   bottom: 150px;
   left: 24px;
   width: 40px;
+  cursor: pointer;
 }
 
 #help-btn {
@@ -432,6 +437,7 @@
   bottom: 116px;
   left: 28px;
   width: 32px;
+  cursor: pointer;
 }
 
 #options-container, #help-container {

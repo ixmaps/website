@@ -25,7 +25,7 @@ var excludeCoord0 = true;
 var excludeCoordGen = true;
 var excludeImpDist = false;
 var excludeReservedAS = true;
-var excludeUserFlagged = true;
+var excludeUserFlagged = false;  // REVERT ME!
 var impDistLog = '';
 
 var skippedRouterNum = new Array(0,0,0,0);
@@ -403,7 +403,7 @@ var showTotalTrInfo = function(){
       carriers+='<tr>'
 
       if(cScore>=0){
-        cLink='<a style="color: white; font-weight: bold; overflow" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
+        cLink='<a style="color: white; font-weight: bold; border-bottom: 2px dashed #10578b" href="javascript:viewPrivacy('+asNum+')">'+d[1]+'</a>';
       } else {
         cLink='<span style="color: white">'+d[1]+'</span>';
       }
@@ -661,8 +661,8 @@ var renderTr = function (trId) {
         } else {
           // DUPLICATE: offload this to wherever else it's being done - somewhere in the controller? Anto
           var asnName = value.asName;
-          if (asnName.length > 19) {
-            asnName = asnName.slice(0,19) + '...';
+          if (asnName.length > 15) {
+            asnName = asnName.slice(0,15) + '...';
           }
           activeCarriers[value.asNum]=Array(1,asnName,value.mm_country);
         }
@@ -943,7 +943,6 @@ var renderTr2 = function (trId) {
 
 var newIpFlag = function() {
   jQuery('#ip-flags-data').hide();
-  jQuery('#ip-flag-log').html('');
 };
 
 var saveIpFlag = function() {
@@ -976,8 +975,6 @@ var saveIpFlag = function() {
       console.log("Ok! saveIpFlag");
       if(e==1){
         getIpFlags(true);
-        jQuery('#ip-flag-log').fadeIn('fast');
-        jQuery('#').html('<p>Your report has been saved. <br/>Thank you for your contribution.</p>');
       }
     },
     error: function (e) {
@@ -998,7 +995,6 @@ var getIpFlags = function(openFlagWin) {
     action: 'getIpFlag',
     ip_addr_f:activeIpFlag
   };
-  //console.log(obj);
 
   jQuery.ajax(url_base + '/application/controller/ipFlag.php', {
     type: 'post',
@@ -1008,30 +1004,16 @@ var getIpFlags = function(openFlagWin) {
       var data = jQuery.parseJSON(e);
 
         if(openFlagWin){
-          jQuery('#ip-flag-log').html('');
           jQuery('#ip-flags').show();
-
-          // only for debug
-          //jQuery('#ip-flag-active').html("IP: "+routerObj[6]+", TrId: "+routerObj[0]+", Router: "+routerObj[1]);
 
           if(!data['ip_flags']){
             // jQuery('#ip-flag-info').html('');
             jQuery('#ip-flags-data-list').html('');
-            jQuery('#ip-flag-log').show();
-            //jQuery('#ip-flags-data').fadeIn('fast');
-            // jQuery('#ip-flag-log').html('<p>Be the first to flag this router, by clicking on <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b></p>');
-
           } else {
-            // jQuery('#ip-flag-log').html('<p>Check out possible prior flagging below and click <br/><b><a href="javascript:newIpFlag();">Create a new report</a></b> if you have anything to add.</p>');
             jQuery('#ip-flags-data').fadeIn('fast');
-
-            //console.log(data);
-
           }
           // testing this render router data all the times
-          //console.log(data);
           renderIpFlagData(data);
-
         } else {
           renderIpFlagDataMouseOver(data);
         }
@@ -1091,17 +1073,19 @@ var renderIpFlagData = function(data){
   var flagsT = '';
 
   if(data['ip_flags']){
-    flagsT += '<table id="ip-flags-table" style="width: 100%;" class="tablesorter tr-list-result"><thead><tr><th>Username</th><th>Date</th><th>Comment</th><th>Suggested Location</th></thead><tbody>';
+    flagsT += '<table id="ip-flags-table" style="width: 100%;" class="tablesorter tr-list-result"><thead><tr><th>User</th><th>Date</th><th>Suggested Location</th><th>Comment</th></thead><tbody>';
 
     jQuery.each(data['ip_flags'], function(key, value) {
 
       //flagsT+='<tr><td>'+value.user_nick+'</td><td>'+value.date_f+'</td><td>'+value.user_reasons_types+'</td><td>'+value.user_msg+'</td><td>'+value.ip_new_loc+'</td></tr>';
-      flagsT += '<tr><td>'+value.user_nick+'</td><td>'+value.date_f+'</td><td>'+value.user_msg+'</td><td>'+value.ip_new_loc+'</td></tr>';
+      flagsT += '<tr><td>'+value.user_nick+'</td><td>'+value.date_f.slice(0,10)+'</td><td>'+value.ip_new_loc+'</td><td>'+value.user_msg+'</td></tr>';
     });
     flagsT += '</tbody></table>';
   }
   jQuery('#ip-flags-data-list').html(flagsT);
-  jQuery("#ip-flags-table").tablesorter();
+  jQuery("#ip-flags-table").tablesorter({headers: {
+    0:{sorter: false}, 1:{sorter: false}, 2:{sorter: false}, 3:{sorter: false}
+  }});      // PUUUUUKE. Maybe we should update this lib?
 }
 
 var activeIpFlag = '';
@@ -1129,13 +1113,9 @@ var showFlags = function(trId, hopN, ip, openFlagWin) {
 }
 
 var showFlagsOld = function(trId,hopN) {
-
-  //console.log(ixMapsDataJson[trId][hopN]);
-
   activeIpFlag = ixMapsDataJson[trId][hopN].ip;
   console.log('Displaying Flag info for ip: '+ixMapsDataJson[trId][hopN].ip);
 
-  jQuery('#ip-flag-log').html('');
   jQuery('#ip-flags').show();
   jQuery('#ip-flag-active').html(activeIpFlag);
   var ipInfo = '<table>';
@@ -1233,8 +1213,6 @@ var viewPrivacy = function (asNum) {
     privacyHtml += '<tr><td>'+value.star_id+'</td><td>'+criteriaDes+'</td><td class="privacy-score-col">'+scoreHtml+'</td></tr>';
 
   });
-
-//  privacyHtml += '<tr><td></td><td class="privacy-score-tot"><b>Total Score: </b></td><td class="privacy-score-col"><span class="privacy-score-col-total">'+totScore+'</span></td></tr>';
 
   privacyHtml += '<tr><td></td>';
   privacyHtml += '<td>';

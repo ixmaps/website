@@ -60,6 +60,7 @@ var initialize = function() {
   });
 
   jQuery('#close-ip-flags').click(function() {
+    jQuery('#ip-flags-data').hide()
     jQuery('#ip-flags').fadeOut('fast');
   });
 
