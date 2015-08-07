@@ -418,10 +418,12 @@
 .router-infowindow {
   min-height: 105px;
   min-width: 120px;
+  padding: 2px;
 }
 
 #flag-it-btn {
-  margin-left: 30px;
+  float: right;
+  margin-left: 20px;
 }
 
 #options-btn {
