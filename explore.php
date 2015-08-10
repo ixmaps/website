@@ -206,29 +206,34 @@ geoip_close($gi1);
         <span id="map-output-container" style="float:left;">
           <div id="map_canvas" class="map-canvas"></div>
           <img id="options-btn" src="images/icon-gear.png" class="hidden"></img>
-          <div id="options-container" class="hidden">
-            <img id="close-options-btn" src="images/icon-close.png"></img>
+          <div id="options-container" class="map-icon-popup-container hidden">
+            <img class="map-icon-close-btn" src="images/icon-close.png"></img>
+            <h3>Options</h3>
             <div id="map-op-0" class="map-actions-controls">
-              <h3>Enable</h3>
+              <h4>Router Mapping</h4>
               <input id="map-allow-multiple" class="map-tool-off" type="button" onMouseDown="setAllowMultipleTrs()" value="Multiple TRs"/>
               <input id="map-allow-recenter" class="map-tool-on" type="button" onMouseDown="setAllowRecenter()" value="Re-center"/>
             </div>
             <div id="map-op-1" class="map-actions-controls">
-              <h3>Display</h3>
+              <h4>Display</h4>
               <input id="map-show-hops" class="map-tool-on" type="button" onMouseDown="setShowHops()" value="Hops"/>
               <input id="map-show-routers" class="map-tool-on" type="button" onMouseDown="setShowRouters()" value="Routers"/>
               <input id="map-show-marker-origin" class="map-tool-off" type="button" onMouseDown="setAddMarkerInOrigin()" value="Marker in Origin"/>
               <input id="map-show-info-global" class="map-tool-off" type="button" onMouseDown="setShowInfoGlobal()" value="Advanced Log"/>
             </div>
             <div id="map-op-2" class="map-actions-controls">
-              <h3>Exclude Routers</h3>
+              <h4>Exclude Routers</h4>
               <input id="map-exclude-a" class="map-tool-on" type="button" onMouseDown="excludeA()" value="Lat/Long = 0"/>
               <input id="map-exclude-b" class="map-tool-on" type="button" onMouseDown="excludeB()" value="Generic Locations"/>
               <input id="map-exclude-d" class="map-tool-on" type="button" onMouseDown="excludeD()" value="Reserved AS"/>
               <input id="map-exclude-e" class="map-tool-on" type="button" onMouseDown="excludeE()" value="User-flagged"/>
             </div>
+          </div>
+          <img id="layers-btn" src="images/icon-layers.png" class="hidden"></img>
+          <div id="layers-container" class="map-icon-popup-container hidden">
+            <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <div id="map-op-3" class="map-actions-controls">
-              <h3>IXmaps Layers</h3>
+              <h3>Layers</h3>
               <input id="map-show-nsa" class="map-tool-off" type="button" onMouseDown="setShowNsa()" value="NSA"/>
               <input id="map-show-hotel" class="map-tool-off" type="button" onMouseDown="setShowHotel()" value="Hotel"/>
               <input id="map-show-google" class="map-tool-off" type="button" onMouseDown="setShowGoogle()" value="Google"/>
@@ -236,8 +241,8 @@ geoip_close($gi1);
             </div>
           </div>
           <img id="help-btn" src="images/icon-help.png" class="hidden"></img>
-          <div id="help-container" class="hidden">
-            <img id="close-help-btn" src="images/icon-close.png"></img>
+          <div id="help-container" class="map-icon-popup-container hidden">
+            <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <h3>Help</h3>
             <p>
               If you're a <i>new user</i>, it may be easiest to begin with some of our canned queries in the Quick Links section.

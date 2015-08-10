@@ -44,19 +44,22 @@ var initialize = function() {
   });
 
   jQuery('#options-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
     jQuery('#options-container').toggle();
   });
 
-  jQuery('#close-options-btn').click(function() {
-    jQuery('#options-container').toggle();
+  jQuery('#layers-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
+    jQuery('#layers-container').toggle();
   });
 
   jQuery('#help-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
     jQuery('#help-container').toggle();
   });
 
-  jQuery('#close-help-btn').click(function() {
-    jQuery('#help-container').toggle();
+  jQuery('.map-icon-close-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
   });
 
   jQuery('#close-ip-flags').click(function() {
