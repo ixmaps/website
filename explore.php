@@ -205,7 +205,7 @@ geoip_close($gi1);
       <div id="map-canvas-container">
         <span id="map-output-container" style="float:left;">
           <div id="map_canvas" class="map-canvas"></div>
-          <button><img id="options-btn" src="images/icon-gear.png" class="hidden"></img></button>
+          <img id="options-btn" src="images/icon-gear.png" class="hidden"></img>
           <div id="options-container" class="hidden">
             <img id="close-options-btn" src="images/icon-close.png"></img>
             <div id="map-op-0" class="map-actions-controls">

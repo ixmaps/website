@@ -615,7 +615,7 @@ class Traceroute
 
 		traceroute.id, traceroute.dest, traceroute.dest_ip, traceroute.submitter, traceroute.sub_time,
 
-		ip_addr_info.ip_addr, ip_addr_info.lat, ip_addr_info.long, ip_addr_info.mm_country, ip_addr_info.mm_city, ip_addr_info.gl_override,
+		ip_addr_info.ip_addr, ip_addr_info.hostname, ip_addr_info.lat, ip_addr_info.long, ip_addr_info.mm_country, ip_addr_info.mm_city, ip_addr_info.gl_override,
 
 		as_users.num, as_users.name,
 
@@ -896,6 +896,11 @@ class Traceroute
 					'ip'=>$ip,
 					'lat'=>$lat,
 					'long'=>$long,
+					//'destHostname'=>$hops[$r][7],
+					'8'=>$hops[$r][8],
+					'9'=>$hops[$r][9],
+					'20'=>$hops[$r][20],
+					'hopN'=>$hopN,
 					'mm_city'=>$mm_city,
 					'mm_country'=>$hops[$r][11],
 					//'sub_time'=>$hops[$r][12],
@@ -906,7 +911,8 @@ class Traceroute
 					'time_light'=>$hops[$r][17],
 					'latOrigin'=>$hops[$r][18],
 					'longOrigin'=>$hops[$r][19],
-					'flagged'=>$hops[$r][21]
+					'flagged'=>$hops[$r][21],
+					'hostname'=>$hops[$r][22]
 				);
 
 
@@ -1326,7 +1332,7 @@ class Traceroute
 		//$ar2 = array(1, 3, 2, 4);
 		//array_multisort($latenciesArray,$ar2);
 /*
-	This capproach to calculate sepeed impossible distance is put
+	This approach to calculate speed impossible distance is put
 	on standby for now.. will come back to it laters ;)
 	It's way to unstable still.
 */
@@ -1373,6 +1379,7 @@ class Traceroute
 		// start loop over tr data array, where $i is an index of joined traceroute and tr_item tables
 		for($i=0;$i<count($trArr);$i++)
 		{
+			//echo '****************************'.$trArr[$i]['hostname'];
 
 			// key data for google display
 
@@ -1471,6 +1478,7 @@ class Traceroute
 				$longOrigin,
 				$lastHopIp,
 				$trArr[$i]['flagged'],
+				$trArr[$i]['hostname']
 			);
 
 			// write impossible distances to a CSV file: this method seems to be more secure and faster than doing in jQuery: NOTE: this is only for development version. It seems an overhead for production

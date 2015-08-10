@@ -653,13 +653,13 @@ var renderTr = function (trId) {
 
       if(!skipHop){
         //console.log(key +':'+ value.long+', '+value.lat);
-        var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip, value.gl_override, value.mm_city, value.mm_country);
+        var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip, value.gl_override, value.mm_city, value.mm_country, value.hostname);
         //google.maps.LatLng(value.lat, value.long);
 
         if(value.asNum in activeCarriers){
           activeCarriers[value.asNum][0]+=1;
         } else {
-          // DUPLICATE: offload this to wherever else it's being done - somewhere in the controller? Anto
+          // DUPLICATE: offload this to wherever else it's being done - somewhere in the model? Anto
           var asnName = value.asName;
           if (asnName.length > 15) {
             asnName = asnName.slice(0,15) + '...';
@@ -752,6 +752,7 @@ var renderTr = function (trId) {
           }
           var el =  '<div class="router-infowindow">'+
                     '<div><span style="font-weight: bold">'+p[index][5]+'</span><span><button id="flag-it-btn" data-asn="'+p[index][0]+'" data-hop="'+p[index][1]+'" data-ip="'+p[index][6]+'" onclick="flagActiveRouter()">Flag it!</button></span></div>'+
+                    '<div><span style="font-weight: bold">'+p[index][10]+'</div>'+
                     starsEl+
                     '<div><span>'+p[index][8]+', '+p[index][9]+'</span><span style="float: right;">'+p[index][2]+', '+p[index][3]+'</span></div>'+
                     '<div style="margin-bottom: 20px"><span>Hop '+p[index][1]+'</span><span style="float: right;">'+p[index][6]+'</span></div>'+
