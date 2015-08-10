@@ -533,8 +533,8 @@ var removeAllTrs = function() {
 var removeTr = function() {
   //console.log('removing active tr');
   if(activeTrObj!=null){
-      activeTrObj.setMap(null);
-    }
+    activeTrObj.setMap(null);
+  }
 };
 
 /* Router exclusion functions */
@@ -752,14 +752,14 @@ var renderTr = function (trId) {
             starsEl = '<div>'+renderPrivacyScore(cScore)+'</div>';
           }
           var el =  '<div class="router-infowindow">'+
-                    '<div><span style="font-weight: bold">'+p[index][5]+'</span><span><button id="flag-it-btn" data-asn="'+p[index][0]+'" data-hop="'+p[index][1]+'" data-ip="'+p[index][6]+'" onclick="flagActiveRouter()">Flag it!</button></span></div>'+
-                    '<div><span style="font-weight: bold">'+p[index][10]+'</div>'+
-                    starsEl+
-                    '<div><span>'+p[index][8]+', '+p[index][9]+'</span><span style="float: right;">'+p[index][2]+', '+p[index][3]+'</span></div>'+
-                    '<div style="margin-bottom: 20px"><span>Hop '+p[index][1]+'</span><span style="float: right;">'+p[index][6]+'</span></div>'+
-                    '<a href="javascript:viewTrDetails('+p[index][0]+');">View Details of Traceroute Id '+p[index][0]+'</a>'+
+                    '<div><span style="font-weight: bold;">Router '+p[index][1]+'</span><button id="flag-it-btn" data-asn="'+p[index][0]+'" data-hop="'+p[index][1]+'" data-ip="'+p[index][6]+'" onclick="flagActiveRouter()"><span id="flag-btn-text">Flag router</span><img id="flag-btn-img" src="/images/icon-flag.png"/></button></div>'+
+                    '<div style="margin-top: 8px; font-weight: bold;">'+p[index][10]+'</div>'+
+                    '<div style="font-weight: bold"><span>'+p[index][8]+', '+p[index][9]+'</span><span style="float: right;">'+p[index][2]+', '+p[index][3]+'</span></div>'+
+                    '<div style="margin-bottom: 20px"><span>'+p[index][5]+'</span><span style="float: right;">'+starsEl+'</span></div>'+
+                    // '<div><a href="javascript:removeThis('+p[index][0]+');">Remove This Route From Map</a></div>'+
+                    '<div><a href="javascript:removeAllButThis('+trId+');">Remove All but This Route</a></div>'+
+                    '<div><a href="javascript:viewTrDetails('+p[index][0]+');">View Details of This Route (Id '+p[index][0]+')</a></div>'+
                     '</div>'
-
           infowindow = new google.maps.InfoWindow({
             content: el
           });
@@ -975,6 +975,7 @@ var saveIpFlag = function() {
     data: obj,
     success: function (e) {
       console.log("Ok! saveIpFlag");
+      alert('Thank you for flagging this router. We will review your suggestion and update our database accordingly. In the meantime, you can view traceroutes with flagged routers removed (these and other options are available through the Gear icon on the map');
       if(e==1){
         getIpFlags(true);
       }
@@ -1098,6 +1099,7 @@ var flagCounter = 0;
 // new approach get data for this ip on demand, do not rely on tr hop number
 //var showFlags = function(routerObj, openFlagWin) {
 var showFlags = function(trId, hopN, ip, openFlagWin) {
+  //jQuery('#tr-details-iframe').hide();    TODO: should this be included?
   // set var of active router
   activeIpFlag = ip;
   activeTridFlag = trId;
@@ -1190,6 +1192,10 @@ var removeAllButThis = function(trId) {
   showThisTr(trId);
 /*  renderTr(trId);*/
 }
+
+// var removeThis = function(trId) {
+//   removeTr();
+// }
 
 var viewPrivacy = function (asNum) {
   var privacyHtml = '';
