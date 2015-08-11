@@ -1567,7 +1567,7 @@ class Traceroute
 		<table id="tr-list-table" class="tablesorter">
 		<thead>
 		<tr>
-			<th>TR Id</th>
+			<th>Id</th>
 			<th>Origin</th>
 			<th>Dest. Hostname</th>
 			<th>Date</th>

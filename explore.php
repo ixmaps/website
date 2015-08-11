@@ -245,13 +245,10 @@ geoip_close($gi1);
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <h3>Help</h3>
             <p>
-              If you're a <i>new user</i>, it may be easiest to begin with some of our canned queries in the Quick Links section.
-              For example, if you've just generated a route, you'll be able to find it be clicking on 'Examine last submitted route'
-              or by clicking on 'Examine routes by submitter' and locating your submitter name.
+              If you're a <i>new user</i>, it may be easiest to begin with some of our canned queries in the Quick Searches section. For example, if you've just generated a route, you'll be able to find it be clicking on 'Examine last submitted route' or by clicking on 'Submitted By...' and entering your submitter name.
             </p>
             <div>
-              For users more comfortable with querying databases, the Custom Filters section allows dynamic, extensible queries based
-              on many of the data fields collected by the route generator program
+              For users more comfortable with querying databases, the Custom Filters section allows dynamic, extensible queries based on many of the data fields collected by the route generator program
             </div>
             <div>
               <div>For example, to view routes that neither start nor end in Canada, a user could query:</div>
@@ -261,10 +258,17 @@ geoip_close($gi1);
               <div><b>| Does | Terminate in | City | Toronto | OR | +</b></div>
               <div><b>| Does | Terminate in | City | Ottawa |</b></div>
               <div>
-                Note that, while the query is performed on the entire IXmaps database, due to computational and bandwidth limitations
-                the server only returns the first 200 results. If you do not see the route you were looking for, it is best to add additional
-                filter constraints (e.g. Submitter).
+                Note that while the query is performed on the entire IXmaps database, due to computational and bandwidth limitations the server only returns the first 200 results. If you do not see the route you were looking for, it is best to add additional filter constraints (e.g. Submitter).
               </div>
+            </div>
+            <br/>
+            <div id="legend">
+              <h3>Map Legend</h3>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/carrierhotel_small.png" /></span><span>Carrier hotel</span></div>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/google.png" /></span><span>Google data center</span></div>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/undersea1.png" /></span><span>Undersea cable landing point</span></div>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/nsa_class_A.png" /></span><span>NSA listening post (high level of certainty)</span></div>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/nsamedium.png" /></span><span>NSA listening post (medium level of certainty)</span></div>
             </div>
           </div>
         </span>
@@ -286,10 +290,6 @@ geoip_close($gi1);
             <!-- filled in when queries are returned -->
           </div>
           <div id="map-legend" class="map-info-containers"></div>
-
-          <!-- COME BACK TO THIS - IT WILL BE IMPORTANT FOR POP OVER STUFF -->
-<!--           <div id="map-tr-active" class="map-info-containers"></div>
-          <div id="map-info" class="map-info-containers"></div> -->
         </span>
       </div>
       <!-- /map-canvas-container -->
@@ -436,6 +436,7 @@ geoip_close($gi1);
         <div>Traceroute: <span id="ip-flag-tr-id"></span>Router: <span id="ip-flag-router"></span>
         <div id="ip-flag-hostname"></div>
         <div><span id="ip-flag-location"></span><span id="ip-flag-lat-long"></span></div>
+        <div style="clear:both" />
         <div><span id="ip-flag-asn-name"></span><span id="ip-flag-star-rating"></span></div>
         <div style="clear:both" />
         <div id="ip-flag-gl-override"></div>
@@ -444,7 +445,7 @@ geoip_close($gi1);
     </div>
     <div id="ip-flags-title">
       <h3>Flag Router as Incorrect</h3>
-      Flag location of router for correction. If you believe this router is wrongly located, please so indicate, offering a more accurate location if possible.
+      If you believe this router is wrongly located, please so indicate, offering a more accurate location if possible.
     </div>
     <div id="ip-flag-insert">
       <input id="user_nick" type="text" placeholder="Username"/>

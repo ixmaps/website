@@ -490,6 +490,16 @@
   width: 25px;
 }
 
+.legend-img-container {
+  display: inline-block;
+  width: 44px;
+  vertical-align: middle;
+}
+
+.legend-img {
+  height: 22px;
+}
+
 /************ TRACEROUTES FOUND (RIGHT SIDE) ************/
 
 #traceroutes-found-container {
@@ -522,6 +532,7 @@
   background-color: yellow;
 }
 
+/* careful, this is misleading name, refers to Carrier Summary */
 #map-legend {
   max-height: 230px;
   margin-top: 5px;
