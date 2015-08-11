@@ -881,23 +881,21 @@ var createMarkerText = function(trId, route, index) {
   var nextBtnEl = '';
 
   if (hopNum > 1) {
-    previousBtnEl = '<div><button id="router-previous-btn" onclick="openPreviousRouterMarker('+trId+', '+hop[1]+')">PREVIOUS</button></div>'
+    previousBtnEl = '<button style="font-weight: bold;" onclick="openPreviousRouterMarker('+trId+', '+hop[1]+')"> < </button>'
   }
 
   if (hopNum < route.length) {
-    nextBtnEl = '<div><button id="router-next-btn" onclick="openNextRouterMarker('+trId+', '+hop[1]+')">NEXT</button></div>'
+    nextBtnEl = '<button style="font-weight: bold;" onclick="openNextRouterMarker('+trId+', '+hop[1]+')"> > </button>'
   }
 
   var el =  '<div class="router-infowindow">'+
-            '<div><span style="font-weight: bold;">Router '+hop[1]+'</span><button id="flag-it-btn" data-asn="'+hop[0]+'" data-hop="'+hop[1]+'" data-ip="'+hop[6]+'" onclick="flagActiveRouter()"><span id="flag-btn-text">Flag router</span><img id="flag-btn-img" src="/images/icon-flag.png"/></button></div>'+
+            '<div>'+previousBtnEl+'<span style="font-weight: bold;"> Router '+hop[1]+' </span>'+nextBtnEl+'<button id="flag-it-btn" data-asn="'+hop[0]+'" data-hop="'+hop[1]+'" data-ip="'+hop[6]+'" onclick="flagActiveRouter()"><span id="flag-btn-text">Flag router</span><img id="flag-btn-img" src="/images/icon-flag.png"/></button></div>'+
             '<div style="margin-top: 8px; font-weight: bold;">'+hop[10]+'</div>'+
             '<div style="font-weight: bold"><span>'+hop[8]+', '+hop[9]+'</span><span style="float: right;">'+hop[2]+', '+hop[3]+'</span></div>'+
             '<div style="margin-bottom: 20px"><span>'+hop[5]+'</span><span style="float: right;">'+starsEl+'</span></div>'+
             // '<div><a href="javascript:removeThis('+hop[0]+');">Remove This Route From Map</a></div>'+
             '<div><a href="javascript:removeAllButThis('+trId+');">Remove All but This Route</a></div>'+
             '<div><a href="javascript:viewTrDetails('+hop[0]+');">View Details of This Route (Id '+hop[0]+')</a></div>'+
-            previousBtnEl+
-            nextBtnEl+
             '</div>'
 
     return el;
