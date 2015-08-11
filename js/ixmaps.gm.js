@@ -48,7 +48,7 @@ var ipCollection = new Object();
 var cHotelData;
 var gmObjects = [];
 var infowindow = null;
-var infoRoute = null;         // used as a hackish temp store for the route with current window open
+var infowindowRoute = null;         // used as a hackish temp store for the route with current window open
 
 // gm collections of extra layers
 var gmNsa = [];
@@ -868,9 +868,8 @@ var renderTr = function (trId) {
 };
 
 var createMarkerText = function(trId, route, index) {
-  infoRoute = route;
+  infowindowRoute = route;            // make sure we keep track of which route is current relevant for the infowindows
   var hop = route[index];
-  var hopNum = hop[1];
   var cScore = getPrivacyScore(hop[4]);
   var starsEl = '';
   if (cScore > 0) {
@@ -879,13 +878,11 @@ var createMarkerText = function(trId, route, index) {
 
   var previousBtnEl = '';
   var nextBtnEl = '';
-
-  if (hopNum > 1) {
-    previousBtnEl = '<button style="font-weight: bold;" onclick="openPreviousRouterMarker('+trId+', '+hop[1]+')"> < </button>'
+  if (index > 0) {
+    previousBtnEl = '<button style="font-weight: bold;" onclick="openPreviousRouterMarker('+trId+', '+index+')"> < </button>'
   }
-
-  if (hopNum < route.length) {
-    nextBtnEl = '<button style="font-weight: bold;" onclick="openNextRouterMarker('+trId+', '+hop[1]+')"> > </button>'
+  if (index+1 < route.length) {
+    nextBtnEl = '<button style="font-weight: bold;" onclick="openNextRouterMarker('+trId+', '+index+')"> > </button>'
   }
 
   var el =  '<div class="router-infowindow">'+
@@ -901,26 +898,26 @@ var createMarkerText = function(trId, route, index) {
     return el;
 }
 
-var openNextRouterMarker = function(trId, hopNum) {
+var openNextRouterMarker = function(trId, index) {
   if (infowindow) {
     infowindow.close();
   }
-  var el = createMarkerText(trId, infoRoute, hopNum);
+  var el = createMarkerText(trId, infowindowRoute, index+1);
   infowindow = new google.maps.InfoWindow({
     content: el
   });
-  infowindow.open(map,trOcollection[hopNum]);       // no need to increment, because of arrays trOcollection and hop (in createMarkerText)
+  infowindow.open(map,trOcollection[index+1]);       // no need to increment, because of arrays trOcollection and hop (in createMarkerText)
 };
 
-var openPreviousRouterMarker = function(trId, hopNum) {
+var openPreviousRouterMarker = function(trId, index) {
   if (infowindow) {
     infowindow.close();
   }
-  var el = createMarkerText(trId, infoRoute, hopNum-2);
+  var el = createMarkerText(trId, infowindowRoute, index-1);
   infowindow = new google.maps.InfoWindow({
     content: el
   });
-  infowindow.open(map,trOcollection[hopNum-2]);       // no need to increment, because of arrays trOcollection and hop (in createMarkerText)
+  infowindow.open(map,trOcollection[index-1]);
 };
 
 var flagActiveRouter = function() {
