@@ -430,18 +430,21 @@ geoip_close($gi1);
   <div id="ip-flags" class="hidden">
     <img id="close-ip-flags" src="images/icon-close.png">
 
-    <div id="ip-flags-title">
-      <h3>Flag Router as Incorrect</h3>
-    </div>
     <div id="ip-flag-active"></div>
     <div>
       <div id="ip-flag-info">
-        <div id="ip-flag-asn-name"></div>
+        <div>Traceroute: <span id="ip-flag-tr-id"></span>Router: <span id="ip-flag-router"></span>
         <div id="ip-flag-hostname"></div>
-        <div id="ip-flag-star-rating"></div>
         <div><span id="ip-flag-location"></span><span id="ip-flag-lat-long"></span></div>
-        <div id="ip-flag-ip-address"></div>
+        <div><span id="ip-flag-asn-name"></span><span id="ip-flag-star-rating"></span></div>
+        <div style="clear:both" />
+        <div>Geolocation determined by <span id="ip-flag-gl-override"></span></div>
+        <!-- <div id="ip-flag-ip-address"></div> -->
       </div>
+    </div>
+    <div id="ip-flags-title">
+      <h3>Flag Router as Incorrect</h3>
+      Flag location of router for correction. If you believe this router is wrongly located, please so indicate, offering a more accurate location if possible.
     </div>
     <div id="ip-flag-insert">
       <input id="user_nick" type="text" placeholder="Username"/>

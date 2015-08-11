@@ -1098,6 +1098,7 @@ var renderIpFlagData = function(data){
   var ipInfo = data['ip_addr_info'][0];
   var lat = ipInfo.mm_lat;
   var lng = ipInfo.mm_long;
+  var glOverride = 'Unknown';
   // this could also be done with gl_override, but this feels safer
   if (ipInfo.mm_lat !== ipInfo.lat) {
     lat = ipInfo.lat;
@@ -1106,12 +1107,21 @@ var renderIpFlagData = function(data){
     lng = ipInfo.long;
   }
 
+  if (ipInfo.gl_override) {
+    glOverride = 'User Suggestion';
+  } else {
+    glOverride = 'Maxmind';
+  }
+
+  jQuery('#ip-flag-tr-id').text(activeTridFlag);
+  jQuery('#ip-flag-router').text(activeHopNumFlag);
   jQuery('#ip-flag-asn-name').text(ipInfo.name);        // maybe get shortname?
   jQuery('#ip-flag-hostname').text(ipInfo.hostname);
   jQuery('#ip-flag-star-rating').html(renderPrivacyScore(getPrivacyScore(ipInfo.num)));
   jQuery('#ip-flag-location').text(getCityRegionCountry(ipInfo.mm_city,ipInfo.mm_region,ipInfo.mm_country));
   jQuery('#ip-flag-lat-long').text(lat+', '+lng);
-  jQuery('#ip-flag-ip-address').text(ipInfo.ip_addr);
+  // jQuery('#ip-flag-ip-address').text(ipInfo.ip_addr);
+  jQuery('#ip-flag-gl-override').text(glOverride);
 
   var flagsT = '';
 
