@@ -438,7 +438,7 @@ geoip_close($gi1);
         <div><span id="ip-flag-location"></span><span id="ip-flag-lat-long"></span></div>
         <div><span id="ip-flag-asn-name"></span><span id="ip-flag-star-rating"></span></div>
         <div style="clear:both" />
-        <div>Geolocation determined by <span id="ip-flag-gl-override"></span></div>
+        <div id="ip-flag-gl-override"></div>
         <!-- <div id="ip-flag-ip-address"></div> -->
       </div>
     </div>

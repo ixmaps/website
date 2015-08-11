@@ -1108,9 +1108,13 @@ var renderIpFlagData = function(data){
   }
 
   if (ipInfo.gl_override) {
-    glOverride = 'User Suggestion';
+    glOverride = 'Geolocation determined by User Suggestion';
   } else {
-    glOverride = 'Maxmind';
+    if (data['ip_flags']) {
+      glOverride = 'Geolocation has been flagged as potentially inaccurate';
+    } else {
+      glOverride = 'Geolocation determined by Maxmind';
+    }
   }
 
   jQuery('#ip-flag-tr-id').text(activeTridFlag);
