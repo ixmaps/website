@@ -48,6 +48,7 @@ var ipCollection = new Object();
 var cHotelData;
 var gmObjects = [];
 var infowindow = null;
+var infoRoute = null;         // used as a hackish temp store for the route with current window open
 
 // gm collections of extra layers
 var gmNsa = [];
@@ -723,7 +724,7 @@ var renderTr = function (trId) {
 
 
             //title: "'IP: "+p[index][6]+", gl_override: "+p[index][7]+"'"
-            title: "'IP: "+p[index][6]
+            //title: "'IP: "+p[index][6]
         });
 
         // testing performance by using images as markers
@@ -745,21 +746,8 @@ var renderTr = function (trId) {
           if (infowindow) {
             infowindow.close();
           }
-          // good lord, why make this so obscure?! We had nice json to work with, and now it's all p[index][5]s
-          var cScore = getPrivacyScore(p[index][4]);
-          var starsEl = '';
-          if (cScore > 0) {
-            starsEl = '<div>'+renderPrivacyScore(cScore)+'</div>';
-          }
-          var el =  '<div class="router-infowindow">'+
-                    '<div><span style="font-weight: bold;">Router '+p[index][1]+'</span><button id="flag-it-btn" data-asn="'+p[index][0]+'" data-hop="'+p[index][1]+'" data-ip="'+p[index][6]+'" onclick="flagActiveRouter()"><span id="flag-btn-text">Flag router</span><img id="flag-btn-img" src="/images/icon-flag.png"/></button></div>'+
-                    '<div style="margin-top: 8px; font-weight: bold;">'+p[index][10]+'</div>'+
-                    '<div style="font-weight: bold"><span>'+p[index][8]+', '+p[index][9]+'</span><span style="float: right;">'+p[index][2]+', '+p[index][3]+'</span></div>'+
-                    '<div style="margin-bottom: 20px"><span>'+p[index][5]+'</span><span style="float: right;">'+starsEl+'</span></div>'+
-                    // '<div><a href="javascript:removeThis('+p[index][0]+');">Remove This Route From Map</a></div>'+
-                    '<div><a href="javascript:removeAllButThis('+trId+');">Remove All but This Route</a></div>'+
-                    '<div><a href="javascript:viewTrDetails('+p[index][0]+');">View Details of This Route (Id '+p[index][0]+')</a></div>'+
-                    '</div>'
+
+          var el = createMarkerText(trId, p, index);
           infowindow = new google.maps.InfoWindow({
             content: el
           });
@@ -877,7 +865,64 @@ var renderTr = function (trId) {
   // jQuery('#map-router-exclusion').html(routerExcHtml);
 
   removeTr();
+};
 
+var createMarkerText = function(trId, route, index) {
+  infoRoute = route;
+  var hop = route[index];
+  var hopNum = hop[1];
+  var cScore = getPrivacyScore(hop[4]);
+  var starsEl = '';
+  if (cScore > 0) {
+    starsEl = '<div>'+renderPrivacyScore(cScore)+'</div>';
+  }
+
+  var previousBtnEl = '';
+  var nextBtnEl = '';
+
+  if (hopNum > 1) {
+    previousBtnEl = '<div><button id="router-previous-btn" onclick="openPreviousRouterMarker('+trId+', '+hop[1]+')">PREVIOUS</button></div>'
+  }
+
+  if (hopNum < route.length) {
+    nextBtnEl = '<div><button id="router-next-btn" onclick="openNextRouterMarker('+trId+', '+hop[1]+')">NEXT</button></div>'
+  }
+
+  var el =  '<div class="router-infowindow">'+
+            '<div><span style="font-weight: bold;">Router '+hop[1]+'</span><button id="flag-it-btn" data-asn="'+hop[0]+'" data-hop="'+hop[1]+'" data-ip="'+hop[6]+'" onclick="flagActiveRouter()"><span id="flag-btn-text">Flag router</span><img id="flag-btn-img" src="/images/icon-flag.png"/></button></div>'+
+            '<div style="margin-top: 8px; font-weight: bold;">'+hop[10]+'</div>'+
+            '<div style="font-weight: bold"><span>'+hop[8]+', '+hop[9]+'</span><span style="float: right;">'+hop[2]+', '+hop[3]+'</span></div>'+
+            '<div style="margin-bottom: 20px"><span>'+hop[5]+'</span><span style="float: right;">'+starsEl+'</span></div>'+
+            // '<div><a href="javascript:removeThis('+hop[0]+');">Remove This Route From Map</a></div>'+
+            '<div><a href="javascript:removeAllButThis('+trId+');">Remove All but This Route</a></div>'+
+            '<div><a href="javascript:viewTrDetails('+hop[0]+');">View Details of This Route (Id '+hop[0]+')</a></div>'+
+            previousBtnEl+
+            nextBtnEl+
+            '</div>'
+
+    return el;
+}
+
+var openNextRouterMarker = function(trId, hopNum) {
+  if (infowindow) {
+    infowindow.close();
+  }
+  var el = createMarkerText(trId, infoRoute, hopNum);
+  infowindow = new google.maps.InfoWindow({
+    content: el
+  });
+  infowindow.open(map,trOcollection[hopNum]);       // no need to increment, because of arrays trOcollection and hop (in createMarkerText)
+};
+
+var openPreviousRouterMarker = function(trId, hopNum) {
+  if (infowindow) {
+    infowindow.close();
+  }
+  var el = createMarkerText(trId, infoRoute, hopNum-2);
+  infowindow = new google.maps.InfoWindow({
+    content: el
+  });
+  infowindow.open(map,trOcollection[hopNum-2]);       // no need to increment, because of arrays trOcollection and hop (in createMarkerText)
 };
 
 var flagActiveRouter = function() {
