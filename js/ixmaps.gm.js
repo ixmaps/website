@@ -1119,8 +1119,12 @@ var renderIpFlagData = function(data){
     asnName = asnName.slice(0,36) + '...';
   }
 
-  if (ipInfo.gl_override) {
-    glOverride = 'Geolocation determined by User Suggestion';
+  if (ipInfo.gl_override == 1 || ipInfo.gl_override == 2) {
+    glOverride = 'Geolocation determined by hostname parsing methods';
+  } else if (ipInfo.gl_override == 3) {
+    glOverride = 'Geolocation determined by pre/post hop patterns and latency analysis';
+  } else if (ipInfo.gl_override) {
+    glOverride = 'Geolocation determined by IXmaps internal methods';       // this should basically never come up, there are currently only 14 ips with this
   } else {
     if (data['ip_flags']) {
       glOverride = 'Geolocation has been flagged as potentially inaccurate';
