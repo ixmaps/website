@@ -33,28 +33,27 @@ geoip_close($gi1);
   <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" /> -->
 
   <!-- jQuery  -->
-
-  <!-- Get here latest jQuery: using a fixed version now for testing ... -->
   <script src="jquery-ui-1.10.1/js/jquery-1.9.1.js"></script>
   <script src="jquery-ui-1.10.1/js/jquery-ui-1.10.1.custom.js"></script>
 
-
-  <!-- These are needed to enable table sorter -->
+  <!-- Tablesorter library -->
   <script src="js/jquery.metadata.js"></script>
   <script src="js/jquery.tablesorter.min.js"></script>
   <link rel="stylesheet" href="css/tables.sorter.css" />
   <link rel="stylesheet" href="css/themes/blue/style.css" />
 
+  <!-- Toast library -->
+  <script src="jquery-toast-plugin/jquery.toast.min.js"></script>
+  <link rel="stylesheet" href="jquery-toast-plugin/jquery.toast.min.css" />
+
   <!-- Google Maps API  -->
-  <!--
-  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-   -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 
-    <!-- jQuery Utils  -->
+  <!-- jQuery Utils  -->
   <script type="text/javaScript" src="js/underscore-min.js"></script>
 
-    <!-- IXmaps config files -->
+  <!-- IXmaps config files -->
   <script type="text/javascript" src="js/config.js"></script>
   <script type="text/javascript" src="js/ixmaps.js"></script>
   <script type="text/javascript" src="js/ixmaps.gm.js"></script>

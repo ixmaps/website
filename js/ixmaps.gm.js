@@ -1015,7 +1015,14 @@ var saveIpFlag = function() {
     data: obj,
     success: function (e) {
       console.log("Ok! saveIpFlag");
-      alert('Thank you for flagging this router. We will review your suggestion and update our database accordingly. In the meantime, you can view traceroutes with flagged routers removed (these and other options are available through the Gear icon on the map');
+      jQuery.toast({
+        heading: 'Thank you for flagging this router',
+        text: 'We will review your suggestion and update our database accordingly. In the meantime, you can view traceroutes with flagged routers removed (these and other options are available through the Gear icon on the map)',
+        hideAfter: 20000,
+        allowToastClose: true,
+        position: 'mid-center',
+        icon: 'success',
+      });
       if(e==1){
         getIpFlags(true);
       }

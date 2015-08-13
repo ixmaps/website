@@ -132,6 +132,9 @@ var initialize = function() {
   loadAutoCompleteData('ISP', ' ');
   loadAutoCompleteData('submitter', ' ');
 
+  // set toast options
+
+
   jQuery('#cancel-query').click(function() {
     cancelQuery();
     hideLoader();
