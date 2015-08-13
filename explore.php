@@ -426,7 +426,7 @@ geoip_close($gi1);
     <div id="privacy-details-data">privacy-details-data</div>
   </div>
 
-  <div id="ip-flags" class="hidden">
+  <div id="ip-flags" class="ui-draggable hidden">
     <img id="close-ip-flags" src="images/icon-close.png">
 
     <div id="ip-flag-active"></div>

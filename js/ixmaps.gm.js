@@ -331,6 +331,7 @@ var loadMapData = function() {
   }, 300);
 
   jQuery('#tr-details').draggable();
+  jQuery('#ip-flags').draggable();
 
   // to prevent confusion remove all after load
   removeAllTrs();
