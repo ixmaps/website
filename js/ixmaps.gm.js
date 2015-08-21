@@ -49,6 +49,7 @@ var cHotelData;
 var gmObjects = [];
 var infowindow = null;
 var infowindowRoute = null;         // used as a hackish temp store for the route with current window open
+var infowindowTimeout;
 
 // gm collections of extra layers
 var gmNsa = [];
@@ -314,7 +315,6 @@ var loadMapData = function() {
     console.log('Google map canvas initialized !');
     showThisTr(_.last(_.keys(ixMapsDataJson)));           // show the last route (ie the one with the highest trid)
     setTableSorters();
-
   }, 300);
 
   jQuery('#tr-details').draggable();
@@ -702,17 +702,9 @@ var renderTr = function (trId) {
                 path: google.maps.SymbolPath.CIRCLE,
                 fillOpacity: 0.6,
                 fillColor: markColour,
-                  //strokeOpacity: 0.7,
-                //strokeColor: '#000000',
-                  //strokeColor: markColour,
                 strokeWeight: 0,
                 scale: 10
-                },
-            //title: "'TRid: "+p[index][0]+", Router: "+p[index][1]+", Carrier: "+p[index][5]+", IP: "+p[index][6]+", gl_override: "+p[index][7]+"'"
-
-
-            //title: "'IP: "+p[index][6]+", gl_override: "+p[index][7]+"'"
-            //title: "'IP: "+p[index][6]
+              },
         });
 
         // testing performance by using images as markers
@@ -730,20 +722,23 @@ var renderTr = function (trId) {
           viewTrDetails(p[index][0]);
         });
         google.maps.event.addListener(routerMark, 'mouseover', function() {
-          // close all other infowindows
-          if (infowindow) {
-            infowindow.close();
-          }
+          infowindowTimeout = setTimeout(function() {
+            // close all other infowindows
+            if (infowindow) {
+              infowindow.close();
+            }
 
-          var el = createMarkerText(trId, p, index);
-          infowindow = new google.maps.InfoWindow({
-            content: el
-          });
-          infowindow.open(map,routerMark);
-          //trHopMouseover(p[index][0],p[index][1],0);
-          //showFlags(p[index], false); // passing router obj, false= do not open flagging window
-          //showFlags(p[index][0], p[index][1], p[index][6], false); // passing each var
+            var el = createMarkerText(trId, p, index);
+            infowindow = new google.maps.InfoWindow({
+              content: el
+            });
+            infowindow.open(map,routerMark);
+          }, 300);
         });
+        // we want a slight delay on mouseover popups (300 milliseconds). This plus the above provide that...
+        google.maps.event.addListener(routerMark, 'mouseout', function() {
+          clearTimeout(infowindowTimeout);
+        })
 
         // var a = new Array(trId, hop, value.lat, value.long, value.asNum, value.asName, value.ip);
         routerMark.setMap(map);
@@ -1353,8 +1348,6 @@ var initializeMap = function() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-
-  //document.location.href='#tot-trs';
 
 /*  google.maps.event.addListener(map, 'click', function(event){
     //if(!mouse_in_polyline) {
