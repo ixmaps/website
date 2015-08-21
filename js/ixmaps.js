@@ -273,7 +273,6 @@ var addFilterConstraint = function () {
 
   // if the dropdown has not changed on this row, but on another
   jQuery('.constraint-text-entry').click(function(ev) {
-    console.log(ev);
     var type = jQuery(ev.target.previousSibling).val();
     bindAutocompletes(type, rowId);
   });

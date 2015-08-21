@@ -312,7 +312,6 @@ var loadMapData = function() {
   // wait a bit before loading the first TRid and other functions
   setTimeout(function(){
     initializeMap();
-    console.log('Google map canvas initialized !');
     showThisTr(_.last(_.keys(ixMapsDataJson)));           // show the last route (ie the one with the highest trid)
     setTableSorters();
   }, 300);

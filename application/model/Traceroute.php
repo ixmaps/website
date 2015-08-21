@@ -534,14 +534,14 @@ class Traceroute
 		$sql = "SELECT as_users.num, tr_item.traceroute_id, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM as_users, tr_item, traceroute, ip_addr_info WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum)";
 
 		if ($qlArray[0]['constraint2']=="lastSubmission") {
-			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of 1 results";
+			//$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of 1 results";
 			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of 1 results";
 			//will get you the id of the last traceroute submitted
 			$sql = "select id from traceroute order by sub_time desc limit 1";
 			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
 			return Traceroute::getTrSet($sql, "");
 		} else if ($qlArray[0]['constraint2']=="recentRoutes") {
-			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of 50 results";
+			//$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of 50 results";
 			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of 50 results";
 			$sql = 'select id from traceroute order by id desc limit 50';
 
@@ -602,6 +602,8 @@ class Traceroute
 		if($totTrs>$trNumLimit){
 			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of ".$c." selected results (".$totTrs." total)";
 			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of ".$c." selected results (".$totTrs." total)";
+		} else {
+			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of ".$c." results";
 		}
 
 		if($totTrs>$trNumLimit){
