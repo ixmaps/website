@@ -6,7 +6,7 @@
 var privacyRepUrl = 'https://www.ixmaps.ca/transparency-2014.php';
 
 
-var allowMultipleTrs = true; // !!
+var allowMultipleTrs = false; // !!
 var allowRecenter = true;
 
 var showHops = true;
@@ -25,7 +25,7 @@ var excludeCoord0 = true;
 var excludeCoordGen = true;
 var excludeImpDist = false;
 var excludeReservedAS = true;
-var excludeUserFlagged = false;  // REVERT ME!
+var excludeUserFlagged = true;
 var impDistLog = '';
 
 var skippedRouterNum = new Array(0,0,0,0);

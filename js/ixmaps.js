@@ -133,6 +133,11 @@ var initialize = function() {
     jQuery('#filter-results-summary').toggle();
   });
 
+  jQuery('#cancel-query').click(function() {
+    cancelQuery();
+    hideLoader();
+  });
+
   // add the first row of constraints
   addFilterConstraint();
 
@@ -145,13 +150,9 @@ var initialize = function() {
   loadAutoCompleteData('ISP', ' ');
   loadAutoCompleteData('submitter', ' ');
 
-  // set toast options
-
-
-  jQuery('#cancel-query').click(function() {
-    cancelQuery();
-    hideLoader();
-  });
+  // flip settings for this version
+  setAllowMultipleTrs();
+  excludeE();       // c'mon, for serious?
 
   // since we now want the last submitted route to be shown on landing
   submitLastSubmissionObject();
