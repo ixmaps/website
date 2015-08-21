@@ -96,16 +96,21 @@
 
 #tr-details, #ip-flags {
   position: fixed;
-  left: 5%;
   z-index: 1000;
-  top: 5%;
   background: #fff;
   border: 1px solid black;
   border-radius: 12px;
 }
 
+#tr-details {
+  top: 3%;
+  left: 5%;
+}
+
 #ip-flags {
   width: 400px;
+  top: 10%;
+  right: 5%;
 }
 
 #privacy-details {
@@ -120,14 +125,19 @@
   border-radius: 12px;
 }
 
-#tr-details-close, #ip-flags-close, #privacy-details-close {
+#tr-details-close-btn, #ip-flags-close, #privacy-details-close {
   margin: 10px;
   float: right;
 }
 
-#tr-details-close img, #ip-flags-close img, #privacy-details-close img {
+#privacy-details-close img {
   width: 25px
 }
+
+.href-container {
+  border-bottom: none;
+}
+
 .privacy-score-col-non-zero {
   font-size: 14px;
   font-weight: bold;
@@ -178,7 +188,8 @@
 
 #tr-details-iframe {
   width: 1000px;
-  height: 600px;
+  height: 500px;
+  margin: 20px 0px 10px 15px;
 }
 
 /* redefining jQuery ui-widget */
@@ -451,26 +462,28 @@
   margin-bottom: -4px;
 }
 
-#options-btn {
+#options-btn, #layers-btn, #help-btn {
   position: absolute;
+  cursor: pointer;
+  /* filters icons on greyscale - likely to be adopted on a more consistent crossbrowser scale soon, but for now... */
+  filter: invert(50%);
+  -webkit-filter: invert(50%);
+}
+
+#options-btn {
   bottom: 158px;
   left: 28px;
-  cursor: pointer;
 }
 
 #layers-btn {
-  position: absolute;
   bottom: 118px;
   left: 28px;
-  cursor: pointer;
 }
 
 #help-btn {
-  position: absolute;
   bottom: 82px;
   left: 29px;
   width: 30px;
-  cursor: pointer;
 }
 
 .map-icon-popup-container {

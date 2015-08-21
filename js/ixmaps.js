@@ -67,6 +67,15 @@ var initialize = function() {
     jQuery('#ip-flags').fadeOut('fast');
   });
 
+  jQuery('#tr-details-close-btn').click(function() {
+    jQuery('#tr-details').hide();
+    removeTr();
+  });
+
+  jQuery('#privacy-details-close-btn').click(function() {
+    jQuery('#privacy-details').hide();
+  });
+
   jQuery('#last-submission-button').click(function() {
     submitLastSubmissionObject();
   });

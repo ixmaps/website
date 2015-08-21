@@ -404,11 +404,7 @@ geoip_close($gi1);
   <br/>
 
   <div id="tr-details" class="hidden">
-    <div id="tr-details-close">
-      <a href="javascript:closeTrDetails();">
-        <img src="images/icon-close.png">
-      </a>
-    </div>
+    <img id="tr-details-close-btn" class="map-icon-close-btn" src="images/icon-close.png">
 
     <div id="tr-details-data">
       <iframe id="tr-details-iframe" src=""></iframe>
@@ -416,11 +412,7 @@ geoip_close($gi1);
   </div>
 
   <div id="privacy-details" class="hidden">
-    <div id="privacy-details-close">
-      <a href="javascript:closePrivacy();">
-        <img src="images/icon-close.png">
-      </a>
-    </div>
+    <img id="privacy-details-close-btn" class="map-icon-close-btn" src="images/icon-close.png">
     <div id="carrier-title"></div>
     <div style="clear: both;"></div>
     <div id="privacy-details-data">privacy-details-data</div>

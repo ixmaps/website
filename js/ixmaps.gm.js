@@ -1313,20 +1313,11 @@ var viewPrivacy = function (asNum) {
   jQuery('#privacy-details-data').html(privacyHtml);
 };
 
-var closePrivacy = function() {
-  jQuery('#privacy-details').hide();
-};
-
 var viewTrDetails = function (trId) {
   renderTr2(trId);
   jQuery('#tr-details').fadeIn('slow');
   var url = url_base+'/cgi-bin/tr-query.cgi?query_type=traceroute_id&arg='+trId;
   jQuery('#tr-details-iframe').attr('src', url);
-};
-
-var closeTrDetails = function() {
-  jQuery('#tr-details').hide();
-  removeTr();
 };
 
 var getCityRegionCountry = function(city, region, country) {
