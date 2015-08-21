@@ -251,6 +251,7 @@ geoip_close($gi1);
         <div id="filter-container">
           <!-- these will filled in by addFilterConstraint -->
         </div>
+        <div id="filter-results-summary-container" style="float: left;">Search results details...</div>
         <div style="float: right;">
           <span>
             <button id="reset-filters-button" class="action-button">Reset Values</button>
@@ -259,10 +260,12 @@ geoip_close($gi1);
             <button id="process-filters-button" class="action-button"><b>Submit</b></button>
           </span>
         </div>
+        <div style="clear: both;"></div>
+        <div id="filter-results-summary" class="hidden" style="float: left;"></div>
       </span>
 
       <!-- tables? for real!? -->
-      <span id="quick-search-container" style="float:right">
+      <span id="quick-search-container" style="float: right">
         <h3>Quick Searches</h3>
         <table>
           <tr>

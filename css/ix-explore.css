@@ -368,6 +368,18 @@
   margin-bottom: 20px;
 }
 
+#filter-results-summary-container {
+  margin-top: 25px;
+  margin-left: 5px;
+  color: #10578b;
+  cursor: pointer;
+}
+
+#filter-results-summary {
+  margin-left: 5px;
+  color: black;
+}
+
 .action-button {
   font-size: 13px;
   width: 100px;

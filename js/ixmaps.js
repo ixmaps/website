@@ -129,6 +129,10 @@ var initialize = function() {
     toggleText();
   });
 
+  jQuery('#filter-results-summary-container').click(function() {
+    jQuery('#filter-results-summary').toggle();
+  });
+
   // add the first row of constraints
   addFilterConstraint();
 
@@ -397,10 +401,11 @@ var submitQuery = function(obj) {
         /*jQuery('#map-core-controls').show();*/
         jQuery('#filter-results').html(data.trsTable);
         jQuery('#filter-results-log').html(data.queryLogs);
+        jQuery('#filter-results-summary').html(data.querySummary);
       } else {
-
         jQuery('#filter-results-log').show();
         jQuery('#filter-results-log').html(data.queryLogs);
+        jQuery('#filter-results-summary').html(data.querySummary);
       }
 
       hideLoader();

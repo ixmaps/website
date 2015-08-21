@@ -186,7 +186,7 @@ class Traceroute
 	*/
 	public static function getTrSet($sql, $wParam)
 	{
-		global $dbconn, $dbQueryHtml;
+		global $dbconn, $dbQueryHtml, $dbQuerySummary;
 		//echo $sql;
 		$trSet = array();
 
@@ -201,7 +201,7 @@ class Traceroute
 
 
 		$data = array();
-		//$dbQueryHtml.='<hr/>'.$sql;
+		//$dbQuerySummary.='<hr/>'.$sql;
 		//$data1 = array();
 		$id_last = 0;
 
@@ -216,7 +216,7 @@ class Traceroute
 		    $id_last=$id;
 		}
 		$data1 = array_unique($data);
-		//$dbQueryHtml .= " | Traceroutes: <b>".count($data1).'</b>';
+		$dbQuerySummary .= " | Traceroutes: <b>".count($data1).'</b>';
 		pg_free_result($result);
 		// Closing connection ??
 		//pg_close($dbconn);
@@ -337,7 +337,7 @@ class Traceroute
 	*/
 	public static function getTraceRoute($data)
 	{
-		global $dbconn, $dbQueryHtml;
+		global $dbconn, $dbQueryHtml, $dbQuerySummary;
 		$result = array();
 		$trSets = array();
 		$conn = 0;
@@ -349,9 +349,7 @@ class Traceroute
 		// loop constraints
 		foreach($data as $constraint)
 		{
-		//if($ixmaps_debug_mode) {
-			//$dbQueryHtml .= '<br><b>'.$constraint['constraint1'].' : '.$constraint['constraint2'].' : '.$constraint['constraint3'].' : '.$constraint['constraint4'].' : '.$constraint['constraint5'].'</b>';
-		//}
+			$dbQuerySummary .= '<br><b>'.$constraint['constraint1'].' : '.$constraint['constraint2'].' : '.$constraint['constraint3'].' : '.$constraint['constraint4'].' : '.$constraint['constraint5'].'</b>';
 
 			$w = '';
 			$wParams = array();
@@ -426,7 +424,7 @@ class Traceroute
  					$wParams = Traceroute::buildWhere($constraint);
  					$w.=''.$wParams[0];
 
- 					//$dbQueryHtml.='<BR/>CASE B:';
+ 					//$dbQuerySummary.='<BR/>CASE B:';
 
  				} else if($tApproach==1){
 
@@ -440,7 +438,7 @@ class Traceroute
 	 				$wParams = Traceroute::buildWhere($constraint);
  					$w.=''.$wParams[0];
 
-	 				//$dbQueryHtml.='<BR/>CASE A:';
+	 				//$dbQuerySummary.='<BR/>CASE A:';
 	 			}
 
 				$sql .=$w.$sqlOrder;
@@ -471,7 +469,7 @@ class Traceroute
 			//echo '<br/><i>'.$sql.'</i>';
 
 			// add SQL to log file
-			//$dbQueryHtml.='<br/>'.$sql;
+			//$dbQuerySummary.='<br/>'.$sql;
 
 			$conn++;
 
@@ -508,13 +506,13 @@ class Traceroute
 				$trSetResult = array_merge($empty, $trSetResultTemp);
 			}
 
-			//$dbQueryHtml .='<hr/>'.$sql;
+			//$dbQuerySummary .='<hr/>'.$sql;
 		} // end for
 			$trSetResultLast =  array_unique($trSetResult);
 
 		// FIXME: move this to the client. make this count based on the # of TR resulting in the set
 		// It's already done. need to fix UI loading of data
-		//$dbQueryHtml .= '<br/>Total traceroutes : <b>'.count($trSetResultLast)."</b>";
+		$dbQuerySummary .= '<br/>Total traceroutes : <b>'.count($trSetResultLast)."</b><br />";
 
 		//echo '<hr/>getTraceRoute: '.memory_get_usage();
 		unset($trSetResult);
@@ -531,22 +529,24 @@ class Traceroute
 	// process the quicklinks with canned SQL
 	public static function processQuickLink($qlArray)
 	{
-		global $dbQueryHtml;
+		global $dbQueryHtml, $dbQuerySummary;
 		// base sql
 		$sql = "SELECT as_users.num, tr_item.traceroute_id, traceroute.id, ip_addr_info.mm_city, ip_addr_info.ip_addr, ip_addr_info.asnum FROM as_users, tr_item, traceroute, ip_addr_info WHERE (tr_item.traceroute_id=traceroute.id) AND (ip_addr_info.ip_addr=tr_item.ip_addr) AND (as_users.num=ip_addr_info.asnum)";
 
 		if ($qlArray[0]['constraint2']=="lastSubmission") {
 			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of 1 results";
+			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of 1 results";
 			//will get you the id of the last traceroute submitted
 			$sql = "select id from traceroute order by sub_time desc limit 1";
 			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
 			return Traceroute::getTrSet($sql, "");
 		} else if ($qlArray[0]['constraint2']=="recentRoutes") {
 			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of 50 results";
-  			$sql = 'select id from traceroute order by id desc limit 50';
+			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of 50 results";
+			$sql = 'select id from traceroute order by id desc limit 50';
 
-  			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
-  			return Traceroute::getTrSet($sql, "");
+			//echo '<hr/>'.$qlArray[0]['constraint2'].'<br/>SQL: '.$sql;
+			return Traceroute::getTrSet($sql, "");
 		} else {
 			return array();
 		}
@@ -559,7 +559,7 @@ class Traceroute
 
 	public static function getIxMapsData($data)
 	{
-		global $dbconn, $trNumLimit, $dbQueryHtml;
+		global $dbconn, $trNumLimit, $dbQueryHtml, $dbQuerySummary;
 		$result = array();
 		$totTrs = count($data);
 		//echo '<br/>Tot: '.$totTrs;
@@ -601,12 +601,13 @@ class Traceroute
 
 		if($totTrs>$trNumLimit){
 			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of ".$c." selected results (".$totTrs." total)";
+			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of ".$c." selected results (".$totTrs." total)";
 		}
 
-		// if($totTrs>$trNumLimit){
-		// 	$dbQueryHtml .= '<p style="color:red;">
-		// 	Showing a sample of <b>'.$c.' traceroutes</b>.</p>';
-		// }
+		if($totTrs>$trNumLimit){
+			$dbQuerySummary .= '<p style="color:red;">
+			Showing a sample of <b>'.$c.' traceroutes</b>.</p>';
+		}
 		// free some memory
 		unset($data);
 
