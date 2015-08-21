@@ -138,6 +138,8 @@ geoip_close($gi1);
 
     <div style="clear: both;"></div>
 
+    <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, <span href="#" title="This should explain how flagging is done. What do we think of these tool tips?">please flag it</span></div>
+
     <div id="explore-content">
       <div id="loader" style="display: none">
         <div id="loader-mask"></div>
@@ -149,56 +151,6 @@ geoip_close($gi1);
           </div>
         </div>
       </div>
-      <!-- tabs -->
-<!--
-        <div id="tabs-2">
-          <h3>Selected Routes</h3>
-          <br/>
-          <a href="javascript:submitCustomQuery(1859);">Toronto to San Francisco (#1859)</a><br/>
-          <a href="javascript:submitCustomQuery(1486);">Vancouver to Halifax (#1486)</a><br/>
-          <a href="javascript:submitCustomQuery(1474);">Vancouver to Thunder Bay (#1474)</a><br/>
-          <a href="javascript:submitCustomQuery(3445);">New York to San Francisco (#3445)</a><br/>
-          <a href="javascript:submitCustomQuery(1751);">Austin to San Francisco (#1751)</a><br/>
-          <a href="javascript:submitCustomQuery(1577);">Honolulu to Prince Edward Island (#1577)</a>
-          <br/>
-          <br/>
-          <a href="javascript:showTestedCarriers();">Show Carriers TR Sample</a>
-        </div>
-
-      </div>
-
- -->
-
-      <div style="clear: both"></div>
-      <!-- Map  options -->
-      <!-- FIXME add all this calls to javascript functions in jquery -->
-      <a name="tot-trs" id="tot-trs" style="height: 0px;"></a>
-      <div id="map-container">
-        <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, <span href="#" title="This should explain how flagging is done. What do we think of these tool tips?">please flag it</span></div>
-<!--         <div id="map-core-controls" class="hidden" style="float:right;">
-          <div id="map-status-info" class="" style="float:left;">
-            <span id="map-loading-status"></span>
-          </div>
-          <div style="float:left;">
-            <input class="map-tool-off" type="button" onMouseDown="addAllTrs()" value="Add All"/>
-            <input class="map-tool-off" type="button" onMouseDown="removeAllTrs()" value="Remove All"/>
-          </div>
-        </div> -->
-
-        <div id="map-stats-container">
-          <!-- Check the css for this, some not used now  -->
-          <div id="map-info-global" class="map-info-containers hidden">
-            <span id="map-info-total"></span>
-            <br/>
-            <span id="map-router-exclusion"></span>
-            <br/>
-            <span id="map-impossible-distance-log"></span>
-          </div>
-        </div>
-      </div>
-      <!-- / map-container -->
-
-      <div style="clear:both;"></div>
 
       <!-- map-canvas-container -->
       <div id="map-canvas-container">
@@ -218,7 +170,6 @@ geoip_close($gi1);
               <input id="map-show-hops" class="map-tool-on" type="button" onMouseDown="setShowHops()" value="Hops"/>
               <input id="map-show-routers" class="map-tool-on" type="button" onMouseDown="setShowRouters()" value="Routers"/>
               <input id="map-show-marker-origin" class="map-tool-off" type="button" onMouseDown="setAddMarkerInOrigin()" value="Marker in Origin"/>
-              <input id="map-show-info-global" class="map-tool-off" type="button" onMouseDown="setShowInfoGlobal()" value="Advanced Log"/>
             </div>
             <div id="map-op-2" class="map-actions-controls">
               <h4>Exclude Routers</h4>

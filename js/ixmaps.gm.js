@@ -108,19 +108,6 @@ var renderCollectedCoords = function(){
 
 };
 
-var setShowInfoGlobal = function(){
-  if(showMapInfoGlobal){
-    showMapInfoGlobal=false;
-    jQuery("#map-show-info-global").removeClass("map-tool-on").addClass("map-tool-off");
-    jQuery("#map-info-global").hide();
-  } else {
-    showMapInfoGlobal=true;
-    jQuery("#map-show-info-global").removeClass("map-tool-off").addClass("map-tool-on");
-    jQuery("#map-info-global").show();
-  }
-  console.log('showMapInfoGlobal',showMapInfoGlobal);
-};
-
 var setShowHops = function(){
   if(showHops){
     showHops=false;
