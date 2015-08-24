@@ -77,42 +77,54 @@ var initialize = function() {
   });
 
   jQuery('#last-submission-button').click(function() {
+    // we clear here so that if they've previousy chosen another quick select, the selectors will be (slightly) less inaccurate (since they won't reset with last/recent). I haven't bothered with the dropdowns, since we will eventually be adding a time related dropdown which will render this all moot
+    jQuery('#filter-constraint-1 .ui-autocomplete-input').val('');
     submitLastSubmissionObject();
   });
 
   jQuery('#recent-routes-button').click(function() {
+    // we clear here so that if they've previousy chosen another quick select, the selectors will be (slightly) less inaccurate (since they won't reset with last/recent). I haven't bothered with the dropdowns, since we will eventually be adding a time related dropdown which will render this all moot
+    jQuery('#filter-constraint-1 .ui-autocomplete-input').val('');
     submitRecentRoutesObject();
   });
 
   jQuery('#my-city-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitMyCityObject();
   });
 
   jQuery('#my-country-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitMyCountryObject();
   });
 
   jQuery('#all-boomerangs-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitBoomerangObject();
   });
 
   jQuery('#contain-NSA-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitNSAObject();
   });
 
   jQuery('#destination-ixmaps').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitDestinationIXmapsObject();
   });
 
   jQuery('#non-US-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitNonUSObject();
   });
 
   jQuery('#submitted-by-button').click(function() {
+    jQuery('#filter-constraint-1 .ui-autocomplete-input').effect("highlight", {}, 3000);
     submitSubmittedBy();
   });
 
   jQuery('#submitted-from-button').click(function() {
+    jQuery('#filter-constraint-1 .ui-autocomplete-input').effect("highlight", {}, 3000);
     submitSubmittedFrom();
   });
 
