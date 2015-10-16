@@ -99,7 +99,6 @@ var initialize = function() {
     cancelQuery();
     hideLoader();
   });
-
 }
 
 var submitNSAObject = function() {
