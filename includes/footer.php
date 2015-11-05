@@ -79,7 +79,7 @@ include('application/config.php');
 		</div>
 
 		<aside class="footer-segment">
-				<p>The IXmaps website is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License.
+				<p>The IXmaps website is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US" target="_blank" alt=" CC Attribution-NonCommercial-ShareAlike 4.0 International"> Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 <?php
 	//  fixed by ANTO
