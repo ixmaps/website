@@ -24,48 +24,110 @@ var hostNameTags = [];
 var trIdTags = [];
 
 var initialize = function() {
+  // default settings
+  jQuery(function() {
+    jQuery( document ).tooltip();
+  });
+
   // onclick events
+  jQuery('#remove-all-trs-btn').click(function() {
+    removeAllTrs();
+  });
+
+  jQuery('#add-all-trs-btn').click(function() {
+    addAllTrs();
+  });
+
   jQuery('.ql-button').click(function() {
-    console.log('start here');
+    jQuery('.ql-button').removeClass('selected');
+    jQuery(this).addClass('selected');
+  });
+
+  jQuery('#options-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
+    jQuery('#options-container').toggle();
+  });
+
+  jQuery('#layers-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
+    jQuery('#layers-container').toggle();
+  });
+
+  jQuery('#help-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
+    jQuery('#help-container').toggle();
+  });
+
+  jQuery('.map-icon-close-btn').click(function() {
+    jQuery('.map-icon-popup-container').hide();
+  });
+
+  jQuery('#close-ip-flags').click(function() {
+    jQuery('#ip-flags-data').hide();
+    jQuery('#ip-flags').fadeOut('fast');
+  });
+
+  jQuery('#tr-details-close-btn').click(function() {
+    jQuery('#tr-details').hide();
+    removeTr();
+  });
+
+  jQuery('#privacy-details-close-btn').click(function() {
+    jQuery('#privacy-details').hide();
   });
 
   jQuery('#last-submission-button').click(function() {
+    // we clear here so that if they've previousy chosen another quick select, the selectors will be (slightly) less inaccurate (since they won't reset with last/recent). I haven't bothered with the dropdowns, since we will eventually be adding a time related dropdown which will render this all moot
+    jQuery('#filter-constraint-1 .ui-autocomplete-input').val('');
     submitLastSubmissionObject();
   });
 
   jQuery('#recent-routes-button').click(function() {
+    // we clear here so that if they've previousy chosen another quick select, the selectors will be (slightly) less inaccurate (since they won't reset with last/recent). I haven't bothered with the dropdowns, since we will eventually be adding a time related dropdown which will render this all moot
+    jQuery('#filter-constraint-1 .ui-autocomplete-input').val('');
     submitRecentRoutesObject();
   });
 
   jQuery('#my-city-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitMyCityObject();
   });
 
   jQuery('#my-country-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitMyCountryObject();
   });
 
   jQuery('#all-boomerangs-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitBoomerangObject();
   });
 
-  jQuery('#all-submitters-button').click(function() {
-    submitAllSubmittersObject();
+  jQuery('#contain-NSA-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
+    submitNSAObject();
   });
 
-  jQuery('#all-postal-codes-button').click(function() {
-    submitAllSubmittersObject();
-  });
-
-  jQuery('#non-CA-button').click(function() {
-    submitNonCAObject();
+  jQuery('#destination-ixmaps').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
+    submitDestinationIXmapsObject();
   });
 
   jQuery('#non-US-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitNonUSObject();
   });
 
-  // advanced query buttons
+  jQuery('#submitted-by-button').click(function() {
+    jQuery('#filter-constraint-1 .ui-autocomplete-input').effect("highlight", {}, 3000);
+    submitSubmittedBy();
+  });
+
+  jQuery('#submitted-from-button').click(function() {
+    jQuery('#filter-constraint-1 .ui-autocomplete-input').effect("highlight", {}, 3000);
+    submitSubmittedFrom();
+  });
+
   jQuery('#process-filters-button').click(function() {
     processFilters();
   });
@@ -79,8 +141,13 @@ var initialize = function() {
     toggleText();
   });
 
-  jQuery('#contain-NSA-button').click(function() {
-    submitNSAObject();
+  jQuery('#filter-results-summary-container').click(function() {
+    jQuery('#filter-results-summary').toggle();
+  });
+
+  jQuery('#cancel-query').click(function() {
+    cancelQuery();
+    hideLoader();
   });
 
   // add the first row of constraints
@@ -95,11 +162,23 @@ var initialize = function() {
   loadAutoCompleteData('ISP', ' ');
   loadAutoCompleteData('submitter', ' ');
 
+
   jQuery('#cancel-query').click(function() {
     cancelQuery();
     hideLoader();
   });
+
+  // flip settings for this version
+  setAllowMultipleTrs();
+  excludeE();       // c'mon, for serious?
+
+  // since we now want the last submitted route to be shown on landing
+  submitLastSubmissionObject();
+  // show button as selected
+  jQuery('#last-submission-button').addClass('selected');
+
 }
+
 
 var submitNSAObject = function() {
   resetFilterConstraints();
@@ -133,7 +212,7 @@ var submitNSAObject = function() {
 var addFilterConstraint = function () {
   // creating the row
   var filterLine = "<div class='filter-item'>";
-  filterLine += "<select class='constraint' class='hide'>";
+  filterLine += "<select class='constraint' class='hidden'>";
   filterLine += "<option value='does'>Does</option>";
   filterLine += "<option value='doesNot'>Does not</option>";
   filterLine += "</select>";
@@ -146,20 +225,19 @@ var addFilterConstraint = function () {
   filterLine += "</select>";
 
   filterLine += "<select class='constraint constraint-dropdown'>";
+  filterLine += "<option value='trId'>Traceroute Id</option>";
+  filterLine += "<option value='ipAddr'>IP Address</option>";
+  filterLine += "<option value='asnum'>AS Number</option>";
+  filterLine += "<option value='hostName'>Hostname</option>";
+  filterLine += "<option value='ISP'>ISP/Carrier</option>";
   filterLine += "<option value='country'>Country</option>";
   filterLine += "<option value='region'>Province/State</option>";
+  filterLine += "<option value='zipCode'>Postcode</option>";
   filterLine += "<option value='city'>City</option>";
-  filterLine += "<option value='ISP'>ISP/Carrier</option>";
-  filterLine += "<option value='asnum'>AS number</option>";
-  filterLine += "<option value='zipCode'>Zip code/Postal</option>";
-  filterLine += "<option value='submitter'>Submitter</option>";
-  filterLine += "<option value='zipCodeSubmitter'>Zip Code/Postal (Submitter)</option>";
+  filterLine += "<option value='destHostName'>Destination Hostname</option>";
+  filterLine += "<option value='submitter'>Submitter Name</option>";
+  filterLine += "<option value='zipCodeSubmitter'>Submitter Postcode</option>";
   //filterLine += "<option value='NSA'>NSA</option>";
-  filterLine += "<option value='destHostName'>Destination Host Name</option>";
-  filterLine += "<option value='ipAddr'>IP Address</option>";
-  filterLine += "<option value='hostName'>Host Name</option>";
-  filterLine += "<option value='trId'>Traceroute Id</option>";
-
   filterLine += "</select>";
   filterLine += "<input class='constraint constraint-text-entry' type='text'/>";
   filterLine += "</div>";
@@ -214,7 +292,6 @@ var addFilterConstraint = function () {
 
   // if the dropdown has not changed on this row, but on another
   jQuery('.constraint-text-entry').click(function(ev) {
-    console.log(ev);
     var type = jQuery(ev.target.previousSibling).val();
     bindAutocompletes(type, rowId);
   });
@@ -316,9 +393,9 @@ var processFilters = function() {
 var submitQuery = function(obj) {
   console.log('Submitting...');
   submittedObj = obj;
-  jQuery('#map-canvas-container').hide();
-  jQuery('#map-container').hide();
-  jQuery('#filter-results').hide();
+  // jQuery('#map-canvas-container').hide();
+  // jQuery('#map-container').hide();
+  // jQuery('#filter-results').hide();
   jQuery('#filter-results-log').html('');
   /*jQuery('#map-core-controls').hide();*/
   showLoader();
@@ -326,7 +403,7 @@ var submitQuery = function(obj) {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Query submitted");
+      console.log("Query submitted", e);
       //if(e!=0){
       var data = jQuery.parseJSON(e);
       if(data.totTrs!=undefined){
@@ -343,10 +420,11 @@ var submitQuery = function(obj) {
         /*jQuery('#map-core-controls').show();*/
         jQuery('#filter-results').html(data.trsTable);
         jQuery('#filter-results-log').html(data.queryLogs);
+        jQuery('#filter-results-summary').html(data.querySummary);
       } else {
-
         jQuery('#filter-results-log').show();
         jQuery('#filter-results-log').html(data.queryLogs);
+        jQuery('#filter-results-summary').html(data.querySummary);
       }
 
       hideLoader();
@@ -610,14 +688,14 @@ var submitBoomerangObject = function() {
   jQuery(a[4]).val('AND');
 };
 
-var submitNonCAObject = function() {
+var submitDestinationIXmapsObject = function() {
   resetFilterConstraints();
   var a;
   a = jQuery('#filter-constraint-1 .constraint');
-  jQuery(a[0]).val('doesNot');
-  jQuery(a[1]).val('contain');
-  jQuery(a[2]).val('country');
-  jQuery(a[3]).val('CA');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('terminate');
+  jQuery(a[2]).val('destHostName');
+  jQuery(a[3]).val('ixmaps.ca');
   jQuery(a[4]).val('AND');
 };
 
@@ -632,6 +710,28 @@ var submitNonUSObject = function() {
   jQuery(a[4]).val('AND');
 };
 
+var submitSubmittedBy = function() {
+  resetFilterConstraints();
+  var a;
+  a = jQuery('#filter-constraint-1 .constraint');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('contain');
+  jQuery(a[2]).val('submitter');
+  jQuery(a[3]).val('Enter name here...');
+  jQuery(a[4]).val('AND');
+};
+
+var submitSubmittedFrom = function() {
+  resetFilterConstraints();
+  var a;
+  a = jQuery('#filter-constraint-1 .constraint');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('contain');
+  jQuery(a[2]).val('zipCodeSubmitter');
+  jQuery(a[3]).val('Enter postcode here...');
+  jQuery(a[4]).val('AND');
+};
+
 var toggleText = function() {
   jQuery('.expandable').toggle();
   if (jQuery('#custom-filters-more-button').text() === "[more]") {
@@ -641,11 +741,13 @@ var toggleText = function() {
   }
 };
 
-var asnColours = '{"174":"E431EB","3356":"EB7231","7018":"42EDEA","7132":"42EDEA","-1":"676A6B","577":"3D49EB","1239":"ECF244","6461":"E3AEEB","6327":"9C6846","6453":"676A6B","3561":"676A6B","812":"ED0924","20453":"ED0924","852":"4BE625","13768":"419C6B","3257":"676A6B","1299":"676A6B","22822":"676A6B","6939":"676A6B","376":"676A6B","32613":"676A6B","6539":"3D49EB","15290":"676A6B","5769":"676A6B","855":"676A6B","26677":"676A6B","271":"676A6B","6509":"676A6B","3320":"676A6B","23498":"676A6B","549":"676A6B","239":"676A6B","11260":"676A6B","1257":"676A6B","20940":"676A6B","23136":"676A6B","5645":"676A6B","21949":"676A6B","8111":"676A6B","13826":"676A6B","16580":"676A6B","9498":"676A6B","802":"676A6B","19752":"676A6B","11854":"676A6B","7992":"676A6B","17001":"676A6B","611":"676A6B","19080":"676A6B","26788":"676A6B","12021":"676A6B","33554":"676A6B","30528":"676A6B","16462":"676A6B","11700":"676A6B","14472":"676A6B","13601":"676A6B","11032":"676A6B","12093":"676A6B","10533":"676A6B","26071":"676A6B","32156":"676A6B","5764":"676A6B","27168":"676A6B","33361":"676A6B","32489":"676A6B","15296":"676A6B","10400":"676A6B","10965":"676A6B","18650":"676A6B","36522":"676A6B","19086":"676A6B"}';
+// var asnColours = '{"174":"E431EB","3356":"EB7231","7018":"42EDEA","7132":"42EDEA","-1":"676A6B","577":"3D49EB","1239":"ECF244","6461":"E3AEEB","6327":"9C6846","6453":"676A6B","3561":"676A6B","812":"ED0924","20453":"ED0924","852":"4BE625","13768":"419C6B","3257":"676A6B","1299":"676A6B","22822":"676A6B","6939":"676A6B","376":"676A6B","32613":"676A6B","6539":"3D49EB","15290":"676A6B","5769":"676A6B","855":"676A6B","26677":"676A6B","271":"676A6B","6509":"676A6B","3320":"676A6B","23498":"676A6B","549":"676A6B","239":"676A6B","11260":"676A6B","1257":"676A6B","20940":"676A6B","23136":"676A6B","5645":"676A6B","21949":"676A6B","8111":"676A6B","13826":"676A6B","16580":"676A6B","9498":"676A6B","802":"676A6B","19752":"676A6B","11854":"676A6B","7992":"676A6B","17001":"676A6B","611":"676A6B","19080":"676A6B","26788":"676A6B","12021":"676A6B","33554":"676A6B","30528":"676A6B","16462":"676A6B","11700":"676A6B","14472":"676A6B","13601":"676A6B","11032":"676A6B","12093":"676A6B","10533":"676A6B","26071":"676A6B","32156":"676A6B","5764":"676A6B","27168":"676A6B","33361":"676A6B","32489":"676A6B","15296":"676A6B","10400":"676A6B","10965":"676A6B","18650":"676A6B","36522":"676A6B","19086":"676A6B"}';
+
+var asnColours = '{"174":"rgb(228,49,235)","3356":"rgb(235,114,49)","7018":"rgb(66,237,234)","7132":"rgb(66,237,234)","-1":"rgb(103,106,107)","577":"rgb(61,73,235)","1239":"rgb(236,242,68)","6461":"rgb(227,174,235)","6327":"rgb(156,104,70)","6453":"rgb(103,106,107)","3561":"rgb(103,106,107)","812":"rgb(237,9,36)","20453":"rgb(237,9,36)","852":"rgb(75,230,37)","13768":"rgb(65,156,107)","3257":"rgb(103,106,107)","1299":"rgb(103,106,107)","22822":"rgb(103,106,107)","6939":"rgb(103,106,107)","376":"rgb(103,106,107)","32613":"rgb(103,106,107)","6539":"rgb(61,73,235)","15290":"rgb(103,106,107)","5769":"rgb(103,106,107)","855":"rgb(103,106,107)","26677":"rgb(103,106,107)","271":"rgb(103,106,107)","6509":"rgb(103,106,107)","3320":"rgb(103,106,107)","23498":"rgb(103,106,107)","549":"rgb(103,106,107)","239":"rgb(103,106,107)","11260":"rgb(103,106,107)","1257":"rgb(103,106,107)","20940":"rgb(103,106,107)","23136":"rgb(103,106,107)","5645":"rgb(103,106,107)","21949":"rgb(103,106,107)","8111":"rgb(103,106,107)","13826":"rgb(103,106,107)","16580":"rgb(103,106,107)","9498":"rgb(103,106,107)","802":"rgb(103,106,107)","19752":"rgb(103,106,107)","11854":"rgb(103,106,107)","7992":"rgb(103,106,107)","17001":"rgb(103,106,107)","611":"rgb(103,106,107)","19080":"rgb(103,106,107)","26788":"rgb(103,106,107)","12021":"rgb(103,106,107)","33554":"rgb(103,106,107)","30528":"rgb(103,106,107)","16462":"rgb(103,106,107)","11700":"rgb(103,106,107)","14472":"rgb(103,106,107)","13601":"rgb(103,106,107)","11032":"rgb(103,106,107)","12093":"rgb(103,106,107)","10533":"rgb(103,106,107)","26071":"rgb(103,106,107)","32156":"rgb(103,106,107)","5764":"rgb(103,106,107)","27168":"rgb(103,106,107)","33361":"rgb(103,106,107)","32489":"rgb(103,106,107)","15296":"rgb(103,106,107)","10400":"rgb(103,106,107)","10965":"rgb(103,106,107)","18650":"rgb(103,106,107)","36522":"rgb(103,106,107)","19086":"rgb(103,106,107)"}';
 
 var asnColoursJson = jQuery.parseJSON(asnColours);
 var getAsnColour = function(asNum){
-  var c = '676A6B';
+  var c = 'rgb(153, 153, 153)';
   if (typeof(asnColoursJson[asNum]) != "undefined") {
     c = asnColoursJson[asNum];
   }
@@ -770,7 +872,7 @@ var showTestedCarriers = function(){
   };
 
   var jsonToString = JSON.stringify(carrierSampleJson);
-  processpostedData(jsonToString);
+  processPostedData(jsonToString);
 }
 
 var boomerangJSON = {
@@ -830,11 +932,10 @@ var submitCustomQuery = function(trId, multipleTRs) {
     }
   };
   var jsonToString = JSON.stringify(singleTrJSON);
-  processpostedData(jsonToString);
+  processPostedData(jsonToString);
 }
 
-var processpostedData = function(d){
-  jQuery('#tabs').tabs({ active: 1 });
+var processPostedData = function(d){
   var data = jQuery.parseJSON(d);
 
   setTimeout(function(){

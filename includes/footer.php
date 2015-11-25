@@ -69,7 +69,7 @@ include('application/config.php');
 					  echo "An error occured.\n";
 					  exit;
 					}
-		
+
 					while ($row = pg_fetch_row($result)) {
 					  echo "<b>IP Addresses:</b> $row[0]";
 					  echo "<br />\n";
@@ -79,18 +79,20 @@ include('application/config.php');
 		</div>
 
 		<aside class="footer-segment">
-				<p>The IXmaps website is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 2.5 License.
- 
+				<p>The IXmaps website is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US" target="_blank" alt=" CC Attribution-NonCommercial-ShareAlike 4.0 International"> Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
 <?php
 	//  fixed by ANTO
+	$doRecursive = '';
 	$getLastModDir = mostRecentModifiedFileTime($appRootPath."/.",$doRecursive);
-	
+
 	date_default_timezone_set('America/Toronto');
 	echo "<br/>Last modified " . date("l, dS F, Y @ h:ia", $getLastModDir) . '<br/>';
 
 	function mostRecentModifiedFileTime($dirName,$doRecursive) {
 		$d = dir($dirName);
 		$lastModified = 0;
+		$currentModified = 0;
 		while($entry = $d->read()) {
 			if ($entry != "." && $entry != "..") {
 				if (!is_dir($dirName."/".$entry)) {
@@ -108,9 +110,9 @@ include('application/config.php');
 	}
 ?>
 
-				<p>Please <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website" class="smallinks">contact the site admin</a> 
-					with any questions or concerns.</p>	
-				<p>To view our privacy policy, please <a href="/privacy.php" target="_blank">click here</a>.</p> 
+				<p>Please <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website" class="smallinks">contact the site admin</a>
+					with any questions or concerns.</p>
+				<p>To view our privacy policy, please <a href="/privacy.php" target="_blank">click here</a>.</p>
 		</aside><!-- end of #third footer segment -->
 	</section><!-- end of footer-outer-block -->
 </section><!-- end of footer-area -->

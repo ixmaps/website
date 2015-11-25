@@ -56,14 +56,15 @@
 		<article>
 			<h2>Mac OS Installation</h2>
 
-		   	<p>To install the Mac OS version of TrGen, download the installer
-			<a href = "https://www.ixmaps.ca/TrGen/tr-sub-mac-0.8.6_v5.dmg">from here</a>
+		   	<p>To install the Mac OS version of IXmapsClient (1.0), download the installer
+			<a href = "https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.dmg">from here</a>
 			and	follow the instructions in ReadMe file. You will need administrator privileges
 			to run and install the software. This version of the software has been tested on the following versions of Mac OS:</p>
 			<ul>
 				<li>10.6.8</li>
 				<li>10.7.5</li>
 				<li>10.8</li>
+                                <li>10.10</li>
 			</ul>
         <!-- <p>We are currently working on an updated version.</p> -->
         </article>

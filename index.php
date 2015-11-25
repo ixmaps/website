@@ -79,7 +79,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
-		<article>
+<!-- 		<article>
 			<div class="announcement">Please try out a preview version of our updated TrGen software for
 			<a href="/TrGen/ixmapsNode.v.2.0_linux.tgz" title="ixmapsNode-2.0.1-linux.tgz">Linux</a> and
 			<a href="/TrGen/ixmapsNode.v.2.0_osx.dmg" title="ixmapsNode-2.0.1-osx.dmg">Mac OS X</a>, and let us know what you think.
@@ -87,7 +87,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 			and <a href="https://github.com/ixmaps/ixnode/issues" title="IXmaps ixnode issue tracker" target="_blank">report any issues on our issue tracker</a> or
 			<a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%202.0.1%20Feedback]">email us</a>.
 			</div>
-		</article>
+		</article> -->
 
 		<article id="homepage-news">
 			<p class="justreleased">Now Out!</p>

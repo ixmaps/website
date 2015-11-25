@@ -12,11 +12,11 @@ include('../geoip/geoipregionvars.php');
 
 $dbQueryHtml = '';
 
-// vars for calculating excecution time 
-$mtime = microtime(); 
-$mtime = explode(" ",$mtime); 
-$mtime = $mtime[1] + $mtime[0]; 
-$starttime = $mtime; 
+// vars for calculating excecution time
+$mtime = microtime();
+$mtime = explode(" ",$mtime);
+$mtime = $mtime[1] + $mtime[0];
+$starttime = $mtime;
 
 // using MaxMind to find the city of client IP address
 $myIp = $_SERVER['REMOTE_ADDR'];
@@ -50,7 +50,7 @@ if(!isset($_POST) || count($_POST)==0)
 
 	*/
 	foreach($_POST as $constraint)
-	{	
+	{
 		$dataArray[] = $constraint;
 	}
 	//echo 'parameters sent: <br/>';
@@ -61,7 +61,7 @@ if(!isset($_POST) || count($_POST)==0)
 		/*echo '<textarea>';
 		print_r($dataArray);
 		echo '</textarea>';*/
-		
+
 		$b = Traceroute::processQuickLink($dataArray);
 
 	} else {
@@ -71,31 +71,32 @@ if(!isset($_POST) || count($_POST)==0)
 	$data = json_encode($dataArray);
 	$saveLog = Traceroute::saveSearch($data);
 	//Traceroute::saveSearch($data);
-	
+
 	// get IXmaps geographic data and prepare the response into a json format
 	//print_r($data);
 	if(count($b)!=0) {
 		$ixMapsData = Traceroute::getIxMapsData($b);
 		//print_r($ixMapsData);
-		
+
 		$ixMapsDataT = Traceroute::dataTransform($ixMapsData);
 		//print_r($ixMapsDataT);
 
 		$ixMapsDataStats = Traceroute::generateDataForGoogleMaps($ixMapsDataT);
-		
+
 		$trHtmlTable = Traceroute::renderTrSets($ixMapsDataT);
 	}
 
-		// end calculation of excecution time
-		$mtime = microtime(); 
-		$mtime = explode(" ",$mtime); 
-		$mtime = $mtime[1] + $mtime[0]; 
-		$endtime = $mtime; 
-		$totaltime = ($endtime - $starttime); 
+		// end calculation of execution time
+		$mtime = microtime();
+		$mtime = explode(" ",$mtime);
+		$mtime = $mtime[1] + $mtime[0];
+		$endtime = $mtime;
+		$totaltime = ($endtime - $starttime);
 		$totaltime = number_format($totaltime,2);
 		//echo "<hr/>This page was created in <b>".$totaltime."</b> seconds";
 
 		// add db query results/errors
+		$ixMapsDataStats['querySummary']=$dbQuerySummary;
 		$ixMapsDataStats['queryLogs']=$dbQueryHtml;
 
 		//$ixMapsDataStats['queryLogs']=.$dbQueryHtml.'<hr/>'.$saveLog;
@@ -104,7 +105,7 @@ if(!isset($_POST) || count($_POST)==0)
 		// add excec time
 		$ixMapsDataStats['execTime']=$totaltime;
 
-		// add server side renerated table; 
+		// add server side renerated table;
 		$ixMapsDataStats['trsTable']=$trHtmlTable;
 
 		//print_r($ixMapsDataStats);
