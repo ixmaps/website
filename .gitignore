@@ -2,6 +2,7 @@
 .DS_Store
 
 application/geoip/dat/
+application/config.php
 js/config.js
 buildings-anim/
 database-eg.txt
