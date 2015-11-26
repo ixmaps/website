@@ -1586,8 +1586,8 @@ class Traceroute
 			//$onMouseOver = " onmouseover='showThisTr(".$trId.")'";
 			$onMouseOver = " onmouseout='removeTr()' onmouseover='renderTr2(".$trId.")' onfocus='showThisTr(".$trId.")'";
 			//$onMouseOver = "";
-			//$onClick = "javascript: viewTrDetails(".$trId.");";
-			$onClick = "javascript: showThisTr(".$trId.");";
+			$onClick = "javascript: viewTrDetails(".$trId.");";
+			//$onClick = "javascript: showThisTr(".$trId.");";
 
 /*			$active="";
 			if(in_array($trId, $collected)){

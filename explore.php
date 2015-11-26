@@ -390,7 +390,7 @@ geoip_close($gi1);
     </div>
     <div id="ip-flags-title">
       <h3>Flag Router as Incorrect</h3>
-      If you believe this router is wrongly located, please so indicate, offering a more accurate location if possible.
+      If you believe this router is incorrectly located, please so indicate, offering a more accurate location if possible.
     </div>
     <div id="ip-flag-insert">
       <input id="user_nick" type="text" placeholder="Username"/>

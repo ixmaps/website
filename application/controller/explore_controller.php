@@ -12,7 +12,7 @@ include('../geoip/geoipregionvars.php');
 
 $dbQueryHtml = '';
 
-// vars for calculating excecution time
+// vars for calculating execution time
 $mtime = microtime();
 $mtime = explode(" ",$mtime);
 $mtime = $mtime[1] + $mtime[0];
