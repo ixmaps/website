@@ -60,7 +60,7 @@
             <li><a href="#faq-listeningpost">What are NSA listening posts?</a></li>
             <li><a href="#faq-sources">Who are our some of our principal sources of research related to the NSA?</a></li>
             <li><a href="#faq-telecomresources">What kinds of resources did we use on telecommunications infrastructures?</a></li>
-            <li><a href="#faq-geolocate">How do we geolocate routers?</a></li>
+            <li><a href="#Geolocation">How do we geolocate routers?</a></li>
           </ul>
         <dl id="faq-list">
           <dt id="faq-sovereignty">What is network sovereignty?</dt>
@@ -79,8 +79,8 @@
             See <a href="http://www.corp.att.com/globalnetworking/media/network_map.swf" target="_blank">1</a>, <a href="http://www.planetdds.com/downloads/ATT_IDC_Irvine.pdf" target="_blank">2</a>, <a href="http://personalpages.manchester.ac.uk/staff/m.dodge/cybergeography/atlas/att_backbone_large.gif" target="_blank">3</a>.
             We also looked at several sources regarding the largest cable hubs in North America, such as <a href="http://www.sciencedaily.com/releases/2002/11/021126072153.htm" target="_blank">this</a> article. Finally, we looked at several sites that measure performance/latency, managed by <a href="http://www.akamai.com/html/technology/dataviz1.html" target="_blank">Akamai</a> and <a href="http://ipnetwork.bgtmo.ip.att.net/pws/current_network_performance.shtml" target="_blank">AT&amp;T.</a> We also mapped <a href="//ixmaps.ca/cgi-bin/ge-render.cgi?show_landing_sites=true">undersea cable sites</a>.</dd>
 
-          <dt id="faq-geolocate">How do we geolocate routers?</dt>
-          <dd>In order to map the generated traceroutes on Google Earth, we must ascertain the physical location of the routers that generate the IP addresses in the route. When a traceroute is run, our software assigns locations to the IP addresses using a commercial service called <a href="http://www.maxmind.com" target="_blank">Maxmind</a>. This is often sufficient to geolocate the router to within about 5km of the target. However, Maxmind tends to work best when locating edge routers; its success rate when attempting to geolocate core routers drops to nearly zero. Therefore, we have adopted a layered strategy to manually assign physical locations to core routers. This methodology is explained in some technical detail <a href="technical.php">here</a>.
+          <dt id="Geolocation">How do we geolocate routers?</dt>
+          <dd>In order to map the generated traceroutes, we must ascertain the physical location of the routers that generate the IP addresses in the route. When a traceroute is run, our software assigns locations to the IP addresses using a commercial service called <a href="http://www.maxmind.com" target="_blank">Maxmind</a>. This is often sufficient to geolocate the router to within about 5km of the target. However, Maxmind tends to work best when locating edge routers; its success rate when attempting to geolocate core routers drops to nearly zero. Therefore, we have adopted a layered strategy to manually assign physical locations to core routers. This methodology is explained in some technical detail <a href="technical.php">here</a>.
         </dl>
 	     <br />
        <h3>Glossary</h3><br>
@@ -99,6 +99,7 @@
             <li><a href="#Hop">Hop</a></li>
             <li><a href="#Latency">Latency</a></li>
             <li><a href="#Min.+Latency">Minimum Latency</a></li>
+            <li><a href="#Geoprecision">Geoprecision</a></li>
             <li><a href="#CLLICode">CLLI Code</a></li>
             <li><a href="#Spy Room (6th Floor)">Spy Room (6th Floor)</a></li>
             <li><a href="#Splitter Cabinet (7th Floor)">Splitter Cabinet (7th Floor)</a></li>
@@ -146,6 +147,9 @@
 
             <dt id="Min.+Latency">Minimum Latency</dt>
             <dd>Tracerouting programs often send multiple packets to the same IP address in an attempt to correct for random error. Minimum latency refers to the amount of time that the fastest packet took to reach a node. For more information see <a href="https://en.wikipedia.org/wiki/Latency_(engineering)">latency</a></dd>
+
+            <dt id="Geoprecision">Geoprecision</dt>
+            <dd>Pinpointing the physical location of a router is difficult. When talking about a location, the IXmaps uses the term geoprecision to describe the level of precision with which geolocation has been ascribed. For example, if geoprecision is to 'building level', we believe we can say with some confidence that the router is located within a specific building. More often, however, we are only confident that our geolocation is accurate at a 'city level'. Finally, a geoprecision of 'Maxmind' indicates that we are relying on <a href="#Geolocation">their geolocation</a></dd>
 
             <dt id="CLLICode">CLLI Code</dt>
             <dd>CLLI codes are assigned and used by the North American telecom industry to designate location and type of hardware used at a particular location. Thus, a CLLI code can occasionally be used to geolocate a router. For more information see <a href="https://en.wikipedia.org/wiki/CLLI_code">CLLI code</a></dd>
