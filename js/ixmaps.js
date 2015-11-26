@@ -225,6 +225,8 @@ var addFilterConstraint = function () {
   filterLine += "</select>";
 
   filterLine += "<select class='constraint constraint-dropdown'>";
+  filterLine += "<option value='submitter'>Submitter Name</option>";
+  filterLine += "<option value='zipCodeSubmitter'>Submitter Postcode</option>";
   filterLine += "<option value='trId'>Traceroute Id</option>";
   filterLine += "<option value='ipAddr'>IP Address</option>";
   filterLine += "<option value='asnum'>AS Number</option>";
@@ -235,8 +237,6 @@ var addFilterConstraint = function () {
   filterLine += "<option value='zipCode'>Postcode</option>";
   filterLine += "<option value='city'>City</option>";
   filterLine += "<option value='destHostName'>Destination Hostname</option>";
-  filterLine += "<option value='submitter'>Submitter Name</option>";
-  filterLine += "<option value='zipCodeSubmitter'>Submitter Postcode</option>";
   //filterLine += "<option value='NSA'>NSA</option>";
   filterLine += "</select>";
   filterLine += "<input class='constraint constraint-text-entry' type='text'/>";
