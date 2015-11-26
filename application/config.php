@@ -25,15 +25,15 @@ $dbconn = pg_connect("host=localhost dbname=$dbname user=$dbuser password=$dbpas
 //$webUrl = "http://dev.ixmaps.ca";
 //$savePath = '/var/www/dev.ixmaps.ca/gm-temp';
 
-// production
-/*$webUrl = "https://dev.ixmaps.ca";
+// dev
+$webUrl = "https://dev.ixmaps.ca";
 $appRootPath = '/var/www/dev.ixmaps.ca'; // !!
-$savePath = $appRootPath.'/gm-temp';*/
+$savePath = $appRootPath.'/gm-temp';
 
 //ADD ONCE POSTGRES IS SET UP
-$webUrl = "http://www.ixmaps.ca";
-$appRootPath = '/var/www/www.ixmaps.ca'; // !!
-$savePath = $appRootPath.'/gm-temp';
+// $webUrl = "http://www.ixmaps.ca";
+// $appRootPath = '/var/www/www.ixmaps.ca'; // !!
+// $savePath = $appRootPath.'/gm-temp';
 
 //$trNumLimit=800; // 500 is very safe num with the new approach
 $trNumLimit=100;
