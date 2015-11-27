@@ -284,7 +284,7 @@ var addFilterConstraint = function () {
   // on change approach
   jQuery('.constraint-dropdown').change(function(ev) {
     // FIXME: we need to capture here the actual rowId, so we don't run bindAutocompletes for all the constraint-dropdown(s).
-    jQuery('.constraint-text-entry').val('');
+    //jQuery('.constraint-text-entry').val('');
     bindAutocompletes(jQuery(ev.target).val(), rowId);
   });
 
