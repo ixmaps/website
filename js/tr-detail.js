@@ -34,6 +34,7 @@ var addFlagIpLinks = function() {
   var headerRow = jQuery('table:eq(1) tr:first');
   var allCells = jQuery('table:eq(1) tr td');
 
+  tableEl.css('width','99%');
   tableEl.css('margin-right','15px');
   tableEl.css('border','1px solid black');
   allCells.css('padding','2px 5px 1px 5px');
