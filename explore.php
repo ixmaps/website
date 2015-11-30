@@ -303,15 +303,15 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="destination-ixmaps">
-                  Destination IXmaps.ca
+                <button type="button" class="ql-button" id="non-US-button">
+                  Not Via US
                 </button>
               </form>
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="non-US-button">
-                  Not Via US
+                <button type="button" class="ql-button" id="my-isp-button">
+                  From My ISP
                 </button>
               </form>
             </td>

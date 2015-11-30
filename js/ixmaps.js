@@ -108,9 +108,9 @@ var initialize = function() {
     submitNSAObject();
   });
 
-  jQuery('#destination-ixmaps').click(function() {
+  jQuery('#my-isp-button').click(function() {
     jQuery('#process-filters-button').effect("highlight", {}, 3000);
-    submitDestinationIXmapsObject();
+    submitMyISPObject();
   });
 
   jQuery('#non-US-button').click(function() {
@@ -653,6 +653,19 @@ var submitMyCityObject = function() {
   jQuery(a[2]).val('city');
   jQuery(a[3]).val(myCity);
   jQuery(a[4]).val('AND');
+};
+
+var submitMyISPObject = function() {
+  jQuery.ajax({url: "https://www.ixmaps.ca/application/geoip/mygeoip.php", success: function(result){
+    resetFilterConstraints();
+    var a;
+    a = jQuery('#filter-constraint-1 .constraint');
+    jQuery(a[0]).val('does');
+    jQuery(a[1]).val('originate');
+    jQuery(a[2]).val('asnum');
+    jQuery(a[3]).val(result.asn);
+    jQuery(a[4]).val('AND');
+  }});
 };
 
 var submitBoomerangObject = function() {
