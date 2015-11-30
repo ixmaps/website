@@ -600,8 +600,8 @@ class Traceroute
 		}
 
 		if($totTrs>$trNumLimit){
-			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of ".$c." selected results (".$totTrs." total)";
-			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of ".$c." selected results (".$totTrs." total)";
+			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of ".$c." sampled results (".$totTrs." total)";
+			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of ".$c." sampled results (".$totTrs." total)";
 		} else {
 			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of ".$c." results";
 		}

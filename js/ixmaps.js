@@ -404,7 +404,7 @@ var submitQuery = function(obj) {
       console.log("Query submitted", e);
       //if(e!=0){
       var data = jQuery.parseJSON(e);
-      if(data.totTrs!=undefined){
+      if (data.totTrs!=undefined){
         console.log(" Total TRs: "+data.totTrs);
         console.log(" Total Hops: "+data.totHops);
         console.log(" File Name: "+data.ixdata);
@@ -420,6 +420,15 @@ var submitQuery = function(obj) {
         jQuery('#filter-results-log').html(data.queryLogs);
         jQuery('#filter-results-summary').html(data.querySummary);
       } else {
+        // we may need more error messages, but for now this will handle the majority...
+        jQuery.toast({
+          heading: 'No routes found',
+          text: 'No routes were found with the specified search parameters. WHAT NEXT STEPS DO WE WANT TO DESCRIBE HERE? ALSO - LENGTH GOOD?',
+          hideAfter: 6000,
+          allowToastClose: true,
+          position: 'mid-center',
+          icon: 'error',
+        });
         jQuery('#filter-results-log').show();
         jQuery('#filter-results-log').html(data.queryLogs);
         jQuery('#filter-results-summary').html(data.querySummary);
