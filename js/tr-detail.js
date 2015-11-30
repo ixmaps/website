@@ -12,7 +12,7 @@ var addFlagIpLinks = function() {
   // get trId from table - lawl, Anto, this is classic
   var trId = jQuery('table:eq(0) tr:eq(0) td:eq(1)').html();
   trId = trId.replace(' <a href="./ge-render.cgi?traceroute_id=', '')
-  trId = trId.replace('"></a> ', '')
+  trId = trId.replace('"></a>', '')
   //trId = trId.replace(/[\r\n]/g, "");
 
   // get ip value for each row and add flag link on last column
