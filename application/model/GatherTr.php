@@ -1,6 +1,45 @@
 <?php
 class GatherTr
 {
+	/**
+		Extract ASN
+	*/
+	public static function extractAsn($asnString){
+		$asnArray = explode(' ', $asnString);
+		$asn = $asnArray[0];
+		$asn = substr($asn, 2);
+		$isp = "";
+
+		//AS5645 TekSavvy Solutions, Inc.
+
+		for ($i=1; $i < count($asnArray); $i++) { 
+			$isp .= $asnArray[$i]." ";
+	
+		}
+		$isp = trim($isp);
+		return array($asn, $isp);
+	}
+
+	/**
+		Anonymize ip
+	*/
+	public static function anonymizeIp($ip){
+		$ipQuads = explode('.', $ip);
+		$ipAmonim = "";
+
+		for ($i=0; $i < count($ipQuads); $i++) { 
+			if($i==count($ipQuads)-1){
+				$ipAmonim.=".0";
+
+			} else if ($i==0) {
+				$ipAmonim.= "".$ipQuads[$i];
+
+			} else {
+				$ipAmonim.= ".".$ipQuads[$i];
+			}
+		}
+		return $ipAmonim;
+	}
 
 	/**
 		Save incomming traceroute data (Header)
@@ -9,17 +48,30 @@ class GatherTr
 	{
 		global $dbconn, $ixmaps_debug_mode;
 
-		$sql = "INSERT INTO tr_contributions (traceroute_id, sub_time, dest, dest_ip, city, country, submitter, submitter_ip, submitter_os, postal_code, privacy, timeout, queries, maxhops, tr_flag, error_log, client_params) VALUES (NULL, NOW(), $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING tr_c_id;";
+		$data['submitter_ip'] = GatherTr::anonymizeIp($data['submitter_ip']);
+		
+		if($data['submitter_asnum']!=""){
+			$a = GatherTr::extractAsn($data['submitter_asnum']);
+			$data['submitter_asnum'] = $a[0];
+			$data['submitter_isp'] = $a[1];
+		} else {
+			$data['submitter_asnum'] = NULL;
+			$data['submitter_isp'] = "";
+		}
+
+		$sql = "INSERT INTO tr_contributions (traceroute_id, sub_time, dest, dest_ip, city, country, submitter, submitter_ip, submitter_os, postal_code, privacy, timeout, queries, maxhops, tr_flag, error_log, client_params, submitter_asnum, metadata) VALUES (NULL, NOW(), $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING tr_c_id;";
 
 		if(!isset($data['error'])){
 			$data['error'] = "";
 		}
-
 		if(!isset($data['client_params'])){
 			$data['client_params'] = "";
 		}
-
-		$trData = array($data['dest'], $data['dest_ip'], $data['city'], $data['country'], $data['submitter'], $data['submitter_ip'], $data['os'], $data['postal_code'], $data['privacy'], $data['timeout'], $data['queries'], $data['maxhops'], 0, $data['error'], $data['client_params']);
+		if(!isset($data['metadata'])){
+			$data['metadata'] = "";
+		}
+		
+		$trData = array($data['dest'], $data['dest_ip'], $data['city'], $data['country'], $data['submitter'], $data['submitter_ip'], $data['os'], $data['postal_code'], $data['privacy'], $data['timeout'], $data['queries'], $data['maxhops'], 0, $data['error'], $data['client_params'], $data['submitter_asnum'], $data['metadata']);
 
 		$result = pg_query_params($dbconn, $sql, $trData) or die('saveTrContribution: Query failed: incorrect parameters'.pg_last_error());
 		//$result = pg_query($dbconn, $sql1) or die('saveContribution: Query failed: incorrect parameters'.pg_last_error());
@@ -48,7 +100,7 @@ class GatherTr
 			$sql = "INSERT INTO tr_contribution_data (tr_c_id, sub_time, client, protocol, data_type, tr_invocation, tr_data, tr_flag) VALUES (".$tr_c_id.", NOW(), $1, $2, $3, $4, $5, $6)";
 			
 			if(!isset($trDataItem['tr_invocation'])){
-				$trDataItem['tr_invocation'] = '...cmd';
+				$trDataItem['tr_invocation'] = '';
 			}
 			$trData = array($trDataItem['client'], $trDataItem['protocol'], $trDataItem['data_type'],$trDataItem['tr_invocation'], $trDataItem['tr_data'], 0);
 
@@ -85,10 +137,51 @@ class GatherTr
 		return $dataArr1[0];
 	}
 
+
 	/**
-		Format TR data 
-		This function assumes that the ixnode data is structured as follows:
-		[tr_data][pass][hop-query]
+		Check if hops in all passes are exactly the same and in the same sequence
+	*/
+	public static function analyzePassesExactMatch($TrByHop)
+	{
+		$hopsDifIps = array();
+
+		//hop
+		foreach ($TrByHop as $key => $hop) {
+			//print_r($hop);
+			$conn = 0;
+			$ip_current = "";
+			$ip_last = "";
+			$exactMatch = true;
+
+			// passes [ip/latency]
+			foreach ($hop as $key => $pass) {
+				//print_r($pass);
+				if(isset($pass['ip'])){
+					//echo "\n[".$pass['pass']."] ".$pass['ip'];
+					// first ip
+					if($conn==0){
+						$ip_current = $pass['ip'];
+					} else {
+						$ip_current = $pass['ip'];
+						if($ip_last!=$ip_current && $exactMatch){
+							$exactMatch = false;
+							//echo "\n Diff ips at hop: ".$pass['hop'];
+							$hopsDifIps[$pass['hop']] = $pass['pass'];
+							$exactMatch = false;
+						}
+					}
+					$ip_last = $ip_current;
+					$conn++;					
+				}
+			}
+		}
+		return $hopsDifIps;
+	}
+
+
+	/**
+		Format TR data in an array of [hops][latencies]
+		Assumes that the data is structured as follows: [tr_data][pass][hop][query]
 	*/
 	public static function formatTrData($data) 
 	{
@@ -114,12 +207,15 @@ class GatherTr
 				} //end passes
 				//echo '\n\n';
 				//print_r($TrByHop);
+
+				// testing exact match
+				//$a = GatherTr::analyzePassesExactMatch($TrByHop);
 				return $TrByHop;
 
 			} else if($submission['data_type']=='txt'){
 				//echo "\nis txt";
-				//$data = GatherTr::analyzeRawTracerouteTxt();		
-				//return 0;
+				//$data = analyzeRawTracerouteTxt(); (Not implemented)
+				return 0;
 
 			} else {
 				return 0;	
@@ -134,10 +230,11 @@ class GatherTr
 		This function assumes that the tr data is structured as follows:
 		[tr_data][hop][queries]
 	*/
-	public static function analyzeTrData($trHops) 
+	public static function selectBestIp($trHops) 
 	{
 		$TR = array();
-				
+		$flag = 0;
+
 		//hops
 		foreach ($trHops as $key2 => $hop) {
 			$hopNum = $key2;
@@ -182,32 +279,25 @@ class GatherTr
 			} else {
 				$winnerIp = "";
 			}
-			
-			/*Preventing the submission of more that 4 attempts/queries
-			Note: this needs further discussion. In this case submitting the lowest 4 latencies. */
-			/*$totQueries = count($latencies);
-			if($totQueries>4) {
-				for($i=4; $i < $totQueries; $i++){
-					if(isset($latencies[$i])){
-						unset($latencies[$i]);
-					}
-				}
-			}*/
+
 			//echo "\nWinner IP: ".$winnerIp;
+
 			$TR['hops'][$hopNum]['latencies'] = $latencies;
 			$TR['hops'][$hopNum]['winIp'] = $winnerIp;
-
+			
 		} //end hop
 		//print_r($TR);
 		//$data['ip_analysis'] = $TR;
+
 		return $TR;
+
 	}
 	/**
 		Analyze TR data. 
 		This function assumes that the tr data is structured as follows:
 		[tr_data][hop][queries]
 	*/
-	public static function analyzeTrDataOld($tr_c_id) 
+	public static function selectBestIpOld($tr_c_id) 
 	{
 		global $dbconn;
 		$data = GatherTr::getTrContribution($tr_c_id);
@@ -284,12 +374,10 @@ class GatherTr
 	*/
 	public static function publishTraceroute($data) 
 	{
-		global $dbconn, $ixmaps_debug_mode;
-
-		// FIXME: move this to config.php
-		$URI = "https://www.ixmaps.ca/cgi-bin/gather-tr.cgi";
+		global $dbconn, $ixmaps_debug_mode, $gatherTrUri;
+		$publishControl = false; 
+		$validPublicIPs = 0;
 		$trSubString = "";
-
 		$trString ="";
 		
 		/*check tr status: does the TR reach its destination?*/
@@ -304,8 +392,7 @@ class GatherTr
 			$trStatus = "i";
 		}
 		
-
-		// FIXED! collecting the protocol used in the submission data_type = json
+		// Collecting the protocol used in the submission data_type = json
 		foreach ($data['traceroute_submissions'] as $sub_data) {
 			if($sub_data['data_type']=="json"){
 				// convert to lowercase before comparison
@@ -328,16 +415,23 @@ class GatherTr
 		$trString = "dest=".$data['dest']."&dest_ip=".$data['dest_ip']."&submitter=".urlencode($data['submitter'])."&zip_code=".urlencode($data['postal_code'])."&client=".urlencode($data['traceroute_submissions'][0]['client'])."&cl_ver=1.0&privacy=8&timeout=".$data['timeout']."&protocol=".$protocol."&maxhops=".$data['maxhops']."&attempts=".$data['queries']."&status=".$trStatus;
 		
 		$hopCount=0;
-
 		$foundFirstValidIp = false;
 		
 		// hops
 		foreach ($data['ip_analysis']['hops'] as $key => $hop) {
 
-			// skip local ips
+			// skip local ips, include empty ips
 			if(!GatherTr::checkIpIsPrivate($hop['winIp']) || $hop['winIp']==""){
 
-				// anonimize first valid ip
+				if($hop['winIp']!=""){
+					$validPublicIPs++; // count # of valid public ips
+				}
+
+				/*
+					anonymize first valid and public ip. 
+					
+					This approach applies for the first not private ip, which is not necessarily user's public ip, but since the first public ip can be missing from the data, this approach in some cases will anonymize ips that don't need to be anonymized. (Requires further discussion)
+				*/
 				if(!$foundFirstValidIp && $hop['winIp']!=""){
 					$foundFirstValidIp=true;
 					//echo "\n First Valid IP: ".$hop['winIp'];
@@ -366,7 +460,7 @@ class GatherTr
 					
 					$rtt_ms=0;
 					
-					if($hop['winIp']=="")
+					if($latency==-1)
 					{
 						$status="t";
 					} else {
@@ -377,60 +471,50 @@ class GatherTr
 				}
 
 			} else {
-				//echo "\n skiping ip: ".$hop['winIp'];
-			} // end skip ip
+				//echo "\n skiping ip: ".$hop['winIp']; // used for debug only
+			} // end skip local ip
 
 		}
 		$totItems = $hopCount*$data['queries'];
 		$trString .= "&n_items=".$totItems;
-		
-		//echo "\n".$trString."";
 
-		// adding exceptions for SSL certificate
-		$arrContextOptions=array(
-		    "ssl"=>array(
-		        "verify_peer"=>false,
-		        "verify_peer_name"=>false,
-		    ),
-		);  
-
-		// publish data
-		$trResult = file_get_contents($URI."?".$trString, false, stream_context_create($arrContextOptions));
-		
-		//echo "\n\n".$trResult;
-
-		$search      = "new traceroute ID";
-		//$lines       = file('example.txt');
-		$line_number = false;
-		$tr_id_arr = explode("\n", $trResult);
-		while (list($key, $line) = each($tr_id_arr) and !$line_number) {
-		   $line_number = (strpos($line, $search) !== FALSE) ? $key + 1 : $line_number;
-		}
-		$tr_id_line = explode("=", $tr_id_arr[$line_number-1]);
-
-		//echo "\nTR ID: ".$tr_id_line[1];
-
-		if(count($tr_id_line)==2 && $tr_id_line[1]!=0){
-			return $tr_id_line[1];	
-		} else {
-			return 0;
+		/*Enables publication of current TR data if there are at least 2 valid public IP addresses*/
+		if($validPublicIPs>=2){
+			$publishControl = true; 
 		}
 
+		$resultArray = array(
+			"trId"=>0,
+			"publishControl"=>$publishControl,
+			"tot_hops"=>$validPublicIPs);
+		
+		if($publishControl){
+			/*echo "\n".$trString."";
+			$resultArray['trId'] = 0;*/ // For debug 
+			
+			/* Publish TR data */
+			$trResult = file_get_contents($gatherTrUri."?".$trString);
+			$search      = "new traceroute ID";
+			$line_number = false;
+			$tr_id_arr = explode("\n", $trResult);
+			while (list($key, $line) = each($tr_id_arr) and !$line_number) {
+			   $line_number = (strpos($line, $search) !== FALSE) ? $key + 1 : $line_number;
+			}
+			$tr_id_line = explode("=", $tr_id_arr[$line_number-1]);
+			//echo "\nTR ID: ".$tr_id_line[1];
+			if(count($tr_id_line)==2 && $tr_id_line[1]!=0){
+				$resultArray['trId'] = $tr_id_line[1];
+			} else {
+				$resultArray['trId'] = 0; // error collecting trId
+			}
+		}
+		return $resultArray;
 	}
 
-	/**
-		...
-	*/
-
-	public static function analyzeRawTracerouteTxt($data) 
-	{
-
-	}
 
 	/**
 	Determine if the IP is Private/Reserved
 	*/
-
 	public static function checkIpIsPrivate($ip) 
 	{
 		if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
@@ -444,103 +528,18 @@ class GatherTr
 	Flag TR contribution
 	*/
 
-	public static function flagContribution($tr_c_id, $traceroute_id)
+	public static function flagContribution($tr_c_id, $traceroute_id, $tr_flag)
 	{
 		global $dbconn;
 		if($tr_c_id!=0 && $traceroute_id!=0){
-			$sql = "UPDATE tr_contributions SET traceroute_id = $traceroute_id, tr_flag=1 WHERE tr_c_id = $tr_c_id";
+			$sql = "UPDATE tr_contributions SET traceroute_id = $traceroute_id, tr_flag=$tr_flag WHERE tr_c_id = $tr_c_id";
 			$result = pg_query($dbconn, $sql) or die('flagContribution: Query failed'.pg_last_error());
 			pg_free_result($result);
-			return true;
-		} else {
-			return false;
-		}		
-	}
-
-	/**
-	Get hostname using getent hosts [ip]
-	*/
-
-	public static function getHostnameForIp($ip)
-	{
-		$cmd = 'getent hosts '.$ip;
-		$output = shell_exec($cmd);
-		$hostname_data = explode(' ', $output);
-		$hostname= trim($hostname_data[count($hostname_data)-1]);
-		$host_r = array(
-			'hostname'=>$hostname);
-		return $host_r;
-	}
-
-	public static function ipInIXmaps($ip)
-	{
-		global $dbconn;
-		$sql = "SELECT ip_addr, asnum, hostname FROM ip_addr_info WHERE ip_addr = $1";
-		$params = array($ip);
-		$result = pg_query_params($dbconn, $sql, $params) or die('ipInIXmaps: Query failed: incorrect parameters'.pg_last_error());
-		$data = pg_fetch_all($result);
-		pg_free_result($result);
-		return $data;
-	}
-
-	/**
-	Attempts a hostname lookup for a given IP address.
-	If a hostname is found, compares if the current hostname is different from the old in the IXmaps DB
-	*/
-
-	public static function checkHostnameChanged($ip, $hostnameIX)
-	{
-		$cmd = 'getent hosts '.$ip;
-		//echo "<br/>Finding hosthame for: ".$ip;
-		$output = shell_exec($cmd);
-		$response = array(
-				"status"=>0,
-				"hostname"=>""
-				);
-
-		if($output==""){
-			//echo "<br/>No hostname found";
-			return $response;
-		} else {
-
-			$spaces = '';
-
-			//echo "<pre>$output</pre>";
-			$hostname_data = explode(' ', $output);
-			
-			//print_r($hostname_data);
-
-			// remove spaces before comparison
-			$hostnameNew= trim($hostname_data[count($hostname_data)-1]);
-			$hostnameIX = trim($hostnameIX);
-
-			// normanize to lowerCase
-			$hostnameNew = strtolower($hostnameNew);
-			$hostnameIX = strtolower($hostnameIX);
-
-			if($hostnameIX==$hostname_data[1]){
-				$response['status']=1;
-				$response['hostname']=$hostnameNew;
-				return $response;
-			
-			} else if($hostnameIX!=$hostnameNew){
-				$response['status']=2;
-				$response['hostname']=$hostnameNew;
-				return $response;
-			}
+		} else if($tr_c_id!=0 && $traceroute_id==0){ // update only tr_flag when no TR_id is availale
+			$sql = "UPDATE tr_contributions SET tr_flag=$tr_flag WHERE tr_c_id = $tr_c_id";
+			$result = pg_query($dbconn, $sql) or die('flagContribution: Query failed'.pg_last_error());
+			pg_free_result($result);
 		}
-	}
-	
-	
-	/**
-		Get geodata, hostname and ASnum from ipinfo.io
-		NOTE: 1000 max requests per day
-	*/
-	public static function getIpDataIpInfoIo($ip=''){
-		$cmd = 'curl ipinfo.io/'.$ip;
-		$output = shell_exec($cmd);
-		$hostname_data = json_decode($output, true);
-		return $hostname_data;
 	}
 
 	/**
@@ -560,60 +559,149 @@ class GatherTr
 	}
 
 	/**
-		Get MaxMind Geolocation data for an IP: Using local MM .dat files
+		Checks TR submission for different number of hops and extracts the longest TR (unique routers)
+		If the TR passes differ, it uses the other passes to collect as many valid latencies as possible.
 	*/
-	public static function getMaxMindData($ip=''){
+	public static function analyzeIfInconsistentPasses($data)
+	{
+		$totContributions = 0;
+		$totToFlag = 0;
 
+		// contributions
+		foreach ($data['traceroute_submissions'] as $key => $c) {
+			// check only json submissions
+			if($c['data_type']=="json"){
+				$totContributions++;
+				$passesArray = json_decode($c['tr_data'], true);
+				$hasEqualNumOfHops = true;
+				$totNumHopsInPass = array();
+				$hopsSequenceInPass = array();
+
+				// passes: 1st check
+				$passNum = 0;
+				foreach ($passesArray as $key1 => $hops1) {
+					$passNum++;
+					// collect total num of hops
+					$totNumHopsInPass[$passNum]=count($hops1);
+					//echo "\nTot Hops:".count($hops);
+				}
+				$totNumHopsInPass = array_unique($totNumHopsInPass);
+				
+				if(count($totNumHopsInPass)!=1){
+					$hasEqualNumOfHops = false;
+				}
+
+				/*CASE 1: Analyzing contributions with different number of hops in at least two passes*/
+				if(!$hasEqualNumOfHops){
+					$totToFlag++;
+
+					$passCounter = 0;
+					$longestPassNum = 0;
+					$longestPassVal = 0;
+
+					// passes: 2nd check
+					foreach ($passesArray as $key2 => $hops) {
+						$passCounter++;
+						$trPath = array();
+						
+						// hops
+						foreach ($hops as $key => $hop) {
+							// exception for no ip data
+							if(isset($hop['ip'])){
+								$trPath[$passCounter][]=$hop['ip'];
+							} else {
+								$trPath[$passCounter][]="";
+							}
+						} // end hops
+
+						/* Look for longest (authoritaive) path with unique ips */
+						$trPathTemp = array_unique($trPath[$passCounter]);
+						
+						if($longestPassVal < count($trPathTemp)){
+							$longestPassVal = count($trPathTemp);
+							$longestPassNum = $passCounter;
+						}
+
+						//echo "\ntrPath: ";
+						//print_r($trPath);
+
+					} // end // passes: 2nd check
+
+					//echo "\nLongest path: Pass: ".$longestPassNum;
+
+					// collect data from best path: formatTrData
+					$TrByHop = array();
+					$hopIndex = 0;
+					foreach ($passesArray[$longestPassNum-1] as $key3 => $bestPassHop) {
+
+						// collect hops from best pass
+						$TrByHop[$bestPassHop['hop']][$hopIndex]=$bestPassHop;
+						//echo "\n------Accessing best pass data \n";
+						//print_r($bestPassHop);
+
+						//check if there is consistent data in all other passes for this hop
+						for ($passIndex=0; $passIndex < count($passesArray); $passIndex++) {
+							// exclude the longest pass, already collected in pass 1
+							if($passIndex!=$longestPassNum-1){
+								if(isset($passesArray[$passIndex][$hopIndex]['ip'])){
+									//echo "\nAccessing other passes data \n";
+									//print_r($passesArray[$passIndex][$hopIndex]);
+
+									// check is the same ip as the best pass data
+									if(isset($bestPassHop['ip']) && isset($passesArray[$passIndex][$hopIndex]['ip']) && $bestPassHop['ip']==$passesArray[$passIndex][$hopIndex]['ip']){
+										// collect hop data from current pass
+										$TrByHop[$bestPassHop['hop']][]=$passesArray[$passIndex][$hopIndex];
+									}
+								}
+							}
+						}
+						
+						$hopIndex++;
+					}
+					//echo "\nBest Pass Data---";
+					//print_r($TrByHop); // !!OK
+					return array(
+						"tr_by_hop"=>$TrByHop,
+						"tr_flag"=>3 // different #  of hops in at least two passes 
+						);
+
+				} else { 
+					$trByHopCase1 = GatherTr::formatTrData($data); 
+					
+					return array(
+						"tr_by_hop"=>$trByHopCase1,
+						"tr_flag"=>2 // same # of hops in all passes
+						);
+				}// end if !hasEqualNumOfHops				
+			} // end if json contribution
+		} // end loop contributions		
 	}
 
 	/**
-		Get ip addresses from IXmaps DB
+		
 	*/
-	public static function getHostnames($ip='', $total=100){
+	public static function getIpAddrInfo($ipCheck="") 
+	{
 		global $dbconn;
-		$fields = " ip_addr, hostname, mm_lat, mm_long, lat, long, mm_city, mm_country, gl_override ";
-		//$sql = "SELECT ip_addr, hostname, asnum FROM ip_addr_info where ip_addr >= '".$ip."' order by ip_addr LIMIT ".$total;
-
-		// process ALL
-		//$sql = "SELECT ip_addr, hostname, asnum FROM ip_addr_info order by ip_addr";
-
-
-		// Cognet
-		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 2149 or asnum = 174 order by ip_addr";
-		
-		//"AboveNet/Zayo"
-		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 17025 or asnum = 6461 order by ip_addr";
-
-		//"AT&T"
-		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 4466 or asnum = 5730 or asnum = 7018 order by ip_addr";
-
-		//"Hurricane Electric"
-		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 6939 order by ip_addr";
-
-		//"Level 3"
-		//$sql ="SELECT ip_addr, hostname FROM ip_addr_info where asnum = 30686 or asnum = 3356 or asnum = 3549 order by ip_addr";
-
-		//"Rogers"
-		$sql ="SELECT ".$fields." FROM ip_addr_info where asnum = 812 or asnum = 3602 order by ip_addr";
-
-		//"Teksavvy"
-		//"5645,20375,0"
-
-		//"Telus"
-		// "852,7861,54719"
-
-		//"Verizon" 
-		//"702,703,701"
-
 
 		
-		echo $sql;
+	
+			$sql = "SELECT ip_addr_info.* FROM ip_addr_info WHERE gl_override is NULL and mm_lat = 0.0 and mm_long = 0.0 and lat = 0.0 and long = 0.0 and ip_addr = '".$ipCheck."'";
 
-		$result = pg_query($dbconn, $sql) or die('getHostnames: Query failed'.pg_last_error());
-		$ip_host_data = pg_fetch_all($result);
+		//$sql = "SELECT ip_addr FROM ip_addr_info WHERE gl_override is NULL and mm_lat = 0.0 and mm_long = 0.0 and lat = 0.0 and long = 0.0 ORDER BY ip_addr";
+
+		/*
+		$sql = "SELECT ip_addr_info.ip_addr, tr_item.traceroute_id, tr_item.ip_addr, traceroute.id, traceroute.sub_time FROM ip_addr_info, tr_item , traceroute 
+		WHERE (ip_addr_info.ip_addr=tr_item.ip_addr AND traceroute.id=tr_item.traceroute_id) AND tr_item.attempt = 1 
+		AND gl_override is NULL and mm_lat = 0.0 and mm_long = 0.0 and lat = 0.0 and long = 0.0 
+		ORDER BY tr_item.traceroute_id DESC LIMIT 100";*/
+
+		$result = pg_query($dbconn, $sql) or die('getIpAddrInfo: Query failed'.pg_last_error());
+		$dataA = pg_fetch_all($result);
 		pg_free_result($result);
-		return $ip_host_data;
+		return $dataA;
 	}
-		
+
+
 }
 ?>
