@@ -50,15 +50,6 @@ class GatherTr
 
 		$data['submitter_ip'] = GatherTr::anonymizeIp($data['submitter_ip']);
 		
-		if($data['submitter_asnum']!=""){
-			$a = GatherTr::extractAsn($data['submitter_asnum']);
-			$data['submitter_asnum'] = $a[0];
-			$data['submitter_isp'] = $a[1];
-		} else {
-			$data['submitter_asnum'] = NULL;
-			$data['submitter_isp'] = "";
-		}
-
 		$sql = "INSERT INTO tr_contributions (traceroute_id, sub_time, dest, dest_ip, city, country, submitter, submitter_ip, submitter_os, postal_code, privacy, timeout, queries, maxhops, tr_flag, error_log, client_params, submitter_asnum, metadata) VALUES (NULL, NOW(), $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING tr_c_id;";
 
 		if(!isset($data['error'])){
