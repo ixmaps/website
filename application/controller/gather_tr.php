@@ -10,7 +10,7 @@ $myIp = $_SERVER['REMOTE_ADDR'];
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($myIp);
 
-$_POST['metadata']=json_encode(array("HTTP_USER_AGENT"=>$_SERVER['HTTP_USER_AGENT']));
+//$_POST['metadata']=json_encode(array("HTTP_USER_AGENT"=>$_SERVER['HTTP_USER_AGENT']));
 $_POST['submitter_ip'] = $myIp;
 $_POST['city'] = $geoIp['geoip']['city'];
 $_POST['country'] = ''.$geoIp['geoip']['country_code'];
