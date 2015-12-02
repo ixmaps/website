@@ -58,7 +58,7 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 			$trGatherMessage = "Error publishing Traceroute responses. (Contribution id: ".$tr_c_id.")";
 		} else if($publishResult['publishControl'] && $publishResult['trId']!=0) {
 			// Success: tr_flag = 2 or 3
-			$trGatherMessage = "Traceroute data saved successfully.";
+			$trGatherMessage = "Traceroute data saved successfully. ".$publishResult['tot_hops']." Hops were found.";
 			$trId = $publishResult['trId'];
 			/*TODO*/
 			// return number of hops: e.g. 15 hops were found
