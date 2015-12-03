@@ -483,8 +483,18 @@ class GatherTr
 			/*echo "\n".$trString."";
 			$resultArray['trId'] = 0;*/ // For debug 
 			
+
+			// adding exceptions for SSL certificate
+			$arrContextOptions=array(
+			    "ssl"=>array(
+			        "verify_peer"=>false,
+			        "verify_peer_name"=>false,
+			    ),
+			);  
+
 			/* Publish TR data */
-			$trResult = file_get_contents($gatherTrUri."?".$trString);
+			$trResult = file_get_contents($gatherTrUri."?".$trString, false, stream_context_create($arrContextOptions));
+			
 			$search      = "new traceroute ID";
 			$line_number = false;
 			$tr_id_arr = explode("\n", $trResult);
