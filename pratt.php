@@ -132,6 +132,8 @@ geoip_close($gi1);
     <header><!-- header -->
       <img src="images/headerimage.jpg" width="1000" height="138">
     </header><!-- end of header -->
+
+    <?php include("includes/navigation.php"); ?>
 <!--     <div id="beta-message-ok"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i></div> -->
 
     <div style="clear: both;"></div>
@@ -301,15 +303,15 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="destination-ixmaps">
-                  Destination IXmaps.ca
+                <button type="button" class="ql-button" id="non-US-button">
+                  Not Via US
                 </button>
               </form>
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="non-US-button">
-                  Not Via US
+                <button type="button" class="ql-button" id="my-isp-button">
+                  From My ISP
                 </button>
               </form>
             </td>
