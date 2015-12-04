@@ -271,16 +271,18 @@ class GatherTr
 				$winnerIp = "";
 			}
 
+			/*TODO: more than 4 queries/attepts in "official" tables needes further examination*/
+			
 			/*Preventing the submission of more that 4 attempts/queries bacause it brakes TR details page
 			Note: this needs further discussion. In this case submitting the lowest 4 latencies. */
-			$totQueries = count($latencies);
+/*			$totQueries = count($latencies);
 			if($totQueries>4) {
 				for($i=4; $i < $totQueries; $i++){
 					if(isset($latencies[$i])){
 						unset($latencies[$i]);
 					}
 				}
-			}
+			}*/
 
 			//echo "\nWinner IP: ".$winnerIp;
 
