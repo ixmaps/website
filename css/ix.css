@@ -191,6 +191,8 @@ nav .menu ul {
 }
 
 nav .menu li {
+	margin-right: 1%;
+	margin-left: 1%;
 	float: left;
 	position: relative;
 }

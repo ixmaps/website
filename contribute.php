@@ -68,7 +68,7 @@
 			<?php include('application/config.php');
 				$result = pg_query($dbconn, "SELECT COUNT (DISTINCT traceroute.id) FROM public.traceroute");
 				if (!$result) {
-				  echo "more than 30000\n";
+				  echo "more than 40000\n";
 				  exit;
 				}
 				while ($row = pg_fetch_row($result)) {
@@ -78,27 +78,25 @@
 			traceroutes. The more distinct the originating points, in terms of both geographic locale and ISP,
 			and the more the destination targets, the better able we are to display internet routings.</p>
 
-			<p>Contributing mainly involves installing <strong>TrGen</strong>, a <a href="/faq.php#Traceroute">traceroute</a>
+			<p>Contributing mainly involves installing the <strong>IXmaps Client</strong>, a <a href="/faq.php#Traceroute">traceroute</a>
 			generating software application built by the IXmaps development team, and initiating traceroute
 			requests from your location targeted either at batches of selected sites, or at individual
 			hostnames (like URLs) of your choosing. You can view the traceroutes you and others have
 			contributed via the <a href="/explore.php">Explore page.</a></p>
 
-			<h3>TrGen</h3>
-			<p>At the moment, TrGen 0.8.8 works on <strong>Linux</strong>, <strong>Windows</strong> and <strong>Mac OSX</strong> operating systems.<br />
+			<h3>IXmaps Client</h3>
+			<p>At the moment, the IXmaps Client works on <strong>Linux</strong>, <strong>Windows</strong> and <strong>Mac OSX</strong> operating systems.<br />
 			<ul class="nobullet">
 				<li>To install the Windows version, follow the instructions <a href="/windows.php">listed here.</a></li>
 				<li>To install the Linux version, follow the instructions <a href="/linux.php">listed here.</a></li>
 				<li>To install the Mac OSX version, follow the instructions <a href="/macos.php">listed here.</a></li>
 			</ul>
-			<p>The source code for these versions of TrGen 0.8.8 can be found <a href="/technical.php">here</a>.</p>
+			<p>Please note that due to how Mac handles OS updates, the listed IXmaps Client may not be compatible with all OSX versions.
+			If you would like to help with updating the Mac version <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">please get in touch</a>. We also welcome corrections to our geolocation of IP addresses (i.e. via Flag this IP on the Explore page), and appreciate any
+			information (including photos) about the various facilities we refer to. <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">Email the IXmaps team</a>.</p>
 
-			<p>Please note that due to how Mac handles OS updates, the listed TrGen may not be compatible with all OSX versions.
-			If you would like to help with updating the Mac version <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">please get in touch</a>.</p>
-
-			<p>We also welcome corrections to our geo-location of IP addresses (i.e. via Flag this IP on the Explore page), and appreciate any
-			information (including photos) about the various facilities we refer to.
-			<a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">Email the IXmaps team</a>.</p>
+			<p>The code used for gathering traceroutes, as well as the code for the website and various related components, is free and open source, and available <a href="https://github.com/ixmaps" target="_blank">from our github repositories</a>.</p>
+			<p>All technical inquiries regarding software, the IXmaps database, or the IXmaps website should be directed <a href="mailto: ixmaps@utoronto.ca?subject=[IXmaps Technical]">here</a>.</p>
         </article>
 
 	</section><!-- end of #content -->

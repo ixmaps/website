@@ -68,7 +68,7 @@
 
 	    <h5>Geolocation</h5>
 
-      <p><a href="documents/geolocation.pdf" target="_blank">This  document</a></a> provides greater technical detail on the geolocation process we have employed. It outlines our attempt to geolocate IP addresses (and their corresponding routers) for the IXmaps database, details the logic and methods we have employed, and provides current information about parsing specific ISP hostnames. While the geolocation process provides more accurate longitude and latitude than is often provided by Maxmind, it generally remains reliable only at a city level; many corrections place routers at a generic city location instead of in a particular building.</p>
+      <p><a href="documents/geolocation.pdf" target="_blank">This document</a></a> provides greater technical detail on the geolocation process we have employed. It outlines our attempt to geolocate IP addresses (and their corresponding routers) for the IXmaps database, details the logic and methods we have employed, and provides current information about parsing specific ISP hostnames. While the geolocation process provides more accurate longitude and latitude than is often provided by Maxmind, it generally remains reliable only at a city level; many corrections place routers at a generic city location instead of in a particular building. These locations are described as the city centre by <a href="https://en.wikipedia.org/">wikipedia's</a> <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS84</a> reference.</p>
 
 <!-- 		  <p>TRgen, the software used to write to the database, is a cross-platform, free and open source
 traceroute generator built in C. </p>
