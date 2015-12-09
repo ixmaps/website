@@ -81,23 +81,34 @@
 			generating software built by the IXmaps development team. It initiates traceroute
 			requests from your location either at batches of pre-selected <a href="https://www.ixmaps.ca/trsets/" target="_blank">target sites</a>, or at individual <a href="/faq.php#Hostname">hostnames</a> (like URLs) of your choosing. You can view the traceroutes you and others have contributed via the <a href="/explore.php">Explore page.</a></p>
 
-			<p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.000. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/ixnode" target="_blank">GitHub</a>. See our Privacy page, for more on how we anonymize your IP address and protect your privacy.</p>
+			<p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.000. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/ixnode" target="_blank">GitHub</a>. See our <a href="/privacy.php">Privacy page</a>, for more on how we anonymize your IP address and protect your privacy.</p>
 
-			<h3>IXmaps Client</h3>
-			<p>At the moment, the IXmaps Client works on <strong>Linux</strong>, <strong>Windows</strong> and <strong>Mac OSX</strong> operating systems.<br />
+			<br />
+
+			<h3>Installing and running the IXmaps Client</h3>
+			<p>IXmaps Client currently works on most current computers and popular versions of the <strong>Mac OSX</strong>, <strong>Windows</strong> and <strong>Linux</strong> operating systems. We currently do not offer IXmaps Client for Android, iOS or Windows Phone.</p>
+			<h4>System requirements:</h4>
 			<ul class="nobullet">
-				<li>To install the Windows version, follow the instructions <a href="/windows.php">listed here.</a></li>
-				<li>To install the Linux version, follow the instructions <a href="/linux.php">listed here.</a></li>
-				<li>To install the Mac OSX version, follow the instructions <a href="/macos.php">listed here.</a></li>
+				<li>Intel processor</li>
+				<li>Mac OS X v10.6 or higher (tested on 10.6.8, 10.7.5, 10.8,10.10. If you would like to help with updating the Mac version please <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">get in touch</a>)<li>
+				<li>1GB of RAM</li>
 			</ul>
-			<p>Please note that due to how Mac handles OS updates, the listed IXmaps Client may not be compatible with all OSX versions.
-			If you would like to help with updating the Mac version <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">please get in touch</a>. We also welcome corrections to our geolocation of IP addresses (i.e. via Flag this IP on the Explore page), and appreciate any
-			information (including photos) about the various facilities we refer to. <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">Email the IXmaps team</a>.</p>
+			<h4>Mac OSX and Linux installation</h4>
+			<p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.dmg">Download the installer from here</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</p>
+			<h4>Windows installation</h4>
+			<p>To install (an older) version of our traceroute generator (TrGen), <a href="https://www.ixmaps.ca/TrGen/trgen-0.8.8.msi">download the Windows installer from here</a> and follow the instructions. You will not need administrator privileges to run the software once installed, but you may need to be logged into an administrator account to install it. (We welcome help from those with Windows installation experience in creating a Windows package for the latest version of IXmaps Client software.)</p>
 
+			<br />
+
+			<h3>Other welcome contributions</h3>
+			<h4>Correcting the location of routers</h4>
+			<p>Locating accurately the individual routers that switch data packets along the way to their destination is challenging. You may find when examining traceroutes displayed on the Explore page that some routers appear out of place, sometimes even wildly. We invite you to use the Flag option on the Explore page to point these out and suggest more accurate locations for the IP addresses of such routers. See our FAQ page for more on <a href="/faq.php#Geolocation">geolocation</a>.</p>
+
+			<h4>Improving our software</h4>
 			<p>The code used for gathering traceroutes, as well as the code for the website and various related components, is free and open source, and available <a href="https://github.com/ixmaps" target="_blank">from our github repositories</a>.</p>
-			<p>All technical inquiries regarding software, the IXmaps database, or the IXmaps website should be directed <a href="mailto: ixmaps@utoronto.ca?subject=[IXmaps Technical]">here</a>.</p>
-        </article>
+			<p>We welcome all feedback, technical inquiries or offers for assistance regarding IXmaps software, database, or website. Please <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">email the IXmaps team.</a></p>
 
+    </article>
 	</section><!-- end of #content -->
 </section><!-- end of #container -->
 
