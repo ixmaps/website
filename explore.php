@@ -156,7 +156,7 @@ geoip_close($gi1);
       <div id="map-canvas-container">
         <span id="map-output-container" style="float:left;">
           <div id="map_canvas" class="map-canvas"></div>
-          <img id="options-btn" src="images/icon-gear.png" class="hidden"></img>
+          <img id="options-btn" src="images/icon-gear.png" title="Settings" class="hidden"></img>
           <div id="options-container" class="map-icon-popup-container hidden">
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <h3>Options</h3>
@@ -179,7 +179,7 @@ geoip_close($gi1);
               <input id="map-exclude-e" class="map-tool-on" type="button" onMouseDown="excludeE()" value="User-flagged"/>
             </div>
           </div>
-          <img id="layers-btn" src="images/icon-layers.png" class="hidden"></img>
+          <img id="layers-btn" src="images/icon-layers.png" title="Map legend and layers" class="hidden"></img>
           <div id="layers-container" class="map-icon-popup-container hidden">
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <div id="map-op-3" class="map-actions-controls">
@@ -190,7 +190,7 @@ geoip_close($gi1);
               <input id="map-show-uc" class="map-tool-off" type="button" onMouseDown="setShowUc()" value="Undersea Cable Landing Site"/>
             </div>
           </div>
-          <img id="help-btn" src="images/icon-help.png" class="hidden"></img>
+          <img id="help-btn" src="images/icon-help.png" title="Help" class="hidden"></img>
           <div id="help-container" class="map-icon-popup-container hidden">
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <h3>Help</h3>
@@ -224,7 +224,7 @@ geoip_close($gi1);
         </span>
         <span id="traceroutes-found-container" style="float:right;">
           <div id="traceroutes-found-title-container">
-            <span><h3 style="display: inline">Traceroutes Found</h3></span>
+            <span title="Lists all the traceroutes found by the latest search. (A traceroute records the sequence of routers and transit times of data packets crossing the Internet.) Click on column headings to re-order the list. "><h3 style="display: inline">Traceroutes Found</h3></span>
             <span style="float: right">
               <button id="add-all-trs-btn">Map All</button>
               <button id="remove-all-trs-btn">Remove All</button>
@@ -235,7 +235,7 @@ geoip_close($gi1);
           <div id="filter-results">
             <!-- filled in when queries are returned -->
           </div>
-          <h3 style="margin-top: 15px">Carrier Summary</h3>
+          <h3 style="margin-top: 15px" title="Summary of key information about the telecom carriers represented in the current map. Click on column headings to re-order the list. ">Carrier Summary</h3>
           <div id="filter-results-ixmaps-data">
             <!-- filled in when queries are returned -->
           </div>
@@ -245,7 +245,7 @@ geoip_close($gi1);
       <!-- /map-canvas-container -->
 
       <span id="search-container" style="float:left">
-        <h3>Search</h3>
+        <h3 title="Construct your own custom search by selecting from among the various query options. Click on the + at the end of a query line to add another. Click X to delete the line. Then click Submit. Complex queries can take several seconds to complete.">Search</h3>
         <!-- autocomplete data -->
         <div id="autocomplete-data" class="hidden"></div>
         <div id="filter-container">
@@ -271,14 +271,14 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="last-submission-button">
+                <button type="button" class="ql-button" id="last-submission-button" title="Map the traceroute most recently contributed to the database.">
                   Last submitted
                 </button>
               </form>
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="recent-routes-button">
+                <button type="button" class="ql-button" id="recent-routes-button" title="Map the 50 traceroutes most recently contributed to the database.">
                   Last 50 submitted
                 </button>
               </form>
@@ -287,7 +287,7 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="all-boomerangs-button">
+                <button type="button" class="ql-button" id="all-boomerangs-button" title="Map all routes that begin in Canada and end in Canada, but travel via the US (and NSA interception sites). Click Submit.">
                   Boomerangs
                 </button>
               </form>
@@ -310,7 +310,7 @@ geoip_close($gi1);
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="my-isp-button">
+                <button type="button" class="ql-button" id="my-isp-button" title="Map all routes already contributed from other subscribers of your internet service provider (using the Autonomous System Number associated with that ISP). Click Submit. ">
                   From My ISP
                 </button>
               </form>
@@ -334,14 +334,14 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="submitted-by-button">
+                <button type="button" class="ql-button" id="submitted-by-button" title="Enter a pseudonym to see the routes s/he contributed to the database, then click Submit.">
                   Submitted By...
                 </button>
               </form>
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="submitted-from-button">
+                <button type="button" class="ql-button" id="submitted-from-button" title="Enter a postcode to see routes contributed to the database from that area, then click Submit.">
                   Submitted From...
                 </button>
               </form>

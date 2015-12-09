@@ -423,7 +423,7 @@ var submitQuery = function(obj) {
         // we may need more error messages, but for now this will handle the majority...
         jQuery.toast({
           heading: 'No routes found',
-          text: 'No routes were found with the specified search parameters. WHAT NEXT STEPS DO WE WANT TO DESCRIBE HERE? ALSO - LENGTH GOOD?',
+          text: 'No routes were found with specified criteria. Adjust the query options to be more inclusive, then click Submit.',
           hideAfter: 6000,
           allowToastClose: true,
           position: 'mid-center',

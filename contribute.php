@@ -61,9 +61,8 @@
 			</div> -->
 
 			<h2>Contribute</h2>
-			<h3>Contributing to the IXmaps database</h3>
-			<p>IXmaps relies on voluntary contributions of anonymized data. We invite you to join over 300 other
-			contributors who have helped grow the main database to
+			<h3>Contributing to the IXmaps database anonymously</h3>
+			<p>IXmaps relies on voluntary contributions of anonymized <a href="/faq.php#Traceroute">traceroute</a> data. We invite you to join over 400 other contributors who have helped to grow the database to
 			<!-- Retrieve number of database routes  -->
 			<?php include('application/config.php');
 				$result = pg_query($dbconn, "SELECT COUNT (DISTINCT traceroute.id) FROM public.traceroute");
@@ -75,14 +74,14 @@
 				  echo "$row[0]";
 				}
 			?>
-			traceroutes. The more distinct the originating points, in terms of both geographic locale and ISP,
-			and the more the destination targets, the better able we are to display internet routings.</p>
+			traceroutes. The more distinct the originating points, in terms of both city and ISP,
+			and the more varied the destination targets, the better able we are to display interesting internet routings.</p>
 
-			<p>Contributing mainly involves installing the <strong>IXmaps Client</strong>, a <a href="/faq.php#Traceroute">traceroute</a>
-			generating software application built by the IXmaps development team, and initiating traceroute
-			requests from your location targeted either at batches of selected sites, or at individual
-			hostnames (like URLs) of your choosing. You can view the traceroutes you and others have
-			contributed via the <a href="/explore.php">Explore page.</a></p>
+			<p>Contributing data involves installing the <strong>IXmaps Client</strong> traceroute
+			generating software built by the IXmaps development team. It initiates traceroute
+			requests from your location either at batches of pre-selected <a href="https://www.ixmaps.ca/trsets/" target="_blank">target sites</a>, or at individual <a href="/faq.php#Hostname">hostnames</a> (like URLs) of your choosing. You can view the traceroutes you and others have contributed via the <a href="/explore.php">Explore page.</a></p>
+
+			<p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.000. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/ixnode" target="_blank">GitHub</a>. See our Privacy page, for more on how we anonymize your IP address and protect your privacy.</p>
 
 			<h3>IXmaps Client</h3>
 			<p>At the moment, the IXmaps Client works on <strong>Linux</strong>, <strong>Windows</strong> and <strong>Mac OSX</strong> operating systems.<br />
