@@ -600,8 +600,8 @@ class Traceroute
 		}
 
 		if($totTrs>$trNumLimit){
-			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of ".$c." selected results (".$totTrs." total)";
-			$dbQuerySummary .= "Displaying <span id='tr-count'>1</span> of ".$c." selected results (".$totTrs." total)";
+			$dbQueryHtml .= "<span title='The search produced more routes than can be easily mapped. Every nth route is presented to keep the number mapped to no more than 100.'>Displaying <span id='tr-count'>1</span> of ".$c." sampled results (".$totTrs." total)</span>";
+			$dbQuerySummary .= "<span title='The search produced more routes than can be easily mapped. Every nth route is presented to keep the number mapped to no more than 100.'>Displaying <span id='tr-count'>1</span> of ".$c." sampled results (".$totTrs." total)</span>";
 		} else {
 			$dbQueryHtml .= "Displaying <span id='tr-count'>1</span> of ".$c." results";
 		}
@@ -1570,9 +1570,9 @@ class Traceroute
 		<table id="tr-list-table" class="tablesorter">
 		<thead>
 		<tr>
-			<th>Id</th>
+			<th>ID</th>
 			<th>Origin</th>
-			<th>Dest. Hostname</th>
+			<th title="Destination Hostnames are the names of the website domains targeted when generating traceroutes.">Dest. Hostname</th>
 			<th>Date</th>
 		</tr>
 		</thead>
@@ -1586,8 +1586,8 @@ class Traceroute
 			//$onMouseOver = " onmouseover='showThisTr(".$trId.")'";
 			$onMouseOver = " onmouseout='removeTr()' onmouseover='renderTr2(".$trId.")' onfocus='showThisTr(".$trId.")'";
 			//$onMouseOver = "";
-			//$onClick = "javascript: viewTrDetails(".$trId.");";
-			$onClick = "javascript: showThisTr(".$trId.");";
+			$onClick = "javascript: viewTrDetails(".$trId.");";
+			//$onClick = "javascript: showThisTr(".$trId.");";
 
 /*			$active="";
 			if(in_array($trId, $collected)){

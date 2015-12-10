@@ -536,3 +536,13 @@
 #map-tr-active {
   float: right;
 }
+
+
+#pratt-geolocation-warning {
+  top: 0px;
+  right: 9px;
+  position: absolute;
+  font-size: 9px;
+  padding: 0px 2px 0px 2px;
+  border-radius: 0px;
+}

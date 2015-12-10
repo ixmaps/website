@@ -341,13 +341,13 @@ var showTotalTrInfo = function(){
     carriers += '<table id="dynamic-legend" style="width: 100%;" class="tablesorter tr-list-result">';
     carriers += '<thead><tr>';
     // carriers += '<th>ASN</th>';
-    carriers += '<th>Carrier</th>';
+    carriers += '<th title="Telecommunications service provider, i.e. a local internet service provider, or longhaul ‘backbone carrier.’ Click on highlighted carriers to see more about them.">Carrier</th>';
     // add routers
-    carriers += '<th class="routers-header">Rtrs.</th>';
+    carriers += '<th class="routers-header" title="Number of routers mapped belonging to the carrier.">Rtrs.</th>';
     // add nat
     carriers+='<th class="nat-header">Nat.</th>';
     // add star score
-    carriers+='<th class="score-header">Transparency</th>';
+    carriers+='<th class="score-header" title="Number of stars for data privacy transparency awarded to the carrier in the latest privacy transparency report. See Transparency page.">Transparency</th>';
     // close headers
     carriers+='</tr></thead><tbody>';
 
@@ -1000,7 +1000,7 @@ var saveIpFlag = function() {
       jQuery.toast({
         heading: 'Thank you for flagging this router',
         text: 'We will review your suggestion and update our database accordingly. In the meantime, you can view traceroutes with flagged routers removed (these and other options are available through the Gear icon on the map)',
-        hideAfter: 20000,
+        hideAfter: 10000,
         allowToastClose: true,
         position: 'mid-center',
         icon: 'success',

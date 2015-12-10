@@ -108,14 +108,19 @@ var initialize = function() {
     submitNSAObject();
   });
 
-  jQuery('#destination-ixmaps').click(function() {
+  jQuery('#my-isp-button').click(function() {
     jQuery('#process-filters-button').effect("highlight", {}, 3000);
-    submitDestinationIXmapsObject();
+    submitMyISPObject();
   });
 
   jQuery('#non-US-button').click(function() {
     jQuery('#process-filters-button').effect("highlight", {}, 3000);
     submitNonUSObject();
+  });
+
+  jQuery('#pratt-origin-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
+    submitPrattOriginObject();
   });
 
   jQuery('#submitted-by-button').click(function() {
@@ -225,6 +230,8 @@ var addFilterConstraint = function () {
   filterLine += "</select>";
 
   filterLine += "<select class='constraint constraint-dropdown'>";
+  filterLine += "<option value='submitter'>Submitter Name</option>";
+  filterLine += "<option value='zipCodeSubmitter'>Submitter Postcode</option>";
   filterLine += "<option value='trId'>Traceroute Id</option>";
   filterLine += "<option value='ipAddr'>IP Address</option>";
   filterLine += "<option value='asnum'>AS Number</option>";
@@ -235,8 +242,6 @@ var addFilterConstraint = function () {
   filterLine += "<option value='zipCode'>Postcode</option>";
   filterLine += "<option value='city'>City</option>";
   filterLine += "<option value='destHostName'>Destination Hostname</option>";
-  filterLine += "<option value='submitter'>Submitter Name</option>";
-  filterLine += "<option value='zipCodeSubmitter'>Submitter Postcode</option>";
   //filterLine += "<option value='NSA'>NSA</option>";
   filterLine += "</select>";
   filterLine += "<input class='constraint constraint-text-entry' type='text'/>";
@@ -284,9 +289,7 @@ var addFilterConstraint = function () {
   // on change approach
   jQuery('.constraint-dropdown').change(function(ev) {
     // FIXME: we need to capture here the actual rowId, so we don't run bindAutocompletes for all the constraint-dropdown(s).
-    console.log('ev.target', ev.target);
-    console.log('rowId', rowId);
-    console.log(jQuery(ev.target).val());
+    //jQuery('.constraint-text-entry').val('');
     bindAutocompletes(jQuery(ev.target).val(), rowId);
   });
 
@@ -406,7 +409,7 @@ var submitQuery = function(obj) {
       console.log("Query submitted", e);
       //if(e!=0){
       var data = jQuery.parseJSON(e);
-      if(data.totTrs!=undefined){
+      if (data.totTrs!=undefined){
         console.log(" Total TRs: "+data.totTrs);
         console.log(" Total Hops: "+data.totHops);
         console.log(" File Name: "+data.ixdata);
@@ -422,6 +425,15 @@ var submitQuery = function(obj) {
         jQuery('#filter-results-log').html(data.queryLogs);
         jQuery('#filter-results-summary').html(data.querySummary);
       } else {
+        // we may need more error messages, but for now this will handle the majority...
+        jQuery.toast({
+          heading: 'No routes found',
+          text: 'No routes were found with specified criteria. Adjust the query options to be more inclusive, then click Submit.',
+          hideAfter: 6000,
+          allowToastClose: true,
+          position: 'mid-center',
+          icon: 'error',
+        });
         jQuery('#filter-results-log').show();
         jQuery('#filter-results-log').html(data.queryLogs);
         jQuery('#filter-results-summary').html(data.querySummary);
@@ -657,6 +669,19 @@ var submitMyCityObject = function() {
   jQuery(a[4]).val('AND');
 };
 
+var submitMyISPObject = function() {
+  jQuery.ajax({url: "https://www.ixmaps.ca/application/geoip/mygeoip.php", success: function(result){
+    resetFilterConstraints();
+    var a;
+    a = jQuery('#filter-constraint-1 .constraint');
+    jQuery(a[0]).val('does');
+    jQuery(a[1]).val('originate');
+    jQuery(a[2]).val('asnum');
+    jQuery(a[3]).val(result.asn);
+    jQuery(a[4]).val('AND');
+  }});
+};
+
 var submitBoomerangObject = function() {
   // ANTO: new approach
   resetFilterConstraints();
@@ -707,6 +732,17 @@ var submitNonUSObject = function() {
   jQuery(a[1]).val('contain');
   jQuery(a[2]).val('country');
   jQuery(a[3]).val('US');
+  jQuery(a[4]).val('AND');
+};
+
+var submitPrattOriginObject = function() {
+  resetFilterConstraints();
+  var a;
+  a = jQuery('#filter-constraint-1 .constraint');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('contain');
+  jQuery(a[2]).val('submitter');
+  jQuery(a[3]).val('Pratt Manhattan Gallery');
   jQuery(a[4]).val('AND');
 };
 

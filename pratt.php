@@ -132,13 +132,9 @@ geoip_close($gi1);
     <header><!-- header -->
       <img src="images/headerimage.jpg" width="1000" height="138">
     </header><!-- end of header -->
-
-    <?php include("includes/navigation.php"); ?>
 <!--     <div id="beta-message-ok"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i></div> -->
 
     <div style="clear: both;"></div>
-
-    <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</span></div>
 
     <div id="explore-content">
       <div id="loader" style="display: none">
@@ -219,6 +215,7 @@ geoip_close($gi1);
               <div><span class="legend-img-container"><img class="legend-img" src="/images/nsamedium.png" /></span><span>NSA listening post (medium level of certainty)</span></div>
             </div>
           </div>
+          <div id="pratt-geolocation-warning" class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</span></div>
         </span>
         <span id="traceroutes-found-container" style="float:right;">
           <div id="traceroutes-found-title-container">
@@ -301,8 +298,8 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="non-US-button">
-                  Not Via US
+                <button type="button" class="ql-button" id="pratt-origin-button">
+                  From the Pratt
                 </button>
               </form>
             </td>
@@ -350,7 +347,7 @@ geoip_close($gi1);
 
     </div><!-- #content -->
     <footer>
-      <?php include("includes/footer.php"); ?>
+      <?php include("includes/footer-pratt.php"); ?>
     </footer>
   </div><!-- #wrapper -->
   <br/>

@@ -84,15 +84,26 @@
 			<li><a href="http://www.ischool.utoronto.ca/students/gabby-resch" target="_blank">Gabby Resch, PhD Student</a>, Faculty of Information, University of Toronto</li>
 			<li><a href="//www.linkedin.com/in/johnharrisstevenson" target="_blank">John Stevenson, PhD</a>, University of Toronto</li>
 		</ul>
-		<br />
+
+  	<h2>Contact</h2>
+  	<p>We encourage all feedback from visitors as to what they find interesting, confusing, boring or inaccessible, and welcome helpful suggestions for further refinement. For inquiries, comments or suggestions regarding the IXmaps project, please contact:</p>
+  	<ul id="contact-list">
+  		<li><a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Comments&#93;">IXmaps Comments</a></li>
+  		<li><a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Media&#93;">Media Inquiries</a></li>
+  		<li><a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Inquiries&#93;">Research and Researcher Inquiries</a></li>
+  		<li><a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Technical&#93;">Technical Inquiries</a></li>
+  	</ul>
+
+  	<br />
+
 		<p>IXmaps is affiliated with the
 		<a href="http://www.sscqueens.org/projects/the-new-transparency/about" target="_blank">New Transparency Project</a> and the <a href="http://iprp.ischool.utoronto.ca/" target="_blank">Information Policy Research Program</a> at the
 		<a href="http://www.ischool.utoronto.ca/" target="_blank">Faculty of Information</a>,
 		<a href="http://www.utoronto.ca/" target="_blank">University of Toronto</a>.
 		</p>
 		<p style="text-align:center">
-        <img src="images/logos.jpg" alt="Affiliated institutions logos: utoronto, IPRP, utoronto faculty of information, OCAD" width="434" height="116">
-    	</p>
+      <img src="images/logos.jpg" alt="Affiliated institutions logos: utoronto, IPRP, utoronto faculty of information, OCAD" width="434" height="116">
+  	</p>
 
 	  </article>
 	</section>

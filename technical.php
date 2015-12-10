@@ -56,14 +56,21 @@
 	  <article>
 		<h2>Technical</h2>
 		  <p>This page outlines some of the more technical aspects of the IXmaps project. All technical inquiries regarding software, the IXmaps database, or the IXmaps website should be directed <a href="mailto: ixmaps@utoronto.ca?subject=[IXmaps Technical]">here</a>.</p>
-	    <h5>Geolocation</h5>
-        <p><a href="documents/geolocation.pdf" target="_blank">This  document</a></a> provides greater technical detail on the geolocation process we have employed. It outlines our attempt to geolocate IP addresses (and their corresponding routers) for the IXmaps database, details the logic and methods we have employed, and provides current information about parsing specific ISP hostnames. While the geolocation process provides more accurate longitude and latitude than is often provided by Maxmind, it generally remains reliable only at a city level; many corrections place routers at a generic city location instead of in a particular building.</p>
-        <h5>System</h5>
+
+      <h5>System</h5>
 	    <p>IXmaps is hosted on servers at the University of Toronto.
 		    All of our data is stored in a <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>
-	      database built by the IXmaps research team. </p>
+	      database built by the IXmaps research team.
 
-		  <p>TRgen, the software used to write to the database, is a cross-platform, free and open source
+	    Traceroute collection is performed by volunteers using a traceroute generating application <a href="contribute.php">available for download here</a>.
+
+	    The code used for gathering traceroutes, the code for this website, as well as various other related components, is free and open source, and available <a href="https://github.com/ixmaps" target="_blank">from our github repositories</a>.</p>
+
+	    <h5>Geolocation</h5>
+
+      <p><a href="documents/geolocation.pdf" target="_blank">This document</a></a> provides greater technical detail on the geolocation process we have employed. It outlines our attempt to geolocate IP addresses (and their corresponding routers) for the IXmaps database, details the logic and methods we have employed, and provides current information about parsing specific ISP hostnames. While the geolocation process provides more accurate longitude and latitude than is often provided by Maxmind, it generally remains reliable only at a city level; many corrections place routers at a generic city location instead of in a particular building. These locations are described as the city centre by <a href="https://en.wikipedia.org/">wikipedia's</a> <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS84</a> reference.</p>
+
+<!-- 		  <p>TRgen, the software used to write to the database, is a cross-platform, free and open source
 traceroute generator built in C. </p>
 				  <ul class="nobullet">
 					  <li><a href="TrGen/tr-sub-0.8.6.tar.gz" target="_blank">Download source code</a>
@@ -74,9 +81,8 @@ traceroute generator built in C. </p>
 
 					  <li><a href="TrGen/doxygen/index.html" target="_blank">View program documentation</a>
 						  for the main traceroute submission (tr-sub) program.</li>
-				  </ul>
+				  </ul> -->
 
-	    <h5>&nbsp;</h5>
 		</article>
 	</section><!-- end of #content -->
 </section><!-- end of #container -->
