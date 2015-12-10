@@ -118,6 +118,11 @@ var initialize = function() {
     submitNonUSObject();
   });
 
+  jQuery('#pratt-origin-button').click(function() {
+    jQuery('#process-filters-button').effect("highlight", {}, 3000);
+    submitPrattOriginObject();
+  });
+
   jQuery('#submitted-by-button').click(function() {
     jQuery('#filter-constraint-1 .ui-autocomplete-input').effect("highlight", {}, 3000);
     submitSubmittedBy();
@@ -727,6 +732,17 @@ var submitNonUSObject = function() {
   jQuery(a[1]).val('contain');
   jQuery(a[2]).val('country');
   jQuery(a[3]).val('US');
+  jQuery(a[4]).val('AND');
+};
+
+var submitPrattOriginObject = function() {
+  resetFilterConstraints();
+  var a;
+  a = jQuery('#filter-constraint-1 .constraint');
+  jQuery(a[0]).val('does');
+  jQuery(a[1]).val('contain');
+  jQuery(a[2]).val('submitter');
+  jQuery(a[3]).val('Pratt Manhattan Gallery');
   jQuery(a[4]).val('AND');
 };
 

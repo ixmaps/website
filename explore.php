@@ -138,7 +138,7 @@ geoip_close($gi1);
 
     <div style="clear: both;"></div>
 
-    <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, <span href="#" title="Unfortunately the accuracy of router locations mapped varies considerably, help us with once you believe are incorrectly located!">please flag it</span></div>
+    <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</span></div>
 
     <div id="explore-content">
       <div id="loader" style="display: none">

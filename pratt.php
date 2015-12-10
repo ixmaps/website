@@ -132,13 +132,9 @@ geoip_close($gi1);
     <header><!-- header -->
       <img src="images/headerimage.jpg" width="1000" height="138">
     </header><!-- end of header -->
-
-    <?php include("includes/navigation.php"); ?>
 <!--     <div id="beta-message-ok"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i></div> -->
 
     <div style="clear: both;"></div>
-
-    <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, <span href="#" title="This should explain how flagging is done. What do we think of these tool tips?">please flag it</span></div>
 
     <div id="explore-content">
       <div id="loader" style="display: none">
@@ -156,7 +152,7 @@ geoip_close($gi1);
       <div id="map-canvas-container">
         <span id="map-output-container" style="float:left;">
           <div id="map_canvas" class="map-canvas"></div>
-          <img id="options-btn" src="images/icon-gear.png" class="hidden"></img>
+          <img id="options-btn" src="images/icon-gear.png" title="Settings" class="hidden"></img>
           <div id="options-container" class="map-icon-popup-container hidden">
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <h3>Options</h3>
@@ -179,7 +175,7 @@ geoip_close($gi1);
               <input id="map-exclude-e" class="map-tool-on" type="button" onMouseDown="excludeE()" value="User-flagged"/>
             </div>
           </div>
-          <img id="layers-btn" src="images/icon-layers.png" class="hidden"></img>
+          <img id="layers-btn" src="images/icon-layers.png" title="Map legend and layers" class="hidden"></img>
           <div id="layers-container" class="map-icon-popup-container hidden">
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <div id="map-op-3" class="map-actions-controls">
@@ -190,26 +186,24 @@ geoip_close($gi1);
               <input id="map-show-uc" class="map-tool-off" type="button" onMouseDown="setShowUc()" value="Undersea Cable Landing Site"/>
             </div>
           </div>
-          <img id="help-btn" src="images/icon-help.png" class="hidden"></img>
+          <img id="help-btn" src="images/icon-help.png" title="Help" class="hidden"></img>
           <div id="help-container" class="map-icon-popup-container hidden">
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <h3>Help</h3>
-            <p>
-              If you're a <i>new user</i>, it may be easiest to begin with some of our canned queries in the Quick Searches section. For example, if you've just generated a route, you'll be able to find it be clicking on 'Examine last submitted route' or by clicking on 'Submitted By...' and entering your submitter name.
-            </p>
+            <p>If you're getting started, it may be easiest to begin with some of our canned queries in the Quick Searches section. If you've just generated a route, you'll be able to find it by clicking on 'Last submitted' or 'Last 50 submitted route' or by clicking on 'Submitted By...' and entering your submitter name.</p>
+
             <div>
-              For users more comfortable with querying databases, the Custom Filters section allows dynamic, extensible queries based on many of the data fields collected by the route generator program
-            </div>
-            <div>
-              <div>For example, to view routes that neither start nor end in Canada, a user could query:</div>
-              <div><b>| Does not | Originate in | Country | CA | AND | +</b></div>
-              <div><b>| Does not | Terminate in | Country | CA |</b></div>
-              <div>Or, to browse routes ending in Toronto or Ottawa, a user could query:</div>
-              <div><b>| Does | Terminate in | City | Toronto | OR | +</b></div>
-              <div><b>| Does | Terminate in | City | Ottawa |</b></div>
-              <div>
-                Note that while the query is performed on the entire IXmaps database, due to computational and bandwidth limitations the server only returns the first 200 results. If you do not see the route you were looking for, it is best to add additional filter constraints (e.g. Submitter).
-              </div>
+              <div>For users more comfortable with querying databases, the Search feature allows customized, extensible queries based on many of the data fields associated with traceroutes. The Quick Search feature generates query examples you can combine and adapt for your more specific purposes. For example, to view routes that originate in your city and are carried by Bell, you could select:</div>
+              <div><b>| Does | Originate in | Country | CA | AND | +</b></div>
+              <div><b>| Does | Contain | ISP/Caller | Bell |</b></div>
+              <div>then click <b>Submit</b></div>
+              <div>Or, to look for Canadian boomerang routes destined for Federal Government agencies you could form this query:</div>
+              <div><b>| Does | Originate in | Country | CA | AND | +</b></div>
+              <div><b>| Does | Go via | Country | US | AND | +</b></div>
+              <div><b>| Does | Terminate in | Destination hostname | .gc.ca |</b></div>
+              <div>then click <b>Submit</b></div>
+              <p>To see how many search results each individual query line produced, click on 'Search results details' at the bottom. This can be helpful in deciding on a next search, especially if no results are found or there are too many.</p>
+              <p>Note that while the query is performed on the entire IXmaps database, due to computational and bandwidth limitations the server only returns a sample of at most 100 results to display. If you do not see the route you were looking for, it is best to add additional filter constraints (e.g. Submitter).</p>
             </div>
             <br/>
             <div id="legend">
@@ -221,10 +215,11 @@ geoip_close($gi1);
               <div><span class="legend-img-container"><img class="legend-img" src="/images/nsamedium.png" /></span><span>NSA listening post (medium level of certainty)</span></div>
             </div>
           </div>
+          <div id="pratt-geolocation-warning" class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</span></div>
         </span>
         <span id="traceroutes-found-container" style="float:right;">
           <div id="traceroutes-found-title-container">
-            <span><h3 style="display: inline">Traceroutes Found</h3></span>
+            <span title="Lists all the traceroutes found by the latest search. (A traceroute records the sequence of routers and transit times of data packets crossing the Internet.) Click on column headings to re-order the list. "><h3 style="display: inline">Traceroutes Found</h3></span>
             <span style="float: right">
               <button id="add-all-trs-btn">Map All</button>
               <button id="remove-all-trs-btn">Remove All</button>
@@ -235,7 +230,7 @@ geoip_close($gi1);
           <div id="filter-results">
             <!-- filled in when queries are returned -->
           </div>
-          <h3 style="margin-top: 15px">Carrier Summary</h3>
+          <h3 style="margin-top: 15px" title="Summary of key information about the telecom carriers represented in the current map. Click on column headings to re-order the list. ">Carrier Summary</h3>
           <div id="filter-results-ixmaps-data">
             <!-- filled in when queries are returned -->
           </div>
@@ -245,7 +240,7 @@ geoip_close($gi1);
       <!-- /map-canvas-container -->
 
       <span id="search-container" style="float:left">
-        <h3>Search</h3>
+        <h3 title="Construct your own custom search by selecting from among the various query options. Click on the + at the end of a query line to add another. Click X to delete the line. Then click Submit. Complex queries can take several seconds to complete.">Search</h3>
         <!-- autocomplete data -->
         <div id="autocomplete-data" class="hidden"></div>
         <div id="filter-container">
@@ -271,14 +266,14 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="last-submission-button">
+                <button type="button" class="ql-button" id="last-submission-button" title="Map the traceroute most recently contributed to the database.">
                   Last submitted
                 </button>
               </form>
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="recent-routes-button">
+                <button type="button" class="ql-button" id="recent-routes-button" title="Map the 50 traceroutes most recently contributed to the database.">
                   Last 50 submitted
                 </button>
               </form>
@@ -287,14 +282,14 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="all-boomerangs-button">
+                <button type="button" class="ql-button" id="all-boomerangs-button" title="Map all routes that begin in Canada and end in Canada, but travel via the US (and NSA interception sites). Click Submit.">
                   Boomerangs
                 </button>
               </form>
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="contain-NSA-button">
+                <button type="button" class="ql-button" id="contain-NSA-button" title="Map all routes that pass through at least one of the 18 cities in the US most likely to contain an NSA splitter surveillance operation. For more, see the FAQ page and its Glossary section.">
                   Containing NSA Cities
                 </button>
               </form>
@@ -303,14 +298,14 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="non-US-button">
-                  Not Via US
+                <button type="button" class="ql-button" id="pratt-origin-button">
+                  From the Pratt
                 </button>
               </form>
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="my-isp-button">
+                <button type="button" class="ql-button" id="my-isp-button" title="Map all routes already contributed from other subscribers of your internet service provider (using the Autonomous System Number associated with that ISP). Click Submit. ">
                   From My ISP
                 </button>
               </form>
@@ -334,14 +329,14 @@ geoip_close($gi1);
           <tr>
             <td>
               <form>
-                <button type="button" class="ql-button" id="submitted-by-button">
+                <button type="button" class="ql-button" id="submitted-by-button" title="Enter a pseudonym to see the routes s/he contributed to the database, then click Submit.">
                   Submitted By...
                 </button>
               </form>
             </td>
             <td>
               <form>
-                <button type="button" class="ql-button" id="submitted-from-button">
+                <button type="button" class="ql-button" id="submitted-from-button" title="Enter a postcode to see routes contributed to the database from that area, then click Submit.">
                   Submitted From...
                 </button>
               </form>
@@ -352,7 +347,7 @@ geoip_close($gi1);
 
     </div><!-- #content -->
     <footer>
-      <?php include("includes/footer.php"); ?>
+      <?php include("includes/footer-pratt.php"); ?>
     </footer>
   </div><!-- #wrapper -->
   <br/>
