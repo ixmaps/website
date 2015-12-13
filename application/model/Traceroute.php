@@ -1586,7 +1586,7 @@ class Traceroute
 			//$onMouseOver = " onmouseover='showThisTr(".$trId.")'";
 			$onMouseOver = " onmouseout='removeTr()' onmouseover='renderTr2(".$trId.")' onfocus='showThisTr(".$trId.")'";
 			//$onMouseOver = "";
-			$onClick = "javascript: viewTrDetails(".$trId.");";
+			//$onClick = "javascript: viewTrDetails(".$trId.");";				// REMOVED THIS FOR PRATT - BUT I THINK WE WANT TO KEEP IT REMOVED
 			//$onClick = "javascript: showThisTr(".$trId.");";
 
 /*			$active="";
