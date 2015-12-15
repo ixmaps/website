@@ -89,12 +89,6 @@ $ixHost = $_SERVER["SERVER_NAME"];
 			</div>
 		</article> -->
 
-		<article id="homepage-news">
-			<p class="justreleased">Now Out!</p>
-			<p><strong>Keeping Internet Users in the Know or in the Dark:</strong>
-				<br />2014 Report on Data Privacy Transparency of Canadian Internet Service Providers.</p>
-			<p><a href="https://ixmaps.ca/transparency.php"> Read the 2014 Report</a></p>
-		</article>
 		<article>
 			<div class="slideshow">
 				<div class="index-container">
@@ -152,9 +146,15 @@ $ixHost = $_SERVER["SERVER_NAME"];
 						Given how many options are available on the page, it may be helpful to <a class="text-video-link" href="https://www.youtube.com/embed/_K_WIquGGbk?enablejsapi=1&autoplay=1" target="_blank">watch this introductory video...</a></p>
 					</span>
 				</div>
-
 			</div>
+		</article>
 
+		<br />
+
+		<article id="homepage-news">
+			<p><strong>Keeping Internet Users in the Know or in the Dark:</strong>
+				<br />2014 Report on Data Privacy Transparency of Canadian Internet Service Providers.</p>
+			<p><a href="https://ixmaps.ca/transparency.php"> Read the 2014 Report</a></p>
 		</article>
 
 	</section><!-- end of #content -->

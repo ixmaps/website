@@ -41,14 +41,14 @@
 	    var u="//ixmaps.piwikpro.com//";
 	    _paq.push(['setTrackerUrl', u+'piwik.php']);
 	    _paq.push(['setSiteId', 1]);
-	    var d=document, g=d.createElement('script'), 
+	    var d=document, g=d.createElement('script'),
 	    s=d.getElementsByTagName('script')[0];
-	    g.type='text/javascript'; g.async=true; 
+	    g.type='text/javascript'; g.async=true;
 	    g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
 	    })();
 	    </script>
 	<noscript><p>
-	  <img src="//ixmaps.piwikpro.com/piwik.php?idsite=1" 
+	  <img src="//ixmaps.piwikpro.com/piwik.php?idsite=1"
 	  style="border:0;" alt="" /></p>
 	  </noscript>
 	<!-- End Piwik Code -->
@@ -115,10 +115,10 @@
 				<li>1GB of RAM</li>
 			</ul>
 			<h4>Mac OSX installation</h4>
-			<p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.1.dmg">Download the installer from here - IXmapsClient_v.1.0.1.dmg</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</p>
+			<p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.1.dmg">Download the installer for IXmapsClient_v.1.0.1.dmg</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</p>
 
 			<h4>Linux installation</h4>
-			<p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_linux_v.1.0.1.zip">Download the installer from here - IXmapsClient_linux_v.1.0.1.zip</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. </p>
+			<p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_linux_v.1.0.1.zip">Download the installer forIXmapsClient_linux_v.1.0.1.zip</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. </p>
 
 			<h4>Windows installation</h4>
 			<p>To install (an older) version of our traceroute generator (TrGen), <a href="https://www.ixmaps.ca/TrGen/trgen-0.8.8.msi">download the Windows installer from here</a> and follow the instructions. You will not need administrator privileges to run the software once installed, but you may need to be logged into an administrator account to install it. (We welcome help from those with Windows installation experience in creating a Windows package for the latest version of IXmaps Client software.)</p>

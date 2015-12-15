@@ -55,8 +55,11 @@
 	<section id="content"><!-- #content -->
 		<article>
 			<h2>News</h2>
+
 			<h3>2015</h3>
 			<ul class="nobullet">
+				<li>December 16, 2015 - Launch of IXmaps.ca with <a href="https://openmedia.ca" target="_blank">OpenMedia.ca</a></li>
+				<li>December 11, 2015 through January 30, 2016 - IXmaps is being showcased at the <a href="https://www.pratt.edu/events/exhibitions/pratt-manhattan-gallery/" target="_blank">Pratt Manhattan Galley</a> exhibition <strong>Little Sister (is watching you, too)</strong></li>
 				<li>June 26, 2015 - CIRA <a href="https://cira.ca/blog/building-a-stronger-national-internet-part-1-local-peering" target="_blank">blog post</a> discussing the role of local peering in a national internet mentions the IXmaps project.</li>
 				<li>March 27, 2015 - TechVibes highlights the importance of data privacy and transparency <a href="http://www.techvibes.com/blog/canadian-internet-providers-transparent-protecting-consumer-data-2014-03-27" target="_blank">through a discussion of the recent Transparency report</a>.</li>
 				<li>March 12, 2015 - The IXmaps project is proud to announce the release of the its 2014 report on the Data Privacy Transparency of Canadian Internet Service Providers titled <a href="/transparency.php" target="_blank">Keeping Internet Users in the Know of in the Dark</a>.</li>
