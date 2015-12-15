@@ -16,15 +16,14 @@ $ixHost = $_SERVER["SERVER_NAME"];
 	<script type="text/javascript" src="js/lightbox.js"></script>
 
 	<script type="text/javascript">
-	//--------------- LOCALIZEABLE GLOBALS ---------------
-	var d=new Date();
-	var monthname=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
-	//Ensure correct for language. English is "January 1, 2004"
-	var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
-	//--------------- END LOCALIZEABLE ---------------
-  	</script>
+		//--------------- LOCALIZEABLE GLOBALS ---------------
+		var d=new Date();
+		var monthname=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+		//Ensure correct for language. English is "January 1, 2004"
+		var TODAY = monthname[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+		//--------------- END LOCALIZEABLE ---------------
+  </script>
 	<script type="text/javascript">
-
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-24555700-1']);
 		_gaq.push(['_setDomainName', 'none']);
@@ -36,12 +35,32 @@ $ixHost = $_SERVER["SERVER_NAME"];
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
-
 	</script>
+
+	<!-- Piwik -->
+	<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+    var u="//ixmaps.piwikpro.com//";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'),
+    s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true;
+    g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+	</script>
+	<noscript>
+		<p><img src="//ixmaps.piwikpro.com/piwik.php?idsite=1" style="border:0;" alt="" /></p>
+	</noscript>
+	<!-- End Piwik Code -->
+
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript">
-	    $.noConflict();
-	    // jquery and prototype fight for the $
+    $.noConflict();
+    // jquery and prototype fight for the $
 	</script>
 	<script type="text/javascript" src="js/jquery.cycle.all.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
