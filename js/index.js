@@ -1,5 +1,5 @@
-//var baseURL = 'https://www.ixmaps.ca/'
-var baseURL = 'https://dev.ixmaps.ca/'
+var baseURL = 'https://www.ixmaps.ca/'
+//var baseURL = 'https://dev.ixmaps.ca/'
 
 var initialize = function() {
 

@@ -19,7 +19,7 @@
 	//--------------- END LOCALIZEABLE ---------------
   	</script>
 	<script type="text/javascript">
-		var _gaq = _gaq || [];
+		/*var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-24555700-1']);
 		_gaq.push(['_setDomainName', 'none']);
 		_gaq.push(['_setAllowLinker', true]);
@@ -29,8 +29,29 @@
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
+		})();*/
 	</script>
+
+	<!-- Piwik -->
+	<script type="text/javascript">
+	    var _paq = _paq || [];
+	    _paq.push(['trackPageView']);
+	    _paq.push(['enableLinkTracking']);
+	    (function() {
+	    var u="//ixmaps.piwikpro.com//";
+	    _paq.push(['setTrackerUrl', u+'piwik.php']);
+	    _paq.push(['setSiteId', 1]);
+	    var d=document, g=d.createElement('script'), 
+	    s=d.getElementsByTagName('script')[0];
+	    g.type='text/javascript'; g.async=true; 
+	    g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	    })();
+	    </script>
+	<noscript><p>
+	  <img src="//ixmaps.piwikpro.com/piwik.php?idsite=1" 
+	  style="border:0;" alt="" /></p>
+	  </noscript>
+	<!-- End Piwik Code -->
 
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" href="/css/ix.css" type="text/css" />
@@ -81,7 +102,7 @@
 			generating software built by the IXmaps development team. It initiates traceroute
 			requests from your location either at batches of pre-selected <a href="https://www.ixmaps.ca/trsets/" target="_blank">target sites</a>, or at individual <a href="/faq.php#Hostname">hostnames</a> (like URLs) of your choosing. You can view the traceroutes you and others have contributed via the <a href="/explore.php">Explore page.</a></p>
 
-			<p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.000. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/ixnode" target="_blank">GitHub</a>. See our <a href="/privacy.php">Privacy page</a>, for more on how we anonymize your IP address and protect your privacy.</p>
+			<p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.0. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/ixnode" target="_blank">GitHub</a>. See our <a href="/privacy.php">Privacy page</a>, for more on how we anonymize your IP address and protect your privacy.</p>
 
 			<br />
 
@@ -90,11 +111,15 @@
 			<h4>System requirements:</h4>
 			<ul class="nobullet">
 				<li>Intel processor</li>
-				<li>Mac OS X v10.6 or higher (tested on 10.6.8, 10.7.5, 10.8,10.10. If you would like to help with updating the Mac version please <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">get in touch</a>)<li>
+				<li>Mac OS X v10.6 or higher (tested on 10.6.8, 10.7.5, 10.8, 10.10. If you would like to help with updating the Mac version please <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">get in touch</a>)<li>
 				<li>1GB of RAM</li>
 			</ul>
-			<h4>Mac OSX and Linux installation</h4>
-			<p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.dmg">Download the installer from here</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</p>
+			<h4>Mac OSX installation</h4>
+			<p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.1.dmg">Download the installer from here - IXmapsClient_v.1.0.1.dmg</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</p>
+
+			<h4>Linux installation</h4>
+			<p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_linux_v.1.0.1.zip">Download the installer from here - IXmapsClient_linux_v.1.0.1.zip</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. </p>
+
 			<h4>Windows installation</h4>
 			<p>To install (an older) version of our traceroute generator (TrGen), <a href="https://www.ixmaps.ca/TrGen/trgen-0.8.8.msi">download the Windows installer from here</a> and follow the instructions. You will not need administrator privileges to run the software once installed, but you may need to be logged into an administrator account to install it. (We welcome help from those with Windows installation experience in creating a Windows package for the latest version of IXmaps Client software.)</p>
 

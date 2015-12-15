@@ -215,7 +215,7 @@ geoip_close($gi1);
               <div><span class="legend-img-container"><img class="legend-img" src="/images/nsamedium.png" /></span><span>NSA listening post (medium level of certainty)</span></div>
             </div>
           </div>
-          <div id="pratt-geolocation-warning" class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</span></div>
+          <div id="pratt-geolocation-warning" class="announcement">Note: The location accuracy of routers mapped here varies considerably.</span></div>
         </span>
         <span id="traceroutes-found-container" style="float:right;">
           <div id="traceroutes-found-title-container">

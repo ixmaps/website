@@ -4,13 +4,14 @@ include('../config.php');
 include('../model/GatherTr.php');
 include('../model/IXmapsMaxMind.php'); 
 
-$myIp = $_SERVER['REMOTE_ADDR'];
-//$myIp='200.3.149.136'; // CO/BTA
+//$myIp = $_SERVER['REMOTE_ADDR'];
+$myIp='200.3.149.136'; // CO/BTA
+$myIp='192.0.159.88'; // CO/BTA
 
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($myIp);
 
-//$_POST['metadata']=json_encode(array("HTTP_USER_AGENT"=>$_SERVER['HTTP_USER_AGENT']));
+$_POST['metadata']=json_encode(array("HTTP_USER_AGENT"=>$_SERVER['HTTP_USER_AGENT']));
 $_POST['submitter_ip'] = $myIp;
 $_POST['city'] = $geoIp['geoip']['city'];
 $_POST['country'] = ''.$geoIp['geoip']['country_code'];
@@ -20,29 +21,31 @@ $_POST['client'] = "";
 $_POST['cl_version'] = "";
 
 $mm->closeDatFiles();
+print_r($_POST);
+exit;
 /*
 	TODO: add  exahustive check for consistency and completness of the TR data 
-	Requires discussion with tests on the IXmapsClient client
+	Requires discussion with tests on the TrGen client
 */
-if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
+if(isset($_REQUEST['tr_c_id']) && $_REQUEST['tr_c_id']!="")
 {
-	$trGatherMessage="";
-	$saveTrResult = GatherTr::saveTrContribution($_POST);
-	$tr_c_id = $saveTrResult['tr_c_id'];
 
-	if($saveTrResult['tr_c_id']==0){
-		$trGatherMessage.=" ".$saveTrResult['error'];
-	}
-
+	$tr_c_id=$_REQUEST['tr_c_id'];
+		//print_r($_POST);	
+	//$tr_c_id = GatherTr::saveTrContribution($_POST);
 	//echo "\ntr_c_id: ". $tr_c_id."\n";
-	$b = GatherTr::saveTrContributionData($_POST,$tr_c_id);	
+	//$b = GatherTr::saveTrContributionData($_POST,$tr_c_id);
+	
 	$trData = GatherTr::getTrContribution($tr_c_id);
+	//print_r($trData);
 	$trByHop = GatherTr::analyzeIfInconsistentPasses($trData); 
+	
+	//print_r($trByHop['tr_by_hop']);
 
 	// Exclude contributions with less than 2 hops
 	if(count($trByHop['tr_by_hop'])<2){
 		$trData['tr_flag'] = 4;
-		$trGatherMessage .= "Insufficient Traceroute responses. (Contribution id: ".$tr_c_id.")"; 
+		$trGatherMessage = "Insufficient Traceroute responses. (Contribution id: ".$tr_c_id.")"; 
 		$trId = 0;
 
 	} else {
@@ -65,11 +68,13 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 			$trGatherMessage = "Error publishing Traceroute responses. (Contribution id: ".$tr_c_id.")";
 		} else if($publishResult['publishControl'] && $publishResult['trId']!=0) {
 			// Success: tr_flag = 2 or 3
-			$trGatherMessage = "Traceroute data saved successfully. ".$publishResult['tot_hops']." Hops were found.";
+			$trGatherMessage = "Traceroute data saved successfully.";
 			$trId = $publishResult['trId'];
 			/*TODO*/
-			// return number of hops: e.g. 15 hops were found
+			// conduct further analysis
+			// return number of hops: 15 hops were found
 			// Grab ASN from MaxMind -> as_users
+			
 		}
 	}
 
@@ -80,12 +85,12 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 		"message"=> $trGatherMessage, 
 		"tr_flag"=>$trData['tr_flag']);
 	
-	echo json_encode($result);
+	//echo json_encode($result);
 
-	//print_r($result);
+	print_r($result);
 	//print_r($trData);
 
 } else {
-	echo 'No parameters sent.';
+	echo 'No tr_c_id for analysis.';
 }
 ?>
