@@ -11,6 +11,8 @@
   <link href='//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="transparency/css/globalstyles.css" type="text/css" />
   <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="css/ix.css" type="text/css" />
+  <link rel="stylesheet" href="css/ix-explore.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrites.css" type="text/css" />
 
   <link rel="stylesheet" href="transparency/css/transparency.css" type="text/css" />
