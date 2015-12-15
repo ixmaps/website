@@ -301,14 +301,14 @@
             <strong>Description</strong> – assertions by authorities as published by reputable sources (Klein, Bamford, Salon article, etc.)
             <br><strong>Ratings</strong> – 5: direct assertion of exact location by industry insider  4: indirect assertion of city location by industry insider  2: indirect assertion of general area by industry insider  0: no authoritative assertions
             <br><strong>Weighting</strong> – high (x30)
-            <br><strong>Sources</strong> – see <a href="faq.php">http://ixmaps.ischool.utoronto.ca/faq.php</a>
+            <br><strong>Sources</strong> – see <a href="faq.php">http://www.ixmaps.ca/faq.php</a>
 
           <h5>Telco Infrastructure</h5>
 
             <strong>Description</strong> – publicly available information on telecommunications providers, including promotional materials, ISP website publications, fiber/backbone maps, etc. This information indicates high points of traffic, where NSA surveillance points would maximize their data intake
             <br><strong>Ratings</strong> –
             <br><strong>Weighting</strong> – medium/high (x10)
-            <br><strong>Sources</strong> – see <a href="faq.php">http://ixmaps.ischool.utoronto.ca/faq.php</a>
+            <br><strong>Sources</strong> – see <a href="faq.php">http://www.ixmaps.ca/faq.php</a>
 
   <h5>Size</h5>
 

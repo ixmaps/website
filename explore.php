@@ -78,9 +78,6 @@ geoip_close($gi1);
       <?php
       }
       ?>
-      jQuery('#news-btn').click(function() {
-        window.open("/documents/Keeping_Internet_Users_Summ_review_App_final_Jan_27.pdf","_newtab");
-      });
     });
   </script>
 

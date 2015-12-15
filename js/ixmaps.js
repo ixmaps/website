@@ -29,6 +29,10 @@ var initialize = function() {
     jQuery( document ).tooltip();
   });
 
+  jQuery('#news-btn').click(function() {
+    window.open("/documents/Keeping_Internet_Users_Summ_review_App_final_Jan_27.pdf","_newtab");
+  });
+
   // onclick events
   jQuery('#remove-all-trs-btn').click(function() {
     removeAllTrs();

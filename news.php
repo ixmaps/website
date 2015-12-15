@@ -155,7 +155,7 @@
 			Securing the Cyber Commons: A Global Dialogue</a>, a cyber security forum held on Monday,
 			March 28, 2011, at the Munk School of Global Affairs, University of Toronto.</p>
 
-			<p>To download an IXmaps poster, <a href="http://ixmaps.ischool.utoronto.ca/documents/ixmaps_nsa_poster.pdf">click here</a></p>
+			<p>To download an IXmaps poster, <a href="http://www.ixmaps.ca/documents/ixmaps_nsa_poster.pdf">click here</a></p>
 
 			<h2>Supporting Links</h2>
 			<p>Projects that are similar in scope to IXmaps include the <a href="http://www.netdimes.org/new/" target="_blank">DIMES project</a> from Tel Aviv University, the
