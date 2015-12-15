@@ -26,7 +26,14 @@ $mm->closeDatFiles();
 */
 if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 {
-	$tr_c_id = GatherTr::saveTrContribution($_POST);
+	$trGatherMessage="";
+	$saveTrResult = GatherTr::saveTrContribution($_POST);
+	$tr_c_id = $saveTrResult['tr_c_id'];
+
+	if($saveTrResult['tr_c_id']==0){
+		$trGatherMessage.=" ".$saveTrResult['error'];
+	}
+
 	//echo "\ntr_c_id: ". $tr_c_id."\n";
 	$b = GatherTr::saveTrContributionData($_POST,$tr_c_id);	
 	$trData = GatherTr::getTrContribution($tr_c_id);
@@ -35,7 +42,7 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 	// Exclude contributions with less than 2 hops
 	if(count($trByHop['tr_by_hop'])<2){
 		$trData['tr_flag'] = 4;
-		$trGatherMessage = "Insufficient Traceroute responses. (Contribution id: ".$tr_c_id.")"; 
+		$trGatherMessage .= "Insufficient Traceroute responses. (Contribution id: ".$tr_c_id.")"; 
 		$trId = 0;
 
 	} else {

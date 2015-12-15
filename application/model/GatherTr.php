@@ -46,7 +46,8 @@ class GatherTr
 	*/
 	public static function saveTrContribution($data) 
 	{
-		global $dbconn, $ixmaps_debug_mode;
+		global $dbconn, $ixmaps_debug_mode, $pg_error;
+
 
 		$data['submitter_ip'] = GatherTr::anonymizeIp($data['submitter_ip']);
 		
@@ -61,15 +62,33 @@ class GatherTr
 		if(!isset($data['metadata'])){
 			$data['metadata'] = "";
 		}
+
+		// trim submitter name if longer than 25 characters
+		if(strlen($data['submitter'])>25){
+			$data['submitter']=mb_strimwidth($data['submitter'], 0, 25, "...");
+		}
 		
 		$trData = array($data['dest'], $data['dest_ip'], $data['city'], $data['country'], $data['submitter'], $data['submitter_ip'], $data['os'], $data['postal_code'], $data['privacy'], $data['timeout'], $data['queries'], $data['maxhops'], 0, $data['error'], $data['client_params'], $data['submitter_asnum'], $data['metadata']);
 
-		$result = pg_query_params($dbconn, $sql, $trData) or die('saveTrContribution: Query failed: incorrect parameters'.pg_last_error());
-		//$result = pg_query($dbconn, $sql1) or die('saveContribution: Query failed: incorrect parameters'.pg_last_error());
-		$lastId = pg_fetch_all($result);
-		$tr_c_id = $lastId[0]['tr_c_id'];
-		pg_free_result($result);
-		return $tr_c_id;
+		//$result = pg_query_params($dbconn, $sql, $trData) or die('saveTrContribution: Query failed: incorrect parameters: '.pg_last_error());
+		$result = pg_query_params($dbconn, $sql, $trData);
+		
+		// catch errors
+		if ($result === false) {
+			$pg_error="saveTrContribution: Incorrect parameters: ".pg_last_error();
+			$tr_c_id=0;
+		} else {
+			$pg_error="";
+			//$result = pg_query($dbconn, $sql1) or die('saveContribution: Query failed: incorrect parameters'.pg_last_error());
+			$lastId = pg_fetch_all($result);
+			$tr_c_id = $lastId[0]['tr_c_id'];
+			pg_free_result($result);
+		}
+
+		return array(
+			"error" => $pg_error,
+			"tr_c_id"=>$tr_c_id);
+
 	}
 
 	/**
@@ -272,7 +291,7 @@ class GatherTr
 			}
 
 			/*TODO: more than 4 queries/attepts in "official" tables needes further examination*/
-			
+
 			/*Preventing the submission of more that 4 attempts/queries bacause it brakes TR details page
 			Note: this needs further discussion. In this case submitting the lowest 4 latencies. */
 /*			$totQueries = count($latencies);
@@ -496,7 +515,6 @@ class GatherTr
 			/*echo "\n".$trString."";
 			$resultArray['trId'] = 0;*/ // For debug 
 			
-
 			// adding exceptions for SSL certificate
 			$arrContextOptions=array(
 			    "ssl"=>array(
@@ -506,7 +524,10 @@ class GatherTr
 			);  
 
 			/* Publish TR data */
-			$trResult = file_get_contents($gatherTrUri."?".$trString, false, stream_context_create($arrContextOptions));
+
+			/* commenting this out for the moment: it's not needed to collect contributions from IXmapsClient*/
+			/*$trResult = file_get_contents($gatherTrUri."?".$trString, false, stream_context_create($arrContextOptions));*/
+			$trResult = file_get_contents($gatherTrUri."?".$trString);
 			
 			$search      = "new traceroute ID";
 			$line_number = false;
