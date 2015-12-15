@@ -102,7 +102,7 @@
 			generating software built by the IXmaps development team. It initiates traceroute
 			requests from your location either at batches of pre-selected <a href="https://www.ixmaps.ca/trsets/" target="_blank">target sites</a>, or at individual <a href="/faq.php#Hostname">hostnames</a> (like URLs) of your choosing. You can view the traceroutes you and others have contributed via the <a href="/explore.php">Explore page.</a></p>
 
-			<p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.000. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/ixnode" target="_blank">GitHub</a>. See our <a href="/privacy.php">Privacy page</a>, for more on how we anonymize your IP address and protect your privacy.</p>
+			<p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.0. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/ixnode" target="_blank">GitHub</a>. See our <a href="/privacy.php">Privacy page</a>, for more on how we anonymize your IP address and protect your privacy.</p>
 
 			<br />
 
@@ -111,7 +111,7 @@
 			<h4>System requirements:</h4>
 			<ul class="nobullet">
 				<li>Intel processor</li>
-				<li>Mac OS X v10.6 or higher (tested on 10.6.8, 10.7.5, 10.8,10.10. If you would like to help with updating the Mac version please <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">get in touch</a>)<li>
+				<li>Mac OS X v10.6 or higher (tested on 10.6.8, 10.7.5, 10.8, 10.10. If you would like to help with updating the Mac version please <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">get in touch</a>)<li>
 				<li>1GB of RAM</li>
 			</ul>
 			<h4>Mac OSX installation</h4>
