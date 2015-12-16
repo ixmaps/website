@@ -1348,6 +1348,10 @@ var initializeMap = function() {
   };
   map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
+  // TURNING ON NSA LAYER
+  // NB: yes, this is a terrible place to do this. Do to bizarre code architecture, this is the only way to do it
+  setShowNsa();
+
 /*  google.maps.event.addListener(map, 'click', function(event){
     //if(!mouse_in_polyline) {
       m_lat = event.latLng.lat();
@@ -1459,7 +1463,7 @@ var createGmMarker = function(geoItem){
     position: mLatLong,
     map: map,
     //icon: image,
-    title: geoItem.address
+    //title: geoItem.addressdddddd
   });
   var iconUrl = '';
   if(geoItem.type=='NSA' && geoItem.nsa=='A') {
@@ -1487,7 +1491,7 @@ var createGmMarker = function(geoItem){
     cHtml += '<br/>Operator: <b>'+geoItem.ch_operator+'</b>';
   }
   if(geoItem.nsa_src!=''){
-    cHtml += '<br/><a href="'+geoItem.nsa_src+'">NSA Source</a>';
+    cHtml += '<br/><a href="'+geoItem.nsa_src+'" target="_blank">NSA Source</a>';
   }
   if(geoItem.ch_build_owner!=''){
     cHtml += '<br/>Building Owner: <b>'+geoItem.ch_build_owner+'</b>';
