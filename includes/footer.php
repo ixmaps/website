@@ -113,6 +113,9 @@ include('application/config.php');
 				<p>Please <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website" class="smallinks">contact the site admin</a>
 					with any questions or concerns.</p>
 				<p>To view our privacy policy, please <a href="/privacy.php" target="_blank">click here</a>.</p>
+
+				<a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://ixmaps.ca" data-text="IXmaps">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		</aside><!-- end of #third footer segment -->
 	</section><!-- end of footer-outer-block -->
 </section><!-- end of footer-area -->
