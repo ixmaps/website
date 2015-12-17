@@ -115,9 +115,9 @@ include('application/config.php');
       <p>To view our privacy policy, please <a href="/privacy.php" target="_blank">click here</a>.</p>
 
       <div id="footer-button-container">
-        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-text="See where your internet communication is intercepted by the NSA. Check out @IXmapsCA's internet mapping tool at">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button"{count} data-text="See where your internet communication is intercepted by the NSA. Check out @IXmapsCA's mapping tool at">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        <a id="feedback-button" href="mailto: ixmaps@utoronto.ca?subject=IXmaps Website">Feedback</a>
+        <a id="feedback-button" href="mailto: ixmaps@utoronto.ca?subject=[IXmaps Feedback]">Feedback</a>
       </div>
     </aside><!-- end of #third footer segment -->
   </section><!-- end of footer-outer-block -->
