@@ -93,10 +93,10 @@
           <li>1GB of RAM</li>
         </ul>
         <h4>Mac OSX installation</h4>
-        <p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.1.dmg">Download the installer for IXmapsClient_v.1.0.1.dmg</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</p>
+        <p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.1.dmg">Download the installer -  IXmapsClient_v.1.0.1.dmg</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</p>
 
         <h4>Linux installation</h4>
-        <p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_linux_v.1.0.1.zip">Download the installer forIXmapsClient_linux_v.1.0.1.zip</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. </p>
+        <p><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_linux_v.1.0.1.zip">Download the installer - IXmapsClient_linux_v.1.0.1.zip</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. </p>
 
         <h4>Windows installation</h4>
         <p>To install (an older) version of our traceroute generator (TrGen), <a href="https://www.ixmaps.ca/TrGen/trgen-0.8.8.msi">download the Windows installer from here</a> and follow the instructions. You will not need administrator privileges to run the software once installed, but you may need to be logged into an administrator account to install it. (We welcome help from those with Windows installation experience in creating a Windows package for the latest version of IXmaps Client software.)</p>
