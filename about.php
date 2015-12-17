@@ -73,7 +73,7 @@
       <ul>
         <li><a href="http://current.ischool.utoronto.ca/faculty/andrew-clement" target="_blank">Andrew Clement, PhD</a>, Professor, Faculty of Information, University of Toronto</li>
         <li><a href="http://www.linkedin.com/pub/colin-mccann/27/867/820" target="_blank">Colin McCann, MI</a>, Faculty of Information, University of Toronto</li>
-        <li><a href="http://www.ischool.utoronto.ca/students/antonio-gamba-bari" target="_blank">Antonio Gamba, PhD Student</a>, Faculty of Information, University of Toronto</li>
+        <li><a href="http://current.ischool.utoronto.ca/students/antonio-gamba-bari" target="_blank">Antonio Gamba, PhD Student</a>, Faculty of Information, University of Toronto</li>
         <li><a href="http://tc.msu.edu/users/jonathan-obar" target="_blank">Jonathan Obar, PhD</a>, Faculty of Social Science and Humanities, University of Ontario Institute of Technology</li>
         <li>David Mason, Software Developer</a>, Montreal</li>
         <li>Dawn Walker, MI Student</a>, Faculty of Information, University of Toronto</li>
