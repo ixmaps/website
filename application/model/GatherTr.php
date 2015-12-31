@@ -123,22 +123,37 @@ class GatherTr
 
 	}
 
-	//TODO: optimize! evaluate SQL vs non-SQL storage 
 	/**
 		Get TR contribution
 	*/
-	public static function getTrContribution($tr_c_id) 
+	public static function getTrContribution($tr_c_id, $trId=0) 
 	{
 		global $dbconn, $ixmaps_debug_mode;
+
+		// Find tr_c_id for a trId
+		if($trId!=0){
+			$sql1 = "SELECT tr_contributions.* FROM tr_contributions WHERE traceroute_id=$1;";
+			$sql2 = "SELECT tr_contribution_data.* FROM tr_contribution_data WHERE tr_c_id=$1;";
+			
+			$sqlParams1 = array($trId);
+			$result1 = pg_query_params($dbconn, $sql1, $sqlParams1) or die('getTrContribution: tr_contributions failed');
+			$dataArr1 = pg_fetch_all($result1);
+			$tr_c_id = $dataArr1[0]['tr_c_id'];
+			$sqlParams2 = array($tr_c_id);
+			$result2 = pg_query_params($dbconn, $sql2, $sqlParams2) or die('getTrContribution: tr_contribution_data failed');
+			$dataArr2 = pg_fetch_all($result2);
+
+		} else {
+			$sql1 = "SELECT tr_contributions.* FROM tr_contributions WHERE tr_c_id=$1;";
+			$sql2 = "SELECT tr_contribution_data.* FROM tr_contribution_data WHERE tr_c_id=$1;";
+			$sqlParams1 = array($tr_c_id);
+			$sqlParams2 = array($tr_c_id);
+			$result1 = pg_query_params($dbconn, $sql1, $sqlParams1) or die('getTrContribution: tr_contributions failed');
+			$result2 = pg_query_params($dbconn, $sql2, $sqlParams2) or die('getTrContribution: tr_contribution_data failed');
+			$dataArr1 = pg_fetch_all($result1);
+			$dataArr2 = pg_fetch_all($result2);
+		}
 		
-		$sql1 = "SELECT tr_contributions.* FROM tr_contributions WHERE tr_c_id=$1;";
-		$sql2 = "SELECT tr_contribution_data.* FROM tr_contribution_data WHERE tr_c_id=$1;";
-		$sqlParams1 = array($tr_c_id);
-		$sqlParams2 = array($tr_c_id);
-		$result1 = pg_query_params($dbconn, $sql1, $sqlParams1) or die('getTrContribution: tr_contributions failed');
-		$result2 = pg_query_params($dbconn, $sql2, $sqlParams2) or die('getTrContribution: tr_contribution_data failed');
-		$dataArr1 = pg_fetch_all($result1);
-		$dataArr2 = pg_fetch_all($result2);
 		$dataArr1[0]['traceroute_submissions'] = $dataArr2;
 
 		pg_free_result($result1);

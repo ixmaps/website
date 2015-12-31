@@ -5,12 +5,22 @@ include('../config.php');
 include('../model/GatherTr.php');
 
 
-if(isset($_REQUEST['tr_c_id']) && $_REQUEST['tr_c_id']!="")
+// use only for debugging 
+if((isset($_REQUEST['trid']) && $_REQUEST['trid']!="") || (isset($_REQUEST['tr_c_id']) && $_REQUEST['tr_c_id']!=""))
 {
-	
-	// use only for debugging 
-	
-	$c = GatherTr::getTrContribution($_REQUEST['tr_c_id']);
+	if(isset($_REQUEST['trid'])){
+		$trid = $_REQUEST['trid'];
+	} else {
+		$trid = 0;
+	}
+
+	if(isset($_REQUEST['tr_c_id'])){
+		$tr_c_id = $_REQUEST['tr_c_id'];
+	} else {
+		$tr_c_id = 0;
+	}
+
+	$c = GatherTr::getTrContribution($tr_c_id, $trid);
 	//echo "TR Data saved!\n\n";
 	// fix json return: assume now not order in the contributions
 	for ($i=0; $i < count($c['traceroute_submissions']); $i++) { 
