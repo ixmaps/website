@@ -31,6 +31,6 @@ if((isset($_REQUEST['trid']) && $_REQUEST['trid']!="") || (isset($_REQUEST['tr_c
 	echo json_encode($c);
 
 } else {
-	echo 'No tr_c_id sent.';
+	echo 'No tr_c_id or trid sent.';
 }
 ?>
