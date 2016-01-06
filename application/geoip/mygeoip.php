@@ -2,8 +2,12 @@
 header('Access-Control-Allow-Origin: *'); 
 header('Content-type: application/json');
 ini_set( "display_errors", 0); // use only in production 
+include('../config.php');
 
-// MaxMind Include Files
+/*$MM_geoip_dir = "/Users/antonio/mywebapps/git-website-anto/application/geoip";
+$MM_dat_dir = $MM_geoip_dir."/dat";
+
+*/// MaxMind Include Files
 include('geoip.inc');
 include('geoipcity.inc');
 include('geoipregionvars.php');
@@ -26,17 +30,18 @@ if($inputJSON!=""){
 	
 } else {
 	$myIp = $_SERVER['REMOTE_ADDR'];
-	//$myIp='192.0.159.88';
+	/*$myIp='192.0.159.88';
+	$myIp='74.125.226.120';*/
+	
 }
-
 // collect geo-location data
-$gi1 = geoip_open("dat/GeoLiteCity.dat",GEOIP_STANDARD);
+$gi1 = geoip_open($MM_dat_dir."/GeoLiteCity.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr($gi1,$myIp);
 $myCity = mb_convert_encoding($record1->city, "UTF-8"); 
 geoip_close($gi1);
 
 // collect ASN
-$giasn = geoip_open("dat/GeoIPASNum.dat", GEOIP_STANDARD);
+$giasn = geoip_open($MM_dat_dir."/GeoIPASNum.dat", GEOIP_STANDARD);
 $myAsnS = geoip_name_by_addr($giasn, $myIp);
 geoip_close($giasn);	
 
