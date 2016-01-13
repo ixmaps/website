@@ -77,7 +77,7 @@ geoip_close($giIx);
   </head>
   <body onload="initialize()">
   	<div id="main" style="float: left;">
-		<form action="index.php" method="get">
+		<form action="index.php" method="post">
 		IP: <input name="ip" type"text" value="<?php echo $ip;?>"/> <input type="submit" value="Geocode"/>
 		</form>
 <?php
