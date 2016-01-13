@@ -13,6 +13,8 @@ include("geoip.inc");
 include("geoipcity.inc");
 include("geoipregionvars.php");
 
+echo $MM_dat_dir;
+
 if(isset($_POST['ip']))
 {
 	$ip=$_POST['ip'];
@@ -130,6 +132,10 @@ if($ip!='')
 	geoip_close($gi1);
 }
 ?>
+    <p>
+    	This product includes GeoLite data created by MaxMind, available from
+        <a href="http://maxmind.com/">http://maxmind.com/</a>
+	</p>
 	</div>
     <div id="map_canvas" style="float: right;"></div>
   </body>
