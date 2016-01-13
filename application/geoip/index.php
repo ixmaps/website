@@ -131,12 +131,12 @@ if($ip!='')
 	print $record1->continent_code . "<br/>";
 	geoip_close($gi1);
 }
-?>
+?>	</div>
+    <div id="map_canvas" style="float: right;"></div>
     <p>
     	This product includes GeoLite data created by MaxMind, available from
         <a href="http://maxmind.com/">http://maxmind.com/</a>
 	</p>
-	</div>
-    <div id="map_canvas" style="float: right;"></div>
+
   </body>
 </html>
