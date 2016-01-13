@@ -13,7 +13,7 @@ include("geoip.inc");
 include("geoipcity.inc");
 include("geoipregionvars.php");
 
-echo $MM_dat_dir;
+//echo $MM_dat_dir;
 
 if(isset($_POST['ip']))
 {
