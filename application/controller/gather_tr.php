@@ -12,8 +12,8 @@ $geoIp = $mm->getGeoIp($myIp);
 
 //$_POST['metadata']=json_encode(array("HTTP_USER_AGENT"=>$_SERVER['HTTP_USER_AGENT']));
 $_POST['submitter_ip'] = $myIp;
-if($_POST['city']==""){
-	//$_POST['city'] = $geoIp['geoip']['city'];	
+if(!isset($_POST['city']){
+	$_POST['city'] = $geoIp['geoip']['city'];	
 }
 $_POST['country'] = ''.$geoIp['geoip']['country_code'];
 $_POST['submitter_asnum'] = ''.$geoIp['asn'];
