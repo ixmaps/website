@@ -80,7 +80,7 @@
         generating software built by the IXmaps development team. It initiates traceroute
         requests from your location either at batches of pre-selected <a href="https://www.ixmaps.ca/trsets/" target="_blank">target sites</a>, or at individual <a href="/faq.php#Hostname">hostnames</a> (like URLs) of your choosing. You can view the traceroutes you and others have contributed via the <a href="/explore.php">Explore page.</a></p>
 
-        <p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.0. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/ixnode" target="_blank">GitHub</a>. See our <a href="/privacy.php">Privacy page</a>, for more on how we anonymize your IP address and protect your privacy.</p>
+        <p>To ensure the anonymity of contributors, we do not store the IP address of your personal device, but only a truncated version, with the last quad zeroed out. eg. 123.456.781.0. To verify this, check out our free and open source code on <a href="https://github.com/ixmaps/IXmapsClient" target="_blank">GitHub</a>. See our <a href="/privacy.php">Privacy page</a>, for more on how we anonymize your IP address and protect your privacy.</p>
 
         <br />
 
@@ -108,7 +108,7 @@
         <p>Locating accurately the individual routers that switch data packets along the way to their destination is challenging. You may find when examining traceroutes displayed on the Explore page that some routers appear out of place, sometimes even wildly. We invite you to use the Flag option on the Explore page to point these out and suggest more accurate locations for the IP addresses of such routers. See our FAQ page for more on <a href="/faq.php#Geolocation">geolocation</a>.</p>
 
         <h4>Improving our software</h4>
-        <p>The code used for gathering traceroutes, as well as the code for the website and various related components, is free and open source, and available <a href="https://github.com/ixmaps" target="_blank">from our github repositories</a>.</p>
+        <p>The code used for gathering traceroutes, as well as the code for the website and various related components, is free and open source, and available <a href="https://github.com/ixmaps" target="_blank">from our GitHub repositories</a>.</p>
         <p>We welcome all feedback, technical inquiries or offers for assistance regarding IXmaps software, database, or website. Please <a href="mailto:ixmaps@utoronto.ca?subject=&#91;IXmaps%20Contribute]">email the IXmaps team.</a></p>
 
       </article>
