@@ -390,7 +390,7 @@ geoip_close($gi1);
     </div>
     <div id="ip-flags-title">
       <h3>Flag Router as Incorrect</h3>
-      If you believe this router is incorrectly located, please so indicate, offering a more accurate location if possible.
+      If you believe this router is incorrectly located, please so indicate, offering a more accurate location if possible. Note that since excluding User-flagged routers is enabled by default, the next time this route is mapped, this router will not appear. To see it again, turn off the Exclude router / User-flagged control in Options (the gear icon), then refresh the query.
     </div>
     <div id="ip-flag-insert">
       <input id="user_nick" type="text" placeholder="Username"/>

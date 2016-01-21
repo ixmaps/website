@@ -179,7 +179,7 @@ var initialize = function() {
 
   // flip settings for this version
   setAllowMultipleTrs();
-  excludeE();       // c'mon, for serious?
+  //excludeE();       // c'mon, for serious?
 
   // since we now want the last submitted route to be shown on landing
   submitLastSubmissionObject();
