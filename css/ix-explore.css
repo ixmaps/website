@@ -489,6 +489,12 @@
   height: 22px;
 }
 
+.layer-legend-btn {
+  padding-left: 5px;
+  padding-top: 4px;
+  padding-right: 6px;
+}
+
 /************ TRACEROUTES FOUND (RIGHT SIDE) ************/
 
 #traceroutes-found-container {

@@ -184,13 +184,41 @@ geoip_close($gi1);
           <img id="layers-btn" src="images/icon-layers.png" title="Map legend and layers" class="hidden"></img>
           <div id="layers-container" class="map-icon-popup-container hidden">
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
+
             <div id="map-op-3" class="map-actions-controls">
-              <h3>Layers</h3>
-              <input id="map-show-nsa" class="map-tool-off" type="button" onMouseDown="setShowNsa()" value="NSA"/>
+              <h3>Layers and Legend</h3>
+
+              <div id="map-show-nsa" class="layer-legend-btn map-tool-off" onMouseDown="setShowNsa()" value="NSA">
+                <span class="legend-img-container"><img class="legend-img" src="/images/nsa_class_A.png" /></span><span>NSA listening post</span>
+              </div>
+
+              <div id="map-show-hotel" class="layer-legend-btn map-tool-off" onMouseDown="setShowHotel()" value="Hotel">
+                <span class="legend-img-container"><img class="legend-img" src="/images/carrierhotel_small.png" /></span><span>Carrier hotel</span>
+              </div>
+
+              <div id="map-show-google" class="layer-legend-btn map-tool-off" onMouseDown="setShowGoogle()" value="Google">
+                <span class="legend-img-container"><img class="legend-img" src="/images/google.png" /></span><span>Google data center</span>
+              </div>
+
+              <div id="map-show-uc" class="layer-legend-btn map-tool-off" onMouseDown="setShowUc()" value="Undersea Cable Landing Site">
+                <span class="legend-img-container"><img class="legend-img" src="/images/undersea1.png" /></span><span>Undersea cable landing point</span>
+              </div>
+
+<!--               <input id="map-show-nsa" class="map-tool-off" type="button" onMouseDown="setShowNsa()" value="NSA"/>
               <input id="map-show-hotel" class="map-tool-off" type="button" onMouseDown="setShowHotel()" value="Hotel"/>
               <input id="map-show-google" class="map-tool-off" type="button" onMouseDown="setShowGoogle()" value="Google"/>
-              <input id="map-show-uc" class="map-tool-off" type="button" onMouseDown="setShowUc()" value="Undersea Cable Landing Site"/>
+              <input id="map-show-uc" class="map-tool-off" type="button" onMouseDown="setShowUc()" value="Undersea Cable Landing Site"/> -->
             </div>
+
+<!--             <div id="map-op-3" class="map-actions-controls">
+              <h3>Map Layers</h3>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/carrierhotel_small.png" /></span><span>Carrier hotel</span></div>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/google.png" /></span><span>Google data center</span></div>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/undersea1.png" /></span><span>Undersea cable landing point</span></div>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/nsa_class_A.png" /></span><span>NSA listening post (high level of certainty)</span></div>
+              <div><span class="legend-img-container"><img class="legend-img" src="/images/nsamedium.png" /></span><span>NSA listening post (medium level of certainty)</span></div>
+            </div> -->
+
           </div>
           <img id="help-btn" src="images/icon-help.png" title="Help" class="hidden"></img>
           <div id="help-container" class="map-icon-popup-container hidden">
@@ -210,15 +238,6 @@ geoip_close($gi1);
               <div>then click <b>Submit</b></div>
               <p>To see how many search results each individual query line produced, click on 'Search results details' at the bottom. This can be helpful in deciding on a next search, especially if no results are found or there are too many.</p>
               <p>Note that while the query is performed on the entire IXmaps database, due to computational and bandwidth limitations the server only returns a sample of at most 100 results to display. If you do not see the route you were looking for, it is best to add additional filter constraints (e.g. Submitter).</p>
-            </div>
-            <br/>
-            <div id="legend">
-              <h3>Map Legend</h3>
-              <div><span class="legend-img-container"><img class="legend-img" src="/images/carrierhotel_small.png" /></span><span>Carrier hotel</span></div>
-              <div><span class="legend-img-container"><img class="legend-img" src="/images/google.png" /></span><span>Google data center</span></div>
-              <div><span class="legend-img-container"><img class="legend-img" src="/images/undersea1.png" /></span><span>Undersea cable landing point</span></div>
-              <div><span class="legend-img-container"><img class="legend-img" src="/images/nsa_class_A.png" /></span><span>NSA listening post (high level of certainty)</span></div>
-              <div><span class="legend-img-container"><img class="legend-img" src="/images/nsamedium.png" /></span><span>NSA listening post (medium level of certainty)</span></div>
             </div>
           </div>
         </span>
