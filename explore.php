@@ -205,7 +205,7 @@ geoip_close($gi1);
               </div>
 
               <div id="map-show-CiraIPT" class="layer-legend-btn map-tool-off" onMouseDown="setShowCiraIPT()" value="CIRA_IPT">
-                <span class="legend-img-container"><img class="legend-img" src="/images/CIRA_IPT.png" /></span><span> CIRA IPT Calgary Test Servers</span>
+                <span class="legend-img-container"><img class="legend-img" src="/images/CIRA_IPT.png" /></span><span> CIRA IPT Test Servers</span>
               </div>
 
               <div id="map-show-Att" class="layer-legend-btn map-tool-off" onMouseDown="setShowAtt()" value="AT&T">
