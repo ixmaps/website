@@ -48,7 +48,7 @@ geoip_close($gi1);
 
   <!-- Google Maps API  -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&libraries=geometry"></script>
 
   <!-- jQuery Utils  -->
   <script type="text/javaScript" src="js/underscore-min.js"></script>
