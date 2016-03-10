@@ -1426,7 +1426,11 @@ var initializeMap = function() {
 
   // TURNING ON NSA LAYER
   // NB: yes, this is a terrible place to do this. Do to bizarre code architecture, this is the only way to do it
+  // anto: yes, we need to re build this
   setShowNsa();
+  setShowIXca();
+  setShowCiraIPT();
+
 
 /*  google.maps.event.addListener(map, 'click', function(event){
     //if(!mouse_in_polyline) {
