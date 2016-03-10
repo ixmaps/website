@@ -410,7 +410,7 @@ var submitQuery = function(obj) {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Query submitted", e);
+      console.log("Query submitted");
       //if(e!=0){
       var data = jQuery.parseJSON(e);
       if (data.totTrs!=undefined){
