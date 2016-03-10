@@ -1575,14 +1575,14 @@ var createGmMarker = function(geoItem){
     iconUrl = url_base + '/images/carrierhotel_small.png';
   } else if(geoItem.type=='UC') {
     iconUrl = url_base + '/images/undersea1.png';
-  } else if(geoItem.type=='Google') {
+  } else if(geoItem.type=='Google' || geoItem.type=='GoogleTo') {
     iconUrl = url_base + '/images/google.png';
-  } else if(geoItem.type=='IX.ca') {
+  } else if(geoItem.type=='IXca') {
     iconUrl = url_base + '/images/IX_ca.png';
   } else if(geoItem.type=='CIRA_IPT') {
     iconUrl = url_base + '/images/CIRA_IPT.png';
   } else if(geoItem.type=='AT&T') {
-    iconUrl = url_base + '/images/AT&T_logo.png';
+    iconUrl = url_base + '/images/ATT_logo.png';
   } else if(geoItem.type=='Verizon') {
     iconUrl = url_base + 'Verizon_Logo_2015.png';
   }
