@@ -1451,7 +1451,7 @@ var getChotel = function() {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Ok! getChotel", e);
+      console.log("Ok! getChotel");
       cHotelData = jQuery.parseJSON(e);
     },
     error: function (e) {
@@ -1584,7 +1584,7 @@ var createGmMarker = function(geoItem){
   } else if(geoItem.type=='AT&T') {
     iconUrl = url_base + '/images/ATT_logo.png';
   } else if(geoItem.type=='Verizon') {
-    iconUrl = url_base + 'Verizon_Logo_2015.png';
+    iconUrl = url_base + '/images/Verizon_Logo_2015.png';
   }
   gmObj.setIcon(iconUrl);
 
