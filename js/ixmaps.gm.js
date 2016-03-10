@@ -1524,7 +1524,6 @@ var removeGeoMarkers = function(type){
   } else if(type==2){
     for (m in gmHotel)
     {
-      //console.log(m);
       gmHotel[m].setMap(null);
     }
     gmHotel.length = 0;
@@ -1532,7 +1531,6 @@ var removeGeoMarkers = function(type){
   } else if(type==3){
     for (m in gmGoogle)
     {
-      //console.log(m);
       gmGoogle[m].setMap(null);
     }
     gmGoogle.length = 0;
@@ -1540,10 +1538,44 @@ var removeGeoMarkers = function(type){
   } else if(type==4){
     for (m in gmUc)
     {
-      //console.log(m);
       gmUc[m].setMap(null);
     }
     gmUc.length = 0;
+
+  } else if(type==5){
+    for (m in gmIXca)
+    {
+      gmIXca[m].setMap(null);
+    }
+    gmIXca.length = 0;
+
+  } else if(type==6){
+    for (m in gmCiraIPT)
+    {
+      gmCiraIPT[m].setMap(null);
+    }
+    gmCiraIPT.length = 0;
+
+  } else if(type==7){
+    for (m in gmAtt)
+    {
+      gmAtt[m].setMap(null);
+    }
+    gmAtt.length = 0;
+
+  } else if(type==8){
+    for (m in gmVerizon)
+    {
+      gmVerizon[m].setMap(null);
+    }
+    gmVerizon.length = 0;
+
+  } else if(type==9){
+    for (m in gmGoogleTO)
+    {
+      gmGoogleTO[m].setMap(null);
+    }
+    gmGoogleTO.length = 0;
   }
 };
 
