@@ -5,19 +5,27 @@
 //var privacyRepUrl = 'https://www.ixmaps.ca/documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf';
 var privacyRepUrl = 'https://www.ixmaps.ca/transparency-2014.php';
 
-
 var allowMultipleTrs = false; // !!
 var allowRecenter = true;
-
 var showHops = true;
 var showHopsNum = false;
 var showRouters = true;
+
 var showNsa = false;
-var showHotel = false;
+var showHotel = false; 
 var showGoogle = false;
 var showUc = false;
-var addMarkerInOrigin = false;
 
+// var geoDataLayers = ["AT&T", "CH", "CIRA_IPT", "Google", "IX.ca", "NSA", "UC", "Verizon", "gDcTO", "gPubDcPeer"];
+/* added March 7, 2016, Anto */
+var showIXca = false; // 1) // IX.ca
+var showCiraIPT = false; // 1) // CIRA_IPT
+var showAtt = false; // 2) // AT&T
+var showVerizon = false; // 2) // Verizon
+var showGooglePublicPeer = false; // 3) gPubDcPeer
+var showGoogleTO = false; // 3) // gDcTO
+
+var addMarkerInOrigin = false;
 var showDynamicLegend = true; // !!
 var showMapInfoGlobal = false;
 
@@ -56,6 +64,14 @@ var gmNsa = [];
 var gmHotel = [];
 var gmGoogle = [];
 var gmUc = [];
+/* added March 7, 2016*/
+var gmIXca = [];
+var gmCiraIPT = [];
+var gmAtt = [];
+var gmVerizon = [];
+/* google replace existing / add ? */
+var gmGooglePublicPeer = [];
+var gmGoogleTO = [];
 
 var totTRs = 0;
 var activeCarriers = new Object();
@@ -204,7 +220,69 @@ var setShowUc = function(){
   }
   console.log('setShowUc',showUc);
 };
+/////
+var setShowIXca = function(){
+  if(showIXca){
+    showIXca=false;
+    removeGeoMarkers(5);
+    jQuery("#map-show-IXca").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showIXca=true;
+    renderGeoMarkers(5);
+    jQuery("#map-show-IXca").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowIXca',showIXca);
+};
+var setShowCiraIPT = function(){
+  if(showCiraIPT){
+    showCiraIPT=false;
+    removeGeoMarkers(6);
+    jQuery("#map-show-CiraIPT").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showCiraIPT=true;
+    renderGeoMarkers(6);
+    jQuery("#map-show-CiraIPT").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowCiraIPT',showCiraIPT);
+};
+var setShowAtt = function(){
+  if(showAtt){
+    showAtt=false;
+    removeGeoMarkers(7);
+    jQuery("#map-show-Att").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showAtt=true;
+    renderGeoMarkers(7);
+    jQuery("#map-show-Att").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowAtt',showAtt);
+};
+var setShowVerizon = function(){
+  if(showVerizon){
+    showVerizon=false;
+    removeGeoMarkers(8);
+    jQuery("#map-show-Verizon").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showVerizon=true;
+    renderGeoMarkers(8);
+    jQuery("#map-show-Verizon").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowVerizon',showVerizon);
+};
+var setShowGoogleTo = function(){
+  if(showGoogleTO){
+    showGoogleTO=false;
+    removeGeoMarkers(9);
+    jQuery("#map-show-google-to").removeClass("map-tool-on").addClass("map-tool-off");
+  } else {
+    showGoogleTO=true;
+    renderGeoMarkers(9);
+    jQuery("#map-show-google-to").removeClass("map-tool-off").addClass("map-tool-on");
+  }
+  console.log('setShowGoogleTo',showGoogleTO);
+};
 
+/////
 var setAddMarkerInOrigin = function(){
   if(addMarkerInOrigin){
     addMarkerInOrigin=false;
@@ -1115,8 +1193,6 @@ var renderIpFlagData = function(data){
     }
   }
 
-
-
   jQuery('#ip-flag-tr-id').text(activeTridFlag);
   jQuery('#ip-flag-router').text(activeHopNumFlag);
   jQuery('#ip-flag-asn-name').text(asnName);        // maybe get shortname?
@@ -1375,7 +1451,7 @@ var getChotel = function() {
     type: 'post',
     data: obj,
     success: function (e) {
-      console.log("Ok! getChotel");
+      console.log("Ok! getChotel", e);
       cHotelData = jQuery.parseJSON(e);
     },
     error: function (e) {
@@ -1408,7 +1484,32 @@ var renderGeoMarkers = function(type){
       gmUc.push(gmObj);
       gmObj.setMap(map);
     }
-
+    //
+    if(type==5 && geoItem.type=="IXca"){
+      gmObj = createGmMarker(geoItem);
+      gmIXca.push(gmObj);
+      gmObj.setMap(map);
+    }
+    if(type==6 && geoItem.type=="CIRA_IPT"){
+      gmObj = createGmMarker(geoItem);
+      gmCiraIPT.push(gmObj);
+      gmObj.setMap(map);
+    }
+    if(type==7 && geoItem.type=="AT&T"){
+      gmObj = createGmMarker(geoItem);
+      gmAtt.push(gmObj);
+      gmObj.setMap(map);
+    }
+    if(type==8 && geoItem.type=="Verizon"){
+      gmObj = createGmMarker(geoItem);
+      gmVerizon.push(gmObj);
+      gmObj.setMap(map);
+    }
+    if(type==9 && geoItem.type=="GoogleTo"){
+      gmObj = createGmMarker(geoItem);
+      gmGoogleTO.push(gmObj);
+      gmObj.setMap(map);
+    }
   });
 };
 
@@ -1476,9 +1577,18 @@ var createGmMarker = function(geoItem){
     iconUrl = url_base + '/images/undersea1.png';
   } else if(geoItem.type=='Google') {
     iconUrl = url_base + '/images/google.png';
+  } else if(geoItem.type=='IX.ca') {
+    iconUrl = url_base + '/images/IX_ca.png';
+  } else if(geoItem.type=='CIRA_IPT') {
+    iconUrl = url_base + '/images/CIRA_IPT.png';
+  } else if(geoItem.type=='AT&T') {
+    iconUrl = url_base + '/images/AT&T_logo.png';
+  } else if(geoItem.type=='Verizon') {
+    iconUrl = url_base + 'Verizon_Logo_2015.png';
   }
   gmObj.setIcon(iconUrl);
 
+  /* Setting some display options based on the data available*/
   var cHtml = '<b>'+geoItem.address+'</b>';
   if(geoItem.image!=''){
     cHtml += '<br/><img src="'+geoItem.image+'" width="100px"/></a>';
@@ -1486,7 +1596,6 @@ var createGmMarker = function(geoItem){
   if(geoItem.isp_src!=''){
     cHtml += '<br/><a href="'+geoItem.isp_src+'">ISP</a>';
   }
-
   if(geoItem.ch_operator!=''){
     cHtml += '<br/>Operator: <b>'+geoItem.ch_operator+'</b>';
   }
