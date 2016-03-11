@@ -5,6 +5,8 @@ if ($ixHost != 'www.ixmaps.ca' && $ixHost != 'dev.ixmaps.ca') {
   exit;
 }
 
+include('application/config.php');
+
 // MaxMind Include Files needed to grab user's city
 include('application/geoip/geoip.inc');
 include('application/geoip/geoipcity.inc');
@@ -12,7 +14,8 @@ include('application/geoip/geoipregionvars.php');
 
 // using MaxMind to find the city of client IP address
 $myIp = $_SERVER['REMOTE_ADDR'];
-$gi1 = geoip_open("application/geoip/dat/GeoLiteCityv6.dat",GEOIP_STANDARD);
+//$myIp = "";
+$gi1 = geoip_open($MM_dat_dir."/GeoLiteCityv6.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
 $myCity = ''.$record1->city;
 $myCountry = ''.$record1->country_code;
@@ -189,40 +192,42 @@ geoip_close($gi1);
               <h3>Layers and Legend</h3>
 
               <div id="map-show-nsa" class="layer-legend-btn map-tool-off" onMouseDown="setShowNsa()" value="NSA">
-                <span class="legend-img-container"><img class="legend-img" src="/images/nsa_class_A.png" /></span><span>NSA listening post</span>
+                <span class="legend-img-container"><img class="legend-img" src="/images/nsa_class_A.png" /></span><span>NSA internet interception site - US</span>
               </div>
 
-              <div id="map-show-hotel" class="layer-legend-btn map-tool-off" onMouseDown="setShowHotel()" value="Hotel">
-                <span class="legend-img-container"><img class="legend-img" src="/images/carrierhotel_small.png" /></span><span>Carrier hotel</span>
-              </div>
-
-              <div id="map-show-uc" class="layer-legend-btn map-tool-off" onMouseDown="setShowUc()" value="Undersea Cable Landing Site">
-                <span class="legend-img-container"><img class="legend-img" src="/images/undersea1.png" /></span><span>Undersea cable landing point</span>
-              </div>
-              <!--  -->
               <div id="map-show-IXca" class="layer-legend-btn map-tool-off" onMouseDown="setShowIXca()" value="IX_ca">
-                <span class="legend-img-container"><img class="legend-img" src="/images/IX_ca.png" /></span><span>Canada  Internet Exchange</span>
+                <span class="legend-img-container"><img class="legend-img" src="/images/IX_ca.png" /></span><span>Public Internet Exchange Point (IXP) - Canada</span>
               </div>
 
               <div id="map-show-CiraIPT" class="layer-legend-btn map-tool-off" onMouseDown="setShowCiraIPT()" value="CIRA_IPT">
-                <span class="legend-img-container"><img class="legend-img" src="/images/CIRA_IPT.png" /></span><span> CIRA IPT Test Servers</span>
+                <span class="legend-img-container"><img class="legend-img" src="/images/CIRA_IPT.png" /></span><span> CIRA/M-Lab Internet Performance Test (IPT) server - Canada</span>
               </div>
 
               <div id="map-show-Att" class="layer-legend-btn map-tool-off" onMouseDown="setShowAtt()" value="AT&T">
-                <span class="legend-img-container"><img class="legend-img" src="/images/ATT_logo.png" /></span><span>AT&T/Fairview - suspected surveillance sites worldwide</span>
+                <span class="legend-img-container"><img class="legend-img" src="/images/ATT_logo.png" /></span><span>AT&T/Fairview - suspected surveillance site - worldwide</span>
               </div>
 
               <div id="map-show-Verizon" class="layer-legend-btn map-tool-off" onMouseDown="setShowVerizon()" value="Verizon">
-                <span class="legend-img-container"><img class="legend-img" src="/images/Verizon_Logo_2015.png" /></span><span>Verizon/Stormbrew - suspected surveillance sites worldwide</span>
+                <span class="legend-img-container"><img class="legend-img" src="/images/Verizon_Logo_2015.png" /></span><span>Verizon/Stormbrew - suspected surveillance site - worldwide</span>
               </div>
 
               <div id="map-show-google" class="layer-legend-btn map-tool-off" onMouseDown="setShowGoogle()" value="Google">
-                <span class="legend-img-container"><img class="legend-img" src="/images/google.png" /></span><span>Google Public Data Centres & Peering (2013)</span>
+                <span class="legend-img-container"><img class="legend-img" src="/images/google.png" /></span><span>Google public data centre / peering point - worldwide (2013)</span>
               </div>
 
               <div id="map-show-google-to" class="layer-legend-btn map-tool-off" onMouseDown="setShowGoogleTo()" value="Google_TO">
-                <span class="legend-img-container"><img class="legend-img" src="/images/google.png" /></span><span>Google Data Centres - Toronto (2013)</span>
+                <span class="legend-img-container"><img class="legend-img" src="/images/google.png" /></span><span>Google data centre - Toronto (2013)</span>
               </div>
+
+              <div id="map-show-hotel" class="layer-legend-btn map-tool-off" onMouseDown="setShowHotel()" value="Hotel">
+                <span class="legend-img-container"><img class="legend-img" src="/images/carrierhotel_small.png" /></span><span>Carrier hotel - US+Canada</span>
+              </div>
+
+              <div id="map-show-uc" class="layer-legend-btn map-tool-off" onMouseDown="setShowUc()" value="Undersea Cable Landing Site">
+                <span class="legend-img-container"><img class="legend-img" src="/images/undersea1.png" /></span><span>Undersea cable landing point - US+Canada</span>
+              </div>
+
+
 <!--               <input id="map-show-nsa" class="map-tool-off" type="button" onMouseDown="setShowNsa()" value="NSA"/>
               <input id="map-show-hotel" class="map-tool-off" type="button" onMouseDown="setShowHotel()" value="Hotel"/>
               <input id="map-show-google" class="map-tool-off" type="button" onMouseDown="setShowGoogle()" value="Google"/>
