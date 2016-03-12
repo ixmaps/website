@@ -1625,25 +1625,29 @@ var createGmMarker = function(geoItem){
   gmObj.setIcon(iconUrl);
 
   /* Setting some display options based on the data available*/
-  var cHtml = '<b>'+geoItem.address+'</b>';
+  
+  var cHtml = '<span class="geoitem-layer-name">'+geoItem.layer_name+'</span>';
+
+  cHtml += '<br/><b>'+geoItem.address+'</b>';
   if(geoItem.image!=''){
     cHtml += '<br/><img src="'+geoItem.image+'" width="100px"/></a>';
   }
-  if(geoItem.isp_src!=''){
-    cHtml += '<br/><a href="'+geoItem.isp_src+'">ISP</a>';
-  }
   if(geoItem.ch_operator!=''){
     cHtml += '<br/>Operator: <b>'+geoItem.ch_operator+'</b>';
-  }
-  if(geoItem.nsa_src!=''){
-    cHtml += '<br/><a href="'+geoItem.nsa_src+'" target="_blank">NSA Source</a>';
   }
   if(geoItem.ch_build_owner!=''){
     cHtml += '<br/>Building Owner: <b>'+geoItem.ch_build_owner+'</b>';
   } else if(geoItem.ch_build_owner!='' && geoItem.ch_build_owner_src!=''){
     cHtml += '<br/>Building Owner: <a href="'+geoItem.ch_build_owner+'"></a>';
   }
-    var infoW = new google.maps.InfoWindow({
+  if(geoItem.isp_src!=''){
+    cHtml += '<br/><a href="'+geoItem.isp_src+'" target="_blank">ISP</a>';
+  }
+  if(geoItem.nsa_src!=''){
+    cHtml += '<br/><a href="'+geoItem.nsa_src+'" target="_blank">NSA Source</a>';
+  }
+
+  var infoW = new google.maps.InfoWindow({
     content: cHtml
   });
 
