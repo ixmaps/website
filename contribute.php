@@ -95,7 +95,7 @@
 
         <h4>Mac OSX installation</h4>
         <ul class="nobullet">
-          <li><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.1.dmg">Download the installer - IXmapsClient_v.1.0.1.dmg</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</li>
+          <li><a href="https://www.ixmaps.ca/TrGen/IXmapsClient_v.1.0.4.dmg">Download the installer - IXmapsClient_v.1.0.4.dmg</a> and follow the instructions in the ReadMe file. You will need administrator privileges to run and install the software. You may also need to adjust your privacy and security settings to allow installing applications downloaded from the internet.</li>
           <li>(Requires Mac OSX v10.6 or higher - tested on 10.6.8, 10.7.5, 10.8, 10.10)</li>
         </ul>
 
