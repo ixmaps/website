@@ -540,9 +540,9 @@ class GatherTr
 
 			/* Publish TR data */
 
-			/* commenting this out for the moment: it's not needed to collect contributions from IXmapsClient*/
-			/*$trResult = file_get_contents($gatherTrUri."?".$trString, false, stream_context_create($arrContextOptions));*/
-			$trResult = file_get_contents($gatherTrUri."?".$trString);
+			/* Bypassing verification of SSL certificate*/
+			$trResult = file_get_contents($gatherTrUri."?".$trString, false, stream_context_create($arrContextOptions));
+			//$trResult = file_get_contents($gatherTrUri."?".$trString);
 			
 			$search      = "new traceroute ID";
 			$line_number = false;
