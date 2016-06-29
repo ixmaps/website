@@ -77,7 +77,7 @@ geoip_close($gi1);
       } else if($_GET && isset($_GET['data'])){
       ?>
       var postedData = '<?php echo $_GET['data'];?>';
-      processpostedData(postedData);
+      processPostedData(postedData);
       <?php
       }
       ?>
