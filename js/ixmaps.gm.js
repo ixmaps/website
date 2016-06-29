@@ -1428,8 +1428,8 @@ var initializeMap = function() {
   // NB: yes, this is a terrible place to do this. Do to bizarre code architecture, this is the only way to do it
   // anto: yes, we need to re build this
   setShowNsa();
-  setShowIXca();
-  setShowCiraIPT();
+  //setShowIXca();
+  //setShowCiraIPT();
 
 
 /*  google.maps.event.addListener(map, 'click', function(event){
