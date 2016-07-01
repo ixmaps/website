@@ -472,3 +472,7 @@ footer {
 	padding: 5px 10px 5px;
 }
 
+/* Tour page */
+.explore-target-route {
+	cursor: pointer;
+}
