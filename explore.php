@@ -248,7 +248,7 @@ geoip_close($gi1);
           <div id="help-container" class="map-icon-popup-container hidden">
             <img class="map-icon-close-btn" src="images/icon-close.png"></img>
             <h3>Help</h3>
-            <p>If you're getting started, it may be easiest to begin with some of our canned queries in the Quick Searches section. If you've just generated a route, you'll be able to find it by clicking on 'Last submitted' or 'Last 50 submitted route' or by clicking on 'Submitted By...' and entering your submitter name.</p>
+            <p>If you're getting started, it may be easiest to begin with some of our canned queries in the Quick Searches section. If you've just generated a route, you'll be able to find it by clicking on 'Last submitted' or 'Last 50 submitted route' or by clicking on 'Contributed By...' and entering your submitter name.</p>
 
             <div>
               <div>For users more comfortable with querying databases, the Search feature allows customized, extensible queries based on many of the data fields associated with traceroutes. The Quick Search feature generates query examples you can combine and adapt for your more specific purposes. For example, to view routes that originate in your city and are carried by Bell, you could select:</div>
@@ -378,14 +378,14 @@ geoip_close($gi1);
             <td>
               <form>
                 <button type="button" class="ql-button" id="submitted-by-button" title="Enter a pseudonym to see the routes s/he contributed to the database, then click Submit.">
-                  Submitted By...
+                  Contributed By...
                 </button>
               </form>
             </td>
             <td>
               <form>
                 <button type="button" class="ql-button" id="submitted-from-button" title="Enter a postcode to see routes contributed to the database from that area, then click Submit.">
-                  Submitted From...
+                  From Post Code...
                 </button>
               </form>
             </td>
