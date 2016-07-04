@@ -552,6 +552,16 @@ var firstLoadFunc = function () {
   console.log('Running firstLoad housekeeping functions...');
   // bind data for first row on first load
   bindAutocompletes('country', '#filter-constraint-1');
+
+  jQuery.toast({
+    heading: 'Welcome to the Explore page',
+    text: 'The map shows the path of the most recent traceroute contributed to the IXmaps database. For more details, see panels on the right, hover over the routers (dots) and click on the hops (lines).',
+    hideAfter: 10000,
+    allowToastClose: true,
+    position: 'mid-center',
+    icon: 'info',
+  });
+
   firstLoad = false;
 }
 
