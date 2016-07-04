@@ -2,7 +2,12 @@
 $ixHost = $_SERVER["SERVER_NAME"];
 if ($ixHost != 'www.ixmaps.ca' && $ixHost != 'dev.ixmaps.ca') {
   header('Location: https://www.ixmaps.ca/explore.php');
-  exit;
+  exit();
+}
+
+if(!isset($_SERVER['HTTPS'])){
+  header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+  exit();
 }
 
 include('application/config.php');
