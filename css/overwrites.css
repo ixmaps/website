@@ -167,21 +167,21 @@ nav .menu ul li a.new-section {
 	pointer-events: none;
 }*/
 
-/* 
+/*
 #player-container {
 	position: absolute;
 	top: 280px;
 	left: 230px;
 	width: 590px;
 	height: 360px;
-	
+
 	z-index: 999;
 	display: none;
 }
 */
- 
+
 .player-container {
-/* 
+/*
 	position: absolute;
 	top: 280px;
 	left: 230px;
@@ -197,7 +197,7 @@ nav .menu ul li a.new-section {
 	width: 589px;
 	height: 359px;
 	z-index: 999;
-}	
+}
 
 .big-btn {
 	height: 90px;
@@ -225,7 +225,7 @@ nav .menu ul li a.new-section {
 	border: 1px solid rgba(16,87,139,1);
 	font-size: 20px;
 	border-radius: 36px;
-	box-shadow: 
+	box-shadow:
 		0 1px 2px #fff,
 		0 -1px 1px #666,
 		inset 0 -1px 1px rgba(0,0,0,0.5),
@@ -236,7 +236,7 @@ nav .menu ul li a.new-section {
 	margin-top: 45px;
 	padding: 10px;
 	font-size: 20px;
-	box-shadow: 
+	box-shadow:
 		0 1px 2px #fff,
 		0 -1px 1px #666,
 		inset 0 -1px 1px rgba(0,0,0,0.5),
@@ -309,6 +309,11 @@ nav .menu ul li a.new-section {
 
 /* TOUR */
 
+.tour-index {
+	margin-left: 35px;
+	margin-top: 20px;
+}
+
 .tour-container {
 	height: 400px;
 	margin-top: 40px;
@@ -332,6 +337,14 @@ nav .menu ul li a.new-section {
 	height: 350px;
 	float: right;
 	margin-top: 48px;
+}
+
+.tour-icon-img {
+	width: 16px;
+}
+
+.tour-img-portrait {
+	width: 66%;
 }
 
 
