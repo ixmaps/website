@@ -82,8 +82,8 @@
 
         <dt id="faq-telecomresources">What kinds of resources did we use on telecommunications infrastructures?</dt>
         <dd>Although harder to find these days, we have located several AT&amp;T fibre 'backbone maps'. These range in date from 2000 to 2008, covering the relevant time span in regards to the NSA.
-          See <a href="http://www.corp.att.com/globalnetworking/media/network_map.swf" target="_blank">1</a>, <a href="http://www.planetdds.com/downloads/ATT_IDC_Irvine.pdf" target="_blank">2</a>, <a href="http://personalpages.manchester.ac.uk/staff/m.dodge/cybergeography/atlas/att_backbone_large.gif" target="_blank">3</a>.
-          We also looked at several sources regarding the largest cable hubs in North America, such as <a href="http://www.sciencedaily.com/releases/2002/11/021126072153.htm" target="_blank">this</a> article. Finally, we looked at several sites that measure performance/latency, managed by <a href="http://www.akamai.com/html/technology/dataviz1.html" target="_blank">Akamai</a> and <a href="http://ipnetwork.bgtmo.ip.att.net/pws/current_network_performance.shtml" target="_blank">AT&amp;T.</a> We also mapped <a href="//ixmaps.ca/cgi-bin/ge-render.cgi?show_landing_sites=true">undersea cable sites</a>.</dd>
+        See <a href="http://www.corp.att.com/globalnetworking/media/network_map.swf" target="_blank">1</a>, <a href="http://www.planetdds.com/downloads/ATT_IDC_Irvine.pdf" target="_blank">2</a>, <a href="http://personalpages.manchester.ac.uk/staff/m.dodge/cybergeography/atlas/att_backbone_large.gif" target="_blank">3</a>.
+        We also looked at several sources regarding the largest cable hubs in North America, such as <a href="http://www.sciencedaily.com/releases/2002/11/021126072153.htm" target="_blank">this</a> article. Finally, we looked at several sites that measure performance/latency, managed by <a href="http://www.akamai.com/html/technology/dataviz1.html" target="_blank">Akamai</a> and <a href="http://ipnetwork.bgtmo.ip.att.net/pws/current_network_performance.shtml" target="_blank">AT&amp;T.</a> We also mapped <a href="//ixmaps.ca/cgi-bin/ge-render.cgi?show_landing_sites=true">undersea cable sites</a>.</dd>
 
         <dt id="Geolocation">How do we geolocate routers?</dt>
         <dd>In order to map the generated traceroutes, we must ascertain the physical location of the routers that generate the IP addresses in the route. When a traceroute is run, our software assigns locations to the IP addresses using a commercial service called <a href="http://www.maxmind.com" target="_blank">Maxmind</a>. This is often sufficient to geolocate the router to within about 5km of the target. However, Maxmind tends to work best when locating edge routers; its success rate when attempting to geolocate core routers drops to nearly zero. Therefore, we have adopted a layered strategy to manually assign physical locations to core routers. <a href="documents/geolocation.pdf" target="_blank">This document</a></a> provides greater technical detail on the geolocation process we have employed. It outlines our attempt to geolocate IP addresses (and their corresponding routers) for the IXmaps database, details the logic and methods we have employed, and provides current information about parsing specific ISP hostnames. While the geolocation process provides more accurate longitude and latitude than is often provided by Maxmind, it generally remains reliable only at a city level; many corrections place routers at a generic city location instead of in a particular building. These locations are described as the city centre by <a href="https://en.wikipedia.org/">wikipedia's</a> <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS84</a> reference.</p>
@@ -102,6 +102,7 @@
         <li><a href="#InternetExchangePoint">Internet Exchange Point</a></li>
         <li><a href="#InternetBackbone">Internet Backbone</a></li>
         <li><a href="#IP+Address">IP Address</a></li>
+        <li><a href="#Router">Router</a></li>
         <li><a href="#ASNumber">ASN</a></li>
         <li><a href="#Hostname">Hostname</a></li>
         <li><a href="#Packet">Packet</a></li>
@@ -112,6 +113,7 @@
         <li><a href="#CLLICode">CLLI Code</a></li>
         <li><a href="#Spy Room (6th Floor)">Spy Room (6th Floor)</a></li>
         <li><a href="#Splitter Cabinet (7th Floor)">Splitter Cabinet (7th Floor)</a></li>
+        <li><a href="#BoomerangRouting">Boomerang Routing</a></li>
       </ul>
       <dl id="glossary">
         <dt id="Traceroute">Traceroute</dt>
@@ -138,6 +140,9 @@
 
         <dt id="IP+Address">IP Address</dt>
         <dd>An Internet Protocol address (IP address) is a numerical label assigned to each device participating in a computer network that uses the Internet Protocol for communication. IP addresses serve two key functions: host or network interface identification and location addressing. For more information see <a href="https://en.wikipedia.org/wiki/IP_address">IP address</a></dd>
+
+        <dt id="Router">Router</dt>
+        <dd>Traffic is moved across the internet via routers - networking devices that forward data to or from a website. For more information see <a href="https://en.wikipedia.org/wiki/Router_(computing)">Router</a></dd>
 
         <dt id="ASNumber">ASN</dt>
         <dd>An Autonomous System Number (ASN) is the unique number of an Autonomous System (AS), which is a collection of connected Internet Protocol (IP) routing prefixes under the control of one or more network operators that presents a common, clearly defined routing policy to the internet. While there may be multiple Autonomous Systems supported by an ISP, the Internet only sees the routing policy of the ISP. That ISP must have an officially registered Autonomous System Number for use in BGP routing. ASNs are important because they uniquely identifies each network on the Internet. For more information see <a href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)">autonomous system</a></dd>
@@ -168,6 +173,9 @@
 
         <dt id="Splitter Cabinet (7th Floor)">Splitter Cabinet (7th Floor)</dt>
         <dd>A fiber optic circuit can be split using splitting equipment to divide the light signal and to divert a portion of the signal into each of two fiber optic cables. While both signals will have a reduced signal strength, after the split both signals still contain the same information, effectively duplicating the communications that pass through the splitter. Starting in February 2003, the "splitter cabinet" split (and diverted to the SG3 Secure Room) the light signals that contained the communications in transit to and from AT&amp;T's Peering Links with the following Internet networks and Internet exchange points: ConXion, Verio, XO, Genuity, Qwest, PAIX, Allegiance, Abovenet. Global Crossing, C&amp;W, UUNET, Level 3, Sprint, Telia, PSINet, and MAE-WEST. MAE-WEST is an Internet nodal point and one of the largest "Internet exchange points" in the United States. PAIX, the Palo Alto Internet Exchange, is another significant Internet exchange point. Internet exchange points are facilities at which large numbers of major Internet service providers interconnect their equipment in order to facilitate the exchange of communications among their respective networks. Through the "splitter cabinet," the content of all the electronic voice and data communications going across the Peering Links [listed above] was transferred from the WorldNet Internet room's fiber optical circuits into the SG3 Secure Room. According to Mark Klein, such "splitter cabinets" were being installed in other cities, including Seattle, San Jose, Los Angeles, and San Diego. For more information see <a href="https://ensites.google.com/site/markklein2009/Home">Mark Klein's description</a></dd>
+
+        <dt id="BoomerangRouting">Boomerang Routing</dt>
+        <dd>Boomerang routing occurs when internet transmissions originating and terminating in Canada pass through a foreign country, usually the United States. They are viewed as problematic not only because they tend to have longer <a href="#Latency">latencies</a>, but because the result is that Canadian data can be subject to U.S. law - including the Patriot Act and FISAA - and can be exposed to U.S. warrantless state surveillance activities. The IXmaps database contains hundreds of examples of Canadian boomerang routes. <a class="explore-boomerang-routes">See examples here.</a></dd>
       </dl>
     </article>
   </section><!-- end of #content -->
