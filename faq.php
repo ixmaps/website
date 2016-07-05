@@ -63,6 +63,7 @@
       <h3>Frequently Asked Questions</h3>
       <ul class="nobullet">
         <li><a href="#faq-sovereignty">What is network sovereignty?</a></li>
+        <li><a href="#faq-mass-surveillance">What is NSA mass surveillance?</a></li>
         <li><a href="#faq-listeningpost">What are NSA listening posts?</a></li>
         <li><a href="#faq-sources">Who are our some of our principal sources of research related to the NSA?</a></li>
         <li><a href="#faq-telecomresources">What kinds of resources did we use on telecommunications infrastructures?</a></li>
@@ -72,6 +73,9 @@
         <dt id="faq-sovereignty">What is network sovereignty?</dt>
         <dd>When a Canadian internet user communicates sensitive data with a secure Canadian server, it often passes through exchanges points in the United States and is thus subject to Patriot Act incursions by U.S. authorities. Why is it important?
         <br />See <a href="sovereignty.php">our Showcase Routes section on network sovereignty</a> for more details.</dd>
+
+        <dt id="faq-mass-surveillance">What is NSA mass surveillance?</dt>
+        <dd>Based initially on whistleblower Mark Klein revelations and confirmed by the documents released by Edward Snowden, it is known that the NSA intercepts internet communications in bulk within the US. The NSA claims its authority for such surveillance without individual warrants under provisions of the USA Patriot Act, the FISA Amendments Act and Executive Order 12333. In partnership with its Five Eyes partners, the NSA conducts similar internet spying around the globe.</dd>
 
         <dt id="faq-listeningpost">What are NSA listening posts?</dt>
         <dd>The U.S. National Security Agency (NSA), is strongly suspected of having installed &lsquo;splitter rooms&rsquo; in 15-20 major internet exchange points.
@@ -142,7 +146,7 @@
         <dd>An Internet Protocol address (IP address) is a numerical label assigned to each device participating in a computer network that uses the Internet Protocol for communication. IP addresses serve two key functions: host or network interface identification and location addressing. For more information see <a href="https://en.wikipedia.org/wiki/IP_address">IP address</a></dd>
 
         <dt id="Router">Router</dt>
-        <dd>Traffic is moved across the internet via routers - networking devices that forward data to or from a website. For more information see <a href="https://en.wikipedia.org/wiki/Router_(computing)">Router</a></dd>
+        <dd>A router is a networking device that forwards data packets across and between computer networks. Routers perform the "traffic directing" functions on the Internet. A data packet is typically forwarded from one router to another in a series of "hops" through the networks that constitute the Internet until it reaches its destination node. For more information see <a href="https://en.wikipedia.org/wiki/Router_(computing)">Router</a></dd>
 
         <dt id="ASNumber">ASN</dt>
         <dd>An Autonomous System Number (ASN) is the unique number of an Autonomous System (AS), which is a collection of connected Internet Protocol (IP) routing prefixes under the control of one or more network operators that presents a common, clearly defined routing policy to the internet. While there may be multiple Autonomous Systems supported by an ISP, the Internet only sees the routing policy of the ISP. That ISP must have an officially registered Autonomous System Number for use in BGP routing. ASNs are important because they uniquely identifies each network on the Internet. For more information see <a href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)">autonomous system</a></dd>
@@ -175,7 +179,7 @@
         <dd>A fiber optic circuit can be split using splitting equipment to divide the light signal and to divert a portion of the signal into each of two fiber optic cables. While both signals will have a reduced signal strength, after the split both signals still contain the same information, effectively duplicating the communications that pass through the splitter. Starting in February 2003, the "splitter cabinet" split (and diverted to the SG3 Secure Room) the light signals that contained the communications in transit to and from AT&amp;T's Peering Links with the following Internet networks and Internet exchange points: ConXion, Verio, XO, Genuity, Qwest, PAIX, Allegiance, Abovenet. Global Crossing, C&amp;W, UUNET, Level 3, Sprint, Telia, PSINet, and MAE-WEST. MAE-WEST is an Internet nodal point and one of the largest "Internet exchange points" in the United States. PAIX, the Palo Alto Internet Exchange, is another significant Internet exchange point. Internet exchange points are facilities at which large numbers of major Internet service providers interconnect their equipment in order to facilitate the exchange of communications among their respective networks. Through the "splitter cabinet," the content of all the electronic voice and data communications going across the Peering Links [listed above] was transferred from the WorldNet Internet room's fiber optical circuits into the SG3 Secure Room. According to Mark Klein, such "splitter cabinets" were being installed in other cities, including Seattle, San Jose, Los Angeles, and San Diego. For more information see <a href="https://ensites.google.com/site/markklein2009/Home">Mark Klein's description</a></dd>
 
         <dt id="BoomerangRouting">Boomerang Routing</dt>
-        <dd>Boomerang routing occurs when internet transmissions originating and terminating in Canada pass through a foreign country, usually the United States. They are viewed as problematic not only because they tend to have longer <a href="#Latency">latencies</a>, but because the result is that Canadian data can be subject to U.S. law - including the Patriot Act and FISAA - and can be exposed to U.S. warrantless state surveillance activities. The IXmaps database contains hundreds of examples of Canadian boomerang routes. <a class="explore-boomerang-routes">See examples here.</a></dd>
+        <dd>Boomerang routing refers to internet routing where the origin and destination of a data path are in the same country (eg Canada) but passes through another country (the US) before returning. The IXmaps database contains hundreds of examples of Canadian boomerang routes. <a class="explore-boomerang-routes">See examples here.</a></dd>
       </dl>
     </article>
   </section><!-- end of #content -->
