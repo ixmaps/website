@@ -105,18 +105,14 @@ geoip_close($gi1);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-    var u="//ixmaps.piwikpro.com//";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'),
-    s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true;
-    g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      var u="//128.100.72.189/piwik/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', 1]);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
     })();
   </script>
-  <noscript>
-    <p><img src="//ixmaps.piwikpro.com/piwik.php?idsite=1" style="border:0;" alt="" /></p>
-  </noscript>
+  <noscript><p><img src="//128.100.72.189/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Piwik Code -->
 
   <script language="JavaScript" type="text/javascript">
