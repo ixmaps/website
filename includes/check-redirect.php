@@ -15,7 +15,7 @@ $ixHost = $_SERVER["SERVER_NAME"];
 }*/
 
 // forcing https
-if (!isset($_SERVER['HTTPS']) || $ixHost == "www.ixmaps.ca"){
+if (!isset($_SERVER['HTTPS'])){
   //header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
 	header("Location: https://www.ixmaps.ca" . $_SERVER["REQUEST_URI"]);
  	exit();
