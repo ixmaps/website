@@ -1,15 +1,5 @@
 <?php
-$ixHost = $_SERVER["SERVER_NAME"];
-if ($ixHost != 'www.ixmaps.ca' && $ixHost != 'dev.ixmaps.ca') {
-  header('Location: https://www.ixmaps.ca/explore.php');
-  exit();
-}
-
-if(!isset($_SERVER['HTTPS'])){
-  header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-  exit();
-}
-
+include("includes/check-redirect.php");
 include('application/config.php');
 
 // MaxMind Include Files needed to grab user's city

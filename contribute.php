@@ -1,3 +1,6 @@
+<?php
+include("includes/check-redirect.php");
+?>
 <!doctype html>
 <html lang="en">
 <head>

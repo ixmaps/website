@@ -1,5 +1,5 @@
 <?php
-$ixHost = $_SERVER["SERVER_NAME"];
+include("includes/check-redirect.php");
 ?>
 <!doctype html>
 <html lang="en">
