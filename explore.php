@@ -99,22 +99,6 @@ geoip_close($gi1);
     document.write(script);
   </script>
 
-  <!-- Piwik -->
-  <!-- <script type="text/javascript">
-    var _paq = _paq || [];
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="http://128.100.72.189/piwik/";
-      _paq.push(['setTrackerUrl', u+'piwik.php']);
-      _paq.push(['setSiteId', 1]);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <noscript><p><img src="//128.100.72.189/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript> -->
-  <!-- End Piwik Code -->
-
   <script language="JavaScript" type="text/javascript">
     //--------------- LOCALIZEABLE GLOBALS ---------------
     var d = new Date();
@@ -131,7 +115,9 @@ geoip_close($gi1);
   <link rel="stylesheet" href="css/ix.css" type="text/css" />
   <link rel="stylesheet" href="css/ix-explore.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrites.css" type="text/css" />
-
+  
+  <!-- include analytics -->
+  <?php include("includes/analytics.php"); ?>
 </head>
 <body onload="initialize()">
   <div id="wrapper"><!-- #wrapper -->
