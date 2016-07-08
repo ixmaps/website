@@ -39,7 +39,7 @@ include("includes/check-redirect.php");
 			.cycle({
 				fx: 'fade',
 				// pause: 1,
-				timeout: 7000,
+				timeout: 12000,
 				pager: '#pager'
 			});
 		});
