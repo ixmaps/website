@@ -39,7 +39,7 @@
 
     <!-- PiWik Analytics - running at iprp.ca monitoring ixmaps.ca-->
     <!-- Piwik -->
-<!--     
+    
     <script type="text/javascript">
       var _paq = _paq || [];
       _paq.push(["setDomains", ["*.www.ixmaps.ca"]]);
@@ -54,12 +54,12 @@
       })();
     </script>
     <noscript><p><img src="//www.iprp.ca/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
- -->
+
     <!-- End Piwik Code -->
 
     <!-- PiWik Analytics - running at iprp.ca monitoring iprp.ca-->
     <!-- Piwik -->
-
+<!-- 
     <script type="text/javascript">
       var _paq = _paq || [];
       _paq.push(['trackPageView']);
@@ -73,5 +73,5 @@
       })();
     </script>
     <noscript><p><img src="//www.iprp.ca/piwik/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
-
+ -->
     <!-- End Piwik Code -->
