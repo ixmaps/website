@@ -25,7 +25,7 @@ class IXmapsMaxMind
 	}
 	
 	/** 
-	 * Get Geo IP and ASN data 
+	 * Get Geo IP and ASN data from MaxMind local files
 	 * @param string $ip
 	 */
 	public function getGeoIp($ip) {
@@ -38,7 +38,8 @@ class IXmapsMaxMind
 		$r = array(
 			"geoip"=>(array)$this->geoIp,
 			"asn"=>$asn_isp[0],
-			"isp"=>$asn_isp[1]
+			"isp"=>$asn_isp[1],
+			"hostname"=>gethostbyaddr($ip)
 		);	
 		return $r;
 	}
@@ -69,7 +70,7 @@ class IXmapsMaxMind
 	}
 
 	/**
-	*
+	* Update IP address information: geo data, asn, and hostname
 	*/
 	public function updateIpAddrInfo($data, $ip)
 	{
@@ -104,6 +105,9 @@ class IXmapsMaxMind
 			$sql.=", mm_dma_code=".$data['dma_code']."";
 
 		}
+		// set hostname
+		$sql.=", hostname='".$data['hostname']."'";
+
 		$sql.=" WHERE ip_addr = '".$ip."' AND gl_override is NULL";
 
 		echo "\n".$sql;
@@ -111,8 +115,6 @@ class IXmapsMaxMind
 		//$dataA = pg_fetch_all($result);
 		//pg_free_result($result);
 		//return $dataA;
-		
 	}
-
 }
 ?>
