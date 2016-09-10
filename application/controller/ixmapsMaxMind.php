@@ -6,8 +6,7 @@ include('../model/IXmapsMaxMind.php');
 $ip=$_GET['ip'];
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($ip);
-print_r($geoIp);
-
+//print_r($geoIp);
+echo json_encode($geoIp);
 $mm->closeDatFiles();
-
 ?>
