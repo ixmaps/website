@@ -36,6 +36,7 @@ class IXmapsMaxMind
 		$ipAsn = geoip_name_by_addr($this->giasn, $ip);
 		$asn_isp = $this->extractAsn($ipAsn);
 		$r = array(
+			"ip"=>$ip,
 			"geoip"=>(array)$this->geoIp,
 			"asn"=>$asn_isp[0],
 			"isp"=>$asn_isp[1],
