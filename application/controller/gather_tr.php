@@ -4,9 +4,10 @@ include('../config.php');
 include('../model/GatherTr.php');
 include('../model/IXmapsMaxMind.php'); 
 
-$myIp = $_SERVER['REMOTE_ADDR'];
-//$myIp='200.3.149.136'; // CO/BTA
+//$myIp = $_SERVER['REMOTE_ADDR'];
+$myIp='200.3.149.136'; // CO/BTA
 
+// Open MaxMind files
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($myIp);
 
@@ -21,7 +22,7 @@ $_POST['privacy'] = 8;
 $_POST['client'] = "";
 $_POST['cl_version'] = "";
 
-$mm->closeDatFiles();
+
 /*
 	TODO: add  exahustive check for consistency and completness of the TR data 
 	Requires discussion with tests on the IXmapsClient client
@@ -83,6 +84,9 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 		"tr_c_id"=>$tr_c_id, 
 		"message"=> $trGatherMessage, 
 		"tr_flag"=>$trData['tr_flag']);
+
+	//close MaxMind files
+	$mm->closeDatFiles();
 	
 	echo json_encode($result);
 

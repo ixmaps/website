@@ -29,8 +29,6 @@ class IXmapsMaxMind
 	 * @param string $ip
 	 */
 	public function getGeoIp($ip) {
-		global $GEOIP_REGION_NAME;
-		// GeoLiteCity.dat
 		$this->geoIp = geoip_record_by_addr($this->gi1,$ip);
 		$this->geoIp->city = mb_convert_encoding($this->geoIp->city, "UTF-8", "iso-8859-1");
 		$ipAsn = geoip_name_by_addr($this->giasn, $ip);

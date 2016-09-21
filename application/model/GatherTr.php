@@ -72,7 +72,7 @@ class GatherTr
 
 		//$result = pg_query_params($dbconn, $sql, $trData) or die('saveTrContribution: Query failed: incorrect parameters: '.pg_last_error());
 		$result = pg_query_params($dbconn, $sql, $trData);
-		
+
 		// catch errors
 		if ($result === false) {
 			$pg_error="saveTrContribution: Incorrect parameters: ".pg_last_error();
@@ -407,10 +407,233 @@ class GatherTr
 		}
 
 	}
+
 	/**
-	Publish TR data 
+		Publish TR data: new version:
+		acceses MaxMind data
+		resolves ip hostname
+		inserts new ips
+		inserts tracerotue data
+		inserts traceroute items
+		Only traceroutes with at least 2 valid hops are published
+		Returns trid and errors back to IXmapsCliient
 	*/
-	public static function publishTraceroute($data) 
+	public static function publishTraceroute($data)
+	{
+		global $dbconn, $ixmaps_debug_mode, $gatherTrUri;
+		$publishControl = false; 
+		$validPublicIPs = 0;
+		$trSubString = "";
+		$trString ="";
+		
+		/*check tr status: does the TR reach its destination?*/
+		end($data['ip_analysis']['hops']);
+		$lastKey = key($data['ip_analysis']['hops']);
+		$lastIp = $data['ip_analysis']['hops'][$lastKey]['winIp'];
+		//echo "LastIP: ".$lastIp;
+
+		if($data['dest_ip']==$lastIp){
+			$trStatus = "c";
+		} else {
+			$trStatus = "i";
+		}
+		
+		// Collecting the protocol used in the submission data_type = json
+		foreach ($data['traceroute_submissions'] as $sub_data) {
+			if($sub_data['data_type']=="json"){
+				// convert to lowercase before comparison
+				$sub_data['protocol'] = strtolower($sub_data['protocol']);
+				if($sub_data['protocol']=="icmp"){
+					$protocol = "i";
+				} else if($sub_data['protocol']=="udp"){ 
+					$protocol = "u";
+				} else if($sub_data['protocol']=="tcp"){ 
+					$protocol = "t";
+				}		
+			}
+		}
+
+		// TODO: check for null fields
+
+		// convert timeout to seconds 
+		$data['timeout'] = round($data['timeout']/1000);
+
+		/*$trString = "dest=".$data['dest']."&dest_ip=".$data['dest_ip']."&submitter=".urlencode($data['submitter'])."&zip_code=".urlencode($data['postal_code'])."&client=".urlencode($data['traceroute_submissions'][0]['client'])."&cl_ver=1.0&privacy=8&timeout=".$data['timeout']."&protocol=".$protocol."&maxhops=".$data['maxhops']."&attempts=".$data['queries']."&status=".$trStatus;*/
+		
+		/*Format array for insert into Traceroute */
+		$trInsertData = array (
+			"trData"=>array(
+				"dest"=>$data['dest'], 
+				"dest_ip"=>$data['dest_ip'],
+				"submitter"=>$data['submitter'],
+				"zip_code"=>$data['postal_code'],
+				"client"=>$data['traceroute_submissions'][0]['client'],
+				"cl_ver"=>"1.0",
+				"privacy"=>8,
+				"timeout"=>$data['timeout'],
+				"protocol"=>$protocol,
+				"maxhops"=>$data['maxhops'],
+				"attempts"=>$data['queries'],
+				"status"=>$trStatus)
+			);
+
+		$hopCount=0;
+		$foundFirstValidIp = false;
+		
+		// hops
+		foreach ($data['ip_analysis']['hops'] as $key => $hop) {
+			//echo "\n---- Hop data";
+			//print_r($hop);
+			// skip local ips, include empty ips
+			if(!GatherTr::checkIpIsPrivate($hop['winIp']) || $hop['winIp']==""){
+
+				if($hop['winIp']!=""){
+					$validPublicIPs++; // count # of valid public ips
+				}
+
+				/*
+					anonymize first valid and public ip. 
+					
+					This approach applies for the first not private ip, which is not necessarily user's public ip, but since the first public ip can be missing from the data, this approach in some cases will anonymize ips that don't need to be anonymized. (Requires further discussion)
+				*/
+				if(!$foundFirstValidIp && $hop['winIp']!=""){
+					$foundFirstValidIp=true;
+					//echo "\n First Valid IP: ".$hop['winIp'];
+					$ipQuads = explode('.', $hop['winIp']);
+					$ipAmonim = "";
+				
+
+					for ($i=0; $i < count($ipQuads); $i++) { 
+						if($i==count($ipQuads)-1){
+							$ipAmonim.=".0";
+
+						} else if ($i==0) {
+							$ipAmonim.= "".$ipQuads[$i];
+
+						} else {
+							$ipAmonim.= ".".$ipQuads[$i];
+						}
+					}
+					$hop['winIp'] = $ipAmonim;
+				}
+
+				$hopCount++;
+				$latencyCount = 0;
+				// latencies
+				foreach ($hop['latencies'] as $key1 => $latency) {
+					$latencyCount++;
+					
+					$rtt_ms=0;
+					
+					if($latency==-1)
+					{
+						$status="t";
+					} else {
+						$status="r";
+					}
+
+					/*$trString .= "&status_".$hopCount."_".$latencyCount."=".$status."&ip_addr_".$hopCount."_".$latencyCount."=".$hop['winIp']."&rtt_ms_".$hopCount."_".$latencyCount."=".round($latency);*/
+
+					/*Colect TR items for insert*/
+					$trInsertData["trItems"][$hopCount][]=array(
+						"ip"=>$hop['winIp'],
+						"status"=>$status,
+						"rtt_ms"=>round($latency),
+						"attempt"=>$latencyCount,
+						"hop"=>$hopCount,
+						);
+				}
+
+			} else {
+				//echo "\n skiping ip: ".$hop['winIp']; // used for debug only
+			} // end skip local ip
+
+		}
+
+	
+
+
+		/*
+			/////////////// OLD CODE NOT NEEDED NOW?
+		*/
+
+
+		/*Enables publication of current TR data if there are at least 2 valid public IP addresses*/
+		if($validPublicIPs>=2){
+			$publishControl = true; 
+		}
+
+		/*$totItems = $hopCount*$data['queries'];
+		$trString .= "&n_items=".$totItems;*/
+
+
+		$resultArray = array(
+			"trId"=>0,
+			"publishControl"=>$publishControl,
+			"tot_hops"=>$validPublicIPs);
+		
+		if($publishControl){
+			/*echo "\n".$trString."";
+			$resultArray['trId'] = 0;*/ // For debug 
+			
+			// adding exceptions for SSL certificate
+			$arrContextOptions=array(
+			    "ssl"=>array(
+			        "verify_peer"=>false,
+			        "verify_peer_name"=>false,
+			    ),
+			);  
+
+			if($publishControl){
+				/* Insert Traceroute */
+				$newTrId = GatherTr::saveTraceroute($trInsertData["trData"]);
+				//echo "\nNew TRid: ".$NewTrId;
+
+				/* Insert TrItems */
+				GatherTr::manageNewIps($newTrId, $trInsertData["trItems"]);
+				$resultArray['trId'] = $newTrId;
+
+			}
+			/* Publish TR data */
+
+			/* 
+			commenting this out for the moment: it's not needed to collect contributions from IXmapsClient*/
+			/*$trResult = file_get_contents($gatherTrUri."?".$trString, false, stream_context_create($arrContextOptions));*/
+				//$trResult = file_get_contents($gatherTrUri."?".$trString);
+			
+			/*
+			$trResult="";			
+			$search      = "new traceroute ID";
+			$line_number = false;
+			$tr_id_arr = explode("\n", $trResult);
+			while (list($key, $line) = each($tr_id_arr) and !$line_number) {
+			   $line_number = (strpos($line, $search) !== FALSE) ? $key + 1 : $line_number;
+			}
+			$tr_id_line = explode("=", $tr_id_arr[$line_number-1]);
+			//echo "\nTR ID: ".$tr_id_line[1];
+			if(count($tr_id_line)==2 && $tr_id_line[1]!=0){
+				$resultArray['trId'] = $tr_id_line[1];
+			} else {
+				$resultArray['trId'] = 0; // error collecting trId
+			}
+			*/
+
+
+			/* Insert Traceroute data  */
+
+			/* Insesrt Traceroute Items */
+
+
+		}
+		return $resultArray;
+
+
+	}
+
+	/**
+		Publish TR data: old version using python cgi. No longer used
+	*/
+	public static function publishTracerouteCgi($data) 
 	{
 		global $dbconn, $ixmaps_debug_mode, $gatherTrUri;
 		$publishControl = false; 
@@ -508,6 +731,7 @@ class GatherTr
 					$trString .= "&status_".$hopCount."_".$latencyCount."=".$status."&ip_addr_".$hopCount."_".$latencyCount."=".$hop['winIp']."&rtt_ms_".$hopCount."_".$latencyCount."=".round($latency);
 				}
 
+
 			} else {
 				//echo "\n skiping ip: ".$hop['winIp']; // used for debug only
 			} // end skip local ip
@@ -595,7 +819,8 @@ class GatherTr
 	/**
 		Get a ASN for an IP: Using local DBs
 	*/
-	public static function getIpForAsn($ip=''){
+	public static function getIpForAsn($ip='')
+	{
 		global $dbconn, $ixmaps_debug_mode;
 		$sql = "SELECT asn_netmask.*, asn_carrier.name FROM asn_netmask, asn_carrier WHERE (asn_carrier.num=asn_netmask.asn) AND asn_netmask.netmask >>= inet('".$ip."');";
 		//echo $sql;
@@ -733,10 +958,8 @@ class GatherTr
 	public static function getIpAddrInfo($ipCheck="") 
 	{
 		global $dbconn;
-
-		
 	
-			$sql = "SELECT ip_addr_info.* FROM ip_addr_info WHERE gl_override is NULL and mm_lat = 0.0 and mm_long = 0.0 and lat = 0.0 and long = 0.0 and ip_addr = '".$ipCheck."'";
+		$sql = "SELECT ip_addr_info.* FROM ip_addr_info WHERE gl_override is NULL and mm_lat = 0.0 and mm_long = 0.0 and lat = 0.0 and long = 0.0 and ip_addr = '".$ipCheck."'";
 
 		//$sql = "SELECT ip_addr FROM ip_addr_info WHERE gl_override is NULL and mm_lat = 0.0 and mm_long = 0.0 and lat = 0.0 and long = 0.0 ORDER BY ip_addr";
 
@@ -751,6 +974,198 @@ class GatherTr
 		pg_free_result($result);
 		return $dataA;
 	}
+
+
+	/**
+		Insert data into traceroute table
+	*/
+	public static function saveTraceroute($data) 
+	{
+		global $dbconn;
+		//echo "\n -----saveTraceroute()";
+		//print_r($data);
+		$sql="INSERT INTO traceroute (sub_time, dest, dest_ip, submitter, zip_code, privacy, timeout, protocol, maxhops, status, attempts, metadata) VALUES (NOW(), $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING id;";
+		$trData = array(
+			$data['dest'],
+			$data['dest_ip'],
+			$data['submitter'],
+			$data['zip_code'],
+			$data['privacy'],
+			$data['timeout'],
+			$data['protocol'],
+			$data['maxhops'],
+			$data['status'],
+			$data['attempts'],
+			""
+			);
+
+		$result = pg_query_params($dbconn, $sql, $trData);
+		// catch errors
+		if ($result === false) {
+			$pg_error="saveTraceroute: Incorrect parameters: ".pg_last_error();
+			$newTRid=0;
+		} else {
+			$pg_error="";
+			$temp = pg_fetch_all($result);
+			$newTRid = $temp[0]['id'];
+			
+		}
+		pg_free_result($result);
+		return $newTRid;
+	}
+
+
+	/**
+		Insert data into tr_item table
+	*/
+	public static function saveTracerouteItem($trId, $data) 
+	{
+		//echo "\n------ saveTracerouteItem()";
+		global $dbconn;
+		//echo "\ndata['ip']:\n";
+		//var_dump($data['ip']);
+		if($data['ip']==''){
+					$sql = "INSERT INTO tr_item (traceroute_id,hop,attempt,status,ip_addr,rtt_ms) VALUES ($1, $2, $3, $4, null, $5);";
+			$trItemsData = array(
+				$trId,
+				$data['hop'],
+				$data['attempt'],
+				$data['status'],
+				$data['rtt_ms'],
+				);
+
+		} else {
+			$sql = "INSERT INTO tr_item (traceroute_id,hop,attempt,status,ip_addr,rtt_ms) VALUES ($1, $2, $3, $4, $5, $6);";
+			$trItemsData = array(
+				$trId,
+				$data['hop'],
+				$data['attempt'],
+				$data['status'],
+				$data['ip'],
+				$data['rtt_ms'],
+				);
+
+		}
+
+		//$sqlTest = "INSERT INTO tr_item (traceroute_id,hop,attempt,status,ip_addr,rtt_ms) VALUES (".$trId.", ".$data['hop'].", ".$data['attempt'].", '".$data['status']."', '".$data['ip']."', ".$data['rtt_ms'].");";
+		
+		//echo "\ntrId: ".$trId;
+		//print_r($trItemsData);
+		//echo "\n".$sqlTest."\n";
+
+
+		$result = pg_query_params($dbconn, $sql, $trItemsData);
+		// catch errors
+		$pg_error="";
+		if ($result === false) {
+			$pg_error="saveTraceroute: Incorrect parameters: ".pg_last_error();
+			//echo "\n".$pg_error;
+		}
+		pg_free_result($result);
+		return $pg_error;
+	}
+	
+
+	/**
+		Insert new IP
+	*/
+	public static function insertNewIp($data) 
+	{
+		//echo "\---- insertNewIp()";
+		global $dbconn;
+		
+		$sql = "INSERT INTO ip_addr_info (ip_addr, asnum, mm_lat, mm_long, hostname, mm_country, mm_region, mm_city, mm_postal, mm_area_code, mm_dma_code, p_status, lat, long, gl_override) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15);";
+		$ipData = array($data['ip'], $data['asn'], $data['geoip']['latitude'], $data['geoip']['longitude'], $data['hostname'], $data['geoip']['country_code'], $data['geoip']['region'], $data['geoip']['city'], $data['geoip']['postal_code'], $data['geoip']['area_code'], $data['geoip']['dma_code'], "N", $data['geoip']['latitude'], $data['geoip']['longitude'], NULL);
+
+		/* 
+			TODO: Change status from "N" to "" after completing testing. There is no need now to flag the IP as "New" since MM and hostname lookup are being done already
+		*/
+
+		//echo "<br/>".$sql;
+		//print_r($ipData);
+
+		$result = pg_query_params($dbconn, $sql, $ipData);
+		$pg_error="";
+		if ($result === false) {
+			$pg_error="insertNewIp: Incorrect parameters: ".pg_last_error();
+			//echo "\n".$pg_error;
+		}
+		pg_free_result($result);
+		return $pg_error;
+	}
+
+	/**
+		Check if an ip exists in DB
+	*/
+	public static function checkIpExists($ip) 
+	{
+		global $dbconn;
+
+		$sql = "SELECT ip_addr_info.ip_addr FROM ip_addr_info WHERE ip_addr = '".$ip."'";
+
+		$result = pg_query($dbconn, $sql) or die('checkIpExists: Query failed'.pg_last_error());
+		$dataA = pg_fetch_all($result);
+		pg_free_result($result);
+		return $dataA;
+	}
+
+	/**
+		Manage a collection of ip addreses and inserts TR items
+	*/
+	public static function manageNewIps($trId, $data) 
+	{
+		global $dbconn, $mm;
+		//echo "\n------ manageNewIps()";
+		//echo "\ntrID: ".$trId;
+
+		//loop TR hops
+		$hopCount = 0;
+		foreach ($data as $key => $hop) {
+			$hopCount++;
+			/*echo "\n---- hop data\n";
+			print_r($hop);*/
+			
+			if(filter_var($hop[0]["ip"], FILTER_VALIDATE_IP)) {
+				//echo "\n[".$hopCount."] - Valid IP - ".$hop[0]["ip"]."";
+				//print_r($hop);
+				
+				// Check if the ip exists
+				$checkIpExists = GatherTr::checkIpExists($hop[0]["ip"]);
+				if(!isset($checkIpExists[0]['ip_addr'])){
+					//echo "\nIP Already exists ! ".$checkIpExists[0]['ip_addr'];
+				
+					//echo "\nNEW IP !  ".$hop[0]["ip"];
+					$geoIp = $mm->getGeoIp($hop[0]["ip"]);
+					//echo "\n";
+					//print_r($geoIp);
+					GatherTr::insertNewIp($geoIp);
+				} // end if check ip
+				
+				
+			} else {
+				//echo "\n[".$hopCount."] Not a valid IP";
+				//print_r($hop);
+			}
+
+			/*Loop hop latencies - Insert TR item*/
+			foreach ($hop as $key => $trItem) {
+				/*echo "\n TR item\n";
+				print_r($trItem);*/
+				GatherTr::saveTracerouteItem($trId, $trItem);
+			} // end loop latencies
+			
+		} // end loop TR hops
+		
+	}
+		
+	/*
+		            [ip] => 69.196.136.132
+		            [status] => r
+		            [rtt_ms] => 11
+		            [attempt] => 1
+		            [hop] => 4
+	*/
+
 
 
 }
