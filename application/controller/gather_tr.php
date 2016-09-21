@@ -4,8 +4,7 @@ include('../config.php');
 include('../model/GatherTr.php');
 include('../model/IXmapsMaxMind.php'); 
 
-//$myIp = $_SERVER['REMOTE_ADDR'];
-$myIp='200.3.149.136'; // CO/BTA
+$myIp = $_SERVER['REMOTE_ADDR'];
 
 // Open MaxMind files
 $mm = new IXmapsMaxMind();
