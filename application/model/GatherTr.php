@@ -46,6 +46,7 @@ class GatherTr
 	*/
 	public static function saveTrContribution($data) 
 	{
+		//print_r($data);
 		global $dbconn, $ixmaps_debug_mode, $pg_error;
 
 
@@ -417,6 +418,7 @@ class GatherTr
 		inserts traceroute items
 		Only traceroutes with at least 2 valid hops are published
 		Returns trid and errors back to IXmapsCliient
+		Saves error (if any) when inserting into tables: ip_addr_info, traceroute, tr_item
 	*/
 	public static function publishTraceroute($data)
 	{
@@ -457,8 +459,6 @@ class GatherTr
 
 		// convert timeout to seconds 
 		$data['timeout'] = round($data['timeout']/1000);
-
-		/*$trString = "dest=".$data['dest']."&dest_ip=".$data['dest_ip']."&submitter=".urlencode($data['submitter'])."&zip_code=".urlencode($data['postal_code'])."&client=".urlencode($data['traceroute_submissions'][0]['client'])."&cl_ver=1.0&privacy=8&timeout=".$data['timeout']."&protocol=".$protocol."&maxhops=".$data['maxhops']."&attempts=".$data['queries']."&status=".$trStatus;*/
 		
 		/*Format array for insert into Traceroute */
 		$trInsertData = array (
@@ -532,8 +532,6 @@ class GatherTr
 						$status="r";
 					}
 
-					/*$trString .= "&status_".$hopCount."_".$latencyCount."=".$status."&ip_addr_".$hopCount."_".$latencyCount."=".$hop['winIp']."&rtt_ms_".$hopCount."_".$latencyCount."=".round($latency);*/
-
 					/*Colect TR items for insert*/
 					$trInsertData["trItems"][$hopCount][]=array(
 						"ip"=>$hop['winIp'],
@@ -551,13 +549,6 @@ class GatherTr
 		}
 
 	
-
-
-		/*
-			/////////////// OLD CODE NOT NEEDED NOW?
-		*/
-
-
 		/*Enables publication of current TR data if there are at least 2 valid public IP addresses*/
 		if($validPublicIPs>=2){
 			$publishControl = true; 
@@ -570,19 +561,13 @@ class GatherTr
 		$resultArray = array(
 			"trId"=>0,
 			"publishControl"=>$publishControl,
-			"tot_hops"=>$validPublicIPs);
+			"tot_hops"=>$validPublicIPs,
+			"error_type"=>""
+			);
 		
 		if($publishControl){
 			/*echo "\n".$trString."";
 			$resultArray['trId'] = 0;*/ // For debug 
-			
-			// adding exceptions for SSL certificate
-			$arrContextOptions=array(
-			    "ssl"=>array(
-			        "verify_peer"=>false,
-			        "verify_peer_name"=>false,
-			    ),
-			);  
 
 			if($publishControl){
 				/* Insert Traceroute */
@@ -590,44 +575,14 @@ class GatherTr
 				//echo "\nNew TRid: ".$NewTrId;
 
 				/* Insert TrItems */
-				GatherTr::manageNewIps($newTrId, $trInsertData["trItems"]);
-				$resultArray['trId'] = $newTrId;
+				if($newTrId!=0){
+					GatherTr::manageNewIps($newTrId, $trInsertData["trItems"]);
+					$resultArray['trId'] = $newTrId;
+				}
 
 			}
-			/* Publish TR data */
-
-			/* 
-			commenting this out for the moment: it's not needed to collect contributions from IXmapsClient*/
-			/*$trResult = file_get_contents($gatherTrUri."?".$trString, false, stream_context_create($arrContextOptions));*/
-				//$trResult = file_get_contents($gatherTrUri."?".$trString);
-			
-			/*
-			$trResult="";			
-			$search      = "new traceroute ID";
-			$line_number = false;
-			$tr_id_arr = explode("\n", $trResult);
-			while (list($key, $line) = each($tr_id_arr) and !$line_number) {
-			   $line_number = (strpos($line, $search) !== FALSE) ? $key + 1 : $line_number;
-			}
-			$tr_id_line = explode("=", $tr_id_arr[$line_number-1]);
-			//echo "\nTR ID: ".$tr_id_line[1];
-			if(count($tr_id_line)==2 && $tr_id_line[1]!=0){
-				$resultArray['trId'] = $tr_id_line[1];
-			} else {
-				$resultArray['trId'] = 0; // error collecting trId
-			}
-			*/
-
-
-			/* Insert Traceroute data  */
-
-			/* Insesrt Traceroute Items */
-
-
 		}
 		return $resultArray;
-
-
 	}
 
 	/**
@@ -817,7 +772,7 @@ class GatherTr
 	}
 
 	/**
-		Get a ASN for an IP: Using local DBs
+		Get an ASN for an IP: Using local DBs
 	*/
 	public static function getIpForAsn($ip='')
 	{
@@ -981,9 +936,14 @@ class GatherTr
 	*/
 	public static function saveTraceroute($data) 
 	{
-		global $dbconn;
+		global $dbconn, $tr_c_id;
+		$newTRid=0;
 		//echo "\n -----saveTraceroute()";
 		//print_r($data);
+
+		// Produce an sql error by changing a type: for testing save error_log only !!
+		//$data['timeout'] = "b"; // the error is produced because the timeout is expected to be an integer
+
 		$sql="INSERT INTO traceroute (sub_time, dest, dest_ip, submitter, zip_code, privacy, timeout, protocol, maxhops, status, attempts, metadata) VALUES (NOW(), $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING id;";
 		$trData = array(
 			$data['dest'],
@@ -999,18 +959,32 @@ class GatherTr
 			""
 			);
 
-		$result = pg_query_params($dbconn, $sql, $trData);
-		// catch errors
-		if ($result === false) {
-			$pg_error="saveTraceroute: Incorrect parameters: ".pg_last_error();
-			$newTRid=0;
-		} else {
-			$pg_error="";
-			$temp = pg_fetch_all($result);
-			$newTRid = $temp[0]['id'];
-			
+		/* Catch errors in sql statement */
+		if (pg_send_query_params($dbconn, $sql, $trData)) {
+			$result=pg_get_result($dbconn);
+			if ($result) {
+				$state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
+				if ($state!=0) { // error catched 
+					$errorData = array(
+						"class"=>"GatherTr",
+						"function"=>"saveTraceroute",
+						"tr_c_id"=>$tr_c_id,
+						"data"=>$data,
+						"error"=>pg_last_error(),
+						"E_USER_ERROR"=>E_USER_ERROR
+						);
+					GatherTr::saveError($errorData);
+					$newTRid=0;	
+				} else {
+					// success ! ...
+					$temp = pg_fetch_all($result);
+					$newTRid = $temp[0]['id'];
+				}
+				pg_free_result($result);
+			}
 		}
-		pg_free_result($result);
+		/* /Catch errors in sql statement */ 
+
 		return $newTRid;
 	}
 
@@ -1035,7 +1009,7 @@ class GatherTr
 				);
 
 		} else {
-			$sql = "INSERT INTO tr_item (traceroute_id,hop,attempt,status,ip_addr,rtt_ms) VALUES ($1, $2, $3, $4, $5, $6);";
+			$sql = "INSERT INTO tr_item (traceroute_id, hop, attempt, status, ip_addr, rtt_ms) VALUES ($1, $2, $3, $4, $5, $6);";
 			$trItemsData = array(
 				$trId,
 				$data['hop'],
@@ -1053,16 +1027,36 @@ class GatherTr
 		//print_r($trItemsData);
 		//echo "\n".$sqlTest."\n";
 
+		/* Test invoke error on insert */
+		//$trItemsData[0]="error";
 
-		$result = pg_query_params($dbconn, $sql, $trItemsData);
-		// catch errors
-		$pg_error="";
-		if ($result === false) {
-			$pg_error="saveTraceroute: Incorrect parameters: ".pg_last_error();
-			//echo "\n".$pg_error;
+		/* Catch errors in sql statement */
+		if (pg_send_query_params($dbconn, $sql, $trItemsData)) {
+			$result=pg_get_result($dbconn);
+			if ($result) {
+				$state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
+				if ($state!=0) { // error catched 
+					$errorData = array(
+						"class"=>"GatherTr",
+						"function"=>"saveTracerouteItem",
+						"traceroute_id"=>$trId,
+						"data"=>$data,
+						"error"=>pg_last_error(),
+						"E_USER_ERROR"=>E_USER_ERROR
+						);
+					GatherTr::saveError($errorData);
+					return 0;
+						
+				} else {
+					// success ! ...
+					pg_free_result($result);
+					return 1; // action completed
+				}
+				
+			}
 		}
-		pg_free_result($result);
-		return $pg_error;
+		/* /Catch errors in sql statement */ 
+
 	}
 	
 
@@ -1072,26 +1066,40 @@ class GatherTr
 	public static function insertNewIp($data) 
 	{
 		//echo "\---- insertNewIp()";
-		global $dbconn;
+		global $dbconn, $tr_c_id;
+
+		/* TODO: check data types on all $data vars */
+		
+		/* test invoke error on insert */
 		
 		$sql = "INSERT INTO ip_addr_info (ip_addr, asnum, mm_lat, mm_long, hostname, mm_country, mm_region, mm_city, mm_postal, mm_area_code, mm_dma_code, p_status, lat, long, gl_override) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15);";
 		$ipData = array($data['ip'], $data['asn'], $data['geoip']['latitude'], $data['geoip']['longitude'], $data['hostname'], $data['geoip']['country_code'], $data['geoip']['region'], $data['geoip']['city'], $data['geoip']['postal_code'], $data['geoip']['area_code'], $data['geoip']['dma_code'], "N", $data['geoip']['latitude'], $data['geoip']['longitude'], NULL);
 
-		/* 
-			TODO: Change status from "N" to "" after completing testing. There is no need now to flag the IP as "New" since MM and hostname lookup are being done already
-		*/
+			/* Catch errors in sql statement */
+			if (pg_send_query_params($dbconn, $sql, $ipData)) {
+				$result=pg_get_result($dbconn);
+				if ($result) {
+					$state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
+					if ($state!=0) {
+						$errorData = array(
+							"class"=>"GatherTr",
+							"function"=>"insertNewIp",
+							"tr_c_id"=>$tr_c_id,
+							"data"=>$data,
+							"error"=>pg_last_error(),
+							"E_USER_ERROR"=>E_USER_ERROR
+							);
+						GatherTr::saveError($errorData);
+						return 0;
+					} else {
+						// success
+						pg_free_result($result);
+						return 1; // action completed
+					}
+				}
+			}
+			/* /Catch errors in sql statement */ 
 
-		//echo "<br/>".$sql;
-		//print_r($ipData);
-
-		$result = pg_query_params($dbconn, $sql, $ipData);
-		$pg_error="";
-		if ($result === false) {
-			$pg_error="insertNewIp: Incorrect parameters: ".pg_last_error();
-			//echo "\n".$pg_error;
-		}
-		pg_free_result($result);
-		return $pg_error;
 	}
 
 	/**
@@ -1101,6 +1109,7 @@ class GatherTr
 	{
 		global $dbconn;
 
+		/* TODO: Check is a valid ip: a bit redundant?*/
 		$sql = "SELECT ip_addr_info.ip_addr FROM ip_addr_info WHERE ip_addr = '".$ip."'";
 
 		$result = pg_query($dbconn, $sql) or die('checkIpExists: Query failed'.pg_last_error());
@@ -1136,9 +1145,9 @@ class GatherTr
 				
 					//echo "\nNEW IP !  ".$hop[0]["ip"];
 					$geoIp = $mm->getGeoIp($hop[0]["ip"]);
-					//echo "\n";
-					//print_r($geoIp);
-					GatherTr::insertNewIp($geoIp);
+					/*echo "\n getGeoIp()";
+					var_dump($geoIp);*/
+					$newIpResult = GatherTr::insertNewIp($geoIp);
 				} // end if check ip
 				
 				
@@ -1151,7 +1160,10 @@ class GatherTr
 			foreach ($hop as $key => $trItem) {
 				/*echo "\n TR item\n";
 				print_r($trItem);*/
-				GatherTr::saveTracerouteItem($trId, $trItem);
+				$saveTrItemResult = GatherTr::saveTracerouteItem($trId, $trItem);
+				/* TODO: determine what action needs to be taker if at least one item could not be saved
+					$saveTrItemResult == 0
+				*/
 			} // end loop latencies
 			
 		} // end loop TR hops
@@ -1166,7 +1178,38 @@ class GatherTr
 		            [hop] => 4
 	*/
 
+	/**
+		Insert data into error_log
+	*/
+	public static function saveError($data) 
+	{
+		global $dbconn;
+		$sql = "INSERT INTO error_log (log_date, error) VALUES (NOW(), $1);";
+		$errorJson = json_encode($data);
+		$errorData = array($errorJson);
+		$result = pg_query_params($dbconn, $sql, $errorData);
+		pg_free_result($result);
+		return 1;
+	}
+	
+	/**
+		Get data from error_log
+	*/
+	public static function getError($errorId)
+	{
+		global $dbconn;
+		if($errorId!=0){
+			$sql = "SELECT * FROM error_log WHERE id = $1;";
+		} else {
+			$sql = "SELECT * FROM error_log WHERE id <> $1 ORDER BY id DESC LIMIT 1;";
+		}
+		$errorData = array($errorId);
+		$result = pg_query_params($dbconn, $sql, $errorData);
+		$dataResult = pg_fetch_all($result);
+		pg_free_result($result);
+		return $dataResult;
+	}
+} // end class
 
 
-}
 ?>

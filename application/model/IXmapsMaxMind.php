@@ -30,16 +30,27 @@ class IXmapsMaxMind
 	 */
 	public function getGeoIp($ip) {
 		$this->geoIp = geoip_record_by_addr($this->gi1,$ip);
-		$this->geoIp->city = mb_convert_encoding($this->geoIp->city, "UTF-8", "iso-8859-1");
-		$ipAsn = geoip_name_by_addr($this->giasn, $ip);
-		$asn_isp = $this->extractAsn($ipAsn);
+		//echo "\n"."getGeoIp()"."\n";
+		//var_dump($this->geoIp);
+		if(isset($this->geoIp->city) && $this->geoIp->city!=""){
+			$this->geoIp->city = mb_convert_encoding($this->geoIp->city, "UTF-8", "iso-8859-1");
+		}
+
 		$r = array(
 			"ip"=>$ip,
 			"geoip"=>(array)$this->geoIp,
-			"asn"=>$asn_isp[0],
-			"isp"=>$asn_isp[1],
+			"asn"=>NULL,
+			"isp"=>NULL,
 			"hostname"=>gethostbyaddr($ip)
 		);	
+		$ipAsn = geoip_name_by_addr($this->giasn, $ip);
+		/*echo "\n geoip_name_by_addr:\n";
+		var_dump($ipAsn);*/
+		if($ipAsn!=NULL){
+			$asn_isp = $this->extractAsn($ipAsn);
+			$r['asn'] = $asn_isp[0];
+			$r['isp'] = $asn_isp[1];
+		}
 		return $r;
 	}
 	
@@ -56,15 +67,20 @@ class IXmapsMaxMind
 	 */
 	private function extractAsn($asnString) {
 		$asnArray = explode(' ', $asnString);
-		$asn = $asnArray[0];
-		$asn = substr($asn, 2);
-		$isp = "";
+		if(isset($asnArray[0])){
+			$asn = $asnArray[0];
+			$asn = substr($asn, 2);
+			$isp = "";
 
-		for ($i=1; $i < count($asnArray); $i++) { 
-			$isp .= $asnArray[$i]." ";
-	
+			for ($i=1; $i < count($asnArray); $i++) { 
+				$isp .= $asnArray[$i]." ";
+		
+			}
+			$isp = trim($isp);
+		} else {
+			$asn = "";
+			$isp = "";
 		}
-		$isp = trim($isp);
 		return array($asn, $isp);
 	}
 
