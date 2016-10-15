@@ -1071,6 +1071,7 @@ class GatherTr
 		/* TODO: check data types on all $data vars */
 		
 		/* test invoke error on insert */
+			//$data['asn'] = "ANTO CREATED THIS ERROR FOR TESTING";
 		
 		$sql = "INSERT INTO ip_addr_info (ip_addr, asnum, mm_lat, mm_long, hostname, mm_country, mm_region, mm_city, mm_postal, mm_area_code, mm_dma_code, p_status, lat, long, gl_override) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15);";
 		$ipData = array($data['ip'], $data['asn'], $data['geoip']['latitude'], $data['geoip']['longitude'], $data['hostname'], $data['geoip']['country_code'], $data['geoip']['region'], $data['geoip']['city'], $data['geoip']['postal_code'], $data['geoip']['area_code'], $data['geoip']['dma_code'], "N", $data['geoip']['latitude'], $data['geoip']['longitude'], NULL);
@@ -1090,6 +1091,7 @@ class GatherTr
 							"E_USER_ERROR"=>E_USER_ERROR
 							);
 						GatherTr::saveError($errorData);
+						/* TODO: need to decide if we rollback the new TR ?? discuss this!!*/
 						return 0;
 					} else {
 						// success
@@ -1195,17 +1197,18 @@ class GatherTr
 	/**
 		Get data from error_log
 	*/
-	public static function getError($errorId)
+	public static function getError($errorId=0, $offset=0, $limit=0)
 	{
 		global $dbconn;
 		if($errorId!=0){
 			$sql = "SELECT * FROM error_log WHERE id = $1;";
 		} else {
-			$sql = "SELECT * FROM error_log WHERE id <> $1 ORDER BY id DESC LIMIT 1;";
+			$sql = "SELECT * FROM error_log WHERE id <> $1 ORDER BY id DESC OFFSET $offset LIMIT $limit;";
 		}
 		$errorData = array($errorId);
 		$result = pg_query_params($dbconn, $sql, $errorData);
 		$dataResult = pg_fetch_all($result);
+		//print_r($dataResult);
 		pg_free_result($result);
 		return $dataResult;
 	}
