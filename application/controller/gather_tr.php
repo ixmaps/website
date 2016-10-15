@@ -4,24 +4,39 @@ include('../config.php');
 include('../model/GatherTr.php');
 include('../model/IXmapsMaxMind.php'); 
 
-$myIp = $_SERVER['REMOTE_ADDR'];
-//$myIp='200.3.149.136'; // CO/BTA
+///$myIp = $_SERVER['REMOTE_ADDR'];
+$myIp = "142.150.149.197"; // ixmaps server
 
+// Open MaxMind files
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($myIp);
 
 //$_POST['metadata']=json_encode(array("HTTP_USER_AGENT"=>$_SERVER['HTTP_USER_AGENT']));
 $_POST['submitter_ip'] = $myIp;
-if(!isset($_POST['city'])){
+
+/*try {
+    $_POST['city'] = ;
+    stir();
+} catch (Exception $e) {
+    die("I could not make you a cocktail");
+}*/
+
+if(!isset($_POST['city']) && isset($geoIp['geoip']['city'])){
 	$_POST['city'] = $geoIp['geoip']['city'];	
+} else if (!isset($_POST['city'])) {
+	$_POST['city'] = "";
 }
-$_POST['country'] = ''.$geoIp['geoip']['country_code'];
+if(isset($geoIp['geoip']['country_code'])){
+	$_POST['country'] = ''.$geoIp['geoip']['country_code'];
+} else {
+	$_POST['country'] = '';
+}
 $_POST['submitter_asnum'] = ''.$geoIp['asn'];
 $_POST['privacy'] = 8;
 $_POST['client'] = "";
 $_POST['cl_version'] = "";
 
-$mm->closeDatFiles();
+
 /*
 	TODO: add  exahustive check for consistency and completness of the TR data 
 	Requires discussion with tests on the IXmapsClient client
@@ -65,15 +80,12 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 			$trId = 0;
 		} else if($publishResult['publishControl'] && $publishResult['trId']==0) {
 			$trData['tr_flag'] = 5;
-			$trGatherMessage = "Error publishing Traceroute responses. (Contribution id: ".$tr_c_id.")";
+			$trGatherMessage = "An error occurred in the server when saving Traceroute data. The error has been saved for further analysis (Contribution id: ".$tr_c_id.")";
 			$trId = 0;
 		} else if($publishResult['publishControl'] && $publishResult['trId']!=0) {
 			// Success: tr_flag = 2 or 3
 			$trGatherMessage = "Traceroute data saved successfully. ".$publishResult['tot_hops']." Hops were found.";
 			$trId = $publishResult['trId'];
-			/*TODO*/
-			// return number of hops: e.g. 15 hops were found
-			// Grab ASN from MaxMind -> as_users
 		}
 	}
 
@@ -83,7 +95,11 @@ if(isset($_POST['dest_ip']) && $_POST['dest_ip']!="")
 		"tr_c_id"=>$tr_c_id, 
 		"message"=> $trGatherMessage, 
 		"tr_flag"=>$trData['tr_flag']);
+
+	//close MaxMind files
+	$mm->closeDatFiles();
 	
+	// return json to the IXmapsClient
 	echo json_encode($result);
 
 	//print_r($result);

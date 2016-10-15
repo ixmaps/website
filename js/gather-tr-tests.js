@@ -1,7 +1,7 @@
 var submitTrData = function(){
 
     ajaxObj = jQuery.ajax({
-      url: url_base + '/application/controller/gather_tr_tests.php',
+      url: url_base + '/application/controller/gather_tr.php',
       type:"POST",
       data:TrTestJsonData,
       //contentType:"application/json; charset=utf-8",
@@ -16,7 +16,7 @@ var submitTrData = function(){
 }
 
 var submitPost = function(){
-    jQuery.post( url_base + '/application/controller/gather_tr_tests.php', TrTestJsonData, function submitPostSuccess(e){
+    jQuery.post( url_base + '/application/controller/gather.php', TrTestJsonData, function submitPostSuccess(e){
         console.log("OK: submitPostSuccess", e);
     });
 }
