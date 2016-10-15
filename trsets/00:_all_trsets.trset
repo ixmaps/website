@@ -1,0 +1,2165 @@
+
+comment Canadian Public Bodies
+comment Canadian Federal Government
+host hc-sc.gc.ca
+host cic.gc.ca
+host fin.gc.ca
+host cra-arc.gc.ca
+host bdc.ca
+host aadnc-aandc.gc.ca
+host ic.gc.ca
+host rcmp-grc.gc.ca
+host cbsa-asfc.gc.ca
+host csc-scc.gc.ca
+host pbc-clcc.gc.ca
+host justice.gc.ca
+host veterans.gc.ca
+host hrsdc.gc.ca
+host servicecanada.gc.ca
+host canadabenefits.gc.ca
+host aboriginalcanada.gc.ca
+host www.cpc-ccp.gc.ca
+host csps-efpc.gc.ca
+host passport.gc.ca
+host alberta.ca
+host health.alberta.ca
+host transportation.alberta.ca
+host gov.bc.ca
+host www.bced.gov.bc.ca
+host www.health.gov.bc.ca
+host www.rev.gov.bc.ca
+host fin.gov.bc.ca
+host pssg.gov.bc.ca
+host bcbusinessregistry.ca
+host www.th.gov.bc.ca
+host icbc.com
+host www.eia.gov.bc.ca
+host bchousing.org
+host biblioottawalibrary.ca
+host www.vsb.bc.ca
+host vpl.ca
+host vch.ca
+host westvancouver.ca
+host wvpd.ca
+host gov.mb.ca
+host immigratemanitoba.com
+host gnb.ca
+host welcomenb.ca
+host gov.nl.ca
+host newfoundlandlabrador.com
+host nlimmigration.ca
+host gov.ns.ca
+host novascotia.ca
+host novascotiaimmigration.com
+host www.gov.nt.ca
+host www.contractregistry.nt.ca
+host nwtgeoscience.ca
+host gov.nu.ca
+host nunavuttenders.ca
+host gov.pe.ca
+host opportunitiespei.ca
+host gc.ca
+host revenuquebec.ca
+host gov.sk.ca
+host saskatchewan.ca
+host saskimmigrationcanada.ca
+host gov.yk.ca
+host yukonpremier.ca
+host yukonwater.ca
+comment *** Supreme Court of Canada
+host www.scc-csc.gc.ca
+host scc.lexum.org
+comment *** Federal Court
+host cas-ncr-nter03.cas-satj.gc.ca
+comment *** Government sites
+host www.parl.gc.ca
+host laws-lois.justice.gc.ca
+host www.gazette.gc.ca
+host www.courts.gov.bc.ca
+host eservice.ag.gov.bc.ca
+host www.legalaid.bc.ca
+host www.bclaws.ca
+host www.courthouselibrary.ca
+host www.tlabc.org
+host www.gov.bc.ca
+host www.accessjustice.ca
+host adminlawbc.ca
+host bchistory.library.ubc.ca
+host www.bcsc.bc.ca
+host www.bcli.org
+host www.clicklaw.bc.ca
+host www.cle.bc.ca
+host www.leg.bc.ca
+host www.albertacourts.ca
+host www.chrt-tcdp.gc.ca
+host www.cjc-ccm.gc.ca
+host www.cmac-cacm.ca
+host www.ontariocourts.ca
+host www.gov.pe.ca
+host link.library.utoronto.ca
+host openparliament.ca
+host www.pco-bcp.gc.ca
+host www.acjnet.org
+host www.law.ualberta.ca
+host www.cfcj-fcjc.org
+host law.utoronto.ca
+host www.lawreform.ns.ca
+host www.lexum.com
+host www.osgoode.yorku.ca
+host www.legalaid.on.ca
+host sasklawcourts.ca
+host manitobacourts.mb.ca
+host tribunaux.qc.ca
+host court.nl.ca
+host courts.ns.ca
+host gnb.ca
+host courts.pe.ca
+host yukoncourts.ca
+host www.nwtcourts.ca
+host nunavutcourts.ca
+host nucj.ca
+comment *** Research Sites
+host www.canlii.org
+host www.lexisnexis.com
+host web2.westlaw.com
+comment *** Law Societies/Organizations
+host www.flsc.ca
+host cba.org
+host www.lawsociety.bc.ca
+host www.lawsociety.ab.ca
+host www.lawsociety.sk.ca
+host www.lawsociety.mb.ca
+host www.lsuc.on.ca
+host www.barreau.qc.ca
+host www.cnq.org
+host www.lawsociety-barreau.nb.ca
+host www.nsbs.org
+host www.lspei.pe.ca
+host www.lawsociety.nf.ca
+host www.lawsocietyyukon.com
+host www.lawsociety.nt.ca
+host lawsociety.nu.ca
+comment *** largest Canadian law firms 
+host www.blg.com
+host blg.com
+host www.gowlings.com
+host gowlings.com
+host www.fasken.com
+host fasken.com
+host www.nortonrosefulbright.com
+host nortonrosefulbright.com
+host www.blakes.com
+host blakes.com
+host www.mccarthy.ca
+host mccarthy.ca
+host www.millerthomson.ca
+host millerthomson.ca
+host www.dentons.com
+host dentons.com
+host www.stikeman.com
+host stikeman.com
+host www.osler.com
+host osler.com
+host www.bennettjones.com
+host bennettjones.com
+host www.torys.com
+host torys.com
+host www.mcmillan.ca
+host mcmillan.ca
+host www.dwpv.com
+host dwpv.com
+host www.dlapiper.com
+host dlapiper.com
+host www.stewartmckelvey.com
+host stewartmckelvey.com
+host www.mcinnescooper.com
+host mcinnescooper.com
+host www.coxandpalmerlaw.com
+host coxandpalmerlaw.com
+host www.goodmans.ca
+host goodmans.ca
+host www.lavery.ca
+host lavery.ca
+host www.mcinnescooper.com
+host mcinnescooper.com
+comment *** Start Canadian financial sites ***
+comment *** Sites widely and commonly known as foreign-based are omitted
+comment ***
+comment *** Canadian stock and commodities exchanges
+host tmx.com
+host www.tmx.com
+host tsx.com
+host www.tsx.com
+host tsxprivatemarkets.com
+host www.tsxprivatemarkets.com
+host m-x.ca
+host www.m-x.ca
+host tmxequitytransferservices.com
+host www.tmxequitytransferservices.com
+host tmxmoney.com
+host www.tmxmoney.com
+host aequitasneoexchange.com
+host www.aequitasneoexchange.com
+host thecse.com
+host www.thecse.com
+host theice.com
+host www.theice.com
+comment *** Canadian banks and credit unions
+host Paypal.com
+host Rbc.com
+host www.rbc.com
+host Rbcroyalbank.com
+host www.rbcroyalbank.com
+host Td.com
+host www.td.com
+host Tdcanadatrust.com
+host www.tdcanadatrust.com
+host Cibc.com
+host www.cibc.com
+host Bmo.com
+host www.bmo.com
+host Scotiabank.com
+host www.scotiabank.com
+host tangerine.ca
+host www.tangerine.ca
+host Bloomberg.com
+host americanexpress.com
+host Xe.com
+host hsbc.ca
+host www.hsbc.ca
+host laurentianbank.ca
+host www.laurentianbank.ca
+host Desjardins.com
+host www.desjardins.com
+host investdfsi.ca
+host www.investdfsi.ca
+host accweb.mouv.desjardins.ca
+host cucentral.ca
+host www.cucentral.ca
+host vancity.com
+host www.vancity.com
+host creditunion.mb.ca
+host www.creditunion.mb.ca
+comment www.central1.com is central ONE dot com
+host central1.com
+host www.central1.com
+host albertacentral.com
+host www.albertacentral.com
+host creditunionsofontario.com
+host www.creditunionsofontario.com
+host atlanticcreditunions.ca
+host www.atlanticcreditunions.ca
+comment *** Canadian life insurance companies
+host manulife.ca
+host www.manulife.ca
+host powerfinancial.com
+host www.powerfinancial.com
+host sunlife.ca
+host www.sunlife.ca
+host fairfax.ca
+host www.fairfax.ca
+host ia.ca
+host www.ia.ca
+host greatwestlife.com
+host www.greatwestlife.com
+host intactfc.com
+host www.intactfc.com
+host empire.ca
+host www.empire.ca
+host rbcinsurance.com
+host www.rbcinsurance.com
+host melochemonnex.com
+host www.melochemonnex.com
+host cooperators.ca
+host www.cooperators.ca
+host localagent.cooperators.ca
+host desjardinslifeinsurance.com
+host www.desjardinslifeinsurance.com
+host desjardinstravelinsurance.ca
+host www.desjardinstravelinsurance.ca
+comment *** Canadian general insurance companies
+host tdinsurance.com
+host www.tdinsurance.com
+host avivacanada.com
+host www.avivacanada.com
+host statefarm.ca
+host www.statefarm.ca
+host wawanesa.com
+host www.wawanesa.com
+host rsagroup.ca
+host www.rsagroup.ca
+host desjardinsgeneralinsurance.com
+host www.desjardinsgeneralinsurance.com
+host economicalinsurance.com
+host www.economicalinsurance.com
+host axa-assistance.ca
+host www.axa-assistance.ca
+comment *** Canadian accounting sites
+comment *** accounting national and multi-province
+host cpacanada.ca
+host www.cpacanada.ca
+host cga-nwt-nu.org
+host www.cga-nwt-nu.org
+host icanwt.nt.ca
+host www.icanwt.nt.ca
+host bdo.ca
+host www.bdo.ca
+host cgatax.com
+host cgatax.com
+host piccoaccountingltd.com
+host www.piccoaccountingltd.com
+host ggfl.ca
+host www.ggfl.ca
+host dfk.ca
+host www.dfk.ca
+host mnp.ca
+host www.mnp.ca
+host acgca.ca
+host www.acgca.ca
+host crowebgk.com
+host www.crowebgk.com
+comment *** accounting AB
+host cpaalberta.ca
+host www.cpaalberta.ca
+host catalystsolutions.ca
+host www.catalystsolutions.ca
+host jmhca.com
+host www.jmhca.com
+host kmss.ca
+host www.kmss.ca
+comment *** accounting BC
+host bccpa.ca
+host www.bccpa.ca
+host collinsbarrow.com
+host www.collinsbarrow.com
+host morgan-cas.com
+host www.morgan-cas.com
+host rolfebenson.com
+host www.rolfebenson.com
+comment *** accounting MB
+host cpamb.ca
+host www.cpamb.ca
+host pkbwgroup.ca
+host www.pkbwgroup.ca
+host exg.ca
+host www.exg.ca
+host pacakkowalhardie.com
+host www.pacakkowalhardie.com
+comment *** accounting NB
+host cpanewbrunswick.ca
+host www.cpanewbrunswick.ca
+host mllaccountants.ca
+host www.mllaccountants.ca
+host currybetts.com
+host www.currybetts.com
+host paulingagnon.com
+host www.paulingagnon.com
+comment *** accounting NL
+host cpanl.ca
+host www.cpanl.ca
+host noseworthychapman.ca
+host www.noseworthychapman.ca
+host harrisryan.com
+host www.harrisryan.com
+comment *** accounting NS
+host cpans.ca
+host www.cpans.ca
+host mgm.ca
+host www.mgm.ca
+host ltdca.com
+host www.ltdca.com
+host conradhurlbertleblanc.ca
+host www.conradhurlbertleblanc.ca
+comment *** accounting ON
+host cpaontario.ca
+host www.cpaontario.ca
+host lcpsca.com
+host www.lcpsca.com
+host ck-ca.com
+host www.ck-ca.com
+host hoechtgalvinkai.ca
+host www.hoechtgalvinkai.ca
+host ca-partners.com
+host www.ca-partners.com
+host bouriswilson.com
+host www.bouriswilson.com
+host hwllp.ca
+host www.hwllp.ca
+comment *** accounting PEI
+host cpapei.ca
+host www.cpapei.ca
+host fitzandco.ca
+host www.fitzandco.ca
+host mrspei.ca
+host www.mrspei.ca
+comment *** accounting QC
+host cpaquebec.ca
+host www.cpaquebec.caen
+host lmtca.ca
+host www.lmtca.ca
+host levesquemarchandwelch.ca
+host www.levesquemarchandwelch.ca
+host brd-cpa.com
+host www.brd-cpa.com
+host bourgeois-marsolais.com
+host www.bourgeois-marsolais.com
+host jolyriendeau.com
+host www.jolyriendeau.com
+comment *** accounting SK
+host cpask.ca
+host www.cpask.ca
+host virtusgroup.ca
+host www.virtusgroup.ca
+host collinsbarrow.com
+host www.collinsbarrow.com
+host thomsonjaspar.ca
+host www.thomsonjaspar.ca
+host millerandco.ca
+host www.millerandco.ca
+comment *** accounting NT
+host cma-nwt.com
+host www.cma-nwt.com
+host ashtonca.com
+host www.ashtonca.com
+host cjeffery.com
+host www.cjeffery.com
+comment *** accounting NU
+host lesterlandau.ca
+host www.lesterlandau.ca
+comment *** accounting YK
+host icayt.ca
+host www.icayt.ca
+host roncurrycpa.com
+host www.roncurrycpa.com
+host jpnormancpa.com
+host www.jpnormancpa.com
+comment *** end Canadian financial sites ***
+comment Canadian media sites from Alexa top 200
+host Google.ca
+host Google.com
+host Facebook.com
+host Youtube.com
+host yahoo.com
+host Live.com
+host Wikipedia.org
+host Twitter.com
+host Bing.com
+host Msn.com
+host Linkedin.com
+host Reddit.com
+host Imgur.com
+host Cbc.ca
+host Instagram.com
+host Pinterest.com
+host Tumblr.com
+host Vice.com
+host Cnn.com
+host Theglobeandmail.com
+host Bbc.com
+host Espn.go.com
+host Canadapost.ca
+host Thestar.com
+host Ctvnews.ca
+host Outbrain.com
+host Lapresse.ca
+host Nytimes.com
+host Abs-cbnnews.com
+host Dailymail.co.uk
+host Forbes.com
+host Cnet.com
+host huffingtonpost.com
+host Theguardian.com
+host Huffingtonpost.ca
+host Twitch.tv
+host Globalnews.ca
+host Flickr.com
+host Pcfinancial.ca
+host Soundcloud.com
+host Nationalpost.com
+host Shaw.ca
+host Vimeo.com
+host Radio-canada.ca
+host Deviantart.com
+host Blogger.com
+host Bbc.co.uk
+host Telegraph.co.uk
+host Sportsnet.ca
+host Videotron.com
+host Torontosun.com
+host Journaldemontreal.com
+host Washingtonpost.com
+host Blogspot.com
+comment *** Start of TRSET of Canadian federal, provincial and territorial political parties
+comment *** Updated 2016-01-04
+comment *** Canada
+host alliancedunord.ca
+host environmentvoters.org
+host blocquebecois.org
+host canada-party.ca
+host canadianactionparty.org
+host chp.ca
+host communist-party.ca
+host conservative.ca
+host democraticadvancementparty.ca
+host forcesetdemocratie.org
+host greenparty.ca
+host liberal.ca
+host libertarian.ca
+host marijuanaparty.ca
+host mlpc.ca
+host ndp.ca
+host onlineparty.ca
+host pirateparty.ca
+host pcparty.org
+host neorhino.ca
+host thebridgeparty.ca
+host unitedpartyofcanada.com
+host fpnpoc.ca
+host peoplespoliticalpower.ca
+host worklessparty.org
+host westernblockparty.com
+host ycl-ljc.ca
+comment *** The provinces and territories in alphabetical order.
+comment *** Note: Some provincial parties use the federal party's domain, instead of having their own!
+comment *** Alberta
+host albertaliberal.com
+host albertaNDP.ca
+host albertaparty.ca
+host socialcredit.com
+host communistparty-alberta.ca
+host greenpartyofalberta.ca
+host pcalberta.org
+host wildrose.ca
+comment *** British Columbia
+host bcvision.net
+host bcfirst.ca
+host bcmarijuanaparty.com
+host bcndp.ca
+host bcrefed.com
+host bcconservative.ca
+host bcexcaliburparty.com
+host bcliberals.com
+host libertarian.bc.ca
+host britishcolumbiapeoplesparty.com
+host www.chpbc.ca
+host greenparty.bc.ca
+host thelandairwaterpartyofbc.ca
+host platinumparty.org
+host reformbc.net
+host peoplessenate.ca
+host worklessparty.org
+host yppofbc.com
+comment *** Manitoba
+host greenparty.mb.ca
+host manitobaliberals.ca
+host todaysndp.mb.ca
+host pcmanitoba.com
+comment *** New Brunswick
+host nbliberal.ca
+host pcnb.ca
+host nbndp.ca
+host greenpartynb.ca
+host peoplesalliance.ca
+comment *** Newfoundland and Labrador
+host nlliberals.ca
+host pcpartynl.ca
+comment *** Nova Scotia
+host greenparty.ns.ca
+host liberal.ns.ca
+host nsndp.ca
+host pcparty.ns.ca
+comment *** Northwest Territories
+comment *** NT does not recognize political parties.
+comment *** Nunavut
+comment *** NU does not recognize political parties.
+comment *** Ontario
+host canadianschoice.com
+host communistpartyontario.ca
+host equalparentingpartyofontario.ca
+host freedomparty.on.ca
+host gpo.ca
+host ontariondp.com
+host newreform.ca
+host nota.ca
+host ontarioliberal.ca
+host libertarian.on.ca
+host ontariomoderate.com
+host ppsn.on.ca
+host ontariopc.com
+comment *** Prince Edward Island
+host greenparty.pe.ca
+host ndppei.ca
+host liberalpei.ca
+host peipc.ca
+host theislandpartypei.ca
+comment *** Quebec
+host blocpot.qc.ca
+host coalitionavenirquebec.org
+host particonservateurquebec.org
+host equipeautonomiste.ca
+host monpayslequebec.org
+host optionnationale.org
+host sansparti.org
+host partiequitable.org
+host parti-independantiste.org
+host plq.org
+host pmlq.qc.ca
+host partinul.org
+host pq.org
+host pcq.qc.ca
+host partiun.ca
+host pvq.qc.ca
+host quebecsolidaire.net
+comment *** Saskatchewan
+host saskgreen.ca
+host saskndp.ca
+host pcsask.ca
+host saskliberals.ca
+host saskparty.com
+comment *** Yukon
+host ylp.ca
+host yukongreen.ca
+host yukonndpcaucus.ca
+host yukonparty.ca
+host cyfn.ca
+host yukonconservative.ca
+comment *** End of TRSET of the Federal, Provincial and Territorialcomment *** Start of the Canadian professional and labour groups Trset
+host acfp.ca
+host actra.ca
+host actratoronto.com
+host aefo.on.ca
+host albertadoctors.org
+host amq.ca
+host apeg.bc.ca
+host apega.ca
+host apegm.mb.ca
+host apegnb.com
+host apegs.ca
+host apey.yk.ca
+host apssp.org
+host atu.org
+host aupe.org
+host bccfp.bc.ca
+host bcgeu.ca
+host bctf.ca
+host caea.com
+host caphc.org
+host caps.ca
+host caslt.org
+host caut.ca
+host cawu.ca
+host ccu-csc.ca
+host cdtabc.com
+host cea-ace.ca
+host cfmta.org
+host cfpc.ca
+host cim.org
+host cipp.on.ca
+host clac.ca
+host cma.ca
+host cmaw.ca
+host cmpa.ca
+host cmq.org
+host cmsg-gmmc.ca
+host copesepb.ca
+host cpaa-acmpa.ca
+host cpa-apc.org
+host cpha.ca
+host cps.ca
+host cpsa.ca
+host cpsbc.ca
+host cpsm.mb.ca
+host cpsnb.org
+host cpsns.ns.ca
+host cpso.on.ca
+host cpspei.ca
+host cqmf.qc.ca
+host cupe.ca
+host cupw.ca
+host dgc.ca
+host docsmb.org
+host doctorsns.com
+host doctorsofbc.ca
+host dperwa.com
+host engineersnovascotia.ca
+host engineerspei.com
+host etfo.ca
+host hdeaa.com
+host ilwu.ca
+host iww.org
+host liuna.ca
+host mbteach.org
+host mcfp.mb.ca
+host medical.org
+host mineworkers.org
+host moveuptogether.ca
+host nape.ca
+host napeg.nt.ca
+host nbms.nb.ca
+host nbpea.nb.ca
+host nbta.ca
+host neu.ca
+host nhlpa.com
+host nlta.nl.ca
+host nmb.ca
+host nsfamdocs.com
+host nsgeu.ca
+host nstu.ca
+host ntfl.ca
+host nucaut.ca
+host nupge.ca
+host nursesunions.ca
+host nwtta.nt.ca
+host ocfp.on.ca
+host oecta.on.ca
+host www.oiq.qc.ca
+host oma.org
+host ona.org
+host opffa.org
+host osstf.ca
+host osstf.on.ca
+host pdac.ca
+host pegnl.ca
+host peitf.com
+host peiupse.ca
+host peo.on.ca
+host pipsc.ca
+host playwrightsguild.ca
+host psacunion.ca
+host qpat-apeq.qc.ca
+host screencomposers.ca
+host seafarers.ca
+host sepfcb.com
+host sgeu.org
+host sogc.org
+host spea.ca
+host srpc.ca
+host stf.sk.ca
+host www.teachers.ab.ca
+host tradescouncil.com
+host twu-stt.ca
+host unifor.org
+host uniteherecanada.org
+host unw.ca
+host wgc.ca
+host writersguildofcanada.com
+host yeu.ca
+host yta.yk.ca
+comment *** End of the Canadian professional and labour groups Trsetcomment *** Start of Canadian political reporting think tank polling and forum Trset
+comment *** Canadian TV networks
+host aptn.ca
+host cbc.ca
+host citytv.com
+host ctstv.com
+host ctv.ca
+host globaltv.com
+host omnitv.ca
+host quebecor.com
+host radio-canada.ca
+comment *** Canadian Newspapers and News Sites
+host calgaryherald.com
+host canadianbusiness.com
+host edmontonjournal.com
+host financialpost.com
+host globalnews.ca
+host hilltimes.com
+host ipolitics.ca
+host journaldemontreal.ca
+host journaldequebec.com
+host lapresse.ca
+host leaderpost.com
+host lfpress.com
+host local.ca
+host looniepolitics.com
+host mississauga.com
+host montrealgazette.com
+host nationalnewswatch.com
+host nationalpost.com
+host northernminer.com
+host ottawacitizen.com
+host ottawasun.com
+host qctonline.com
+host rabble.ca
+host straight.com
+host thechronicleherald.ca
+host theglobeandmail.com
+host theprovince.com
+host therecord.com
+host thespec.com
+host thestar.com
+host thestarphoenix.com
+host thesuburban.com
+host thomsonreuters.com
+host timescolonist.com
+host torontostandard.com
+host torontosun.com
+host vancouversun.com
+host windsorstar.com
+host winnipegfreepress.com
+host winnipegsun.com
+host wn.com
+comment *** Think Tanks
+host aims.ca
+host apec-econ.ca
+host asiapacific.ca
+host broadbentinstitute.ca
+host www.caledoninst.org
+host cameroninstitute.com
+host canada2020.ca
+host canadians.org
+host cgai.ca
+host cifar.ca
+host cigionline.org
+host conferenceboard.ca
+host ctf.ca
+host fcpp.org
+host fraserinstitute.org
+host iedm.org
+host iisd.org
+host irpp.org
+host jccf.ca
+host liberalstudies.ca
+host macdonaldlaurier.ca
+host mowatcentre.ca
+host natoassociation.ca
+host nsi-ins.ca
+host opencanada.org
+host pembina.org
+host policyalternatives.ca
+host ppforum.ca
+host wellesleyinstitute.com
+comment *** Canadian Polling Companies
+host abacusdata.ca
+host angusreidglobal.com
+host ekospolitics.com
+host environicsresearch.com
+host forumresearch.com
+host harrisdecima.ca
+host insightswest.com
+host ipsos.ca
+host ipsos-na.com
+host leger360.com
+host nanosresearch.com
+comment *** Canadian Discussion Forums
+host bloggingtories.ca
+host boards.net
+host canadaka.net
+host canadavisa.com
+host canadianmalcontent.net
+host canadianmoneyforum.com
+host canurb.org
+host cfcj-fcjc.org
+host forums.canadiancontent.net
+host mapleleafweb.com
+host patientsafetyinstitute.ca
+host premed101.com
+host rctech.net
+host roadtocanada.com
+host sacanada.org
+host tripadvisor.ca
+host truckstopcanada.ca
+comment *** End of Canadian political reporting think tank polling and forum Trset
+comment *** start of Canadian Police Trset
+comment *** Federal Canadian Law Enforcement Agencies
+host www.rcmp-grc.gc.ca
+host rcmp-grc.gc.ca
+host www.cbsa-asfc.gc.ca
+host cbsa-asfc.gc.ca
+host www.csc-scc.gc.ca
+host csc-scc.gc.ca
+host www.competitionbureau.gc.ca
+host competitionbureau.gc.ca
+host www.dfo-mpo.gc.ca
+host dfo-mpo.gc.ca
+host www.pc.gc.ca
+host pc.gc.ca
+host www.canadapost.ca
+host canadapost.ca
+host www.inspection.gc.ca
+host inspection.gc.ca
+host www.ncc-ccn.gc.ca
+host ncc-ccn.gc.ca
+comment *** Provincial and Municipal Law Enforcement
+comment *** Many police department websites are folders in their government's website,
+comment *** so they are not listed here.
+comment *** AB
+host esrd.alberta.ca
+host www.edmontonpolice.ca
+host edmontonpolice.ca
+host camrosepoliceservice.ca
+host www.lethbridgepolice.ca
+host lethbridgepolice.ca
+host www.medicinehatpolice.com
+host medicinehatpolice.com
+host www.lakeshoreregionalpolice.com
+host lakeshoreregionalpolice.com
+host www.bloodtribepolice.com
+host bloodtribepolice.com
+comment *** BC
+host www.pssg.gov.bc.ca
+host pssg.gov.bc.ca
+host www.cfseu.bc.ca
+host cfseu.bc.ca
+host www.nwpolice.org
+host nwpolice.org
+host vicpd.ca
+host wvpd.ca
+host www.abbypd.ca
+host abbypd.ca
+host cspolice.ca
+host deltapolice.ca
+host nelsonpolice.ca
+host www.nwpolice.org
+host nwpolice.org
+host www.saanichpolice.ca
+host saanichpolice.ca
+comment *** MB
+host police.brandon.ca
+host www.winklerpolice.ca
+host winklerpolice.ca
+host www.mnroa.com
+host www.dops.org
+host dops.org
+comment *** NB
+host www.bnpppolice.ca
+host bnpppolice.ca
+host www.kennebecasisregionalpolice.com
+host kennebecasisregionalpolice.com
+comment *** NL
+host www.rnc.gov.nl.ca
+host rnc.gov.nl.ca
+comment *** NS
+host www.cbrps.ca
+host cbrps.ca
+host www.bridgewaterpolice.ca
+host bridgewaterpolice.ca
+host www.kentvillepolice.ca
+host kentvillepolice.ca
+comment *** ON
+host www.opp.ca
+host opp.ca
+host www.barriepolice.ca
+host barriepolice.ca
+host www.cornwallpolice.ca
+host cornwallpolice.ca
+host www.policesolutions.ca
+host policesolutions.ca
+host www.gananoquepoliceservice.com
+host gananoquepoliceservice.com
+host www.guelphpolice.ca
+host guelphpolice.ca
+host www.haltonpolice.ca
+host haltonpolice.ca
+host hamiltonpolice.on.ca
+host kpf.ca
+host www.police.london.ca
+host police.london.ca
+host www.ottawapolice.ca
+host ottawapolice.ca
+host www.peelpolice.on.ca
+host peelpolice.on.ca
+host www.peterboroughpolice.com
+host peterboroughpolice.com
+host www.sarniapolice.com
+host sarniapolice.com
+host www.ssmps.ca
+host ssmps.ca
+host www.siu.on.ca
+host siu.on.ca
+host www.thunderbaypolice.ca
+host thunderbaypolice.ca
+host www.torontopolice.on.ca
+host torontopolice.on.ca
+host www.wrps.on.ca
+host wrps.on.ca
+host www.police.windsor.on.ca
+host police.windsor.on.ca
+host www.yrp.ca
+host yrp.ca
+host www.fin.gov.on.ca
+host ocoa.ca
+host www.mto.gov.on.ca
+host www.gotransit.com
+host gotransit.com
+comment *** PE
+host www.charlottetownpolice.com
+host charlottetownpolice.com
+comment *** QC
+host www.sq.gouv.qc.ca
+host sq.gouv.qc.ca
+host www.spvm.qc.ca
+host spvm.qc.ca
+host citoyen.v3r.net
+host www.sp.mrcdescollinesdeloutaouais.qc.ca
+host sp.mrcdescollinesdeloutaouais.qc.ca
+host www.police-rsl.qc.ca
+host police-rsl.qc.ca
+host www.ripr.ca
+host ripr.ca
+comment *** SK
+host gtds.gov.sk.ca
+host police.saskatoon.sk.ca
+host www.reginapolice.ca
+host reginapolice.ca
+host mjpolice.ca
+host papolice.ca
+comment *** NT
+comment ***   see RCMP
+comment *** NU
+comment ***   see RCMP
+comment *** YT
+comment ***   see RCMP
+comment *** end of Canadian Police Trset
+comment Security intelligence agencies in US
+comment CIA - Central Intelligence Agency
+host cia.gov
+comment DNI - Director of National Intelligence
+host dni.gov
+comment FBI - Federal Bureau of Investigation
+host fbi.gov
+comment NSA - National Security Agency
+host nsa.gov
+comment Security intelligence agencies in Canada
+comment CSE - Communications Security Establishment of Canada
+host cse-cst.gc.ca
+comment CSIS - Canadian Security Intelligence Service
+host csis.gc.ca
+comment RCMP - Royal Canadian Mounted Police
+host rcmp-grc.gc.ca
+comment Security intelligence agencies in UK
+comment GCHQ - Government Communications Headquarters
+host www.gchq.gov.uk
+comment MI5 - The Security Service
+host www.mi5.gov.uk
+comment SIS (MI6) - Secret Intelligence Service
+host www.sis.gov.uk
+comment Security intelligence agencies in Australia
+comment ASIO - Australian Security Intelligence Organisation
+host asio.gov.au
+comment ASIS - Australian Secret Intelligence Service
+host asis.gov.au
+comment DSD - Defence Signals Directorate
+host asd.gov.au
+comment Security intelligence agencies in New Zealand
+comment GCSB - Government Communications Security Bureau
+host gcsb.govt.nz
+comment SIS - Security Intelligence Service
+host nzsis.govt.nz
+comment Civil liberties and privacy advocacy organizations in the US
+comment American Civil Liberties Union
+host aclu.org
+comment CCR - Center for Constitutional Rights
+host ccrjustice.org
+comment CDT - Centre for Democracy and Technology
+host cdt.org
+comment CDD - Centre for Digital Democracy
+host democraticmedia.org
+comment EFF - Electronic Frontier Foundation
+host eff.org
+comment EPIC - Electronic Privacy Information Center
+host epic.org
+comment PRC - Privacy Rights Clearinghouse
+host privacyrights.org
+comment Civil liberties and privacy advocacy organizations in Canada
+comment BCCLA - BC Civil Liberties Association
+host bccla.org
+comment CCLA - Canadian Civil Liberties Association
+host ccla.org
+comment FIPA - BC Freedom of Information and Privacy Association
+host fipa.bc.ca
+comment ICLMG - International Civil Liberties Monitoring Group
+host iclmg.ca
+comment LDL - La ligue des droits
+host liguedesdroits.ca
+comment OpenMedia
+host openmedia.org
+comment CIRA's 7 IXPs (internet exchange points)
+host hfxix.ca
+host qix.ca
+host ottix.net
+host torix.ca
+host mbix.ca
+host yycix.ca
+host vanix.ca
+comment CIRAs three internet performance test (IPT) test sites
+comment Toronto
+host ndt.iupui.mlab3.yyz01.measurement-lab.org
+comment Montreal
+host ndt.iupui.mlab3.yul01.measurement-lab.org
+comment Calgary
+host ndt.iupui.mlab1.yyc01.measurement-lab.org
+comment Initial set of North American universities.
+comment Canadian universities
+host uvic.ca
+host www.unbc.ca
+host athabascau.ca
+host www.usask.ca
+host www.umanitoba.ca
+host www.lakeheadu.ca
+host www.uwindsor.ca
+host www.utoronto.ca
+host www.yorku.ca
+host www.uottawa.ca
+host www.umontreal.ca
+host www.concordia.ca
+host www.aiesec.ca
+host www.cegepat.qc.ca
+host www.calma.qc.ca
+host www.uquebec.ca
+host www.unb.ca
+host www.upei.ca
+host www.dal.ca
+host www.mun.ca
+comment US universities
+host www.alaska.edu
+host www.hawaii.edu
+host www.washington.edu
+host www.usu.edu
+host www.uoregon.edu
+host www.ucsd.edu
+host www.asu.edu
+host www.unm.edu
+host www.utexas.edu
+host tulane.edu
+host www.umc.edu
+host www.miami.edu
+host www.unc.edu
+host www.mit.edu
+host www.uma.edu
+comment Universities worldwide (except NA)
+comment South/Latin American universities
+comment University of São Paulo
+host www5.usp.br
+comment University of the Andes
+host uniandes.edu.co
+comment Federico Santa María Technical University
+host www.utfsm.cl
+comment State University of Campinas
+host www.unicamp.br
+comment University of Buenos Aires (UBA)
+host www.uba.ar
+comment University of Havana
+host www.uh.cu
+comment National Autonomous University of Mexico
+host www.unam.mx
+comment African universities
+comment University of Cape Town
+host www.uct.ac.za
+comment University of Witwatersrand
+host www.wits.ac.za
+comment University of Marrakech Cadi Ayyad
+host www.uca.ma
+comment Cairo university
+host cu.edu.eg
+comment University of Nairobi
+host www.uonbi.ac.ke
+comment European universities
+comment University of Oxford
+host www.ox.ac.uk
+comment University of Cambridge
+host www.cam.ac.uk
+comment ETH Zürich - Swiss Federal Institute of Technology Zürich
+host www.ethz.ch
+comment Karolinska Institute
+host ki.se
+comment KU Leuven
+host www.kuleuven.be
+comment École Polytechnique
+host www.polytechnique.edu
+comment Scuola Normale Superiore di Pisa
+host www.sns.it
+comment Leiden University
+host www.leiden.edu
+comment Aarhus University
+host www.au.dk
+comment Copenhagen university
+host www.ku.dk
+comment Moscow State University
+host www.msu.ru
+comment Stockholm University
+host www.su.se
+comment Universität Heidelberg
+host www.uni-heidelberg.de
+comment École Normale Supérieure
+host www.ens.fr
+comment Humboldt­Universität zu Berlin
+host www.hu-berlin.de
+comment University of Helsinki
+host www.helsinki.fi
+comment Trinity College Dublin
+host www.tcd.ie
+comment Pompeu Fabra University ­ Barcelona
+host www.upf.edu
+comment Universidad Autónoma de Madrid
+host www.uam.es
+comment University of Lisbon
+host www.ulisboa.pt
+comment Middle Eastern universities
+comment Middle East Technical University
+host www.metu.edu.tr
+comment University of Tehran
+host www.ut.ac.ir
+comment Tel Aviv University
+host tau.ac.il
+comment King Saud University
+host ksu.edu.sa
+comment Asian/Oceanian universities
+comment University of Tokyo
+host www.u-tokyo.ac.jp
+comment National University of Singapore (NUS)
+host www.nus.edu.sg
+comment University of Melbourne
+host www.unimelb.edu.au
+comment University of Hong Kong
+host www.hku.hk
+comment Australian National University
+host www.anu.edu.au
+comment Peking University
+host www.pku.edu.cn
+comment Seoul National University
+host www.snu.ac.kr
+comment Kyoto University
+host www.kyoto-u.ac.jp
+comment University of Calcutta
+host www.caluniv.ac.in
+comment International Islamic University, Islamabad
+host www.iiu.edu.pk
+comment University of Indonesia
+host www.ui.ac.id
+comment University of Kuala Lumpur
+host www.unikl.edu.my
+comment University of Auckland
+host www.auckland.ac.nz
+comment Indian Institute of Technology, Bombay
+host www.iitb.ac.in
+comment 25 Top Sites in Canada 
+host Google.ca
+host Google.com
+host Facebook.com
+host Youtube.com
+host Amazon.ca
+host Yahoo.com
+host Live.com
+host Wikipedia.org
+host Amazon.com
+host Twitter.com
+host Kijiji.ca
+host Bing.com
+host Msn.com
+host Linkedin.com
+host Reddit.com
+host Netflix.com
+host Imgur.com
+host Cbc.ca
+host Ebay.ca
+host Instagram.com
+host Paypal.com
+host Pinterest.com
+host Royalbank.com
+host Diply.com
+host T.co
+comment 25 Top Sites in United States - according to Alexa - 2015 Dec 9
+host Google.com
+host Facebook.com
+host Amazon.com
+host Youtube.com
+host Yahoo.com
+host Ebay.com
+host Wikipedia.org
+host Twitter.com
+host Reddit.com
+host Go.com
+host Live.com
+host Craigslist.org
+host Pinterest.com
+host Netflix.com
+host Bing.com
+host Walmart.com
+host Imgur.com
+host Linkedin.com
+host Espn.go.com
+host Target.com
+host Paypal.com
+host Tumblr.com
+host Cnn.com
+host Bestbuy.com
+host Chase.com
+comment top 25 sites in Portugal (Alexa Oct 2015)
+host google.pt
+host google.com
+host facebook.com
+host youtube.com
+host sapo.pt
+host live.com
+host olx.pt
+host wikipedia.org
+host xl.pt
+host yahoo.com
+host linkedin.com
+host abola.pt
+host twitter.com
+host iol.pt
+host instagram.com
+host msn.com
+host cgd.pt
+host amazon.com
+host aliexpress.com
+host imdb.com
+host publico.pt
+host wordpress.com
+host dn.pt
+host onclickads.net
+host paypal.com
+
+comment Top 25 Sites in Germany, according to Alexa, 2015 Feb 9
+
+host google.de
+host facebook.com
+host amazon.de
+host ebay.de
+host youtube.com
+host google.com
+host wikipedia.org
+host web.de
+host yahoo.com
+host t-online.de
+host gmx.net
+host bild.de
+host spiegel.de
+host googleadservices.com
+host xhamster.com
+host chip.de
+host mobile.de
+host paypal.com
+host gutefrage.net
+host immobilienscout24.de
+host focus.de
+host live.com
+host twitter.com
+host blogspot.de
+host streamcloud.eu
+comment Top 25 Sites in Denmark according to Alexa on November 20 2014
+host google.dk
+host google.com
+host facebook.com
+host youtube.com
+host ekstrabladet.dk
+host wikipedia.org
+host dr.dk
+host yahoo.com
+host linkedin.com
+host live.com
+host bt.dk
+host dba.dk
+host tv2.dk
+host amazon.com
+host twitter.com
+host politiken.dk
+host imdb.com
+host reddit.com
+host imgur.com
+host salesforce.com
+host jp.dk
+host danskebank.dk
+host netflix.com
+host blogspot.dk
+host apple.com
+comment sites in the Toronto area
+comment educational institutions
+host www.utoronto.ca
+host ocad.ca
+host ryerson.ca
+host yorku.ca
+host georgebrown.ca
+host humber.ca
+host centennialcollege.ca
+host cbstraining.com
+host wycliffecollege.ca
+comment museums, galleries, theatres
+host rom.on.ca
+host ago.net
+host hhof.com
+host gardinermuseum.com
+host ontariosciencecentre.ca
+host casmuseum.org
+host thedrakehotel.ca
+host miagallery.ca
+host godardgallery.com
+host tso.ca
+host national.ballet.ca
+host coc.ca
+host torontozoo.com
+host tocentre.com
+host fortyork.ca
+host mocca.ca
+comment commercial psites
+host stlawrencemarket.com
+host cntower.ca
+host theex.com
+host theaircanadacentre.com
+host rogerscentre.com
+host torontoeatoncentre.com
+host fairviewmall.ca
+host yorkdale.com
+host atriumonbay.com
+host bayviewvillageshops.com
+host thestar.com
+host torontosun.com
+host eyeweekly.com
+host nowtoronto.com
+host edge.ca
+host q107.com
+host chumfm.com
+host chfi.com
+host sonycentre.ca
+host mirvish.com
+host stlc.com
+host ricohcoliseum.com
+host masseyhall.com
+host leespalace.com
+host rivoli.ca
+host cestwhat.com
+host sneaky-dees.com
+host themodclub.com
+host elmocambo.ca
+host horseshoetavern.com
+host theguvernment.com
+host secondcity.com
+comment sites in the Vancouver area
+comment Vancouver educational institutions
+host ubc.ca
+host ecuad.ca
+host twu.ca
+host vcc.ca
+host jibc.ca
+host www.columbiacollege.ca
+host corpuschristi.ca
+host stmarkscollege.ca
+host standrews.edu
+host regent-college.edu
+host nbseminary.ca
+host pacificlife.edu
+comment Vancouver museums, galleries, theatres
+host vanartgallery.bc.ca
+host vancouvermaritimemuseum.com
+host scienceworld.ca
+host museumofvancouver.ca
+host voguetheatre.com
+host giggledam.com
+host vancouveropera.ca
+host fullcircle.ca
+host inuit.com
+host marionscottgallery.com
+host vancouverchinesegarden.com
+host britanniaminemuseum.ca
+comment Vancouver commercial sites
+host thekeeferbar.com
+host capbridge.com
+host biv.com
+host hastingspark.com
+comment Vancouver festivals, events, other
+host viff.org
+host bmovanmarathon.ca
+host vancouverfireworks.ca
+host powellstreetfestival.com
+host awokaround.com
+host maplewoodfarm.bc.ca
+host gvzoo.com
+host italianculturalcentre.ca
+host eatlocal.org
+comment Vancouver city government, partnerships, services
+host vancouver.ca
+host vpl.ca
+host vancouvereconomic.com
+host talkgreenvancouver.ca
+host translink.ca
+host easypark.ca
+host can-tf1.org
+host vancouverparks.ca
+host vch.ca
+host vsb.bc.ca
+host vancouveryouth.ca
+host jerichostewardship.ca
+host www.metrovancouver.org
+host kerrisdalecc.com
+host kitscc.com
+comment sites in the Montreal area
+comment Montreal educational institutions
+host concordia.ca
+host www.mcgill.ca
+host enap.ca
+host polymtl.ca
+host ent-nts.ca
+host www.collegemv.qc.ca
+host collegeahuntsic.qc.ca
+host collegelasalle.com
+host ithq.qc.ca
+host usherbrooke.ca
+host marianopolis.edu
+host vaniercollege.qc.ca
+host brebeuf.qc.ca
+comment Montreal museums, galleries, theatres
+host chateauramezay.qc.ca
+host cinematheque.qc.ca
+host ecomusee.qc.ca
+host musee-mccord.qc.ca
+host centredessciencesdemontreal.com
+host galerieleroyer.com
+host leluxart.com
+host galerieemeraude.com
+host lafitte.com
+host michel-ange.net
+host duceppe.com
+host tnm.qc.ca
+host montrealmetropolis.ca
+host osm.ca
+host planetarium.montreal.qc.ca
+comment Montreal festivals, events, other
+host banq.qc.ca
+host moisdelaphoto.com
+host montrealjazzfest.com
+host journeesdelaculture.qc.ca
+host nouveaucinema.ca
+comment Montreal commercial sites
+host qimtl.qc.ca
+host cyberpresse.ca
+comment Montreal nonprofits
+host cjestlaurent.org
+host generationemploi.org
+host cdeccdnndg.org
+host differenceemploi.com
+host frj.qc.ca
+host tsf.qc.ca
+host actionrebuts.org
+host amisjardin.qc.ca
+host cofaq.qc.ca
+host apsam.com
+host childrenfoundation.com
+host farha.qc.ca
+host ompac.org
+host societedesoinspalliatifs.com
+host vuesdafrique.org
+host option-consommateurs.org
+host tourisme-montreal.org
+host sat.qc.ca
+comment Montreal city government, partnerships, services
+host ville.montreal.qc.ca
+host ocpm.qc.ca
+host mtlunescodesign.com
+host admtl.com
+host port-montreal.com
+host artsmontreal.org
+comment sites in the Ottawa area
+comment Ottawa educational institutions
+host carleton.ca
+host uottawa.ca
+host augustinecollege.org
+host ustpaul.ca
+host algonquincollege.com
+host lacitec.on.ca
+host richardrobinson.com
+host lisgar.ca
+comment Ottawa museums, galleries, theatres
+host friendsofbillingsestatemuseum.org
+host bytownmuseum.com
+host nature.ca
+host skimuseum.ca
+host warmuseum.ca
+host watsonsmill.com
+host nac-cna.ca
+host artscourt.ca
+comment Ottawa commercial sites
+host bywardmarketsquare.com
+host charlatan.ca
+host ottawatourism.ca
+comment Ottawa festivals, events, other
+host irishsocietyncr.com
+host musicandbeyond.ca
+host ottawajazzfestival.com
+host ottawasuperex.com
+comment Ottawa city government, partnerships, services
+host biblioottawalibrary.ca
+host octranspo1.com
+host artsoe.ca
+host theroyal.ca
+host ottawaheart.ca
+host ottawasafecommunities.org
+host crimepreventionottawa.ca
+comment sites in the Halifax area
+comment Halifax educational institutions
+host dal.ca
+host msvu.ca
+host astheology.ns.ca
+comment Halifax commercial sites
+host thechronicleherald.ca
+host lordnelsonhotel.ca
+comment Halifax festivals, community organizations, other
+host ccchalifax.com
+host www.hydrostonemarket.ca
+host centreforwomeninbusiness.ca
+comment Halifax city government, partnerships, services
+host halifax.ca
+host halifaxpubliclibraries.ca
+host greaterhalifax.com
+comment sites in the Chicago area
+comment educational institutions
+host uchicago.edu
+host roosevelt.edu
+host msichicago.org
+host malcolmx.ccc.edu
+host anconaschool.org
+host iit.edu
+host ignatius.org
+host uic.edu
+host northpark.edu
+host depaul.edu
+host luc.edu
+host kendall.edu
+host shimer.edu
+host vandercook.edu
+comment museums, galleries, theatres
+host chicagohistory.org
+host naturemuseum.org
+host dusablemuseum.org
+host fieldmuseum.org
+host naturemuseum.org
+host fineartsbuilding.tv
+host lyricopera.org
+host chicagooperatheater.org
+host cso.org
+host glessnerhouse.org
+host goodmantheatre.org
+host steppenwolf.org
+host lpzoo.org
+host sheddaquarium.org
+host alderplanetarium.org
+host millenniumpark.org
+comment commercial sites
+host avenuebusinesscenter.com
+host rosemont.com
+host suntimes.com
+host transitchicago.com
+host thesuitescollection.com
+host thomasmccormick.com
+host artaldo.com
+host stephendaitergallery.com
+host zollaliebermangallery.com
+host chicagoshakes.com
+host wbdc.org
+host the-skydeck.com
+host navypier.com
+comment sites in the Toronto area
+comment educational institutions
+host usfca.edu
+host heald.edu
+host ccsf.edu
+host sfsu.edu
+host ggu.edu
+host sfai.edu
+host uchastings.edu
+host ucsf.edu
+host berkeley.edu
+host calacademy.org
+host ciis.edu
+host sfcm.edu
+host academyart.edu
+host sfpl.org
+host exploratorium.edu
+comment museums, galleries, theatres
+host famsf.org
+host sfmoma.org
+host exploratorium.edu
+host thecjm.org
+host zeum.org
+host cartoonart.org
+host sfmuseum.org
+host friendsofphotography.org
+host asianart.org
+host thinker.org
+host strybing.org
+host cablecarmuseum.com
+host c-c-c.org
+host ggrm.org
+host sffiremuseum.org
+host famsf.org
+host sfheritage.org
+host hangart.org
+host 111minnagallery.com
+host fraenkelgallery.com
+host ybca.org
+host cclarkgallery.com
+host hainesgallery.com
+host sfartscommission.org
+host emanuelsf.org
+host palaceoffinearts.org
+host cliffhouse.com
+host randallmuseum.org
+host mpdsf.org
+host sfopera.com
+host sfzoo.org
+host aquariumofthebay.com
+host museemecaniquesf.com
+host thebeatmuseum.org
+comment commercial sites
+host sutrotower.com
+host unionsquareshop.com
+host ghirardellisq.com
+host alcatrazcruises.com
+host golden-gate-park.com
+host pier39.com
+host fishermanswharf.org
+host thecannery.com
+host sfgate.com
+host sfweekly.com
+host sfbg.com
+host sfchinatownghosttours.com
+host ferrybuildingmarketplace.com
+host organic.com
+host fastmetrics.com
+host archive.org
+host salesforce.com
+host argonauthotel.com
+host parc55hotel.com
+host hotelbijou.com
+host bbsf.com
+host willowssf.comcomment sites in the New York area
+comment New York educational institutions
+host poly.edu
+host msmnyc.edu
+host juilliard.edu
+host yu.edu
+host ny.edu
+host www.usma.edu
+host utsnyc.edu
+host schoolofvisualarts.edu
+host www.stac.edu
+host www.sjcny.edu
+host sjc.edu
+host stjohns.edu
+host stfranciscollege.edu
+host poly.edu
+host nymc.edu
+host nyit.edu
+host mercy.edu
+host www.fordham.edu
+host cornell.edu
+host concordia-ny.edu
+host cmsv.edu
+host cazenovia.edu
+host bard.edu
+host alfred.edu
+host bankstreet.edu
+host adelphi.edu
+host www.baruch.cuny.edu
+host cooper.edu
+host www.mmm.edu
+host suny.edu
+host www.barnard.edu
+host www1.ccny.cuny.edu
+host columbia.edu
+host nyu.edu
+host pace.edu
+comment New York museums, galleries, theatres, etc.
+host waterfrontmuseum.org
+host swissinstitute.net
+host studiomuseuminharlem.org
+host southstseaport.org
+host skyscraper.org
+host lsc.org
+host nysci.org
+host ps1.org
+host johnanoble.com
+host nycpolicemuseum.org
+host nyhallsci.org
+host nycfiremuseum.org
+host newmuseum.org
+host nationalacademy.org
+host mtr.org
+host africanart.org
+host licm.org
+host historichousetrust.org
+host brooklynartscouncil.org
+host hebrewhome.org
+host tibetanmuseum.org
+host noguchi.org
+host hrm.org
+host www.hispanicsociety.org
+host mathmuseum.org
+host nps.gov
+host elmuseo.org
+host dyckman.org
+host diacenter.org
+host daheshmuseum.org
+host czechcenter.com
+host si.edu
+host chinainstitute.org
+host cmany.org
+host brooklynart.org
+host moma.org
+host guggenheim.org
+host centralparkzoo.org
+host bronxzoo.org
+host nycopera.com
+host metopera.org
+host beacontheatrenyc.com
+host dicapo.com
+host newyorkoperastudio.org
+host amnh.org
+hsot new42.org
+comment New York commercial sites
+host forbesgalleries.com
+host centralpark.com
+host broadway.com
+host manhattanmallny.com
+host fao.com
+host shopsatcolumbuscircle.com
+host grandcentralterminal.com
+host macys.com
+host bloomingdales.com
+host saksfifthavenue.com
+host lordandtaylor.com
+host c21stores.com
+host nycmanhattanofficespace.com
+host manhattanministorage.com
+host nytimes.com
+host nydailynews.com
+host nypost.com
+host wsj.com
+host newyorker.com
+host nymag.com
+host topoftherocknyc.com
+host bryantpark.org
+host thebattery.org
+host lenoxlounge.com
+host bitterend.com
+host rockefellercenter.com
+host apollotheater.org
+host 21club.com
+host touchnewyorkcity.com
+host bowerypoetry.com
+host pachanyc.com
+host 230-fifth.com
+comment sites in the Los Angeles area
+comment Los Angeles educational institutions
+host ajula.edu
+host antiochla.edu
+host artcenter.edu
+host biola.edu
+host caltech.edu
+host calarts.edu
+host calstatela.edu
+host www.cdrewu.edu
+host lmu.edu
+host www.msmc.la.edu
+host oxy.edu
+host otis.edu
+host sciarc.edu
+host swlaw.edu
+host ucla.edu
+host usc.edu
+host woodbury.edu
+host fidm.edu
+host psuca.edu
+host www.msmc.la.edu
+host apu.edu
+comment Los Angeles museums, galleries, theatres, etc.
+host nhm.org
+host lacma.org
+host moca.org
+host neonmona.org
+host heritagesquare.org
+host theautry.org
+host grammymuseum.org
+host getty.edu
+host lamoth.org
+host lacity.org
+host wiesenthal.com
+host getty.edu
+host tarpits.org
+host cafam.org
+host museumoftolerance.com
+host museumsla.org
+host caamuseum.org
+host petersen.org
+host californiasciencecenter.org
+host zimmermuseum.org
+host www.hammer.ucla.edu
+host lasangelitas.org
+host childrensmuseumla.org
+host aplusd.org
+host camla.org
+host skirball.org
+host janm.org
+host centertheatregroup.org
+host kodaktheatre.com
+host milliondollartheater.com
+host manntheatres.com
+host laorpheum.com
+host centertheatregroup.org
+host losangelestheatre.com
+host laemmle.com
+host laconservancy.org
+host hudsontheatre.com
+host losangelesopera.com
+host laluzdejesus.com
+host marygoldman.com
+host thesmell.org
+host samleegallery.com
+host hivegallery.com
+host phantomgalleriesla.com
+host dtlagalleries.com
+host chinaartobjects.com
+host huntington.org
+host musiccenter.org
+host sangabrielmission.org
+comment Los Angeles commercial sites
+host lawithkids.com
+host laweekly.com
+host artlanow.com
+host laphil.com
+host hollywoodwaxmuseum.com
+host hollywoodforever.com
+host griffithparktrainrides.com
+host hollywoodbowl.com
+host latourist.com
+host discoverlosangeles.com
+host la4beginners.com
+host cabrilloaq.org
+host disneyland.com
+host lazoo.org
+host aquariumofpacific.org
+host queenmary.com
+host citywalkhollywood.com
+host universalstudios.com
+host descansogardens.org
+host petersen.org
+host beverlycenter.com
+host farmersmarketla.com
+host thegrovela.com
+host rodeodrive-bh.com
+host disneyhall.org
+host chinatownla.com
+host downtownla.com
+host venicebeach.com
+host ardenb.com
+host theroxyonsunset.com
+comment sites in the Seattle area
+comment educational institutions
+host spu.edu
+host seattleu.edu
+host cornish.edu
+host washington.edu
+host northseattle.edu
+host shoreline.edu
+host antiochseattle.edu
+host wsu.edu
+host seattlecentral.edu
+host southseattle.edu
+host svcseattle.com
+host bastyr.edu
+comment museums, galleries, theatres
+host seattleartmuseum.org
+host fryemuseum.org
+host wingluke.org
+host empsfm.org
+host seattlehistory.org
+host thechildrensmuseum.org
+host seattleaquarium.org
+host museumofglass.org
+host pacsci.org
+host seattleopera.org
+host zoo.org
+host pioneersquaredistrict.org
+host spl.org
+host museumofflight.org
+host hatnboots.org
+comment commercial sites
+host soundtransit.org
+host hotelnexusseattle.com
+host seattlepi.com
+host thestranger.com
+host cityofseattle.net
+host roqlarue.com
+host pikeplacemarket.org
+host seattleglassblowing.com
+host seattlecenter.com
+host undergroundtour.com
+host bsc-seattle.com
+host wtcseattle.com
+host djc.com
+host monaco-seattle.com
+host innatthemarket.com
+host seattlemonorail.com
+host mcphee.com
+host seattlehousing.org
+comment sites in the Miami area
+comment educational institutions
+host mia.albizu.edu
+host fiu.edu
+host mcu.edu
+host stu.edu
+host mdc.edu
+host jwu.edu
+host barry.edu
+host fmuniv.edu
+host sjvcs.edu
+host nws.edu
+comment museums, galleries, theatres
+host miamiartmuseum.org
+host jewishmuseum.com
+host miamichildrensmuseum.org
+host holocaustmmb.org
+host mocanomi.org
+host www.lowemuseum.org
+host www.miami.com
+host fgo.org
+host jungleisland.com
+host miamiseaquarium.com
+host miamimetrozoo.com
+host miamichildrensmuseum.org
+host spanishmonestary.com
+host gusmancenter.org
+host miamichildrenstheater.com
+host gleasontheater.com
+host miamilittletheatre.com
+host new-theatre.org
+comment commercial sites
+host monkeyjungle.com
+host jungleisland.com
+host clubspace.com
+host artfusiongallery.com
+host wallflowergallery.com
+host virginiamiller.com
+host britto.com
+host galerieperrotin.com
+host lacasadetula.com
+host artrouge.com
+host weam.com
+host coralgables.com
+host miamiherald.com
+host smartspacemiami.com
+host momentumbusinesscenter.com
+host icmiamihotel.com
+host magiccitycasino.com
+comment sites in the Dallas/Fort Worth area
+comment Dallas educational institutions
+host dcccd.edu
+host argosy.edu
+host utdallas.edu
+host smu.edu
+host aid.edu
+host pqc.edu
+host dts.edu
+host dbu.edu
+host www.elcentrocollege.edu
+host tambcd.edu
+host www.mountainviewcollege.edu
+host parkercc.edu
+host dallas.edu
+comment Fort Worth educational institutions
+host hsc.unt.edu
+host tccd.edu
+host txwes.edu
+host tcu.edu
+host cstm.edu
+host uta.edu
+comment Dallas museums, galleries, theatres, etc.
+host jfk.org
+host thewomensmuseum.org
+host dallasrailwaymuseum.com
+host natureandscience.org
+host dallasmuseumofart.org
+host 500x.org
+host the-mac.org
+host dallascontemporary.org
+host dallaszoo.com
+host dwazoo.com
+host hallofstate.com
+host dallasaquarium.org
+host dallasarboretum.org
+host dallasfirerescue.com
+host oldcitypark.org
+host dallashistory.org
+host flightmuseum.com
+host internationalmuseumofcultures.org
+host oldred.org
+host texasbuckeyetrail.org
+host texasdiscoverygardens.org
+host dallaslibrary.org
+host dallasopera.org
+host galleriadallas.com
+comment Fort Worth museums, galleries, theatres, etc.
+host fortworthzoo.org
+host logcabinvillage.org
+host fwmuseum.org
+host themodern.org
+host cowgirl.net
+host fortworthmuseum.org
+host cartermuseum.org
+host kimbellart.org
+host stockyardsstation.com
+host dfwmas.org
+host fwbg.org
+host casamanana.org
+host logcabinvillage.org
+host vintageflyingmuseum.org
+host fortworthlibrary.org
+host cattleraisersmuseum.org
+host fwmuseum.org
+host mamfw.org
+host fortworthopera.org
+comment Dallas commercial sites
+host thesodagallery.com
+host crowcollection.com
+host visitdallas.com
+host dart.org
+host dallasfed.org
+host icesk8aig.com
+host samuellfarm.com
+host sandylake.com
+host slappysplayhouse.com
+host southforkranch.com
+host whiterockskate.com
+host westvil.com
+host hpvillage.com
+host westendmarketplacedallas.com
+host laduni.com
+host northparkcenter.com
+comment Forth Worth commercial sites
+host fortworthzta.com
+host fishplacetx.com
+host franks-tanks.com
+host trinityrailwayexpress.org
+host billybobstexas.com
+host fortworth.com
+host grapevinetexasusa.com
+host joets.com
+host sundancesquare.com
+host moneyfactory.gov
+host fortwortharchitecture.com
+host boxerproperty.com
+host dfwoffice.com
+host ridgmar.com
+host lagranplazamall.com
+host hulenmall.com
+comment Canadian sites
+host www.sciencenorth.ca
+host www.fields.utoronto.ca
+host www.triumf.ca
+host www.env.gov.yk.ca
+host www.gwichin.ca
+host www.nri.nu.ca
+host www.inspection.gc.ca
+host www.phac-aspc.gc.ca
+host www.rasc.ca
+comment US sites 
+host www.lanl.gov
+host www.si.edu
+host www.jpl.nasa.gov
+host www.sandiegozoo.org
+host www.nsf.gov
+comment the IXmaps server itself
+host www.ixmaps.ca
+comment Google datacentres
+host 72.14.215.84
+host www.l.google.com

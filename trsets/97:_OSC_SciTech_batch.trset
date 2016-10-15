@@ -1,0 +1,16 @@
+comment Canadian sites
+host www.sciencenorth.ca
+host www.fields.utoronto.ca
+host www.triumf.ca
+host www.env.gov.yk.ca
+host www.gwichin.ca
+host www.nri.nu.ca
+host www.inspection.gc.ca
+host www.phac-aspc.gc.ca
+host www.rasc.ca
+comment US sites 
+host www.lanl.gov
+host www.si.edu
+host www.jpl.nasa.gov
+host www.sandiegozoo.org
+host www.nsf.gov

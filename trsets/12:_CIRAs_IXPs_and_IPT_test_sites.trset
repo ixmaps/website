@@ -1,0 +1,15 @@
+comment CIRA's 7 IXPs (internet exchange points)
+host hfxix.ca
+host qix.ca
+host ottix.net
+host torix.ca
+host mbix.ca
+host yycix.ca
+host vanix.ca
+comment CIRAs three internet performance test (IPT) test sites
+comment Toronto
+host ndt.iupui.mlab3.yyz01.measurement-lab.org
+comment Montreal
+host ndt.iupui.mlab3.yul01.measurement-lab.org
+comment Calgary
+host ndt.iupui.mlab1.yyc01.measurement-lab.org

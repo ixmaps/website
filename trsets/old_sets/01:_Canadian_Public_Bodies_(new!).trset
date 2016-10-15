@@ -1,0 +1,55 @@
+comment Canadian Public Bodies
+comment Canadian Federal Government
+host hc-sc.gc.ca
+host cic.gc.ca
+host fin.gc.ca
+host cra-arc.gc.ca
+host bdc.ca
+host aadnc-aandc.gc.ca
+host ic.gc.ca
+host rcmp-grc.gc.ca
+host cbsa-asfc.gc.ca
+host csc-scc.gc.ca
+host pbc-clcc.gc.ca
+host justice.gc.ca
+host veterans.gc.ca
+host hrsdc.gc.ca
+host servicecanada.gc.ca
+host canadabenefits.gc.ca
+host aboriginalcanada.gc.ca
+host www.cpc-ccp.gc.ca
+host csps-efpc.gc.ca
+host passport.gc.ca
+comment Alberta
+host alberta.ca
+host health.alberta.ca
+host transportation.alberta.ca
+comment British Columbia
+host gov.bc.ca
+host www.bced.gov.bc.ca
+host www.health.gov.bc.ca
+host www.rev.gov.bc.ca
+host fin.gov.bc.ca
+host pssg.gov.bc.ca
+host bcbusinessregistry.ca
+host www.th.gov.bc.ca
+host icbc.com
+host www.eia.gov.bc.ca
+host bchousing.org
+comment Ontario
+host biblioottawalibrary.ca
+comment Vancouver
+host vsb.bc.ca
+host vpl.ca
+host vch.ca
+host westvancouverpolice.ca
+
+
+
+
+
+
+
+
+
+

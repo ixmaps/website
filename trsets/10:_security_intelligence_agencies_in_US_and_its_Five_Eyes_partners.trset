@@ -1,0 +1,35 @@
+comment Security intelligence agencies in US
+comment CIA - Central Intelligence Agency
+host cia.gov
+comment DNI - Director of National Intelligence
+host dni.gov
+comment FBI - Federal Bureau of Investigation
+host fbi.gov
+comment NSA - National Security Agency
+host nsa.gov
+comment Security intelligence agencies in Canada
+comment CSE - Communications Security Establishment of Canada
+host cse-cst.gc.ca
+comment CSIS - Canadian Security Intelligence Service
+host csis.gc.ca
+comment RCMP - Royal Canadian Mounted Police
+host rcmp-grc.gc.ca
+comment Security intelligence agencies in UK
+comment GCHQ - Government Communications Headquarters
+host www.gchq.gov.uk
+comment MI5 - The Security Service
+host www.mi5.gov.uk
+comment SIS (MI6) - Secret Intelligence Service
+host www.sis.gov.uk
+comment Security intelligence agencies in Australia
+comment ASIO - Australian Security Intelligence Organisation
+host asio.gov.au
+comment ASIS - Australian Secret Intelligence Service
+host asis.gov.au
+comment DSD - Defence Signals Directorate
+host asd.gov.au
+comment Security intelligence agencies in New Zealand
+comment GCSB - Government Communications Security Bureau
+host gcsb.govt.nz
+comment SIS - Security Intelligence Service
+host nzsis.govt.nz

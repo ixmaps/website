@@ -1,0 +1,151 @@
+comment *** start of Canadian Police Trset
+comment *** Federal Canadian Law Enforcement Agencies
+host www.rcmp-grc.gc.ca
+host rcmp-grc.gc.ca
+host www.cbsa-asfc.gc.ca
+host cbsa-asfc.gc.ca
+host www.csc-scc.gc.ca
+host csc-scc.gc.ca
+host www.competitionbureau.gc.ca
+host competitionbureau.gc.ca
+host www.dfo-mpo.gc.ca
+host dfo-mpo.gc.ca
+host www.pc.gc.ca
+host pc.gc.ca
+host www.canadapost.ca
+host canadapost.ca
+host www.inspection.gc.ca
+host inspection.gc.ca
+host www.ncc-ccn.gc.ca
+host ncc-ccn.gc.ca
+comment *** Provincial and Municipal Law Enforcement
+comment *** Many police department websites are folders in their government's website,
+comment *** so they are not listed here.
+comment *** AB
+host esrd.alberta.ca
+host www.edmontonpolice.ca
+host edmontonpolice.ca
+host camrosepoliceservice.ca
+host www.lethbridgepolice.ca
+host lethbridgepolice.ca
+host www.medicinehatpolice.com
+host medicinehatpolice.com
+host www.lakeshoreregionalpolice.com
+host lakeshoreregionalpolice.com
+host www.bloodtribepolice.com
+host bloodtribepolice.com
+comment *** BC
+host www.pssg.gov.bc.ca
+host pssg.gov.bc.ca
+host www.cfseu.bc.ca
+host cfseu.bc.ca
+host www.nwpolice.org
+host nwpolice.org
+host vicpd.ca
+host wvpd.ca
+host www.abbypd.ca
+host abbypd.ca
+host cspolice.ca
+host deltapolice.ca
+host nelsonpolice.ca
+host www.nwpolice.org
+host nwpolice.org
+host www.saanichpolice.ca
+host saanichpolice.ca
+comment *** MB
+host police.brandon.ca
+host www.winklerpolice.ca
+host winklerpolice.ca
+host www.mnroa.com
+host www.dops.org
+host dops.org
+comment *** NB
+host www.bnpppolice.ca
+host bnpppolice.ca
+host www.kennebecasisregionalpolice.com
+host kennebecasisregionalpolice.com
+comment *** NL
+host www.rnc.gov.nl.ca
+host rnc.gov.nl.ca
+comment *** NS
+host www.cbrps.ca
+host cbrps.ca
+host www.bridgewaterpolice.ca
+host bridgewaterpolice.ca
+host www.kentvillepolice.ca
+host kentvillepolice.ca
+comment *** ON
+host www.opp.ca
+host opp.ca
+host www.barriepolice.ca
+host barriepolice.ca
+host www.cornwallpolice.ca
+host cornwallpolice.ca
+host www.policesolutions.ca
+host policesolutions.ca
+host www.gananoquepoliceservice.com
+host gananoquepoliceservice.com
+host www.guelphpolice.ca
+host guelphpolice.ca
+host www.haltonpolice.ca
+host haltonpolice.ca
+host hamiltonpolice.on.ca
+host kpf.ca
+host www.police.london.ca
+host police.london.ca
+host www.ottawapolice.ca
+host ottawapolice.ca
+host www.peelpolice.on.ca
+host peelpolice.on.ca
+host www.peterboroughpolice.com
+host peterboroughpolice.com
+host www.sarniapolice.com
+host sarniapolice.com
+host www.ssmps.ca
+host ssmps.ca
+host www.siu.on.ca
+host siu.on.ca
+host www.thunderbaypolice.ca
+host thunderbaypolice.ca
+host www.torontopolice.on.ca
+host torontopolice.on.ca
+host www.wrps.on.ca
+host wrps.on.ca
+host www.police.windsor.on.ca
+host police.windsor.on.ca
+host www.yrp.ca
+host yrp.ca
+host www.fin.gov.on.ca
+host ocoa.ca
+host www.mto.gov.on.ca
+host www.gotransit.com
+host gotransit.com
+comment *** PE
+host www.charlottetownpolice.com
+host charlottetownpolice.com
+comment *** QC
+host www.sq.gouv.qc.ca
+host sq.gouv.qc.ca
+host www.spvm.qc.ca
+host spvm.qc.ca
+host citoyen.v3r.net
+host www.sp.mrcdescollinesdeloutaouais.qc.ca
+host sp.mrcdescollinesdeloutaouais.qc.ca
+host www.police-rsl.qc.ca
+host police-rsl.qc.ca
+host www.ripr.ca
+host ripr.ca
+comment *** SK
+host gtds.gov.sk.ca
+host police.saskatoon.sk.ca
+host www.reginapolice.ca
+host reginapolice.ca
+host mjpolice.ca
+host papolice.ca
+comment *** NT
+comment ***   see RCMP
+comment *** NU
+comment ***   see RCMP
+comment *** YT
+comment ***   see RCMP
+comment *** end of Canadian Police Trset
