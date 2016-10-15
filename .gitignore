@@ -15,7 +15,7 @@ research/
 robots.txt
 TrGen/
 TrGen2/
-trsets/
+#trsets/
 videos/
 dumps/
 piwik/
