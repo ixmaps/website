@@ -71,7 +71,8 @@ include("includes/check-redirect.php");
         <br />
 
         <h3>Installing and running the IXmaps Client</h3>
-        <p>IXmaps currently offers two versions of traceroute generation software: TRgen for most Windows operating systems, and the newer IXmapsClient for most <strong>MacOSX</strong> and <strong>Linux</strong> operating systems. We currently do not offer IXmapsClient for Android, iOS, Windows or Windows Phone.</p>
+
+        <p>IXmapsClient works on <strong>Mac OS X</strong>, <strong>Linux</strong>, and <strong>Windows</strong>. As of December 7, 2015 IXmaps has moved to using <strong>IXmapsClient</strong> instead of <strong>TRgen</strong> to collect routing information. The Mac OS X, Windows, and Linux versions of <strong>TRgen</strong> are deprecated. We currently do not offer IXmapsClient for Android, iOS, or Windows Phone.</p>
 
         <h4>System requirements:</h4>
         <ul class="nobullet">
