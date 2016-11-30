@@ -46,7 +46,10 @@ geoip_close($gi1);
 
   <!-- Google Maps API  -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&libraries=geometry"></script>
+  <!-- old key -->
+  <!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyA0DDT87jStJevJqxA5Fi9JUV9bemKdFGE"></script> -->
+  <!-- new key for new server -->
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?v=3&libraries=geometry&key=AIzaSyDooKbYZYOoTVcJvrV05uMOfQWAxMHtliQ"></script>
 
   <!-- jQuery Utils  -->
   <script type="text/javaScript" src="js/underscore-min.js"></script>
