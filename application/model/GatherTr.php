@@ -51,7 +51,7 @@ class GatherTr
 
 
 		$data['submitter_ip'] = GatherTr::anonymizeIp($data['submitter_ip']);
-		
+
 		$sql = "INSERT INTO tr_contributions (traceroute_id, sub_time, dest, dest_ip, city, country, submitter, submitter_ip, submitter_os, postal_code, privacy, timeout, queries, maxhops, tr_flag, error_log, client_params, submitter_asnum, metadata) VALUES (NULL, NOW(), $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING tr_c_id;";
 
 		if(!isset($data['error'])){
@@ -67,6 +67,11 @@ class GatherTr
 		// trim submitter name if longer than 25 characters
 		if(strlen($data['submitter'])>25){
 			$data['submitter']=mb_strimwidth($data['submitter'], 0, 25, "...");
+		}
+
+		// trim postal_code to field char limit = 10
+		if(strlen($data['postal_code'])>11){
+			$data['postal_code'] = substr($string,0,10);
 		}
 		
 		$trData = array($data['dest'], $data['dest_ip'], $data['city'], $data['country'], $data['submitter'], $data['submitter_ip'], $data['os'], $data['postal_code'], $data['privacy'], $data['timeout'], $data['queries'], $data['maxhops'], 0, $data['error'], $data['client_params'], $data['submitter_asnum'], $data['metadata']);
@@ -1212,6 +1217,7 @@ class GatherTr
 		pg_free_result($result);
 		return $dataResult;
 	}
+
 } // end class
 
 

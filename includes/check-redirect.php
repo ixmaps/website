@@ -1,4 +1,5 @@
 <?php
+
 // Preventing access from: ixmaps.ischool.utoronto.ca or ixmaps.ca
 //$ixHost = $_SERVER["SERVER_NAME"];
 //$ixHost = $_SERVER["HTTP_HOST"];
@@ -10,6 +11,7 @@
 //if ((!isset($_SERVER['HTTPS'])) || ($ixHost != 'www.ixmaps.ca')){
 //if (!isset($_SERVER['HTTPS'])){
   //header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+
 //	header("Location: https://dev.ixmaps.ca" . $URI);
 // 	exit();
 //}
