@@ -92,7 +92,7 @@ include("includes/check-redirect.php");
           <li>4. Click on the tab <strong>Public Profile</strong> and in the section <strong>Inbound Connections</strong>, select the option <strong>Allow</strong> from the dropdown menu</li>
           <li>5. Finally, click the button <strong>Apply</strong> and close the <strong>Windows Firewall</strong></li>
           <!-- TODO: update this link -->
-          <li>More detailed instructions are <a href="https://www.thewindowsclub.com/how-to-configure-windows-7-firewall">available here</a></li>
+          <li>More detailed instructions are <a href="https://docs.microsoft.com/en-us/intune/deploy-use/help-protect-windows-pcs-using-windows-firewall-policies-in-microsoft-intune" target="_blank">available here</a></li>
           <li>Note: We advise that you reset your default firewall settings once you have completed traceroute collection.</li>
         </ul>
 
