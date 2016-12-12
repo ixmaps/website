@@ -39,8 +39,8 @@ class IXmapsGeoCorrection
 	*/
 	public static function insertLogIpAddrInfo($data)
 	{
-		global $dbconn;
-		include('../model/IXmapsMaxMind.php'); 
+		global $dbconn, $appPath;
+		include($appPath.'/model/IXmapsMaxMind.php'); 
 
 		$mm = new IXmapsMaxMind();
 		//print_r($data);
@@ -67,7 +67,12 @@ class IXmapsGeoCorrection
 			$geoIp['geoip']['postal_code'];			
 			$geoIp['asn'];
 			$geoIp['hostname'];*/
+			/*
+				Notice: Undefined index: city in /var/www/ixmaps/application/model/IXmapsGeoCorrection.php on line 78
+PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/IXmapsGeoCorrection.php on line 79
 
+
+			*/
 			$ip['updated_asn'] = $geoIp['asn'];
 			$ip['updated_hostname'] = $geoIp['hostname'];
 

@@ -1,8 +1,13 @@
 <?php
 header('Access-Control-Allow-Origin: *'); 
-include('../config.php');
+
+$appPath = "/var/www/ixmaps/application"; // new server
+//$appPath = "/Users/antonio/mywebapps/git-website-live/application"; // Anto Local
+
+
+include($appPath.'/config.php');
 //include('../model/IXmapsMaxMind.php'); 
-include('../model/IXmapsGeoCorrection.php'); 
+include($appPath.'/model/IXmapsGeoCorrection.php'); 
 
 $limit = 300;
 $ipAddrData = IXmapsGeoCorrection::getIpAddrInfo($limit);
