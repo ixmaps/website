@@ -102,9 +102,12 @@ class IXmapsGeoCorrection
 
 			pg_free_result($result);
 
+			$lastIp = $ip['ip_addr'];
+
 		} // end foreach
 
 		$mm->closeDatFiles();
+		return $lastIp;
 	}
 
 	/**
