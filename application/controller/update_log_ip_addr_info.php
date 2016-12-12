@@ -9,7 +9,7 @@ include($appPath.'/config.php');
 //include('../model/IXmapsMaxMind.php'); 
 include($appPath.'/model/IXmapsGeoCorrection.php'); 
 
-$limit = 300;
+$limit = 100;
 $ipAddrData = IXmapsGeoCorrection::getIpAddrInfo($limit);
 $lastIp = IXmapsGeoCorrection::insertLogIpAddrInfo($ipAddrData);
 echo "\n Last Ip: ".$lastIp."\n";
