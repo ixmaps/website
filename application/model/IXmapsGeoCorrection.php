@@ -85,7 +85,7 @@ class IXmapsGeoCorrection
 				$ip['mm_lat'], $ip['mm_long'], $ip['lat'], $ip['long']);
 
 			$ip['dis_mm_updated_corrected']  = IXmapsGeoCorrection::distanceBetweenCoords(
-				$geoIp['geoip']['latitude'], $geoIp['geoip']['longitude'], $ip['lat'], $ip['long'], );
+				$geoIp['geoip']['latitude'], $geoIp['geoip']['longitude'], $ip['lat'], $ip['long']);
 
 		} // end foreach
 
