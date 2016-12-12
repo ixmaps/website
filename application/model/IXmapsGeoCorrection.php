@@ -11,7 +11,7 @@ class IXmapsGeoCorrection
 		$sql = "SELECT ip_addr FROM log_ip_addr_info ORDER BY ip_addr DESC LIMIT 1";
 		$result = pg_query($dbconn, $sql);
 		$lastIp = pg_fetch_all($result);
-		var_dump($lastIp);
+		//var_dump($lastIp);
 
 		if($lastIp==false){
 			$sql1 = "SELECT * FROM ip_addr_info ORDER BY ip_addr LIMIT $limit";
@@ -43,7 +43,7 @@ class IXmapsGeoCorrection
 		include('../model/IXmapsMaxMind.php'); 
 
 		$mm = new IXmapsMaxMind();
-		print_r($data);
+		//print_r($data);
 
 		$columns = array('ip_addr', 'asnum', 'mm_lat', 'mm_long', 'hostname', 'mm_country', 'mm_region', 'mm_city', 'mm_postal', 'mm_area_code', 'mm_dma_code', 'p_status', 'lat', 'long', 'gl_override', 'flagged', 'date_created', 'date_modified', 'updated_asn', 'updated_mm_lat', 'updated_mm_long', 'updated_mm_country', 'updated_mm_region', 'updated_mm_city', 'updated_mm_postal', 'updated_mm_area_code', 'updated_mm_dma_code', 'updated_mm_asn', 'dis_mm_first_updated', 'dis_mm_first_corrected', 'dis_mm_updated_corrected');
 
@@ -94,8 +94,8 @@ class IXmapsGeoCorrection
 
 			//$ip['updated_asn'], $ip['updated_mm_lat'], $ip['updated_mm_long'], $ip['updated_mm_country'], $ip['updated_mm_region'], $ip['updated_mm_city'], $ip['updated_mm_postal'], $ip['updated_mm_area_code'], $ip['updated_mm_dma_code'], $ip['updated_mm_asn'], $ip['dis_mm_first_updated'], $ip['dis_mm_first_corrected'], $ip['dis_mm_updated_corrected,
 		
-			echo "\n".$sql ;
-			print_r($sqlParams);
+			//echo "\n".$sql ;
+			//print_r($sqlParams);
 
 
 			$result = pg_query_params($dbconn, $sql, $sqlParams) or die('insertLogIpAddrInfo failed'.pg_last_error());
