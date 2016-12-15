@@ -74,6 +74,7 @@ include("includes/check-redirect.php");
         <p>IXmapsClient works on <strong>Mac OS X</strong>, <strong>Linux</strong>, and <strong>Windows</strong>. As of December 7, 2015 IXmaps has moved to using <strong>IXmapsClient</strong> instead of <strong>TRgen</strong> to collect routing information. The Mac OS X, Windows, and Linux versions of <strong>TRgen</strong> are deprecated. We currently do not offer IXmapsClient for Android, iOS, or Windows Phone.</p>
 
         <h4>Windows</h4>
+        (This version of the software runs on Windows 64 bit architecture, and has been tested on Windows 7, Windows 8 and Windows 10)
         <ul class="nobullet">
           <li>1. <a href="https://www.ixmaps.ca/IXmapsClient/IXmapsClient.1.0.6.win64.exe">Download the <strong>IXmapsClient</strong> installer IXmapsClient.1.0.6.win64.exe</a></li>
           <li>2. Double click on <strong>IXmapsClient.1.0.6.win64.exe</strong> and install the application in the directory <strong>C:\IXmapsClient</strong></li>

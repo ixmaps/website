@@ -47,33 +47,60 @@ include("includes/check-redirect.php");
     <article>
       <h2>News</h2>
 
+      <h3>2016</h3>
+      <ul class="nobullet">
+        <li>December 15, 2016 – OpenMedia launches their <a href="https://openmedia.org/en/ixmaps-know-where-your-data-travels" target="_blank">“See where your data travels” platform</a> and <a href="https://youtu.be/tHvuLCPiVg4" target="_blank">video</a></li>
+        <li>October 22, 2016 – <a href="https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20CASS%20global%20internet%20governance%20Oct%2022.pptx" target="_blank">“Mass state surveillance and global internet governance,”</a> based on IXmaps research, is presented at Global Perspectives China Practice: First International Collaborative Forum on Internet Governance, Beijing. See <a href="https://dl.dropboxusercontent.com/u/8140293/Publications/Clement%202016%20Addressing%20mass%20state%20surveillance%20Dec%2013%20IN%20PRESS.pdf" target="_blank">here</a> for subsequent paper</li>
+        <li>October 4, 2016 – <a href="https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20ITU%20GigIT%20Crypto%202.0%20Oct%204.ppt" target="_blank">“Challenging mass state surveillance with transparency, obfuscation and accountability,”</a> is presented at Dig.IT CRYPTO 2.0, IT University of Copenhagen</li>
+        <li>September 30, 2016 – <a href="https://dl.dropboxusercontent.com/u/8140293/Public%20talks/2016%20PROSA%20Copenhagen%20Sept%2030.ppt" target="_blank">“IXmaps.ca: Making mass internet surveillance visible,”</a> is presented at PROSA, Copenhagen</li>
+        <li>September 22, 2016 – IXmaps presentation on the <a href="https://cira.ca/future-internet-canada" target="_blank">Expert Panel on the Future of the Internet in Canada</a> at <a href="https://cira.ca/canadians-connected-2016" target="_blank">Canadians Connected 2016</a>, the Canadian Internet Registration Authority's (CIRA) Symposium and AGM, Toronto</li>
+        <li>August 19, 2016 – Meghan Sali from <a href="https://openmedia.ca/" target="_blank">OpenMedia.ca</a> discusses the importance of <a href="https://openmedia.org/en/ixmaps-see-where-your-data-packets-go" target="_blank">the many issues</a> that the IXmaps project addresses</li>
+        <li>June 9, 2016 – <strong>Press Release</strong> - IXmaps receives funding through CIRA’s <a href="https://cira.ca/24-projects-share-1m-funding-build-better-online-canada" target="_blank">Community Investment Program</a> for project on “Opening the IXmaps internet mapping platform for collaborative development and use”</li>
+        <li>April 21, 2016 – Announcement of Office of the Privacy Commissioner of Canada (OPC) funding for OpenMedia’s <a href="https://openmedia.org/en/ixmaps-know-where-your-data-travels" target="_blank">Cloud Atlas: A Citizen’s Guide to Online Privacy and Surveillance Using IXmaps</a> project</li>
+        <li>December 11, 2015 through January 30, 2016 - IXmaps is being showcased at the <a href="https://www.pratt.edu/events/exhibitions/pratt-manhattan-gallery/" target="_blank">Pratt Manhattan Galley</a> exhibition <a href="https://www.pratt.edu/events/single/?id=38699" target="_blank">Little Sister (is watching you, too)</a></li>
+      </ul>
+
       <h3>2015</h3>
       <ul class="nobullet">
-        <li>December 17, 2015 - a lot of press coverage following the launch with <a href="https://openmedia.ca" target="_blank">OpenMedia.ca</a>. IXmaps made the front page on <a href="https://boingboing.net/2015/12/16/ixmaps-a-tool-to-figure-out-w.html" target="_blank">BoingBoing</a> and was featured in <a href="http://www.theregister.co.uk/2015/12/17/canadian_live_route_map_shows_nsa_spying/" target"_blank">The Register</a> and <a href="http://www.metronews.ca/news/toronto/2015/12/22/university-of-toronto-tool-tracking-digital-spies.html" target="_blank">MetroNews</a>, among others</li>
-        <li>December 16, 2015 - Launch of IXmaps.ca with <a href="https://openmedia.ca" target="_blank">OpenMedia.ca</a></li>
-        <li>December 11, 2015 through January 30, 2016 - IXmaps is being showcased at the <a href="https://www.pratt.edu/events/exhibitions/pratt-manhattan-gallery/" target="_blank">Pratt Manhattan Galley</a> exhibition <strong>Little Sister (is watching you, too)</strong></li>
+        <li>December 17, 2015 - a lot of press coverage following the launch with <a href="https://openmedia.ca" target="_blank">OpenMedia.ca</a>. IXmaps made the front page on <a href="https://boingboing.net/2015/12/16/ixmaps-a-tool-to-figure-out-w.html" target="_blank">BoingBoing</a> and was featured in <a href="http://www.theregister.co.uk/2015/12/17/canadian_live_route_map_shows_nsa_spying/" target="_blank">The Register</a> and <a href="http://www.metronews.ca/news/toronto/2015/12/22/university-of-toronto-tool-tracking-digital-spies.html" target="_blank">MetroNews</a>, among others</li>
+        <li>December 16, 2015 - <strong>Press Release</strong> - Launch of IXmaps.ca with <a href="https://openmedia.ca" target="_blank">OpenMedia.ca</a></li>
         <li>June 26, 2015 - CIRA <a href="https://cira.ca/blog/building-a-stronger-national-internet-part-1-local-peering" target="_blank">blog post</a> discussing the role of local peering in a national internet mentions the IXmaps project</li>
         <li>March 27, 2015 - TechVibes highlights the importance of data privacy and transparency <a href="http://www.techvibes.com/blog/canadian-internet-providers-transparent-protecting-consumer-data-2014-03-27" target="_blank">through a discussion of the recent Transparency report</a></li>
-        <li>March 12, 2015 - The IXmaps project is proud to announce the release of the its 2014 report on the Data Privacy Transparency of Canadian Internet Service Providers titled <a href="/transparency.php" target="_blank">Keeping Internet Users in the Know of in the Dark</a></li>
+        <li>March 12, 2015 - <strong>Press Release</strong> - The IXmaps project is proud to announce the release of the its 2014 report on the Data Privacy Transparency of Canadian Internet Service Providers titled <a href="/transparency.php" target="_blank">Keeping Internet Users in the Know of in the Dark</a></li>
         <li>February 04, 2015 - Toronto Star profiled IXmaps as part of the <a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">newspaper's segment on privacy</a></li>
       </ul>
 
       <h3>2014</h3>
       <ul class="nobullet">
-        <li>May 30, 2014 - IXmaps receives funding through the Canadian Internet Registration Authority's (CIRA) <a href="https://cira.ca/news/cira-invests-28-ways-advance-canadas-internet" target="_blank">Community Investment Program</a> to further develop its on-line platform for visualizing the physical and organizational aspects of Canadian internet routing</li>
+        <li>May 30, 2014 - <strong>Press Release</strong> - IXmaps receives funding through the Canadian Internet Registration Authority's (CIRA) <a href="https://cira.ca/news/cira-invests-28-ways-advance-canadas-internet" target="_blank">Community Investment Program</a> to further develop its on-line platform for visualizing the physical and organizational aspects of Canadian internet routing</li>
         <li>April 01, 2014 - Computer Dealer News covers IXmaps and the transparency report <a href="/transparency.php" target="_blank">Keeping Internet Users in the Know or in the Dark</a> in a <a href="http://www.computerdealernews.com/news/canadian-isps-need-to-be-more-transparent-u-of-t-report/32674" target="_blank">recent article</a></li>
-        <li>February 11, 2014 - IXmaps endorses <a href="https://thedaywefightback.org/" target="_blank">The Day We Fight Back: Mass Surveillance Must Stop</a></li>
+        <li>February 11, 2014 - <strong>Press Release</strong> - IXmaps endorses <a href="https://thedaywefightback.org/" target="_blank">The Day We Fight Back: Mass Surveillance Must Stop</a></li>
+      </ul>
+
+      <h3>2013</h3>
+      <ul class="nobullet">
+        <li>August 30, 2013 – IXmaps research included on Harvard’s Nieman Lab <a href="http://www.niemanlab.org/2013/08/whats-new-in-digital-scholarship-reporters-ignoring-technology-the-continuing-power-of-print-and-booze-on-facebook/" target="_blank">“What's New in Digital Scholarship”</a> 2013 list</li>
+        <li>June 07, 2013 – Nancy Paterson is interviewed, and IXmaps is mentioned, in New Scientist’s <a href="https://www.newscientist.com/article/dn23669-spy-program-shows-just-how-well-us-knows-its-people/" target="_blank">“Spy program shows just how well US knows its people”</a></li>
       </ul>
 
       <h3>2012</h3>
       <ul class="nobullet">
+        <li>October 13, 2012 – IXmaps is involved in the <a href="http://ontariosciencecentre.ca/Calendar/108/" target="_blank">Ontario Science Centre's Hot Zone</a></li>
         <li>October 11, 2012 - Lee Rickwood discusses IXmaps at the <a href="http://whatsyourtech.ca/2012/10/11/canadian-live-tech-demo-shows-your-data-on-the-internet/" target="_blank">Ontario Science Centre's 'Canadian Live Tech Demo'</a></li>
         <li>September 12, 2012 - CIRA publishes <a href="https://cira.ca/sites/default/files/attachments/publications/toward-efficiencies-in-canadian-internet-traffic-exchange.pdf" target="_blank">Towards Efficiencies in Canadian Internet Traffic Exchange</a> which discusses what we term 'boomerang routing'</li>
         <li>August 29, 2012 - Mediacaster mentions <a href="https://web.archive.org/web/20130923222528/http://www.mediacastermagazine.com/news/lack-of-internet-capacity-threatens-canadian-data-transmissions/1001653656/" target="_blank">IXmaps and its members (archived)</a> while covering CIRA's concerns with Canadian IXPs and boomerang traffic</li>
         <li>July 31, 2012 - Lee Rickwood's <a href="https://web.archive.org/web/20120810002047/http://www.calgaryherald.com/technology/Mapping+privacy+concerns+Your+data+crosses+borders+without+your+knowledge/7018373/story.html" target="_blank">Calgary Herald article (archived)</a> focuses on IXmaps and boomerang routing</li>
         <li>July 10, 2012 - Florence de Borja's thoughtful discussion of <a href="http://www.cloudtweaks.com/2012/07/how-are-canadians-affected-by-the-usa-patriot-act-and-cloud-computing/" target="_blank">How Are Canadians Affected By The USA Patriot Act And Cloud Computing?</a> emphasizes many issues that the IXmaps project has hoped to expose</li>
+        <li>July 3 2012 –  IXmaps research is <a href="http://conference.rgs.org/AC2012/189" target="_blank">presented</a> during the Surveillant Geographies session at the Royal Geographical Society's annual conference in Edinburgh</li>
         <li>June 2012 - The IXmaps team is greatly saddened by the unexpected passing of our dear friend and colleague, Erik "Possum" Stewart. Erik was a talented and fiercely intelligent member of our team, who possessed a considerable breadth of knowledge and experience. He will be greatly missed</li>
         <li>April 26, 2012 - Democracy Now!'s <a href="http://www.democracynow.org/2012/4/26/targeted_hacker_jacob_appelbaum_on_cispa" target="_blank">interview with Jacob Appelbaum</a> references IXmaps</li>
+        <li>February 7, 2012 – IXmaps hosts a session at the <a href="http://ischools.org/the-iconference/about-the-iconference/iconference-2012-summary/" target="_blank">2012 iConference</a>, held at the Faculty of Information, University of Toronto</li>
+      </ul>
+
+      <h3>2011</h3>
+      <ul class="nobullet">
+        <li>May 15, 2011 – IXmaps is presented at <a href="http://www.digitallymediatedsurveillance.ca/?page_id=212" target="_blank">Cyber Surveillance in Everyday Life: An International Workshop</a> at the University of Toronto</li>
+        <li>March 28, 2011 – <strong>Press Release</strong> - IXmaps debuts at <a href="http://www.munkschool.utoronto.ca/news/view/25" target="_blank">Securing the Cyber Commons: A Global Dialogue</a>, a cyber security forum held on Monday at the Munk School of Global Affairs, University of Toronto</li>
       </ul>
 
       <h2>Research Papers</h2>
