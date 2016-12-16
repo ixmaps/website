@@ -21,7 +21,7 @@ class IXmapsGeoCorrection
 			}
 
 		} else if($type==1){
-			$sql1 = "SELECT lat, long FROM ip_addr_info WHERE p_status='G';";
+			$sql1 = "SELECT ip_addr, lat, long FROM ip_addr_info WHERE p_status='G';";
 		}
 
 		$result1 = pg_query($dbconn, $sql1);
