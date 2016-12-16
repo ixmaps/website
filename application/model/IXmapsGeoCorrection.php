@@ -125,18 +125,20 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	 * Updates country, region, and city for an geo corrected ip address. 
 	 * Uses MM city locations db and finds the closest city for a latitide/longitude pair.
 	 */
-	public static function updateGeoData($ip, $latitude, $longitude) 
+	public static function updateGeoData($ipData) 
 	{
 		global $dbconn;
 
 		// Get closest geodata for lat/long
-		$sql = "SELECT country, region, city FROM geolite_city_location ORDER BY location <-> st_setsrid(st_makepoint(".$longitude.",".$latitude."),4326) LIMIT 1;";
+		$sql = "SELECT country, region, city FROM geolite_city_location ORDER BY location <-> st_setsrid(st_makepoint(".$ipData['long'].",".$ipData['lat']."),4326) LIMIT 1;";
 		$result = pg_query($dbconn, $sql) or die('updateGeoData failed'.pg_last_error());
 		$geodata = pg_fetch_all($result);
+
+		print_r($ipData);
 		print_r($geodata);
 
 		// Update geo data for ip
-		$sql1 = "UPDATE ip_addr_info SET mm_country = '".$geodata[0]['country']."', mm_region = '".$geodata[0]['region']."',  mm_city = '".$geodata[0]['city']."', p_status = 'C' WHERE ip_addr = '".$ip."';";
+		$sql1 = "UPDATE ip_addr_info SET mm_country = '".$geodata[0]['country']."', mm_region = '".$geodata[0]['region']."',  mm_city = '".$geodata[0]['city']."', p_status = 'C' WHERE ip_addr = '".$ipData['ip_addr']."';";
 		echo "\n".$sql1;
 
 		// $updateIp = pg_query($dbconn, $sql, $sqlParams) or die('updateGeoData failed'.pg_last_error());
