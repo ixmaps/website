@@ -2,21 +2,26 @@
 class IXmapsGeoCorrection
 {
 	
-	public static function getIpAddrInfo($limit)
+	public static function getIpAddrInfo($limit, $type=0, $ip='')
 	{
 		global $dbconn;
 
-		// check last ip 
+		if($type==0){
 
-		$sql = "SELECT ip_addr FROM log_ip_addr_info ORDER BY ip_addr DESC LIMIT 1";
-		$result = pg_query($dbconn, $sql);
-		$lastIp = pg_fetch_all($result);
-		//var_dump($lastIp);
+			// check last ip
+			$sql = "SELECT ip_addr FROM log_ip_addr_info ORDER BY ip_addr DESC LIMIT 1";
+			$result = pg_query($dbconn, $sql);
+			$lastIp = pg_fetch_all($result);
+			//var_dump($lastIp);
 
-		if($lastIp==false){
-			$sql1 = "SELECT * FROM ip_addr_info ORDER BY ip_addr LIMIT $limit";
-		} else {
-			$sql1 = "SELECT * FROM ip_addr_info WHERE ip_addr > '".$lastIp[0]['ip_addr']."' ORDER BY ip_addr LIMIT $limit";
+			if($lastIp==false){
+				$sql1 = "SELECT * FROM ip_addr_info ORDER BY ip_addr LIMIT $limit";
+			} else {
+				$sql1 = "SELECT * FROM ip_addr_info WHERE ip_addr > '".$lastIp[0]['ip_addr']."' ORDER BY ip_addr LIMIT $limit";
+			}
+
+		} else if($type==1){
+			$sql1 = "SELECT lat, long FROM ip_addr_info WHERE p_status='G' ='".$ip."'";
 		}
 
 		$result1 = pg_query($dbconn, $sql1);
@@ -113,6 +118,31 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 
 		$mm->closeDatFiles();
 		return $lastIp;
+	}
+
+
+	/**
+	 * Updates country, region, and city for an geo corrected ip address. 
+	 * Uses MM city locations db and finds the closest city for a latitide/longitude pair.
+	 */
+	public static function updateGeoData($ip, $latitude, $longitude) 
+	{
+		global $dbconn;
+
+		// Get closest geodata for lat/long
+		$sql = "SELECT country, region, city FROM geolite_city_location ORDER BY location <-> st_setsrid(st_makepoint(".$longitude.",".$latitude."),4326) LIMIT 1;";
+		$geodata = pg_query($dbconn, $sql) or die('updateGeoData failed'.pg_last_error());
+		print_r($geodata);
+
+		// Update geo data for ip
+		$sql1 = "UPDATE ip_addr_info SET mm_country = '".$geodata[0]['country']."', mm_region = '".$geodata[0]['region']."',  mm_city = '".$geodata[0]['city']."' WHERE ip_addr = '".$ip."';";
+		echo "\n".$sql1;
+
+		// $updateIp = pg_query($dbconn, $sql, $sqlParams) or die('updateGeoData failed'.pg_last_error());
+
+		pg_free_result($geodata);
+		//pg_free_result($updateIp);
+
 	}
 
 	/**
