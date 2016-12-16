@@ -1,10 +1,11 @@
 <?php
 header('Access-Control-Allow-Origin: *'); 
+$appPath = "/var/www/ixmaps/application"; // new server
 include($appPath.'/config.php');
 include($appPath.'/model/IXmapsGeoCorrection.php'); 
 
 // Get corrected IPs
-$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo($limit, 1);
+$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
 
 // Update geodata
 foreach ($ipAddrData as $key => $ipData) {
