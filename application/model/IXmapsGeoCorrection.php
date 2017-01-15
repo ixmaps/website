@@ -36,8 +36,11 @@ class IXmapsGeoCorrection
 		global $dbconn;
 
 		// select HE ips
-		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 ORDER BY ip_addr";
+		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 ORDER BY ip_addr";
 
+		// test
+		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='216.218.224.70' ORDER BY ip_addr";
+		
 		$result = pg_query($dbconn, $sql);
 		$ipAddrInfo = pg_fetch_all($result);
 		//print_r($ipAddrInfo);
@@ -213,7 +216,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	//NetName:        LINODE-US
         	$dArray = explode(":", $line);
         	$data = $dArray[0];
-        	print_r($data);
+        	print_r($dArray);
         	$data = trim($data);
         	$itemArray["arin_net_name"] = $data;
         }
@@ -223,7 +226,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	// Country:        US
         	$dArray = explode(":", $line);
         	$data = $dArray[0];
-        	print_r($data);
+        	print_r($dArray);
         	$data = trim($data);
         	$itemArray["arin_country"] = $data;
         }
@@ -233,6 +236,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	//City:           Galloway
         	$dArray = explode(":", $line);
         	$data = $dArray[0];
+        	print_r($dArray);
         	$data = trim($data);
         	$itemArray["arin_city"] = $data;
         }
@@ -243,6 +247,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	echo "\n".$line;
         	$dArray = explode(":", $line);
         	$data = $dArray[2];
+        	print_r($dArray);
         	$data = trim($data);
         	$itemArray["contact"][$contactCounter]['name'] = $data;
         	$contactCounter++; //!!
