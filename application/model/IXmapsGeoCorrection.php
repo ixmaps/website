@@ -173,17 +173,12 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	{
 		global $dbconn;
 
-		// Update geo data for ip
-		/*
-		*/
 		$sql = "UPDATE log_ip_addr_info SET arin_net_name='".$whoisData['arin_net_name']."', arin_country = '".$whoisData['arin_country']."', arin_city = '".$whoisData['arin_city']."',  arin_contact = '".json_encode($whoisData['contact'])."', arin_updated=1 WHERE ip_addr = '".$whoisData['ip_addr']."';";
 		echo "\n".$sql."\n";
 
-		// $result = pg_query($dbconn, $sql, $sqlParams) or die('updateGeoData failed'.pg_last_error());
+		$result = pg_query($dbconn, $sql) or die('updateArinWhois failed'.pg_last_error());
 
-		//pg_free_result($result);
-		//pg_free_result($updateIp);
-
+		pg_free_result($result);
 	}
 
 	/**
@@ -195,92 +190,100 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	{
 	  $whoisOutput = shell_exec('whois '.$ip);
 	  $whoisOutputArr = explode("\n", $whoisOutput);
-	  //echo '\n'.$whoisOutput;
+	  echo '\n'.$whoisOutput;
 	  
-	  // replace double spaces ?
+	  // skip if "Connection reset by peer"
+	  if (strpos($line, 'Connection reset by peer') !== false) {
+	  	echo "\nError with whois request";
+	  	return 0;
+	  } else {
 
-	  $conn = 0;
-	  $dataArray = array();
-	  $contactCounter = 0;
-	  $itemArray = array(
-  		"ip_addr"=>$ip,
-  		"arin_net_name"=>"",
-  		"arin_country"=>"",
-  		"arin_city"=>"",
-  		"contact" => array()
-  		);
-	  foreach ($whoisOutputArr as $key => $line) {
-	  	
-        if (strpos($line, 'NetName: ') !== false) {
-        	echo "\n".$line;
-        	//NetName:        LINODE-US
-        	$dArray = explode(":", $line);
-        	$data = $dArray[1];
-        	print_r($dArray);
-        	$data = trim($data);
-        	$itemArray["arin_net_name"] = $data;
-        }
+		  $conn = 0;
+		  $dataArray = array();
+		  $contactCounter = 0;
+		  $itemArray = array(
+	  		"ip_addr"=>$ip,
+	  		"arin_net_name"=>"",
+	  		"arin_country"=>"",
+	  		"arin_city"=>"",
+	  		"contact" => array()
+	  		);
+		  foreach ($whoisOutputArr as $key => $line) {
+		  	
+	        if (strpos($line, 'NetName: ') !== false) {
+	        	echo "\n".$line;
+	        	//NetName:        LINODE-US
+	        	$dArray = explode(":", $line);
+	        	$data = $dArray[1];
+	        	print_r($dArray);
+	        	$data = trim($data);
+	        	$itemArray["arin_net_name"] = $data;
+	        }
 
-        if (strpos($line, 'Country: ') !== false) {
-        	echo "\n".$line;
-        	// Country:        US
-        	$dArray = explode(":", $line);
-        	$data = $dArray[1];
-        	print_r($dArray);
-        	$data = trim($data);
-        	$itemArray["arin_country"] = $data;
-        }
+	        if (strpos($line, 'Country: ') !== false) {
+	        	echo "\n".$line;
+	        	// Country:        US
+	        	$dArray = explode(":", $line);
+	        	$data = $dArray[1];
+	        	print_r($dArray);
+	        	$data = trim($data);
+	        	$itemArray["arin_country"] = $data;
+	        }
 
-        if (strpos($line, 'City: ') !== false) {
-        	echo "\n".$line;
-        	//City:           Galloway
-        	$dArray = explode(":", $line);
-        	$data = $dArray[1];
-        	print_r($dArray);
-        	$data = trim($data);
-        	$itemArray["arin_city"] = $data;
-        }
-        //contact:Name:
-        //contact:Company:
+	        if (strpos($line, 'City: ') !== false) {
+	        	echo "\n".$line;
+	        	//City:           Galloway
+	        	$dArray = explode(":", $line);
+	        	$data = $dArray[1];
+	        	print_r($dArray);
+	        	$data = trim($data);
+	        	$itemArray["arin_city"] = $data;
+	        }
+	        //contact:Name:
+	        //contact:Company:
 
-        if (strpos($line, 'contact:Name:') !== false) {
-        	echo "\n".$line;
-        	$dArray = explode(":", $line);
-        	$data = $dArray[2];
-        	print_r($dArray);
-        	$data = trim($data);
-        	$itemArray["contact"][$contactCounter]['name'] = $data;
-        	$contactCounter++; //!!
-        }
+	        if (strpos($line, 'contact:Name:') !== false) {
+	        	echo "\n".$line;
+	        	$dArray = explode(":", $line);
+	        	$data = $dArray[2];
+	        	print_r($dArray);
+	        	$data = trim($data);
+	        	$itemArray["contact"][$contactCounter]['name'] = $data;
+	        	$contactCounter++; //!!
+	        }
 
-        if (strpos($line, 'contact:Company:') !== false) {
-        	echo "\n".$line;
-        	$dArray = explode(":", $line);
-        	$data = $dArray[2];
-        	$data = trim($data);
-        	$itemArray["contact"][$contactCounter]['company'] = $data;
-        }
+	        if (strpos($line, 'contact:Company:') !== false) {
+	        	echo "\n".$line;
+	        	$dArray = explode(":", $line);
+	        	$data = $dArray[2];
+	        	$data = trim($data);
+	        	$itemArray["contact"][$contactCounter]['company'] = $data;
+	        }
 
-        if (strpos($line, 'contact:Country-Code:') !== false) {
-        	echo "\n".$line;
-        	$dArray = explode(":", $line);
-        	$data = $dArray[2];
-        	$data = trim($data);
-        	$itemArray["contact"][$contactCounter]['country'] = $data;
-        }
+	        if (strpos($line, 'contact:Country-Code:') !== false) {
+	        	echo "\n".$line;
+	        	$dArray = explode(":", $line);
+	        	$data = $dArray[2];
+	        	$data = trim($data);
+	        	$itemArray["contact"][$contactCounter]['country'] = $data;
+	        }
 
-        if (strpos($line, 'contact:City:') !== false) {
-        	$dArray = explode(":", $line);
-        	$data = $dArray[2];
-        	$data = trim($data);
-        	$itemArray["contact"][$contactCounter]['city'] = $data;
-        }
-        //print_r($itemArray);
-        //$dataArray[]=$itemArray;
-	  }
-	  echo "\n----------------";
-	  print_r($itemArray);
-	  return $itemArray;
+	        if (strpos($line, 'contact:City:') !== false) {
+	        	$dArray = explode(":", $line);
+	        	$data = $dArray[2];
+	        	$data = trim($data);
+	        	$itemArray["contact"][$contactCounter]['city'] = $data;
+	        }
+	        //print_r($itemArray);
+	        //$dataArray[]=$itemArray;
+		  }
+		  echo "\n----------------";
+		  print_r($itemArray);
+		  return $itemArray;
+	  } // end if skip
+
+
+	
 	}
 
 	/**
