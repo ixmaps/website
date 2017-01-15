@@ -173,7 +173,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		// Update geo data for ip
 		/*
 		*/
-		$sql = "UPDATE log_ip_addr_info SET arin_country = '".$ipData['arin_country']."', arin_city = '".$ipData['arin_city']."',  arin_extra = '".$ipData['arin_extra']."' WHERE ip_addr = '".$ipData['ip_addr']."';";
+		$sql = "UPDATE log_ip_addr_info SET arin_name='".$ipData['arin_name']."', arin_country = '".$ipData['arin_country']."', arin_city = '".$ipData['arin_city']."',  arin_extra = '".$ipData['arin_extra']."' WHERE ip_addr = '".$ipData['ip_addr']."';";
 		echo "\n".$sql."\n";
 
 		// $result = pg_query($dbconn, $sql, $sqlParams) or die('updateGeoData failed'.pg_last_error());
@@ -191,7 +191,24 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	public static function getWhoisData($ip, $whoisHost="")
 	{
 	  $whoisOutput = shell_exec('whois '.$ip);
-	  echo '\n'.$whoisOutput;
+	  //echo '\n'.$whoisOutput;
+	  
+	  // replace double spaces ?
+
+	  $conn = 0;
+	  $dataArray = array();
+	  foreach ($whoisOutput as $key => $line) {
+        if (strpos($line, 'NetName') !== false) {
+        	echo "\n".$line;
+        }
+        if (strpos($line, 'Country') !== false) {
+        	echo "\n".$line;
+        }
+        if (strpos($line, 'City') !== false) {
+        	echo "\n".$line;
+        }
+	  }
+
 	}
 
 	/**
