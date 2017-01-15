@@ -192,6 +192,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	{
 	  $whoisOutput = shell_exec('whois '.$ip);
 	  $whoisOutputArr = explode("\n", $whoisOutput);
+	  echo "\n------------------------\n";
 	  echo "\n------------------------\n".$whoisOutput;
 	  
 	  // skip if "Connection reset by peer"
@@ -285,8 +286,10 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	        //print_r($itemArray);
 	        //$dataArray[]=$itemArray;
 		  }
-		  echo "\n----------------";
+		  echo "\n";
 		  print_r($itemArray);
+		  echo "\n------------------------\n";
+		  
 		  return $itemArray;
 	  } // end if skip
 
