@@ -247,7 +247,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 
 	        if (strpos($line, 'contact:Name:') !== false) {
 	        	//if($contactCounter!=0){
-	        		$contactCounter++; //!!
+	        	$contactCounter++; //!!
 	        	//}
 	        	//echo "\n".$line;
 	        	$dArray = explode(":", $line);
