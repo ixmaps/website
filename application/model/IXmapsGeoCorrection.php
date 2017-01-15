@@ -191,7 +191,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	public static function getWhoisData($ip, $whoisHost="")
 	{
 	  $whoisOutput = shell_exec('whois '.$ip);
-	  $whoisOutputArr = explode('\n', $whoisOutput);
+	  $whoisOutputArr = explode("\n", $whoisOutput);
 	  //echo '\n'.$whoisOutput;
 	  
 	  // replace double spaces ?
