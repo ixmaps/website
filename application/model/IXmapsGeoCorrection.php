@@ -223,6 +223,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	// Country:        US
         	$dArray = explode(":", $line);
         	$data = $dArray[0];
+        	print_r($data);
         	$data = trim($data);
         	$itemArray["arin_country"] = $data;
         }
@@ -272,6 +273,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         //print_r($itemArray);
         //$dataArray[]=$itemArray;
 	  }
+	  echo "\n----------------";
 	  print_r($itemArray);
 
 	  return $itemArray;
