@@ -198,7 +198,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 
 	  $conn = 0;
 	  $dataArray = array();
-	  foreach ($whoisOutput as $key => $line) {
+	  foreach ($whoisOutputArr as $key => $line) {
         if (strpos($line, 'NetName') !== false) {
         	echo "\n".$line;
         }
