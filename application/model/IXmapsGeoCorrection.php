@@ -155,10 +155,10 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		global $dbconn;
 
 		// select HE ips
-		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and arin_updated = 0 ORDER BY ip_addr";
+		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and arin_updated = 0 ORDER BY ip_addr";
 
 		// test
-		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='216.218.224.70' ORDER BY ip_addr";
+		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='216.218.224.70' ORDER BY ip_addr";
 
 		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='209.51.163.186' ORDER BY ip_addr";
 
@@ -176,7 +176,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		global $dbconn;
 
 		$sql = "UPDATE log_ip_addr_info SET arin_net_name='".$whoisData['arin_net_name']."', arin_country = '".$whoisData['arin_country']."', arin_city = '".$whoisData['arin_city']."',  arin_contact = '".json_encode($whoisData['contact'])."', arin_updated=1 WHERE ip_addr = '".$whoisData['ip_addr']."';";
-		echo "\n".$sql."\n";
+		//echo "\n".$sql."\n";
 
 		$result = pg_query($dbconn, $sql) or die('updateArinWhois failed'.pg_last_error());
 
