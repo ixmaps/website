@@ -215,7 +215,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	echo "\n".$line;
         	//NetName:        LINODE-US
         	$dArray = explode(":", $line);
-        	$data = $dArray[0];
+        	$data = $dArray[1];
         	print_r($dArray);
         	$data = trim($data);
         	$itemArray["arin_net_name"] = $data;
@@ -225,7 +225,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	echo "\n".$line;
         	// Country:        US
         	$dArray = explode(":", $line);
-        	$data = $dArray[0];
+        	$data = $dArray[1];
         	print_r($dArray);
         	$data = trim($data);
         	$itemArray["arin_country"] = $data;
@@ -235,7 +235,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	echo "\n".$line;
         	//City:           Galloway
         	$dArray = explode(":", $line);
-        	$data = $dArray[0];
+        	$data = $dArray[1];
         	print_r($dArray);
         	$data = trim($data);
         	$itemArray["arin_city"] = $data;
