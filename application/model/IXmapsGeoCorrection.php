@@ -198,9 +198,11 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 
 	  $conn = 0;
 	  $dataArray = array();
+	  $contactCounter = 0;
 	  foreach ($whoisOutputArr as $key => $line) {
 	  	
 	  	$itemArray = array(
+	  		"ip_addr"=>$ip,
 	  		"arin_net_name"=>"",
 	  		"arin_country"=>"",
 	  		"arin_city"=>"",
@@ -233,13 +235,44 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	$data = trim($data);
         	$itemArray["arin_city"] = $data;
         }
+        //contact:Name:
+        //contact:Company:
+
+        if (strpos($line, 'contact:Name:') !== false) {
+        	echo "\n".$line;
+        	$dArray = explode(":", $line);
+        	$data = $dArray[2];
+        	$data = trim($data);
+        	$itemArray["contact"][$contactCounter]['name'] = $data;
+        	$contactCounter++; //!!
+        }
+
+        if (strpos($line, 'contact:Company:') !== false) {
+        	echo "\n".$line;
+        	$dArray = explode(":", $line);
+        	$data = $dArray[2];
+        	$data = trim($data);
+        	$itemArray["contact"][$contactCounter]['company'] = $data;
+        }
+
         if (strpos($line, 'contact:Country-Code:') !== false) {
         	echo "\n".$line;
+        	$dArray = explode(":", $line);
+        	$data = $dArray[2];
+        	$data = trim($data);
+        	$itemArray["contact"][$contactCounter]['country'] = $data;
         }
+
         if (strpos($line, 'contact:City:') !== false) {
-        	echo "\n".$line;
+        	$dArray = explode(":", $line);
+        	$data = $dArray[2];
+        	$data = trim($data);
+        	$itemArray["contact"][$contactCounter]['city'] = $data;
         }
+        print_r($itemArray);
+        //$dataArray[]=$itemArray;
 	  }
+	  return $itemArray;
 
 	}
 
