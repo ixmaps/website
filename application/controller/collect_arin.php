@@ -15,7 +15,7 @@ foreach ($ipAddrData as $key => $ipData) {
 	if($whoisData!=0){
 		IXmapsGeoCorrection::updateArinWhois($whoisData);	
 	}
-	sleep(5);
+	sleep(2);
 }
 
 ?>

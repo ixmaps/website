@@ -236,6 +236,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	        	$dArray = explode(":", $line);
 	        	$data = $dArray[1];
 	        	print_r($dArray);
+	        	$data = str_replace("'", " ", $data);
 	        	$data = trim($data);
 	        	$itemArray["arin_city"] = $data;
 	        }
@@ -243,13 +244,16 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	        //contact:Company:
 
 	        if (strpos($line, 'contact:Name:') !== false) {
+	        	if($contactCounter!=0){
+	        		$contactCounter++; //!!
+	        	}
 	        	echo "\n".$line;
 	        	$dArray = explode(":", $line);
 	        	$data = $dArray[2];
 	        	print_r($dArray);
 	        	$data = trim($data);
+	        	$data = str_replace("'", " ", $data);
 	        	$itemArray["contact"][$contactCounter]['name'] = $data;
-	        	$contactCounter++; //!!
 	        }
 
 	        if (strpos($line, 'contact:Company:') !== false) {
@@ -257,6 +261,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	        	$dArray = explode(":", $line);
 	        	$data = $dArray[2];
 	        	$data = trim($data);
+	        	$data = str_replace("'", " ", $data);
 	        	$itemArray["contact"][$contactCounter]['company'] = $data;
 	        }
 
@@ -272,6 +277,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	        	$dArray = explode(":", $line);
 	        	$data = $dArray[2];
 	        	$data = trim($data);
+	        	$data = str_replace("'", " ", $data);
 	        	$itemArray["contact"][$contactCounter]['city'] = $data;
 	        }
 	        //print_r($itemArray);
