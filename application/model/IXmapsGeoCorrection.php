@@ -158,9 +158,9 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and arin_updated = 0 ORDER BY ip_addr";
 
 		// test
-		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='216.218.224.70' ORDER BY ip_addr";
+		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='216.218.224.70' ORDER BY ip_addr";
 
-		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='209.51.163.186' ORDER BY ip_addr";
+		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='209.51.163.186' ORDER BY ip_addr";
 
 		$result = pg_query($dbconn, $sql);
 		$ipAddrInfo = pg_fetch_all($result);
