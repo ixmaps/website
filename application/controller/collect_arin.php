@@ -12,6 +12,7 @@ $ipAddrData = IXmapsGeoCorrection::getLogIpAddrInfo();
 // Update geodata
 foreach ($ipAddrData as $key => $ipData) {
 	IXmapsGeoCorrection::getWhoisData($ipData['ip_addr']);
+	sleep(5);
 }
 
 ?>
