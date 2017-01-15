@@ -213,6 +213,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	//NetName:        LINODE-US
         	$dArray = explode(":", $line);
         	$data = $dArray[0];
+        	print_r($data);
         	$data = trim($data);
         	$itemArray["arin_net_name"] = $data;
         }
