@@ -193,7 +193,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	  echo '\n'.$whoisOutput;
 	  
 	  // skip if "Connection reset by peer"
-	  if (strpos($line, 'Connection reset by peer') !== false) {
+	  if (strpos($whoisOutput, 'Connection reset by peer') !== false) {
 	  	echo "\nError with whois request";
 	  	return 0;
 	  } else {
