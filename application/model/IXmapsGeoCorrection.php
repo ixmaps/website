@@ -31,22 +31,6 @@ class IXmapsGeoCorrection
 		return $ipAddrInfo;
 	}
 
-	public static function getLogIpAddrInfo()
-	{
-		global $dbconn;
-
-		// select HE ips
-		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 ORDER BY ip_addr";
-
-		// test
-		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='216.218.224.70' ORDER BY ip_addr";
-		
-		$result = pg_query($dbconn, $sql);
-		$ipAddrInfo = pg_fetch_all($result);
-		//print_r($ipAddrInfo);
-		return $ipAddrInfo;
-	}
-
 
 	/**
 	* Update IP address LOG. 
@@ -166,22 +150,38 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	}
 
 
+	public static function getLogIpAddrInfo()
+	{
+		global $dbconn;
+
+		// select HE ips
+		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and arin_updated = 0 ORDER BY ip_addr";
+
+		// test
+		//$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and ip_addr='216.218.224.70' ORDER BY ip_addr";
+		
+		$result = pg_query($dbconn, $sql);
+		$ipAddrInfo = pg_fetch_all($result);
+		//print_r($ipAddrInfo);
+		return $ipAddrInfo;
+	}
+
 	/**
 	 * Updates arin whois data on table log_ip_addr_info
 	 */
-	public static function updateArinWhois($ipData) 
+	public static function updateArinWhois($whoisData) 
 	{
 		global $dbconn;
 
 		// Update geo data for ip
 		/*
 		*/
-		$sql = "UPDATE log_ip_addr_info SET arin_name='".$ipData['arin_name']."', arin_country = '".$ipData['arin_country']."', arin_city = '".$ipData['arin_city']."',  arin_extra = '".$ipData['arin_extra']."' WHERE ip_addr = '".$ipData['ip_addr']."';";
+		$sql = "UPDATE log_ip_addr_info SET arin_net_name='".$whoisData['arin_net_name']."', arin_country = '".$whoisData['arin_country']."', arin_city = '".$whoisData['arin_city']."',  arin_contact = '".json_encode($whoisData['contact'])."', arin_updated=1 WHERE ip_addr = '".$whoisData['ip_addr']."';";
 		echo "\n".$sql."\n";
 
 		// $result = pg_query($dbconn, $sql, $sqlParams) or die('updateGeoData failed'.pg_last_error());
 
-		pg_free_result($result);
+		//pg_free_result($result);
 		//pg_free_result($updateIp);
 
 	}
@@ -280,9 +280,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	  }
 	  echo "\n----------------";
 	  print_r($itemArray);
-
 	  return $itemArray;
-
 	}
 
 	/**
