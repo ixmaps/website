@@ -204,7 +204,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	  		"arin_net_name"=>"",
 	  		"arin_country"=>"",
 	  		"arin_city"=>"",
-	  		"contact" => array();
+	  		"contact" => array()
 	  		);
 
         if (strpos($line, 'NetName: ') !== false) {
