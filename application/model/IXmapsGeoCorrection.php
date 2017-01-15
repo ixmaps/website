@@ -6,6 +6,7 @@ class IXmapsGeoCorrection
 	{
 		global $dbconn;
 
+		// select last ip
 		if($type==0){
 
 			// check last ip
@@ -26,6 +27,19 @@ class IXmapsGeoCorrection
 
 		$result1 = pg_query($dbconn, $sql1);
 		$ipAddrInfo = pg_fetch_all($result1);
+		//print_r($ipAddrInfo);
+		return $ipAddrInfo;
+	}
+
+	public static function getLogIpAddrInfo()
+	{
+		global $dbconn;
+
+		// select HE ips
+		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 ORDER BY ip_addr";
+
+		$result = pg_query($dbconn, $sql);
+		$ipAddrInfo = pg_fetch_all($result);
 		//print_r($ipAddrInfo);
 		return $ipAddrInfo;
 	}
@@ -120,7 +134,6 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		return $lastIp;
 	}
 
-
 	/**
 	 * Updates country, region, and city for an geo corrected ip address. 
 	 * Uses MM city locations db and finds the closest city for a latitide/longitude pair.
@@ -147,6 +160,38 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		pg_free_result($result);
 		//pg_free_result($updateIp);
 
+	}
+
+
+	/**
+	 * Updates arin whois data on table log_ip_addr_info
+	 */
+	public static function updateArinWhois($ipData) 
+	{
+		global $dbconn;
+
+		// Update geo data for ip
+		/*
+		*/
+		$sql = "UPDATE log_ip_addr_info SET arin_country = '".$ipData['arin_country']."', arin_city = '".$ipData['arin_city']."',  arin_extra = '".$ipData['arin_extra']."' WHERE ip_addr = '".$ipData['ip_addr']."';";
+		echo "\n".$sql."\n";
+
+		// $result = pg_query($dbconn, $sql, $sqlParams) or die('updateGeoData failed'.pg_last_error());
+
+		pg_free_result($result);
+		//pg_free_result($updateIp);
+
+	}
+
+	/**
+	 * Queries WHOIS db and extract all: Name, Country-Code, and City data
+	 * @param inet $ip IP address
+	 * @return array of country and city data
+	 */
+	public static function getWhoisData($ip, $whoisHost="")
+	{
+	  $whoisOutput = shell_exec('whois '.$ip);
+	  echo '\n'.$whoisOutput;
 	}
 
 	/**
