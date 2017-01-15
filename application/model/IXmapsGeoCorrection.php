@@ -199,16 +199,15 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	  $conn = 0;
 	  $dataArray = array();
 	  $contactCounter = 0;
+	  $itemArray = array(
+  		"ip_addr"=>$ip,
+  		"arin_net_name"=>"",
+  		"arin_country"=>"",
+  		"arin_city"=>"",
+  		"contact" => array()
+  		);
 	  foreach ($whoisOutputArr as $key => $line) {
 	  	
-	  	$itemArray = array(
-	  		"ip_addr"=>$ip,
-	  		"arin_net_name"=>"",
-	  		"arin_country"=>"",
-	  		"arin_city"=>"",
-	  		"contact" => array()
-	  		);
-
         if (strpos($line, 'NetName: ') !== false) {
         	echo "\n".$line;
         	//NetName:        LINODE-US
@@ -269,9 +268,11 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
         	$data = trim($data);
         	$itemArray["contact"][$contactCounter]['city'] = $data;
         }
-        print_r($itemArray);
+        //print_r($itemArray);
         //$dataArray[]=$itemArray;
 	  }
+	  print_r($itemArray);
+
 	  return $itemArray;
 
 	}
