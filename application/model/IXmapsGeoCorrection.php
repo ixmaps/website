@@ -199,13 +199,44 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	  $conn = 0;
 	  $dataArray = array();
 	  foreach ($whoisOutputArr as $key => $line) {
-        if (strpos($line, 'NetName') !== false) {
+	  	
+	  	$itemArray = array(
+	  		"arin_net_name"=>"",
+	  		"arin_country"=>"",
+	  		"arin_city"=>"",
+	  		"contact" => array();
+	  		);
+
+        if (strpos($line, 'NetName: ') !== false) {
+        	echo "\n".$line;
+        	//NetName:        LINODE-US
+        	$dArray = explode(":", $line);
+        	$data = $dArray[0];
+        	$data = trim($data);
+        	$itemArray["arin_net_name"] = $data;
+        }
+
+        if (strpos($line, 'Country: ') !== false) {
+        	echo "\n".$line;
+        	// Country:        US
+        	$dArray = explode(":", $line);
+        	$data = $dArray[0];
+        	$data = trim($data);
+        	$itemArray["arin_country"] = $data;
+        }
+
+        if (strpos($line, 'City: ') !== false) {
+        	echo "\n".$line;
+        	//City:           Galloway
+        	$dArray = explode(":", $line);
+        	$data = $dArray[0];
+        	$data = trim($data);
+        	$itemArray["arin_city"] = $data;
+        }
+        if (strpos($line, 'contact:Country-Code:') !== false) {
         	echo "\n".$line;
         }
-        if (strpos($line, 'Country') !== false) {
-        	echo "\n".$line;
-        }
-        if (strpos($line, 'City') !== false) {
+        if (strpos($line, 'contact:City:') !== false) {
         	echo "\n".$line;
         }
 	  }
