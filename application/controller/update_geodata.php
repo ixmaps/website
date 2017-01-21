@@ -23,7 +23,7 @@ foreach ($ipAddrData as $key => $ipData) {
 	$ipToGeoData[] = IXmapsGeoCorrection::updateGeoData($ipData);
 }
 
-echo "\n"."Nearest GeoData found for (IP) Set: "."\n";
+echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
 print_r($ipToGeoData);
 
 
