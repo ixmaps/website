@@ -17,7 +17,6 @@ echo "\n"."Selected (IP) Set: "."\n";
 print_r($ipAddrData);
 
 
-
 // Update geodata
 foreach ($ipAddrData as $key => $ipData) {
 	//$ipToGeoData = array();
@@ -26,13 +25,14 @@ foreach ($ipAddrData as $key => $ipData) {
 
 	// Add distance to each match
 	$geoMatchC = 0;
+	
 	foreach ($ipToGeoData as $key => $GeoLocMatch) {
 		$latitudeFrom = $ipAddrData[0]['lat'];
 		$longitudeFrom = $ipAddrData[0]['long'];
 		$latitudeTo = $GeoLocMatch['latitude'];
 		$longitudeTo = $GeoLocMatch['longitude'];
 		$distance = IXmapsGeoCorrection::distanceBetweenCoords($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo);
-		$ipData[$geoMatchC]['distance'] = $distance;
+		$ipAddrData[$geoMatchC]['distance'] = $distance;
 		$geoMatchC++;
 	}
 	
