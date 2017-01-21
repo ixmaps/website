@@ -20,9 +20,14 @@ class IXmapsGeoCorrection
 			} else {
 				$sql1 = "SELECT * FROM ip_addr_info WHERE ip_addr > '".$lastIp[0]['ip_addr']."' ORDER BY ip_addr LIMIT $limit";
 			}
-
+		// select geo-corrected ips
 		} else if($type==1){
 			$sql1 = "SELECT ip_addr, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE p_status='G';";
+		
+		// select an ip 
+		} else if($type==2){
+			$sql1 = "SELECT ip_addr, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE ip_addr = '".$ip."';";
+
 		}
 
 		$result1 = pg_query($dbconn, $sql1);

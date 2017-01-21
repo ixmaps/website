@@ -5,7 +5,11 @@ include($appPath.'/config.php');
 include($appPath.'/model/IXmapsGeoCorrection.php'); 
 
 // Get corrected IPs
-$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
+//$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
+
+// Get test IP
+$testIp = "81.46.131.0";
+$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 3, $testIp);
 
 //print_r($ipAddrData);
 
