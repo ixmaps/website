@@ -15,7 +15,7 @@ if(isset($_GET['ip'])){
 
 echo "\n"."Selected (IP) Set: "."\n";
 print_r($ipAddrData);
-
+echo "\n--------"."\n";
 
 // Update geodata
 foreach ($ipAddrData as $key => $ipData) {
@@ -34,7 +34,7 @@ foreach ($ipAddrData as $key => $ipData) {
 	}
 	
 	echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
-	print_r($ipAddrData);
+	print_r($ipToGeoData);
 }
 
 
