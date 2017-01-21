@@ -135,7 +135,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		global $dbconn;
 
 		// Get closest geodata for lat/long
-		$sql = "SELECT country, region, city, latitude, longitude FROM geolite_city_location ORDER BY location <-> st_setsrid(st_makepoint(".$ipData['long'].",".$ipData['lat']."),4326) LIMIT 10;";
+		$sql = "SELECT country, region, city, latitude, longitude FROM geolite_city_location ORDER BY location <-> st_setsrid(st_makepoint(".$ipData['long'].",".$ipData['lat']."),4326) LIMIT 5;";
 		$result = pg_query($dbconn, $sql) or die('updateGeoData failed'.pg_last_error());
 		$geodata = pg_fetch_all($result);
 

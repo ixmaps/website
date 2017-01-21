@@ -21,7 +21,7 @@ echo "\n--------"."\n";
 foreach ($ipAddrData as $key => $ipData) {
 	//$ipToGeoData = array();
 	$ipToGeoData = IXmapsGeoCorrection::updateGeoData($ipData);
-	print_r($ipToGeoData);
+	//print_r($ipToGeoData);
 
 	// Add distance to each match
 	foreach ($ipToGeoData as $key1 => $GeoLocMatch) {
