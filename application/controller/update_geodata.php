@@ -22,6 +22,7 @@ print_r($ipAddrData);
 foreach ($ipAddrData as $key => $ipData) {
 	//$ipToGeoData = array();
 	$ipToGeoData = IXmapsGeoCorrection::updateGeoData($ipData);
+	print_r($ipToGeoData);
 	
 	// callculate distance between input geodata and estimated closest city
 
