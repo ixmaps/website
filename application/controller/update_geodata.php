@@ -13,12 +13,18 @@ if(isset($_GET['ip'])){
 	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
 }
 
+echo "\n"."Selected (IP) Set: "."\n";
+print_r($ipAddrData);
 
-//print_r($ipAddrData);
+$ipToGeoData = array();
 
 // Update geodata
 foreach ($ipAddrData as $key => $ipData) {
-	IXmapsGeoCorrection::updateGeoData($ipData);
+	$ipToGeoData[] = IXmapsGeoCorrection::updateGeoData($ipData);
 }
+
+echo "\n"."Nearest GeoData found for (IP) Set: "."\n";
+print_r($ipToGeoData);
+
 
 ?>
