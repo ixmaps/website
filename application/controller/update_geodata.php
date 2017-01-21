@@ -30,7 +30,7 @@ foreach ($ipAddrData as $key => $ipData) {
 		$latitudeTo = $GeoLocMatch['latitude'];
 		$longitudeTo = $GeoLocMatch['longitude'];
 		$distance = IXmapsGeoCorrection::distanceBetweenCoords($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo);
-		$ipAddrData[$key]['distance'] = $distance;
+		$ipToGeoData[$key1]['distance'] = $distance;
 	}
 	
 	echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
