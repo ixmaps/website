@@ -25,8 +25,8 @@ foreach ($ipAddrData as $key => $ipData) {
 	
 	// callculate distance between input geodata and estimated closest city
 
-	$latitudeFrom = $ipAddrData['lat'];
-	$longitudeFrom = $ipAddrData['long'];
+	$latitudeFrom = $ipAddrData[0]['lat'];
+	$longitudeFrom = $ipAddrData[0]['long'];
 	$latitudeTo = $ipData['latitude'];
 	$longitudeTo = $ipData['longitude'];
 
