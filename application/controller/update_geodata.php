@@ -4,12 +4,15 @@ $appPath = "/var/www/ixmaps/application"; // new server
 include($appPath.'/config.php');
 include($appPath.'/model/IXmapsGeoCorrection.php'); 
 
-// Get corrected IPs
-//$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
-
 // Get test IP
-$testIp = "81.46.131.0";
-$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 2, $testIp);
+if(isset($_GET['ip'])){
+	$testIp = $_GET['ip'];
+	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 2, $testIp);
+} else {
+	// Get corrected IPs 
+	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
+}
+
 
 //print_r($ipAddrData);
 
