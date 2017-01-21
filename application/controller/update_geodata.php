@@ -16,15 +16,29 @@ if(isset($_GET['ip'])){
 echo "\n"."Selected (IP) Set: "."\n";
 print_r($ipAddrData);
 
-$ipToGeoData = array();
+
 
 // Update geodata
 foreach ($ipAddrData as $key => $ipData) {
-	$ipToGeoData[] = IXmapsGeoCorrection::updateGeoData($ipData);
+	//$ipToGeoData = array();
+	$ipToGeoData = IXmapsGeoCorrection::updateGeoData($ipData);
+	
+	// callculate distance between input geodata and estimated closest city
+
+	$latitudeFrom = $ipAddrData['lat'];
+	$longitudeFrom = $ipAddrData['long'];
+	$latitudeTo = $ipData['latitude'];
+	$longitudeTo = $ipData['longitude'];
+
+	$distance = IXmapsGeoCorrection::distanceBetweenCoords($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo);
+
+	$ipData['distance'] = $distance;
+
+	echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
+	print_r($ipData);
 }
 
-echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
-print_r($ipToGeoData);
+
 
 
 ?>
