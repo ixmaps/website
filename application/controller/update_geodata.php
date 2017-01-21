@@ -9,7 +9,7 @@ include($appPath.'/model/IXmapsGeoCorrection.php');
 
 // Get test IP
 $testIp = "81.46.131.0";
-$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 3, $testIp);
+$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 2, $testIp);
 
 //print_r($ipAddrData);
 
