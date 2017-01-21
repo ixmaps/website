@@ -153,6 +153,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		pg_free_result($result);
 		//pg_free_result($updateIp);
 
+		return $geodata;
 	}
 
 
