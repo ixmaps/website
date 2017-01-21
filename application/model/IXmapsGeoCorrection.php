@@ -139,13 +139,14 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		$result = pg_query($dbconn, $sql) or die('updateGeoData failed'.pg_last_error());
 		$geodata = pg_fetch_all($result);
 
-		print_r($ipData);
+/*		print_r($ipData);
 		echo "\n";
 		print_r($geodata);
-
+*/
 		// Update geo data for ip
 		$sql1 = "UPDATE ip_addr_info SET mm_country = '".$geodata[0]['country']."', mm_region = '".$geodata[0]['region']."',  mm_city = '".$geodata[0]['city']."', p_status = 'C' WHERE ip_addr = '".$ipData['ip_addr']."';";
-		echo "\n".$sql1."\n";
+		
+		//echo "\nTest SQL Update: ".$sql1."\n";
 
 		// $updateIp = pg_query($dbconn, $sql, $sqlParams) or die('updateGeoData failed'.pg_last_error());
 
