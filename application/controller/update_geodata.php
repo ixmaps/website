@@ -29,8 +29,8 @@ foreach ($ipAddrData as $key => $ipData) {
 	foreach ($ipToGeoData as $key => $GeoLocMatch) {
 		$latitudeFrom = $ipAddrData[0]['lat'];
 		$longitudeFrom = $ipAddrData[0]['long'];
-		$latitudeTo = $ipData['latitude'];
-		$longitudeTo = $ipData['longitude'];
+		$latitudeTo = $GeoLocMatch['latitude'];
+		$longitudeTo = $GeoLocMatch['longitude'];
 		$distance = IXmapsGeoCorrection::distanceBetweenCoords($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo);
 		$ipData[$geoMatchC]['distance'] = $distance;
 		$geoMatchC++;
