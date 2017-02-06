@@ -74,6 +74,8 @@ if(!isset($_POST) || count($_POST)==0)
 
 	// get IXmaps geographic data and prepare the response into a json format
 	//print_r($data);
+	$trHtmlTable = "";
+	
 	if(count($b)!=0) {
 		$ixMapsData = Traceroute::getIxMapsData($b);
 		//print_r($ixMapsData);
