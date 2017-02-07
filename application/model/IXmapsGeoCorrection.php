@@ -22,7 +22,7 @@ class IXmapsGeoCorrection
 			}
 		// select geo-corrected ips
 		} else if($type==1){
-			$sql1 = "SELECT ip_addr, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE p_status='G' LIMIT 10;";
+			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE p_status='G' LIMIT 200;";
 		
 		// select an ip 
 		} else if($type==2){
