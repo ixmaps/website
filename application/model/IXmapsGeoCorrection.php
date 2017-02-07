@@ -148,7 +148,7 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 	{
 		global $dbconn;
 		// Update geo data for ip
-		$sql = "UPDATE ip_addr_info SET mm_country = '".$ipData['mm_country_update']."', mm_region = '".$geodata['mm_region_update']."',  mm_city = '".$geodata['mm_city_update']."', p_status = 'F' WHERE ip_addr = '".$ipData['ip_addr']."';";
+		$sql = "UPDATE ip_addr_info SET mm_country = '".$ipData['mm_country_update']."', mm_region = '".$ipData['mm_region_update']."',  mm_city = '".$ipData['mm_city_update']."', p_status = 'F' WHERE ip_addr = '".$ipData['ip_addr']."';";
 		
 		echo "---\nTest SQL Update: ".$sql1."\n";
 
