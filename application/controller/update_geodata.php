@@ -13,6 +13,12 @@ if(isset($_GET['ip'])){
 	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
 }
 
+if(isset($_GET['m'])){ 
+	$matchLimit = $_GET['m'];
+} else {
+	$matchLimit = 5;
+}
+
 /*echo "\n"."Selected (IP) Set: "."\n";
 print_r($ipAddrData);
 echo "\n--------"."\n";*/
@@ -21,7 +27,7 @@ echo "\n--------"."\n";*/
 foreach ($ipAddrData as $key => $ipData) {
 	$ipToGeoData = array();
 	//$ipToGeoData = IXmapsGeoCorrection::updateGeoData($ipData); // old
-	$ipToGeoData = IXmapsGeoCorrection::getClosestGeoData($ipData, 5);
+	$ipToGeoData = IXmapsGeoCorrection::getClosestGeoData($ipData, $matchLimit);
 	
 	//print_r($ipToGeoData);
 
@@ -76,7 +82,7 @@ foreach ($ipAddrData as $key => $ipData) {
 	arsort($bestMatchRegion);
 	arsort($bestMatchCity);
 
-	//print_r($bestMatchCity);
+	print_r($bestMatchCity);
 
     $ipAddrData[$key]["mm_country_update"] = key($bestMatchCountry);
     $ipAddrData[$key]["mm_region_update"] = key($bestMatchRegion);
