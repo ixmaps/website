@@ -74,7 +74,7 @@ foreach ($ipAddrData as $key => $ipData) {
 	arsort($bestMatchRegion);
 	arsort($bestMatchCity);
 
-	//print_r($bestMatchCity);
+	print_r($bestMatchCity);
 
 
     $ipAddrData[$key]["mm_country_update"] = key($bestMatchCountry);
