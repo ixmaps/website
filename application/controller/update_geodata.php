@@ -91,7 +91,7 @@ foreach ($ipAddrData as $key => $ipData) {
 	//echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
 
 	//print_r($ipToGeoData);
-	print_r($ipAddrData[$key]);
+	//print_r($ipAddrData[$key]);
 	//echo json_encode($ipAddrData[$key]);
 
 	// update 
@@ -99,7 +99,7 @@ foreach ($ipAddrData as $key => $ipData) {
 
 } // end for set of ips
 
-//echo json_encode($ipAddrData);
+echo json_encode($ipAddrData);
 //print_r($ipAddrData);
 
 
