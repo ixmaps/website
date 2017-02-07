@@ -21,7 +21,7 @@ echo "\n--------"."\n";
 foreach ($ipAddrData as $key => $ipData) {
 	$ipToGeoData = array();
 	//$ipToGeoData = IXmapsGeoCorrection::updateGeoData($ipData); // old
-	$ipToGeoData = IXmapsGeoCorrection::analyzeClosestGeoData($ipData, 5)
+	$ipToGeoData = IXmapsGeoCorrection::analyzeClosestGeoData($ipData, 5);
 	
 	//print_r($ipToGeoData);
 
