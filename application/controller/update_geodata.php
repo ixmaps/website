@@ -37,10 +37,14 @@ foreach ($ipAddrData as $key => $ipData) {
 		$longitudeTo = $geoLocMatch['longitude'];
 		$distance = IXmapsGeoCorrection::distanceBetweenCoords($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo);
 		$ipToGeoData[$key1]['distance'] = $distance;
-		if(!isset($bestMatchCity[$geoLocMatch['city']])){
-			$bestMatchCity[$geoLocMatch['city']] = 1;
-		} else {
-			$bestMatchCity[$geoLocMatch['city']] += 1;	
+		
+		// Exclude null city names
+		if($geoLocMatch['city']!=""){
+			if(!isset($bestMatchCity[$geoLocMatch['city']])){
+				$bestMatchCity[$geoLocMatch['city']] = 1;
+			} else {
+				$bestMatchCity[$geoLocMatch['city']] += 1;	
+			}
 		}
 
 	}
