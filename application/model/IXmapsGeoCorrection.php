@@ -152,8 +152,8 @@ PHP Notice:  Undefined index: postal_code in /var/www/ixmaps/application/model/I
 		
 		//echo "---\nTest SQL Update: ".$sql."\n";
 
-		$result = pg_query($dbconn, $sql) or die('updateGeoData failed'.pg_last_error());
-		pg_free_result($result);
+		/*$result = pg_query($dbconn, $sql) or die('updateGeoData failed'.pg_last_error());
+		pg_free_result($result);*/
 		return 1;
 	}
 
