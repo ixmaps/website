@@ -86,12 +86,15 @@ foreach ($ipAddrData as $key => $ipData) {
 
 	//print_r($ipToGeoData);
 	//print_r($ipAddrData[$key]);
-	echo json_encode($ipAddrData[$key]);
+	//echo json_encode($ipAddrData[$key]);
 
 	// update 
 	$updateGeoData = IXmapsGeoCorrection::updateGeoData($ipAddrData[$key]);
 
 } // end for set of ips
+
+//echo json_encode($ipAddrData);
+print_r($ipAddrData);
 
 
 ?>
