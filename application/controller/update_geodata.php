@@ -37,6 +37,8 @@ foreach ($ipAddrData as $key => $ipData) {
 		$longitudeTo = $geoLocMatch['longitude'];
 		$distance = IXmapsGeoCorrection::distanceBetweenCoords($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo);
 		$ipToGeoData[$key1]['distance'] = $distance;
+
+		var_dump($geoLocMatch);
 		
 		// TODO add exclusion rule based on max distance
 
