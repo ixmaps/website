@@ -13,15 +13,15 @@ if(isset($_GET['ip'])){
 	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
 }
 
-echo "\n"."Selected (IP) Set: "."\n";
+/*echo "\n"."Selected (IP) Set: "."\n";
 print_r($ipAddrData);
-echo "\n--------"."\n";
+echo "\n--------"."\n";*/
 
 // Update geodata
 foreach ($ipAddrData as $key => $ipData) {
 	$ipToGeoData = array();
 	//$ipToGeoData = IXmapsGeoCorrection::updateGeoData($ipData); // old
-	$ipToGeoData = IXmapsGeoCorrection::analyzeClosestGeoData($ipData, 5);
+	$ipToGeoData = IXmapsGeoCorrection::getClosestGeoData($ipData, 5);
 	
 	//print_r($ipToGeoData);
 
@@ -38,13 +38,13 @@ foreach ($ipAddrData as $key => $ipData) {
 		$distance = IXmapsGeoCorrection::distanceBetweenCoords($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo);
 		$ipToGeoData[$key1]['distance'] = $distance;
 
-		var_dump($geoLocMatch);
+		//var_dump($geoLocMatch);
 		
 		// TODO add exclusion rule based on max distance
 
 		// Exclude null Country names
 		if($geoLocMatch['region']!=""){
-			if(!isset($bestMatchCountry[$geoLocMatch['country']])){
+			if(!isset($bestMatchCountry[$geoLocMatch['region']])){
 				$bestMatchRegion[$geoLocMatch['region']] = 1;
 			} else {
 				$bestMatchRegion[$geoLocMatch['region']] += 1;	
@@ -76,23 +76,22 @@ foreach ($ipAddrData as $key => $ipData) {
 	arsort($bestMatchRegion);
 	arsort($bestMatchCity);
 
-	print_r($bestMatchCity);
-
+	//print_r($bestMatchCity);
 
     $ipAddrData[$key]["mm_country_update"] = key($bestMatchCountry);
     $ipAddrData[$key]["mm_region_update"] = key($bestMatchRegion);
     $ipAddrData[$key]["mm_city_update"] = key($bestMatchCity);
 
-	echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
+	//echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
 
 	//print_r($ipToGeoData);
-	print_r($ipAddrData[$key]);
+	//print_r($ipAddrData[$key]);
+	echo json_encode($ipAddrData[$key]);
 
 	// update 
+	$updateGeoData = IXmapsGeoCorrection::updateGeoData($ipAddrData[$key]);
 
 } // end for set of ips
-
-
 
 
 ?>
