@@ -50,8 +50,9 @@ foreach ($ipAddrData as $key => $ipData) {
 	}
 	
 	echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
-	print_r($ipToGeoData);
+	arsort($bestMatchCity);
 	print_r($bestMatchCity);
+	print_r($ipToGeoData);
 }
 
 
