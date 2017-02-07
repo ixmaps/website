@@ -25,10 +25,10 @@ foreach ($ipAddrData as $key => $ipData) {
 	
 	//print_r($ipToGeoData);
 
-	$bestMatchIndex = 0;
-	$bestMatchCity = array ();
 	$bestMatchCountry = array ();
 	$bestMatchRegion = array ();
+	$bestMatchCity = array ();
+
 	// Add distance to each match
 	foreach ($ipToGeoData as $key1 => $geoLocMatch) {
 		$latitudeFrom = $ipAddrData[0]['lat'];
@@ -38,6 +38,26 @@ foreach ($ipAddrData as $key => $ipData) {
 		$distance = IXmapsGeoCorrection::distanceBetweenCoords($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo);
 		$ipToGeoData[$key1]['distance'] = $distance;
 		
+		// TODO add exclusion rule based on max distance
+
+		// Exclude null Country names
+		if($geoLocMatch['region']!=""){
+			if(!isset($bestMatchCountry[$geoLocMatch['country']])){
+				$bestMatchRegion[$geoLocMatch['region']] = 1;
+			} else {
+				$bestMatchRegion[$geoLocMatch['region']] += 1;	
+			}
+		}
+
+		// Exclude null Region names
+		if($geoLocMatch['country']!=""){
+			if(!isset($bestMatchCountry[$geoLocMatch['country']])){
+				$bestMatchCountry[$geoLocMatch['country']] = 1;
+			} else {
+				$bestMatchCountry[$geoLocMatch['country']] += 1;	
+			}
+		}
+
 		// Exclude null city names
 		if($geoLocMatch['city']!=""){
 			if(!isset($bestMatchCity[$geoLocMatch['city']])){
@@ -47,13 +67,28 @@ foreach ($ipAddrData as $key => $ipData) {
 			}
 		}
 
-	}
+	} // end for find best match
 	
-	echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
+    // add best match geoData
+	arsort($bestMatchCountry);
+	arsort($bestMatchRegion);
 	arsort($bestMatchCity);
-	print_r($bestMatchCity);
-	print_r($ipToGeoData);
-}
+
+	//print_r($bestMatchCity);
+
+
+    $ipAddrData[$key]["mm_country_update"] = key($bestMatchCountry);
+    $ipAddrData[$key]["mm_region_update"] = key($bestMatchRegion);
+    $ipAddrData[$key]["mm_city_update"] = key($bestMatchCity);
+
+	echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
+
+	//print_r($ipToGeoData);
+	print_r($ipAddrData[$key]);
+
+	// update 
+
+} // end for set of ips
 
 
 
