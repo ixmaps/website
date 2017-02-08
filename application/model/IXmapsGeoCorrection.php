@@ -26,7 +26,7 @@ class IXmapsGeoCorrection
 		
 		// select an ip 
 		} else if($type==2){
-			$sql1 = "SELECT ip_addr, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE ip_addr = '".$ip."';";
+			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE ip_addr = '".$ip."';";
 
 		}
 
