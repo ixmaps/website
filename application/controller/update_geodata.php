@@ -1,4 +1,9 @@
 <?php
+/*
+	This script searches for the closest Geographic data (Country, Region, and city) for pair of coordinates (latitude and longitude).
+
+	The script is called after a geo-correction has changed lat/long fields in ip_addr_info table
+*/
 header('Access-Control-Allow-Origin: *'); 
 $appPath = "/var/www/ixmaps/application"; // new server
 include($appPath.'/config.php');
@@ -10,7 +15,7 @@ if(isset($_GET['ip'])){
 	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 2, $testIp);
 } else {
 	// Get corrected IPs 
-	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 1);
+	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(10, 1);
 }
 
 if(isset($_GET['m'])){ 
@@ -19,9 +24,9 @@ if(isset($_GET['m'])){
 	$matchLimit = 5;
 }
 
-/*echo "\n"."Selected (IP) Set: "."\n";
-print_r($ipAddrData);
-echo "\n--------"."\n";*/
+/* collect parameters if run from the command line */
+//$params = getopt("f:hp:");
+
 
 // Update geodata
 foreach ($ipAddrData as $key => $ipData) {
@@ -84,9 +89,13 @@ foreach ($ipAddrData as $key => $ipData) {
 
 	//print_r($bestMatchCity);
 
+	// add best match 
     $ipAddrData[$key]["mm_country_update"] = key($bestMatchCountry);
     $ipAddrData[$key]["mm_region_update"] = key($bestMatchRegion);
     $ipAddrData[$key]["mm_city_update"] = key($bestMatchCity);
+
+    // add all matches: for reference
+    $ipAddrData[$key]['closest_matches'] = $ipToGeoData;
 
 	//echo "\n"."Nearest GeoData (Country/City) found for (IP) Set: "."\n";
 
