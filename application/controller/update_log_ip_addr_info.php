@@ -11,6 +11,7 @@ include($appPath.'/model/IXmapsGeoCorrection.php');
 
 $limit = 100;
 $ipAddrData = IXmapsGeoCorrection::getIpAddrInfo($limit);
-$lastIp = IXmapsGeoCorrection::insertLogIpAddrInfo($ipAddrData);
-echo "\n Last Ip: ".$lastIp."\n";
+print_r($ipAddrData);
+/*$lastIp = IXmapsGeoCorrection::insertLogIpAddrInfo($ipAddrData);
+echo "\n Last Ip: ".$lastIp."\n";*/
 ?>
