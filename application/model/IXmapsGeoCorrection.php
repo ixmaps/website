@@ -9,7 +9,10 @@ class IXmapsGeoCorrection
 		// select last ip
 		if($type==0){
 
-			// check last ip
+			/*New approch: select recently added ips by searching those that do not exist yet in log_ip_addr_info*/
+			$sql1 = "SELECT * FROM ip_addr_info l WHERE  NOT EXISTS (SELECT 1 FROM log_ip_addr_info i WHERE l.ip_addr = i.ip_addr) ORDER BY ip_addr LIMIT $limit;";
+
+			/*// check last ip
 			$sql = "SELECT ip_addr FROM log_ip_addr_info ORDER BY ip_addr DESC LIMIT 1";
 			$result = pg_query($dbconn, $sql);
 			$lastIp = pg_fetch_all($result);
@@ -19,10 +22,11 @@ class IXmapsGeoCorrection
 				$sql1 = "SELECT * FROM ip_addr_info ORDER BY ip_addr LIMIT $limit";
 			} else {
 				$sql1 = "SELECT * FROM ip_addr_info WHERE ip_addr > '".$lastIp[0]['ip_addr']."' ORDER BY ip_addr LIMIT $limit";
-			}
+			}*/
+		
 		// select geo-corrected ips
 		} else if($type==1){
-			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE p_status='G' LIMIT 10;";
+			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE p_status='G' LIMIT $limit;";
 		
 		// select an ip 
 		} else if($type==2){

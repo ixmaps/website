@@ -12,7 +12,7 @@ include($appPath.'/model/IXmapsGeoCorrection.php');
 $limit = 10;
 $ipAddrData = IXmapsGeoCorrection::getIpAddrInfo($limit, 0);
 if(!$ipAddrData){
-	echo "\n Nothing to do.";
+	echo "\n Nothing to do."."\n";
 } else {
 $lastIp = IXmapsGeoCorrection::insertLogIpAddrInfo($ipAddrData);
 	echo "\n Last Ip: ".$lastIp."\n";	
