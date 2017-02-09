@@ -69,9 +69,9 @@ class GatherTr
 			$data['submitter']=mb_strimwidth($data['submitter'], 0, 25, "...");
 		}
 
-		// trim postal_code to field char limit = 10
+		// trim postal_code field char limit = 10
 		if(strlen($data['postal_code'])>10){
-			$data['postal_code'] = substr($string,0,9);
+			$data['postal_code'] = substr($data['postal_code'],0,10);
 		}
 		
 		$trData = array($data['dest'], $data['dest_ip'], $data['city'], $data['country'], $data['submitter'], $data['submitter_ip'], $data['os'], $data['postal_code'], $data['privacy'], $data['timeout'], $data['queries'], $data['maxhops'], 0, $data['error'], $data['client_params'], $data['submitter_asnum'], $data['metadata']);
