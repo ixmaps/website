@@ -15,8 +15,13 @@ if(isset($_GET['ip'])){
 	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 2, $testIp);
 } else {
 	// Get corrected IPs 
-	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(200, 1);
+	//$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(200, 1);
+
+	// IP with no city name
+	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(100, 3);
+
 }
+
 
 if(isset($_GET['m'])){ 
 	$matchLimit = $_GET['m'];
@@ -108,7 +113,8 @@ foreach ($ipAddrData as $key => $ipData) {
 
 } // end for set of ips
 
-echo json_encode($ipAddrData);
+//echo json_encode($ipAddrData);
+echo "\n"."done\n";
 //print_r($ipAddrData);
 
 

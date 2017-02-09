@@ -31,7 +31,9 @@ class IXmapsGeoCorrection
 		// select an ip 
 		} else if($type==2){
 			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE ip_addr = '".$ip."';";
-
+		
+		} else if($type==3){
+			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE mm_city = '' and p_status<>'F'  lat <> 0 and gl_override is not null and porder by ip_addr limit $limit;"
 		}
 
 		$result1 = pg_query($dbconn, $sql1);
