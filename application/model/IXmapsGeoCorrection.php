@@ -134,7 +134,7 @@ class IXmapsGeoCorrection
 	{
 		global $dbconn;
 		// Update geo data for ip
-		$sql = "UPDATE ip_addr_info SET mm_country = '".$ipData['mm_country_update']."', mm_region = '".$ipData['mm_region_update']."',  mm_city = '".$ipData['mm_city_update']."', p_status = '".$p_status."', datemodified = 'NOW()'  WHERE ip_addr = '".$ipData['ip_addr']."';";
+		$sql = "UPDATE ip_addr_info SET mm_country = '".$ipData['mm_country_update']."', mm_region = '".$ipData['mm_region_update']."',  mm_city = '".$ipData['mm_city_update']."', p_status = '".$p_status."', datemodified = 'NOW()' WHERE ip_addr = '".$ipData['ip_addr']."';";
 		
 		//echo "---\nTest SQL Update: ".$sql."\n";
 
