@@ -130,7 +130,7 @@ class IXmapsGeoCorrection
 	 * @param string $p_status target p_status for the update
 	 * @return int 
 	 */
-	public static function updateGeoData($ipData, $p_status='G') 
+	public static function updateGeoData($ipData, $p_status='F') 
 	{
 		global $dbconn;
 		// Update geo data for ip
