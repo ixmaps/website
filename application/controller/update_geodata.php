@@ -15,7 +15,7 @@ if(isset($_GET['ip'])){
 	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(0, 2, $testIp);
 } else {
 	// Get corrected IPs 
-	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(10, 1);
+	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo(200, 1);
 }
 
 if(isset($_GET['m'])){ 
