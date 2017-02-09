@@ -34,7 +34,7 @@ class IXmapsGeoCorrection
 		
 		// select ips not geo corrected, with valid coordinates, but with not city name
 		} else if($type==3){
-			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city, gl_override, p_status FROM ip_addr_info WHERE mm_city = '' and p_status<>'F' and p_status<>'G' and p_status<>'U' and lat <> 0 and gl_override is not null order by ip_addr OFFSET $offset LIMIT $limit;";
+			$sql1 = "SELECT ip_addr, gl_override, p_status, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE mm_city = '' and p_status<>'F' and p_status<>'G' and p_status<>'U' and lat <> 0 and gl_override is not null order by ip_addr OFFSET $offset LIMIT $limit;";
 		}
 
 		$result1 = pg_query($dbconn, $sql1);

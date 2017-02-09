@@ -117,7 +117,7 @@ if(!$ipAddrData){
 	    $ipAddrData[$key]["mm_city_update"] = key($bestMatchCity);
 
 	    // add all matches: for reference
-	    $ipAddrData[$key]['closest_matches'] = $ipToGeoData;
+	    //$ipAddrData[$key]['closest_matches'] = $ipToGeoData;
 
 		// update 
 		if($updateMode){
