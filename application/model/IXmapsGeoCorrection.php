@@ -2,7 +2,7 @@
 class IXmapsGeoCorrection
 {
 	
-	public static function getIpAddrInfo($limit, $type=0, $ip='')
+	public static function getIpAddrInfo($limit, $type=0, $ip='', $offset=0)
 	{
 		global $dbconn;
 
@@ -32,8 +32,9 @@ class IXmapsGeoCorrection
 		} else if($type==2){
 			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE ip_addr = '".$ip."';";
 		
+		// select ips not geo corrected, with valid coordinates, but with not city name
 		} else if($type==3){
-			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE mm_city = '' and p_status<>'F'  lat <> 0 and gl_override is not null and porder by ip_addr limit $limit;";
+			$sql1 = "SELECT ip_addr, asnum, hostname, lat, long, mm_country, mm_region, mm_city FROM ip_addr_info WHERE mm_city = '' and p_status<>'F' and p_status<>'G' and p_status<>'U' and lat <> 0 and gl_override is not null order by ip_addr OFFSET $offset LIMIT $limit;";
 		}
 
 		$result1 = pg_query($dbconn, $sql1);
@@ -124,14 +125,16 @@ class IXmapsGeoCorrection
 	}
 
 	/**
-	 * Updates country, region, and city for an geo corrected ip address. 
-	 * Uses MM city locations db and finds the closest city for a latitide/longitude pair.
+	 * Updates country, region, and city in ip_addr_info table
+	 * @param array $ipData Geodata 
+	 * @param string $p_status target p_status for the update
+	 * @return int 
 	 */
-	public static function updateGeoData($ipData) 
+	public static function updateGeoData($ipData, $p_status='G') 
 	{
 		global $dbconn;
 		// Update geo data for ip
-		$sql = "UPDATE ip_addr_info SET mm_country = '".$ipData['mm_country_update']."', mm_region = '".$ipData['mm_region_update']."',  mm_city = '".$ipData['mm_city_update']."', p_status = 'F' WHERE ip_addr = '".$ipData['ip_addr']."';";
+		$sql = "UPDATE ip_addr_info SET mm_country = '".$ipData['mm_country_update']."', mm_region = '".$ipData['mm_region_update']."',  mm_city = '".$ipData['mm_city_update']."', p_status = '".$p_status."', datemodified = 'NOW()'  WHERE ip_addr = '".$ipData['ip_addr']."';";
 		
 		//echo "---\nTest SQL Update: ".$sql."\n";
 
@@ -145,7 +148,7 @@ class IXmapsGeoCorrection
 	{
 		global $dbconn;
 
-		// select HE ips
+		// select ips
 		$sql = "SELECT ip_addr FROM log_ip_addr_info WHERE asnum = 6939 and arin_updated = 0 ORDER BY ip_addr";
 
 		// test
