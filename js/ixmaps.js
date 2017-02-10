@@ -161,9 +161,12 @@ var initialize = function() {
 
   jQuery('#userloc-close-btn').click(function() {
     jQuery('#userloc').hide();
-
     submitUserLocObject();
   });
+
+  jQuery('#userloc-find-creepy-btn').click(function() {
+    jQuery('#userloc-creepy-explanation').toggle();
+  })
 
   // add the first row of constraints
   addFilterConstraint();
@@ -572,7 +575,9 @@ var firstLoadFunc = function () {
       var myISP = result.isp
       jQuery('#userloc').show();
       jQuery('.userloc-ip').text(myIp);
-      jQuery('.userloc-city').text(myCity);
+      if (myCity) {
+        jQuery('.userloc-city').text(myCity + ', ');
+      }
       jQuery('.userloc-country').text(myCountry);
       jQuery('.userloc-isp').text(myISP);
     }
@@ -584,6 +589,28 @@ var firstLoadFunc = function () {
 
 var submitUserLocObject = function() {
   var userLocJSON = {
+    "parameters":
+    {
+      "submitOnLoad": true,
+      "submissionType": "customFilter",
+      "otherFunction": ""
+    },
+    "constraints":
+    {
+      "filter-constraint-1":
+      {
+        constraint1: "does",
+        constraint2: "originate",
+        constraint3: "",
+        constraint4: "",
+        constraint5: "AND"
+      }
+    }
+  };
+
+  if (myISP && myCity) {
+    console.log('Searching based on ISP and city');
+    userLocJSON = {
       "parameters":
       {
         "submitOnLoad": true,
@@ -596,14 +623,21 @@ var submitUserLocObject = function() {
         {
           constraint1: "does",
           constraint2: "originate",
-          constraint3: "",
-          constraint4: "",
+          constraint3: "ISP",
+          constraint4: myISP,
+          constraint5: "AND"
+        },
+        "filter-constraint-2":
+        {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "city",
+          constraint4: myCity,
           constraint5: "AND"
         }
       }
     };
-
-  if (myISP) {
+  } else if (myISP) {
     console.log('Searching based on ISP');
     userLocJSON.constraints["filter-constraint-1"].constraint3 = "ISP";
     userLocJSON.constraints["filter-constraint-1"].constraint4 = myISP;

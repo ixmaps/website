@@ -353,14 +353,23 @@
   border-radius: 9px;
   padding: 16px 40px;
 }
-#userloc-input button {
+#userloc-input #userloc-close-btn {
   background-color: #10578b;
   color: white;
   font-size: 20px;
   padding: 4px 12px;
   border-radius: 3px;
   border-bottom: none;
-  margin-top: 25px;
+  float: right;
+}
+#userloc-input #userloc-find-creepy-btn {
+  float: left;
+  color: green;
+  cursor: pointer;
+}
+#userloc-input #userloc-creepy-explanation {
+  background: #e8e8e8;
+  padding: 20px;
 }
 
 .loader-image img {

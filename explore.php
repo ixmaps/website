@@ -147,12 +147,23 @@ geoip_close($gi1);
             Your current IP address is <span class="userloc-ip"></span>
           </div>
           <div>
-            You appear to be near <span class="userloc-city"></span>, <span class="userloc-country"></span>
+            You appear to be near <span class="userloc-city"></span><span class="userloc-country"></span>
           </div>
           <div>
             Your Internet Service Provider is <span class="userloc-isp"></span>
           </div>
-          <button id="userloc-close-btn">Go To Map</button>
+          <br />
+          <br />
+          <div>
+            <!-- <span style="float:left; font-size: 12px;">Please review and correct if needed</span> -->
+            <span id="userloc-find-creepy-btn">Find this creepy?</span>
+            <button id="userloc-close-btn">Go To Map</button>
+          </div>
+
+          <br/><br/><br/>
+          <div id="userloc-creepy-explanation" style="display: none; clear: both;">
+            Every website you visit, and all the carriers along the way, needs the IP address of your device to transmit your data and return content. Using commonly available IP address lookup services, any of these can determine your approximate location. These service providers can also capture your communications, and are larger unfettered in using it for their own purposes. They can also secretly hand it over to third parties, including law enforcement and security agencies. With IXmaps, we only use your IP address to produce these maps. For more, see our privacy policy.
+          </div>
         </div>
       </div>
 
