@@ -346,7 +346,8 @@
   position: absolute;
   z-index: 51;
   top: 10%;
-  left: 27%;
+  left: 15%;
+  width: 600px;
   font-size: 20px;
   border: 1px solid grey;
   border-radius: 9px;

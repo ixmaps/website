@@ -65,6 +65,7 @@ geoip_close($gi1);
     var myIp = '<?php if(isset($myIp)) { echo $myIp;} ?>';
     var myCity = '<?php if(isset($myCity)) { echo $myCity;} ?>';
     var myCountry = '<?php if(isset($myCountry)) { echo $myCountry;} ?>';
+    var myISP = null;   // can't get this here cause geoip_open is not what we want, see ixmaps.js firstLoad()
 
     jQuery(document).ready(function() {
       getChotel();
@@ -147,6 +148,9 @@ geoip_close($gi1);
           </div>
           <div>
             You appear to be near <span class="userloc-city"></span>, <span class="userloc-country"></span>
+          </div>
+          <div>
+            Your Internet Service Provider is <span class="userloc-isp"></span>
           </div>
           <button id="userloc-close-btn">Go To Map</button>
         </div>

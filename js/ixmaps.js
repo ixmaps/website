@@ -566,19 +566,24 @@ var firstLoadFunc = function () {
   //   position: 'mid-center',
   //   icon: 'info',
   // });
-  jQuery('#userloc').show();
-  jQuery('.userloc-ip').text(myIp);
-  jQuery('.userloc-city').text(myCity);
-  jQuery('.userloc-country').text(myCountry);
+  jQuery.ajax({
+    url: "https://www.ixmaps.ca/application/geoip/mygeoip.php",
+    success: function(result) {
+      var myISP = result.isp
+      jQuery('#userloc').show();
+      jQuery('.userloc-ip').text(myIp);
+      jQuery('.userloc-city').text(myCity);
+      jQuery('.userloc-country').text(myCountry);
+      jQuery('.userloc-isp').text(myISP);
+    }
+  });
+
 
   firstLoad = false;
 }
 
 var submitUserLocObject = function() {
-  var userLocJSON = {};
-
-  if (myCity) {
-    userLocJSON = {
+  var userLocJSON = {
       "parameters":
       {
         "submitOnLoad": true,
@@ -591,46 +596,42 @@ var submitUserLocObject = function() {
         {
           constraint1: "does",
           constraint2: "originate",
-          constraint3: "city",
-          constraint4: myCity,
+          constraint3: "",
+          constraint4: "",
           constraint5: "AND"
         }
       }
     };
+
+  if (myISP) {
+    console.log('Searching based on ISP');
+    userLocJSON.constraints["filter-constraint-1"].constraint3 = "ISP";
+    userLocJSON.constraints["filter-constraint-1"].constraint4 = myISP;
+    var jsonToString = JSON.stringify(userLocJSON);
+    processPostedData(jsonToString);
+  } else if (myCity) {
+    console.log('Searching based on city');
+    userLocJSON.constraints["filter-constraint-1"].constraint3 = "city";
+    userLocJSON.constraints["filter-constraint-1"].constraint4 = myCity;
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
   } else if (myCountry) {
-    userLocJSON = {
-      "parameters":
-      {
-        "submitOnLoad": true,
-        "submissionType": "customFilter",
-        "otherFunction": ""
-      },
-      "constraints":
-      {
-        "filter-constraint-1":
-        {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "country",
-          constraint4: myCountry,
-          constraint5: "AND"
-        }
-      }
-    };
+    console.log('Searching based on country');
+    userLocJSON.constraints["filter-constraint-1"].constraint3 = "country";
+    userLocJSON.constraints["filter-constraint-1"].constraint4 = myCountry;
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
   } else {
+    console.log('We give up, last submission instead of user geoloc');
     submitLastSubmissionObject();
   }
 }
 
 // START
-// we're not going to allow correction of this information right now (can add tho)
-// we're not going do ISP now
-
 // next add expand + find this creepy
+// add correction of this information
+
+
 
 var bindAutocompletes = function(tagType, rowId) {
   el = rowId + " .constraint-text-entry";
