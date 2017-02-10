@@ -302,7 +302,7 @@
   height: 550px;
 }
 
-#loader {
+#loader, #userloc {
   position: absolute;
   top: 0;
   left: 0;
@@ -310,6 +310,9 @@
   width: 100.5%;
   height: 100.5%;
   text-align: center;
+}
+#userloc {
+  height: 142%;
 }
 
 .loader-image {
@@ -328,6 +331,35 @@
   background-color: #000;
   opacity: 0.3;
   z-index: 50;
+}
+
+#userloc-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 50;
+}
+#userloc-input {
+  position: absolute;
+  z-index: 51;
+  top: 10%;
+  left: 27%;
+  font-size: 20px;
+  border: 1px solid grey;
+  border-radius: 9px;
+  padding: 16px 40px;
+}
+#userloc-input button {
+  background-color: #10578b;
+  color: white;
+  font-size: 20px;
+  padding: 4px 12px;
+  border-radius: 3px;
+  border-bottom: none;
+  margin-top: 25px;
 }
 
 .loader-image img {

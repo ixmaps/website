@@ -12,8 +12,10 @@ $myIp = $_SERVER['REMOTE_ADDR'];
 //$myIp = "";
 $gi1 = geoip_open($MM_dat_dir."/GeoLiteCityv6.dat",GEOIP_STANDARD);
 $record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
+
 $myCity = ''.$record1->city;
 $myCountry = ''.$record1->country_code;
+
 geoip_close($gi1);
 
 ?>
@@ -108,7 +110,7 @@ geoip_close($gi1);
   <link rel="stylesheet" href="css/ix.css" type="text/css" />
   <link rel="stylesheet" href="css/ix-explore.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrites.css" type="text/css" />
-  
+
   <!-- include analytics -->
   <?php include("includes/analytics.php"); ?>
 </head>
@@ -134,6 +136,19 @@ geoip_close($gi1);
           <div id="cancel-query-div">
             <button id="cancel-query">Cancel</button>
           </div>
+        </div>
+      </div>
+
+      <div id="userloc" style="display: none">
+        <div id="userloc-mask"></div>
+        <div id="userloc-input">
+          <div>
+            Your current IP address is <span class="userloc-ip"></span>
+          </div>
+          <div>
+            You appear to be near <span class="userloc-city"></span>, <span class="userloc-country"></span>
+          </div>
+          <button id="userloc-close-btn">Go To Map</button>
         </div>
       </div>
 

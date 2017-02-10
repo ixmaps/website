@@ -159,6 +159,12 @@ var initialize = function() {
     hideLoader();
   });
 
+  jQuery('#userloc-close-btn').click(function() {
+    jQuery('#userloc').hide();
+
+    submitUserLocObject();
+  });
+
   // add the first row of constraints
   addFilterConstraint();
 
@@ -181,13 +187,11 @@ var initialize = function() {
   setAllowMultipleTrs();
   //excludeE();       // c'mon, for serious?
 
-  // since we now want the last submitted route to be shown on landing
-  submitLastSubmissionObject();
+  // since we now want the last submitted route to be shown on landing - now switching to user loc (see userloc-close-btn)
+  //submitLastSubmissionObject();
   // show button as selected
-  jQuery('#last-submission-button').addClass('selected');
-
+  //jQuery('#last-submission-button').addClass('selected');
 }
-
 
 var submitNSAObject = function() {
   resetFilterConstraints();
@@ -553,17 +557,80 @@ var firstLoadFunc = function () {
   // bind data for first row on first load
   bindAutocompletes('country', '#filter-constraint-1');
 
-  jQuery.toast({
-    heading: 'Welcome to the Explore page',
-    text: 'The map shows the path of the most recent traceroute contributed to the IXmaps database. For more details, see panels on the right, hover over the routers (dots) and click on the hops (lines).',
-    hideAfter: 10000,
-    allowToastClose: true,
-    position: 'mid-center',
-    icon: 'info',
-  });
+  // jQuery.toast({
+  //   heading: 'Welcome to the Explore page',
+  //   // text: 'The map shows the path of the most recent traceroute contributed to the IXmaps database. For more details, see panels on the right, hover over the routers (dots) and click on the hops (lines). You appear to be in ' +myCity+ ', ' +myCountry+ ' at the IP address ' +myIp+ '.' ,
+  //   text: 'Your current IP address is: '+myIp+ '. You appear to be near ' +myCity+ ', ' +myCountry+'.',
+  //   hideAfter: 1000000,       // hackeroo
+  //   allowToastClose: true,
+  //   position: 'mid-center',
+  //   icon: 'info',
+  // });
+  jQuery('#userloc').show();
+  jQuery('.userloc-ip').text(myIp);
+  jQuery('.userloc-city').text(myCity);
+  jQuery('.userloc-country').text(myCountry);
 
   firstLoad = false;
 }
+
+var submitUserLocObject = function() {
+  var userLocJSON = {};
+
+  if (myCity) {
+    userLocJSON = {
+      "parameters":
+      {
+        "submitOnLoad": true,
+        "submissionType": "customFilter",
+        "otherFunction": ""
+      },
+      "constraints":
+      {
+        "filter-constraint-1":
+        {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "city",
+          constraint4: myCity,
+          constraint5: "AND"
+        }
+      }
+    };
+    var jsonToString = JSON.stringify(userLocJSON);
+    processPostedData(jsonToString);
+  } else if (myCountry) {
+    userLocJSON = {
+      "parameters":
+      {
+        "submitOnLoad": true,
+        "submissionType": "customFilter",
+        "otherFunction": ""
+      },
+      "constraints":
+      {
+        "filter-constraint-1":
+        {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "country",
+          constraint4: myCountry,
+          constraint5: "AND"
+        }
+      }
+    };
+    var jsonToString = JSON.stringify(userLocJSON);
+    processPostedData(jsonToString);
+  } else {
+    submitLastSubmissionObject();
+  }
+}
+
+// START
+// we're not going to allow correction of this information right now (can add tho)
+// we're not going do ISP now
+
+// next add expand + find this creepy
 
 var bindAutocompletes = function(tagType, rowId) {
   el = rowId + " .constraint-text-entry";
