@@ -4,22 +4,13 @@ include('../config.php');
 include('../model/GatherTr.php');
 include('../model/IXmapsMaxMind.php'); 
 
-///$myIp = $_SERVER['REMOTE_ADDR'];
-$myIp = "142.150.149.197"; // ixmaps server
+$myIp = $_SERVER['REMOTE_ADDR'];
 
 // Open MaxMind files
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($myIp);
 
-//$_POST['metadata']=json_encode(array("HTTP_USER_AGENT"=>$_SERVER['HTTP_USER_AGENT']));
 $_POST['submitter_ip'] = $myIp;
-
-/*try {
-    $_POST['city'] = ;
-    stir();
-} catch (Exception $e) {
-    die("I could not make you a cocktail");
-}*/
 
 if(!isset($_POST['city']) && isset($geoIp['geoip']['city'])){
 	$_POST['city'] = $geoIp['geoip']['city'];	
