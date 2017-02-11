@@ -11,7 +11,7 @@ include($appPath.'/config.php');
 include($appPath.'/model/IXmapsGeoCorrection.php'); 
 
 
-$updateMode = false; // !!
+$updateMode = true; // !!
 
 
 if(isset($_GET['limit'])){ 
