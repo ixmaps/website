@@ -17,7 +17,7 @@ $updateMode = false; // !!
 if(isset($_GET['limit'])){ 
 	$ipLimit = $_GET['limit'];
 } else {
-	$ipLimit = 10;
+	$ipLimit = 20;
 }
 
 if(isset($_GET['offset'])){ 
@@ -29,7 +29,13 @@ if(isset($_GET['offset'])){
 if(isset($_GET['m'])){ 
 	$matchLimit = $_GET['m'];
 } else {
-	$matchLimit = 5;
+	$matchLimit = 30;
+}
+
+if(isset($_GET['asn'])){ 
+	$asn = $_GET['asn'];
+} else {
+	$asn = 0;
 }
 
 // Get single IP
@@ -42,6 +48,9 @@ if(isset($_GET['ip'])){
 
 	// Get ips with mm_city = '' 
 	$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo($ipLimit, 3, '', $ipOffset);
+	
+	// Get ips with mm_city = '' and asn
+	//$ipAddrData = IXmapsGeoCorrection::getIpAddrInfo($ipLimit, 4, '', $ipOffset, $asn);
 }
 
 /* collect parameters if run from the command line */
@@ -117,11 +126,11 @@ if(!$ipAddrData){
 	    $ipAddrData[$key]["mm_city_update"] = key($bestMatchCity);
 
 	    // add all matches: for reference
-	    //$ipAddrData[$key]['closest_matches'] = $ipToGeoData;
+	    $ipAddrData[$key]['closest_matches'] = $ipToGeoData;
 
 		// update 
 		if($updateMode){
-			//$updateGeoData = IXmapsGeoCorrection::updateGeoData($ipAddrData[$key]);	
+			$updateGeoData = IXmapsGeoCorrection::updateGeoData($ipAddrData[$key]);	
 		}
 		
 
