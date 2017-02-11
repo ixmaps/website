@@ -136,8 +136,8 @@ if(!$ipAddrData){
 
 	} // end for set of ips
 
-	echo json_encode($ipAddrData);
-	//echo "\n"."done\n";
+	//echo json_encode($ipAddrData);
+	echo "\n"."done\n";
 	//print_r($ipAddrData);
 
 
