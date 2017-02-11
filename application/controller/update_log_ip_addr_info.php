@@ -9,7 +9,7 @@ include($appPath.'/config.php');
 //include('../model/IXmapsMaxMind.php'); 
 include($appPath.'/model/IXmapsGeoCorrection.php'); 
 
-$limit = 10;
+$limit = 100;
 $ipAddrData = IXmapsGeoCorrection::getIpAddrInfo($limit, 0);
 if(!$ipAddrData){
 	echo "\n Nothing to do."."\n";
