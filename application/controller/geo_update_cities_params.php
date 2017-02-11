@@ -17,7 +17,7 @@ $updateMode = true; // !!
 if(isset($_GET['limit'])){ 
 	$ipLimit = $_GET['limit'];
 } else {
-	$ipLimit = 20;
+	$ipLimit = 30;
 }
 
 if(isset($_GET['offset'])){ 
