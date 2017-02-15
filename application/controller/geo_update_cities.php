@@ -21,7 +21,7 @@ if(isset($_GET['ip'])){
 if(isset($_GET['m'])){ 
 	$matchLimit = $_GET['m'];
 } else {
-	$matchLimit = 5;
+	$matchLimit = 30;
 }
 
 /* collect parameters if run from the command line */
