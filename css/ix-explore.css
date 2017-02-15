@@ -347,7 +347,7 @@
   z-index: 51;
   top: 10%;
   left: 15%;
-  width: 600px;
+  width: 610px;
   font-size: 20px;
   border: 1px solid grey;
   border-radius: 9px;
@@ -356,7 +356,7 @@
 #userloc-input #userloc-close-btn {
   background-color: #10578b;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   padding: 4px 12px;
   border-radius: 3px;
   border-bottom: none;
@@ -366,10 +366,18 @@
   float: left;
   color: green;
   cursor: pointer;
+  margin-top: 4px;
 }
 #userloc-input #userloc-creepy-explanation {
   background: #e8e8e8;
   padding: 20px;
+}
+#userloc-input .editable {
+  background: #e8e8e8;
+}
+#userloc-input .editing {
+  background: white;
+  border: 1px solid grey;
 }
 
 .loader-image img {

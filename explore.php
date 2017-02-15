@@ -146,16 +146,18 @@ geoip_close($gi1);
           <div>
             Your current IP address is <span class="userloc-ip"></span>
           </div>
-          <div>
-            You appear to be near <span class="userloc-city"></span><span class="userloc-country"></span>
-          </div>
-          <div>
-            Your Internet Service Provider is <span class="userloc-isp"></span>
-          </div>
-          <br />
           <br />
           <div>
-            <!-- <span style="float:left; font-size: 12px;">Please review and correct if needed</span> -->
+            You appear to be near <input class="userloc-city"></input> <input class="userloc-country"></input>
+          </div>
+          <br />
+          <div>
+            Your Internet Service Provider is <input class="userloc-isp"></input>
+          </div>
+          <br />
+          <div style="font-size: 12px;"><i>Please review and correct if needed</i></div>
+          <br /><br /><br />
+          <div>
             <span id="userloc-find-creepy-btn">Find this creepy?</span>
             <button id="userloc-close-btn">Go To Map</button>
           </div>

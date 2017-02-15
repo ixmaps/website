@@ -166,7 +166,7 @@ var initialize = function() {
 
   jQuery('#userloc-find-creepy-btn').click(function() {
     jQuery('#userloc-creepy-explanation').toggle();
-  })
+  });
 
   // add the first row of constraints
   addFilterConstraint();
@@ -439,19 +439,19 @@ var submitQuery = function(obj) {
         // we may need more error messages, but for now this will handle the majority...
         jQuery.toast({
           heading: 'No routes found',
-          text: 'No routes were found with specified criteria. Adjust the query options to be more inclusive, then click Submit.',
-          hideAfter: 6000,
+          text: 'No routes were found with specified criteria, returning last submitted route instead. Adjust the query options to be more inclusive, then click Submit to re-query.',
+          hideAfter: 10000,
           allowToastClose: true,
           position: 'mid-center',
           icon: 'error',
         });
+        // DANGER! This could result in an endless loop if there is no last submitted
+        submitLastSubmissionObject();
         jQuery('#filter-results-log').show();
         jQuery('#filter-results-log').html(data.queryLogs);
         jQuery('#filter-results-summary').html(data.querySummary);
       }
-
       hideLoader();
-
     },
     error: function (e) {
       console.log("Error! Submission unsuccessful");
@@ -560,11 +560,22 @@ var firstLoadFunc = function () {
   // bind data for first row on first load
   bindAutocompletes('country', '#filter-constraint-1');
 
+  // clean this up for next time - autocomplete needs more abstracting
+  jQuery(jQuery('.userloc-city')).autocomplete({
+    source: cityTags
+  });
+  jQuery(jQuery('.userloc-country')).autocomplete({
+    source: countryTags
+  });
+  jQuery(jQuery('.userloc-isp')).autocomplete({
+    source: ISPTags
+  });
+
   // jQuery.toast({
   //   heading: 'Welcome to the Explore page',
   //   // text: 'The map shows the path of the most recent traceroute contributed to the IXmaps database. For more details, see panels on the right, hover over the routers (dots) and click on the hops (lines). You appear to be in ' +myCity+ ', ' +myCountry+ ' at the IP address ' +myIp+ '.' ,
   //   text: 'Your current IP address is: '+myIp+ '. You appear to be near ' +myCity+ ', ' +myCountry+'.',
-  //   hideAfter: 1000000,       // hackeroo
+  //   hideAfter: 10000,
   //   allowToastClose: true,
   //   position: 'mid-center',
   //   icon: 'info',
@@ -575,11 +586,9 @@ var firstLoadFunc = function () {
       var myISP = result.isp
       jQuery('#userloc').show();
       jQuery('.userloc-ip').text(myIp);
-      if (myCity) {
-        jQuery('.userloc-city').text(myCity + ', ');
-      }
-      jQuery('.userloc-country').text(myCountry);
-      jQuery('.userloc-isp').text(myISP);
+      jQuery('.userloc-city').val(myCity);
+      jQuery('.userloc-country').val(myCountry);
+      jQuery('.userloc-isp').val(myISP);
     }
   });
 
@@ -588,6 +597,10 @@ var firstLoadFunc = function () {
 }
 
 var submitUserLocObject = function() {
+  myCity = jQuery('.userloc-city').val();
+  myCountry = jQuery('.userloc-country').val();
+  myISP = jQuery('.userloc-isp').val();
+
   var userLocJSON = {
     "parameters":
     {
@@ -637,6 +650,8 @@ var submitUserLocObject = function() {
         }
       }
     };
+    var jsonToString = JSON.stringify(userLocJSON);
+    processPostedData(jsonToString);
   } else if (myISP) {
     console.log('Searching based on ISP');
     userLocJSON.constraints["filter-constraint-1"].constraint3 = "ISP";
@@ -656,14 +671,10 @@ var submitUserLocObject = function() {
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
   } else {
-    console.log('We give up, last submission instead of user geoloc');
+    console.log('Giving up, last submission instead of user geoloc');
     submitLastSubmissionObject();
   }
 }
-
-// START
-// next add expand + find this creepy
-// add correction of this information
 
 
 
