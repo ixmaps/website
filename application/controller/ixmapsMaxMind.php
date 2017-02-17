@@ -18,6 +18,7 @@ if($geoIp['geoip']['city']==null){
 	$matchLimit = 10;
 	$ipToGeoData = IXmapsGeoCorrection::getClosestGeoData($ipData, $matchLimit);
 	$geoIp['matches']=$ipToGeoData;
+}
 
 echo json_encode($geoIp);
 ?>
