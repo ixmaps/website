@@ -7,6 +7,11 @@ $ip=$_GET['ip'];
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($ip);
 //print_r($geoIp);
-echo json_encode($geoIp);
 $mm->closeDatFiles();
+
+
+if($geoIp['geoip']['city']==null){
+	echo "city is null";
+}
+echo json_encode($geoIp);
 ?>
