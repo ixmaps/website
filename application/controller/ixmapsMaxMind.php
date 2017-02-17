@@ -16,7 +16,6 @@ if(isset($_GET['m'])){
 	$matchLimit = 5;
 }
 
-$matches=$_GET['m'];
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($ip);
 //print_r($geoIp);
@@ -33,8 +32,6 @@ if($geoIp['geoip']['city']==null){
 	$geoIp['best_geodata'] = $bestMatchGeoData;
 	$geoIp['matches']=$ipToGeoData;
 }
-
-
 
 echo json_encode($geoIp);
 ?>
