@@ -30,7 +30,7 @@ if($geoIp['geoip']['city']==null){
 	$ipToGeoData = IXmapsGeoCorrection::getClosestGeoData($ipData, $matchLimit);
 	$bestMatchGeoData = IXmapsGeoCorrection::getBestMatchforGeoData($ipToGeoData);
 
-	$geoIp['best_geodata'] = $bestMatchGeoData
+	$geoIp['best_geodata'] = $bestMatchGeoData;
 	$geoIp['matches']=$ipToGeoData;
 }
 
