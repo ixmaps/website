@@ -4,7 +4,19 @@ include('../config.php');
 include('../model/IXmapsMaxMind.php'); 
 include('../model/IXmapsGeoCorrection.php'); 
 
-$ip=$_GET['ip'];
+if(isset($_GET['ip'])){
+	$ip=$_GET['ip'];
+} else {
+	$ip=$_SERVER['REMOTE_ADDR'];
+}
+
+if(isset($_GET['m'])){
+	$matchLimit = $_GET['m'];
+} else {
+	$matchLimit = 5;
+}
+
+$matches=$_GET['m'];
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($ip);
 //print_r($geoIp);
@@ -15,10 +27,14 @@ if($geoIp['geoip']['city']==null){
 		"lat"=>$geoIp['geoip']['latitude'],
 		"long"=>$geoIp['geoip']['longitude']
 		);
-	$matchLimit = 10;
 	$ipToGeoData = IXmapsGeoCorrection::getClosestGeoData($ipData, $matchLimit);
+	$bestMatchGeoData = IXmapsGeoCorrection::getBestMatchforGeoData($ipToGeoData);
+
+	$geoIp['best_geodata'] = $bestMatchGeoData
 	$geoIp['matches']=$ipToGeoData;
 }
+
+
 
 echo json_encode($geoIp);
 ?>

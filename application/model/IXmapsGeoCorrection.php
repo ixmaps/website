@@ -129,6 +129,55 @@ class IXmapsGeoCorrection
 	}
 
 	/**
+	 * Collect the most recurrent geodata for a set ip geo matches
+	 */
+	public static function getBestMatchforGeoData($geodata) 
+	{
+		$bestMatchCountry = array ();
+		$bestMatchRegion = array ();
+		$bestMatchCity = array ();
+
+		foreach ($geodata as $key1 => $geoLocMatch) {
+			// Exclude null region names
+			if($geoLocMatch['region']!=""){
+				if(!isset($bestMatchCountry[$geoLocMatch['region']])){
+					$bestMatchRegion[$geoLocMatch['region']] = 1;
+				} else {
+					$bestMatchRegion[$geoLocMatch['region']] += 1;	
+				}
+			}
+			// Exclude null country names
+			if($geoLocMatch['country']!=""){
+				if(!isset($bestMatchCountry[$geoLocMatch['country']])){
+					$bestMatchCountry[$geoLocMatch['country']] = 1;
+				} else {
+					$bestMatchCountry[$geoLocMatch['country']] += 1;	
+				}
+			}
+			// Exclude null city names
+			if($geoLocMatch['city']!=""){
+				if(!isset($bestMatchCity[$geoLocMatch['city']])){
+					$bestMatchCity[$geoLocMatch['city']] = 1;
+				} else {
+					$bestMatchCity[$geoLocMatch['city']] += 1;	
+				}
+			}
+
+		} // end for find best match
+		
+		arsort($bestMatchCountry);
+		arsort($bestMatchRegion);
+		arsort($bestMatchCity);
+
+		$bestMatch = array(
+			"country"=>key($bestMatchCountry),
+			"region"=>key($bestMatchRegion),
+			"ciity"=>key($bestMatchCity),
+			);
+		return $bestMatch;
+	}
+
+	/**
 	 * Updates country, region, and city in ip_addr_info table
 	 * @param array $ipData Geodata 
 	 * @param string $p_status target p_status for the update
