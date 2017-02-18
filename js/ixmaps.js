@@ -580,7 +580,9 @@ var firstLoadFunc = function () {
   //   position: 'mid-center',
   //   icon: 'info',
   // });
-  jQuery.ajax({
+
+  /*This ajax call is not needed now, as the all the data is available on first load.*/
+  /*jQuery.ajax({
     url: "https://www.ixmaps.ca/application/geoip/mygeoip.php",
     success: function(result) {
       var myISP = result.isp
@@ -589,9 +591,16 @@ var firstLoadFunc = function () {
       jQuery('.userloc-city').val(myCity);
       jQuery('.userloc-country').val(myCountry);
       jQuery('.userloc-isp').val(myISP);
+      jQuery('.userloc-asn').val(myAsn);
     }
-  });
+  });*/
 
+  jQuery('#userloc').show();
+  jQuery('.userloc-ip').text(myIp);
+  jQuery('.userloc-city').val(myCity);
+  jQuery('.userloc-country').val(myCountry);
+  jQuery('.userloc-isp').val(myISP);
+  jQuery('.userloc-asn').val(myASN);
 
   firstLoad = false;
 }
