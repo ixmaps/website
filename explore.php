@@ -1,6 +1,7 @@
 <?php
 include("includes/check-redirect.php");
 include('application/config.php');
+include('../model/IXmapsMaxMind.php'); 
 
 // MaxMind Include Files needed to grab user's city
 include('application/geoip/geoip.inc');
@@ -9,14 +10,14 @@ include('application/geoip/geoipregionvars.php');
 
 // using MaxMind to find the city of client IP address
 $myIp = $_SERVER['REMOTE_ADDR'];
-//$myIp = "";
-$gi1 = geoip_open($MM_dat_dir."/GeoLiteCityv6.dat",GEOIP_STANDARD);
-$record1 = geoip_record_by_addr_v6($gi1,"::".$myIp);
+$mm = new IXmapsMaxMind();
+$geoIp = $mm->getGeoIp($myIp);
+$mm->closeDatFiles();
 
-$myCity = ''.$record1->city;
-$myCountry = ''.$record1->country_code;
-
-geoip_close($gi1);
+$myCountry = ''.$geoIp['geoip']['country_code'];
+$myCity = ''.$geoIp['geoip']['city'];
+$myAsn = $geoIp['asn'];
+$myIsp = $geoIp['isp'];
 
 ?>
 <!doctype html>
@@ -65,7 +66,8 @@ geoip_close($gi1);
     var myIp = '<?php if(isset($myIp)) { echo $myIp;} ?>';
     var myCity = '<?php if(isset($myCity)) { echo $myCity;} ?>';
     var myCountry = '<?php if(isset($myCountry)) { echo $myCountry;} ?>';
-    var myISP = null;   // can't get this here cause geoip_open is not what we want, see ixmaps.js firstLoad()
+    var myISP = '<?php if(isset($myIsp)) { echo $myIsp;} ?>';
+    var myASN = '<?php if(isset($myAsn)) { echo $myAsn;} ?>';
 
     jQuery(document).ready(function() {
       getChotel();
