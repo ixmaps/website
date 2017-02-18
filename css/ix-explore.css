@@ -372,12 +372,11 @@
   background: #e8e8e8;
   padding: 20px;
 }
-#userloc-input .editable {
-  background: #e8e8e8;
+#userloc-input .userloc-text-input {
+  font-size: 20px;
 }
-#userloc-input .editing {
-  background: white;
-  border: 1px solid grey;
+#userloc-input .userloc-country {
+  width: 30px;
 }
 
 .loader-image img {

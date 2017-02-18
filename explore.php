@@ -148,11 +148,11 @@ geoip_close($gi1);
           </div>
           <br />
           <div>
-            You appear to be near <input class="userloc-city"></input> <input class="userloc-country"></input>
+            You appear to be near <input class="userloc-text-input userloc-city"></input> <input class="userloc-text-input userloc-country"></input>
           </div>
           <br />
           <div>
-            Your Internet Service Provider is <input class="userloc-isp"></input>
+            Your Internet Service Provider is <input class="userloc-text-input userloc-isp"></input>
           </div>
           <br />
           <div style="font-size: 12px;"><i>Please review and correct if needed</i></div>
