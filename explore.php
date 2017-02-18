@@ -3,12 +3,6 @@ include("includes/check-redirect.php");
 include('application/config.php');
 include('application/model/IXmapsMaxMind.php'); 
 
-// MaxMind Include Files needed to grab user's city
-include('application/geoip/geoip.inc');
-include('application/geoip/geoipcity.inc');
-include('application/geoip/geoipregionvars.php');
-
-// using MaxMind to find the city of client IP address
 $myIp = $_SERVER['REMOTE_ADDR'];
 $mm = new IXmapsMaxMind();
 $geoIp = $mm->getGeoIp($myIp);
