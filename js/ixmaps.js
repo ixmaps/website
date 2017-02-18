@@ -600,7 +600,7 @@ var firstLoadFunc = function () {
   jQuery('.userloc-city').val(myCity);
   jQuery('.userloc-country').val(myCountry);
   jQuery('.userloc-isp').val(myISP);
-  jQuery('.userloc-asn').val(myASN);
+  jQuery('.userloc-asn').text(myASN);
 
   firstLoad = false;
 }
