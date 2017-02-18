@@ -1,9 +1,7 @@
 <?php
 include("includes/check-redirect.php");
 include('application/config.php');
-include('../model/IXmapsMaxMind.php'); 
-
-include('../model/IXmapsMaxMind.php'); 
+include('application/model/IXmapsMaxMind.php'); 
 
 // MaxMind Include Files needed to grab user's city
 include('application/geoip/geoip.inc');
