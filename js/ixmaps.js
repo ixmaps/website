@@ -661,7 +661,7 @@ var submitUserLocObject = function() {
         {
           constraint1: "does",
           constraint2: "originate",
-          constraint3: "ciity",
+          constraint3: "city",
           constraint4: myCity,
           constraint5: "AND"
         }
