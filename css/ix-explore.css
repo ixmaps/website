@@ -302,7 +302,7 @@
   height: 550px;
 }
 
-#loader, #userloc {
+#loader {
   position: absolute;
   top: 0;
   left: 0;
@@ -311,8 +311,16 @@
   height: 100.5%;
   text-align: center;
 }
+
+/* userloc CSS */
 #userloc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -2px 4px 4px -2px;
+  width: 100.5%;
   height: 142%;
+  /*text-align: center;*/
 }
 
 .loader-image {
