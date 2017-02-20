@@ -599,7 +599,7 @@ var firstLoadFunc = function () {
   jQuery('.userloc-ip').text(myIp);
   jQuery('.userloc-city').val(myCity);
   jQuery('.userloc-country').val(myCountry);
-  jQuery('.userloc-isp').val(myISP);
+  jQuery('.userloc-isp').text(myISP);
   jQuery('.userloc-asn').text(myASN);
 
   firstLoad = false;
@@ -630,8 +630,8 @@ var submitUserLocObject = function() {
     }
   };
 
-  if (myISP && myCity) {
-    console.log('Searching based on ISP and city');
+  if (myASN && myCity) {
+    console.log('Searching based on ASN and city');
     userLocJSON = {
       "parameters":
       {
@@ -645,8 +645,8 @@ var submitUserLocObject = function() {
         {
           constraint1: "does",
           constraint2: "originate",
-          constraint3: "ISP",
-          constraint4: myISP,
+          constraint3: "asnum",
+          constraint4: myASN,
           constraint5: "AND"
         },
         "filter-constraint-2":
@@ -655,6 +655,14 @@ var submitUserLocObject = function() {
           constraint2: "originate",
           constraint3: "city",
           constraint4: myCity,
+          constraint5: "AND"
+        },
+        "filter-constraint-3":
+        {
+          constraint1: "does",
+          constraint2: "originate",
+          constraint3: "country",
+          constraint4: myCountry,
           constraint5: "AND"
         }
       }
