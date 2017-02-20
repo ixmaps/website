@@ -360,6 +360,7 @@
   border: 1px solid grey;
   border-radius: 9px;
   padding: 16px 40px;
+  text-align: center;
 }
 #userloc-input #userloc-close-btn {
   background-color: #10578b;

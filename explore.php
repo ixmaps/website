@@ -1,7 +1,7 @@
 <?php
 include("includes/check-redirect.php");
 include('application/config.php');
-include('application/model/IXmapsMaxMind.php'); 
+include('application/model/IXmapsMaxMind.php');
 
 $myIp = $_SERVER['REMOTE_ADDR'];
 $mm = new IXmapsMaxMind();
@@ -143,6 +143,7 @@ $myIsp = $geoIp['isp'];
       <div id="userloc" style="display: none">
         <div id="userloc-mask"></div>
         <div id="userloc-input">
+          <br />
           <div>
             Your current IP address is <span class="userloc-ip"></span>
           </div>
@@ -156,7 +157,7 @@ $myIsp = $geoIp['isp'];
           </div>
           <br />
           <div style="font-size: 12px;"><i>Please review and correct if needed</i></div>
-          <br /><br /><br />
+          <br /><br />
           <div>
             <span id="userloc-find-creepy-btn">Find this creepy?</span>
             <button id="userloc-close-btn">Go To Map</button>
@@ -164,7 +165,7 @@ $myIsp = $geoIp['isp'];
 
           <br/><br/><br/>
           <div id="userloc-creepy-explanation" style="display: none; clear: both;">
-            Every website you visit, and all the carriers along the way, needs the IP address of your device to transmit your data and return content. Using commonly available IP address lookup services, any of these can determine your approximate location. These service providers can also capture your communications, and are larger unfettered in using it for their own purposes. They can also secretly hand it over to third parties, including law enforcement and security agencies. With IXmaps, we only use your IP address to produce these maps. For more, see our privacy policy.
+            Every website you visit, and all the carriers along the way, needs the IP address of your device to transmit your data and return content. Using commonly available IP address lookup services, any of these can determine your approximate location. These service providers can also capture your communications, and are largely unfettered in using it for their own purposes. They can also secretly hand it over to third parties, including law enforcement and security agencies. With IXmaps, we only use your IP address to produce these maps. For more, see our privacy policy.
           </div>
         </div>
       </div>
