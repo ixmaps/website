@@ -696,7 +696,8 @@ var submitUserLocObject = function() {
         }
       }
     };
-    
+  } // end if
+
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
   } else if (myISP) {
