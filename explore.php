@@ -144,12 +144,11 @@ $myIsp = $geoIp['isp'];
           </div>
           <br />
           <div>
-            You appear to be near <input class="userloc-text-input userloc-city"></input> <input class="userloc-text-input userloc-country"></input>
+            Your Internet Service Provider is <span class="userloc-isp"></span>(ASN: <span class="userloc-asn"></span>)
           </div>
           <br />
           <div>
-            Your Internet Service Provider is <input class="userloc-text-input userloc-isp"></input><br/>
-            ASN: <span class="userloc-asn"></span>
+            You appear to be near <input class="userloc-text-input userloc-city"></input> <input class="userloc-text-input userloc-country"></input>
           </div>
           <br />
           <div style="font-size: 12px;"><i>Please review and correct if needed</i></div>
