@@ -665,7 +665,8 @@ var submitUserLocObject = function() {
           constraint4: myCountry,
           constraint5: "AND"
         }
-      }
+      };
+
     } else if (myCountry!="" && myASN) {
     console.log('Searching based on ASN and Country');
     userLocJSON = {
@@ -695,6 +696,7 @@ var submitUserLocObject = function() {
         }
       }
     };
+    
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
   } else if (myISP) {
