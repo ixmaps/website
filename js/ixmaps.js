@@ -653,49 +653,15 @@ var submitUserLocObject = function() {
         {
           constraint1: "does",
           constraint2: "originate",
-          constraint3: "city",
-          constraint4: myCity,
-          constraint5: "AND"
-        },
-        "filter-constraint-3":
-        {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "country",
-          constraint4: myCountry,
-          constraint5: "AND"
-        }
-      };
-
-    } else if (myCountry!="" && myASN) {
-    console.log('Searching based on ASN and Country');
-    userLocJSON = {
-      "parameters":
-      {
-        "submitOnLoad": true,
-        "submissionType": "customFilter",
-        "otherFunction": ""
-      },
-      "constraints":
-      {
-        "filter-constraint-1":
-        {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "asnum",
-          constraint4: myASN,
-          constraint5: "AND"
-        },
-        "filter-constraint-2":
-        {
-          constraint1: "does",
-          constraint2: "originate",
           constraint3: "country",
           constraint4: myCountry,
           constraint5: "AND"
         }
       }
     };
+  } else if (myCountry!="" && myASN) {
+    console.log('Searching based on ASN and Country');
+
   } // end if
 
     var jsonToString = JSON.stringify(userLocJSON);
