@@ -670,49 +670,55 @@ var submitUserLocObject = function() {
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
 
-  } else if (myCountry!="" && myASN) {
-    console.log('Searching based on ASN and Country');
+  }
 
-    userLocJSON = {
-      "parameters":
-      {
-        "submitOnLoad": true,
-        "submissionType": "customFilter",
-        "otherFunction": ""
-      },
-      "constraints":
-      {
-        "filter-constraint-1":
-        {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "asnum",
-          constraint4: myASN,
-          constraint5: "AND"
-        },
-        "filter-constraint-2":
-        {
-          constraint1: "does",
-          constraint2: "originate",
-          constraint3: "country",
-          constraint4: myCountry,
-          constraint5: "AND"
-        }
-      }
-    };
+  // Anto - we had decided that city is more relevant to user than country+ASN, so have removed this for now. LMK what you think.
 
+  // else if (myCountry!="" && myASN) {
+  //   console.log('Searching based on ASN and Country');
+
+  //   userLocJSON = {
+  //     "parameters":
+  //     {
+  //       "submitOnLoad": true,
+  //       "submissionType": "customFilter",
+  //       "otherFunction": ""
+  //     },
+  //     "constraints":
+  //     {
+  //       "filter-constraint-1":
+  //       {
+  //         constraint1: "does",
+  //         constraint2: "originate",
+  //         constraint3: "asnum",
+  //         constraint4: myASN,
+  //         constraint5: "AND"
+  //       },
+  //       "filter-constraint-2":
+  //       {
+  //         constraint1: "does",
+  //         constraint2: "originate",
+  //         constraint3: "country",
+  //         constraint4: myCountry,
+  //         constraint5: "AND"
+  //       }
+  //     }
+  //   };
+
+  //   var jsonToString = JSON.stringify(userLocJSON);
+  //   processPostedData(jsonToString);
+  // }
+
+  else if (myCity) {
+    console.log('Searching based on city');
+    userLocJSON.constraints["filter-constraint-1"].constraint3 = "city";
+    userLocJSON.constraints["filter-constraint-1"].constraint4 = myCity;
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
   } else if (myISP) {
     console.log('Searching based on ISP');
     userLocJSON.constraints["filter-constraint-1"].constraint3 = "ISP";
     userLocJSON.constraints["filter-constraint-1"].constraint4 = myISP;
-    var jsonToString = JSON.stringify(userLocJSON);
-    processPostedData(jsonToString);
-  } else if (myCity) {
-    console.log('Searching based on city');
-    userLocJSON.constraints["filter-constraint-1"].constraint3 = "city";
-    userLocJSON.constraints["filter-constraint-1"].constraint4 = myCity;
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
   } else if (myCountry) {
