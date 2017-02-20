@@ -77,8 +77,8 @@ $myIsp = $geoIp['isp'];
       processPostedData(postedData);
       <?php
       } else {
-      jQuery('#userloc').show();
       ?>
+      jQuery('#userloc').show();
       <?php
       }
       ?>
