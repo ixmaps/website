@@ -186,8 +186,8 @@ var initialize = function() {
     hideLoader();
   });
 
-  // flip settings for this version
-  setAllowMultipleTrs();
+  // flip settings for this version. And now we want this off again
+  // setAllowMultipleTrs();
   //excludeE();       // c'mon, for serious?
 
   // since we now want the last submitted route to be shown on landing - now switching to user loc (see userloc-close-btn)

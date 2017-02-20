@@ -5,14 +5,14 @@
 //var privacyRepUrl = 'https://www.ixmaps.ca/documents/2014_Carrier_Evaluation_Criteria_Dec_22.pdf';
 var privacyRepUrl = 'https://www.ixmaps.ca/transparency-2014.php';
 
-var allowMultipleTrs = false; // !!
+var allowMultipleTrs = true; // !!
 var allowRecenter = true;
 var showHops = true;
 var showHopsNum = false;
 var showRouters = true;
 
 var showNsa = false;
-var showHotel = false; 
+var showHotel = false;
 var showGoogle = false;
 var showUc = false;
 
@@ -25,7 +25,7 @@ var showVerizon = false; // 2) // Verizon
 var showGooglePublicPeer = false; // 3) gPubDcPeer
 var showGoogleTO = false; // 3) // gDcTO
 
-var addMarkerInOrigin = false;
+var addMarkerInOrigin = true;
 var showDynamicLegend = true; // !!
 var showMapInfoGlobal = false;
 
@@ -1621,7 +1621,7 @@ var createGmMarker = function(geoItem){
   gmObj.setIcon(iconUrl);
 
   /* Setting some display options based on the data available*/
-  
+
   var cHtml = '<span class="geoitem-layer-name">'+geoItem.layer_name+'</span>';
 
   cHtml += '<br/><b>'+geoItem.address+'</b>';
