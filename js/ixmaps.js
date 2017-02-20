@@ -608,7 +608,7 @@ var firstLoadFunc = function () {
 var submitUserLocObject = function() {
   myCity = jQuery('.userloc-city').val();
   myCountry = jQuery('.userloc-country').val();
-  myISP = jQuery('.userloc-isp').val();
+  //myISP = jQuery('.userloc-isp').val();
 
   var userLocJSON = {
     "parameters":
@@ -629,8 +629,8 @@ var submitUserLocObject = function() {
       }
     }
   };
-  var myCityUser = jQuery('.userloc-city').val();
-  if (myCityUser!="" && myCountry!="" && myASN) {
+  
+  if (myCity!="" && myCountry!="" && myASN) {
     console.log('Searching based on ASN, Country, and City');
     userLocJSON = {
       "parameters":
