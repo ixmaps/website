@@ -595,7 +595,7 @@ var firstLoadFunc = function () {
     }
   });*/
 
-  jQuery('#userloc').show();
+  //jQuery('#userloc').show(); /* this can't be here: It brakes methods passing params to explore page on first load */
   jQuery('.userloc-ip').text(myIp);
   jQuery('.userloc-city').val(myCity);
   jQuery('.userloc-country').val(myCountry);

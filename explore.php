@@ -76,6 +76,10 @@ $myIsp = $geoIp['isp'];
       var postedData = '<?php echo $_GET['data'];?>';
       processPostedData(postedData);
       <?php
+      } else {
+      jQuery('#userloc').show();
+      ?>
+      <?php
       }
       ?>
     });
