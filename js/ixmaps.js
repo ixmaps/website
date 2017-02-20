@@ -1126,6 +1126,7 @@ var boomerangJSON = {
 };
 
 var submitCustomQuery = function(trId, multipleTRs) {
+  jQuery('#userloc').hide();
   var singleTrJSON = {
     "parameters":
     {
@@ -1150,6 +1151,7 @@ var submitCustomQuery = function(trId, multipleTRs) {
 }
 
 var processPostedData = function(d){
+  jQuery('#userloc').hide();
   var data = jQuery.parseJSON(d);
 
   setTimeout(function(){
