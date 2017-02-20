@@ -144,7 +144,7 @@ $myIsp = $geoIp['isp'];
           </div>
           <br />
           <div>
-            Your Internet Service Provider is <span class="userloc-isp"></span>(ASN: <span class="userloc-asn"></span>)
+            Your Internet Service Provider is <span class="userloc-isp"></span> (ASN: <span class="userloc-asn"></span>)
           </div>
           <br />
           <div>
