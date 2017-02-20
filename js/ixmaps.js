@@ -629,8 +629,8 @@ var submitUserLocObject = function() {
       }
     }
   };
-
-  if (myCity!="" && myCountry!="" && myASN) {
+  var myCityUser = jQuery('.userloc-city').val();
+  if (myCityUser!="" && myCountry!="" && myASN) {
     console.log('Searching based on ASN, Country, and City');
     userLocJSON = {
       "parameters":
