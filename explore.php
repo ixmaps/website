@@ -69,10 +69,12 @@ $myIsp = $geoIp['isp'];
       <?php
       if(isset($_GET['trid'])){
       ?>
+      jQuery('#userloc').hide();
       submitCustomQuery(<?php echo $_GET['trid']; ?>);
       <?php
       } else if($_GET && isset($_GET['data'])){
       ?>
+      jQuery('#userloc').hide();
       var postedData = '<?php echo $_GET['data'];?>';
       processPostedData(postedData);
       <?php
