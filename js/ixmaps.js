@@ -715,10 +715,10 @@ var submitUserLocObject = function() {
     userLocJSON.constraints["filter-constraint-1"].constraint4 = myCity;
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
-  } else if (myISP) {
-    console.log('Searching based on ISP');
-    userLocJSON.constraints["filter-constraint-1"].constraint3 = "ISP";
-    userLocJSON.constraints["filter-constraint-1"].constraint4 = myISP;
+  } else if (myASN) {
+    console.log('Searching based on ASN');
+    userLocJSON.constraints["filter-constraint-1"].constraint3 = "asnum";
+    userLocJSON.constraints["filter-constraint-1"].constraint4 = myASN;
     var jsonToString = JSON.stringify(userLocJSON);
     processPostedData(jsonToString);
   } else if (myCountry) {
