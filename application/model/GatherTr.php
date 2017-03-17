@@ -1074,6 +1074,9 @@ class GatherTr
 		global $dbconn, $tr_c_id;
 
 		/* TODO: check data types on all $data vars */
+		if($data['asn'] == null || $data['asn'] == ""){
+			$data['asn'] = -1;
+		}
 		
 		/* test invoke error on insert */
 			//$data['asn'] = "ANTO CREATED THIS ERROR FOR TESTING";
