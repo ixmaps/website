@@ -47,6 +47,7 @@ include("includes/check-redirect.php");
   <section id="content"><!-- #content -->
 
     <article>
+      <div class="announcement">Please try out the <a href="https://dev.ixmaps.ca">beta version</a> of the re-designed the IXmaps website. We welcome your feedback!</div>
       <h2>About the IXmaps Project</h2>
         <p>The IXmaps research project was created to develop an interactive mapping tool that enables internet users and researchers to study the routes that data packets take across the internet, with surveillance and other 'interesting' features highlighted along the way. It also annually reports on the privacy transparency ratings of internet carriers that route Canadian traffic.
         Beginning in 2008, the project has received funding from

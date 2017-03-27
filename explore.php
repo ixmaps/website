@@ -122,11 +122,10 @@ $myIsp = $geoIp['isp'];
     </header><!-- end of header -->
 
     <?php include("includes/navigation.php"); ?>
-<!--     <div id="beta-message-ok"><i>This beta version is being upgraded. We welcome your <a href="mailto: ixmaps@utoronto.ca?subject=IXmaps Explore Page">feedback</a></i></div> -->
 
     <div style="clear: both;"></div>
-
-    <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</span></div>
+    <div class="announcement">Please try out the <a href="https://dev.ixmaps.ca">beta version</a> of the re-designed the IXmaps website. We welcome your feedback!</div>
+    <div class="announcement">Note: The location accuracy of routers mapped here varies considerably. If you believe a router is incorrectly located, please flag it</div>
 
     <div id="explore-content">
       <div id="loader" style="display: none">

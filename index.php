@@ -68,6 +68,7 @@ include("includes/check-redirect.php");
 <section id="container"><!-- #container -->
 	<section id="content"><!-- #content -->
 		<article>
+		<div class="announcement">Please try out the <a href="https://dev.ixmaps.ca">beta version</a> of the re-designed the IXmaps website. We welcome your feedback!</div>
 			<div class="slideshow">
 				<div class="index-container">
 					<a class="slideshow-img-container" href="https://vimeo.com/67102223" target="_blank">

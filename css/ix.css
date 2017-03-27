@@ -470,7 +470,9 @@ footer {
 	border: 2px solid #F3D14F;
 	margin: 0px 0px 30px 0px;
 	padding: 5px 10px 5px;
+	text-align: center;
 }
+
 
 /* Tour page */
 .explore-target-route {
